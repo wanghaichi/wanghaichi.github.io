@@ -1,0 +1,964 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Titillium Web:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="软件测试作业," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="JAVA PATH FINDER [JPF]软件测试小组作业之JPF 首先先说说JPF是个什么东西 官方给出的解释：  JPF核心是用于Java™字节码的虚拟机（VM），这意味着它是一个程序，您可以让Java程序执行。它用于在这些程序中找到缺陷，因此您还需要给出属性以作为输入进行检查。 JPF通过一份报告来回复，该报告说如果属性持有和/或由JPF创建的验证工件进行进一步分析（如测试用例）。 JPF">
+<meta name="keywords" content="软件测试作业">
+<meta property="og:type" content="article">
+<meta property="og:title" content="【软件测试】JAVA PATH FINDER [JPF]">
+<meta property="og:url" content="http://yoursite.com/2017/04/08/SoftwareTest-HW-4/index.html">
+<meta property="og:site_name" content="海痴的智障日志">
+<meta property="og:description" content="JAVA PATH FINDER [JPF]软件测试小组作业之JPF 首先先说说JPF是个什么东西 官方给出的解释：  JPF核心是用于Java™字节码的虚拟机（VM），这意味着它是一个程序，您可以让Java程序执行。它用于在这些程序中找到缺陷，因此您还需要给出属性以作为输入进行检查。 JPF通过一份报告来回复，该报告说如果属性持有和/或由JPF创建的验证工件进行进一步分析（如测试用例）。 JPF">
+<meta property="og:image" content="http://yoursite.com/images/interleavings.png">
+<meta property="og:updated_time" content="2017-07-04T13:30:41.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="【软件测试】JAVA PATH FINDER [JPF]">
+<meta name="twitter:description" content="JAVA PATH FINDER [JPF]软件测试小组作业之JPF 首先先说说JPF是个什么东西 官方给出的解释：  JPF核心是用于Java™字节码的虚拟机（VM），这意味着它是一个程序，您可以让Java程序执行。它用于在这些程序中找到缺陷，因此您还需要给出属性以作为输入进行检查。 JPF通过一份报告来回复，该报告说如果属性持有和/或由JPF创建的验证工件进行进一步分析（如测试用例）。 JPF">
+<meta name="twitter:image" content="http://yoursite.com/images/interleavings.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2017/04/08/SoftwareTest-HW-4/"/>
+
+
+
+
+
+  <title> 【软件测试】JAVA PATH FINDER [JPF] | 海痴的智障日志 </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">海痴的智障日志</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">心比天高，命比纸薄。</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocapitalize="off" autocomplete="off" autocorrect="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/04/08/SoftwareTest-HW-4/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="hardy">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/cimu.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="海痴的智障日志">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                【软件测试】JAVA PATH FINDER [JPF]
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-04-08T15:07:09+08:00">
+                2017-04-08
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/作业/" itemprop="url" rel="index">
+                    <span itemprop="name">作业</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/04/08/SoftwareTest-HW-4/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/04/08/SoftwareTest-HW-4/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="JAVA-PATH-FINDER-JPF"><a href="#JAVA-PATH-FINDER-JPF" class="headerlink" title="JAVA PATH FINDER [JPF]"></a>JAVA PATH FINDER [JPF]</h1><p>软件测试小组作业之JPF</p>
+<p>首先先说说JPF是个什么东西</p>
+<p>官方给出的解释：</p>
+<blockquote>
+<p>JPF核心是用于Java™字节码的虚拟机（VM），这意味着它是一个程序，您可以让Java程序执行。它用于在这些程序中找到缺陷，因此您还需要给出属性以作为输入进行检查。 JPF通过一份报告来回复，该报告说如果属性持有和/或由JPF创建的验证工件进行进一步分析（如测试用例）。</p>
+<p>JPF是一个有几个扭曲的虚拟机。它在Java本身中实现，所以不要指望它像您的普通Java一样快速运行。它是在VM上运行的VM。虽然Java字节码的执行语义在<a href="http://java.sun.com/docs/books/jvms/second_edition/html/VMSpecTOC.doc.html/" target="_blank" rel="external">http://java.sun.com/docs/books/jvms/second_edition/html/VMSpecTOC.doc.html/</a> Sun的Java虚拟机规范中有明确定义，但我们在JPF中几乎没有硬连线语义 - VM指令集由一组可被替换的类表示。</p>
+<p>默认指令集使用下一个JPF功能：执行选项。 JPF可以识别您的程序中的执行可能不同的进程，然后系统地探索所有这些点。这意味着JPF（理论上）通过程序执行所有路径，而不仅仅是像普通的VM那样。典型的选择是不同的调度序列或随机值，但JPF可以再次介绍您自己的类型，如用户输入或statemachine事件。</p>
+</blockquote>
+<p>个人觉得JPF是一个针对JAVA程序寻找可执行路径的工具。看了一下官方的例子，觉得JPF可以在JAVA程序执行时自动检测所有的可执行路径，找到可能出现问题的路径。不同于传统的基于用例的Testing，JPF采用的是Model Checking，尽管基于用例的测试在用例足够多的时候有着很不错的测试效果，但是很难保证测试到所有的可行路径。JPF官方给出了基于测试用例的Testing 与 Model Testing 的差别：<a href="http://babelfish.arc.nasa.gov/trac/jpf/wiki/intro/testing_vs_model_checking" target="_blank" rel="external">testing_vs_model_checking</a></p>
+<p>那么说说JPF安装的方式，JPF安装需要使用一个类似于git的管理工具：Mercurial，同时需要JUNIT，与Apache ant。<br>安装之前我们需要先下载Mercuial 和 ant<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ sudo apt install Mercuial</div><div class="line">$ sudo apt install ant</div></pre></td></tr></table></figure></p>
+<p>由于我使用的IDE是 idea ,自带了JUNIT的包，没有的需要去下载一下。<br>需要将JUNIT包的目录加入到环境变量中<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">$ sudo vi /etc/provile</div><div class="line">export JUNIT_HOME=/home/hardy/app/idea-IU-163.13906.18/lib</div><div class="line">export CLASSPATH=.:$CLASSPATH:$JUNIT_HOME/junit-4.12.jar</div><div class="line">$ source /etc/provile</div></pre></td></tr></table></figure></p>
+<p>使用Mercuial下载jpf-core的仓库<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$ hg clone http://babelfish.arc.nasa.gov/hg/jpf/jpf-core</div><div class="line">$ cd jpf-core</div><div class="line">$ ant test</div></pre></td></tr></table></figure></p>
+<p>成功后会提示安装成功<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">BUILD SUCCESSFUL</div><div class="line">Total time: 3 minutes 53 seconds</div></pre></td></tr></table></figure></p>
+<p>新建一个JAVA类，测试jpf<br><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line"># Racer.java</div><div class="line">public class Racer implements Runnable &#123;</div><div class="line">    int d = 42;</div><div class="line">    public void run () &#123;</div><div class="line">        doSomething(1000);                   // (1)</div><div class="line">        d = 0;                               // (2)</div><div class="line">    &#125;</div><div class="line">    public static void main (String[] args)&#123;</div><div class="line">        Racer racer = new Racer();</div><div class="line">        Thread t = new Thread(racer);</div><div class="line">        t.start();</div><div class="line"></div><div class="line">        doSomething(1000);                   // (3)</div><div class="line">        int c = 420 / racer.d;               // (4)</div><div class="line">        System.out.println(c);</div><div class="line">    &#125;</div><div class="line">    static void doSomething (int n) &#123;</div><div class="line">        // not very interesting..</div><div class="line">        try &#123; Thread.sleep(n); &#125; catch (InterruptedException ix) &#123;&#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>在同一目录下建立Racer.jpf，写入jpf的配置信息<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"># Racer.jpf</div><div class="line">target = Racer</div><div class="line"></div><div class="line">listener=gov.nasa.jpf.listener.PreciseRaceDetector</div><div class="line"></div><div class="line">report.console.property_violation=error,trace</div><div class="line">```工作站</div><div class="line"></div><div class="line">上述配置能够输出jpf的工作栈</div><div class="line">此程序正常的输出应为10</div><div class="line">然而由于我们不知道线程的调度关系，因而忽略了可能导致的除0的问题</div></pre></td></tr></table></figure></p>
+<p>$ ~/jpf-core/bin/jpf Racer.jpf</p>
+<h1 id="output"><a href="#output" class="headerlink" title="output"></a>output</h1><p>JavaPathfinder core system v8.0 (rev 32) - (C) 2005-2014 United States Government. All rights reserved.</p>
+<p>====================================================== system under test<br>Racer.main()</p>
+<p>====================================================== search started: 17-4-10 下午4:21<br>10<br>10</p>
+<p>====================================================== error 1<br>gov.nasa.jpf.listener.PreciseRaceDetector<br>race for field Racer@15b.d<br>  main at Racer.main(Racer.java:35)<br>        “int c = 420 / racer.d;               // (4)”  READ:  getfield Racer.d<br>  Thread-1 at Racer.run(Racer.java:26)<br>        “d = 0;                               // (2)”  WRITE: putfield Racer.d</p>
+<p>====================================================== trace #1<br>—————————————————— transition #0 thread: 0<br>gov.nasa.jpf.vm.choice.ThreadChoiceFromSet {id:”ROOT” ,1/1,isCascaded:false}<br>      [3157 insn w/o sources]<br>  Racer.java:30                  : Racer racer = new Racer();<br>  Racer.java:19                  : public class Racer implements Runnable {<br>      [1 insn w/o sources]<br>  Racer.java:21                  : int d = 42;<br>  Racer.java:30                  : Racer racer = new Racer();<br>  Racer.java:31                  : Thread t = new Thread(racer);<br>      [145 insn w/o sources]<br>  Racer.java:31                  : Thread t = new Thread(racer);<br>  Racer.java:32                  : t.start();<br>      [1 insn w/o sources]<br>—————————————————— transition #1 thread: 0<br>gov.nasa.jpf.vm.choice.ThreadChoiceFromSet {id:”START” ,1/2,isCascaded:false}<br>      [2 insn w/o sources]<br>  Racer.java:34                  : doSomething(1000);                   // (3)<br>  Racer.java:41                  : try { Thread.sleep(n); } catch (InterruptedException ix) {}<br>      [4 insn w/o sources]<br>—————————————————— transition #2 thread: 1<br>gov.nasa.jpf.vm.choice.ThreadChoiceFromSet {id:”SLEEP” ,2/2,isCascaded:false}<br>      [1 insn w/o sources]<br>  Racer.java:1                   : /*<br>  Racer.java:25                  : doSomething(1001);                   // (1)<br>  Racer.java:41                  : try { Thread.sleep(n); } catch (InterruptedException ix) {}<br>      [4 insn w/o sources]<br>—————————————————— transition #3 thread: 1<br>gov.nasa.jpf.vm.choice.ThreadChoiceFromSet {id:”SLEEP” ,2/2,isCascaded:false}<br>      [3 insn w/o sources]<br>  Racer.java:41                  : try { Thread.sleep(n); } catch (InterruptedException ix) {}<br>  Racer.java:42                  : }<br>  Racer.java:26                  : d = 0;                               // (2)<br>—————————————————— transition #4 thread: 0<br>gov.nasa.jpf.vm.choice.ThreadChoiceFromSet {id:”SHARED_OBJECT” ,1/2,isCascaded:false}<br>      [3 insn w/o sources]<br>  Racer.java:41                  : try { Thread.sleep(n); } catch (InterruptedException ix) {}<br>  Racer.java:42                  : }<br>  Racer.java:35                  : int c = 420 / racer.d;               // (4)<br>—————————————————— transition #5 thread: 0<br>gov.nasa.jpf.vm.choice.ThreadChoiceFromSet {id:”SHARED_OBJECT” ,1/2,isCascaded:false}<br>  Racer.java:35                  : int c = 420 / racer.d;               // (4)</p>
+<p>====================================================== results<br>error #1: gov.nasa.jpf.listener.PreciseRaceDetector “race for field Racer@15b.d   main at Racer.main(Ra…”</p>
+<p>====================================================== statistics<br>elapsed time:       00:00:00<br>states:             new=9,visited=1,backtracked=4,end=2<br>search:             maxDepth=6,constraints=0<br>choice generators:  thread=8 (signal=0,lock=1,sharedRef=2,threadApi=3,reschedule=2), data=0<br>heap:               new=362,released=33,maxLive=357,gcCycles=7<br>instructions:       3424<br>max memory:         119MB<br>loaded code:        classes=62,methods=1477</p>
+<p>====================================================== search finished: 17-4-10 下午4:21</p>
+<p>```</p>
+<p>可以看到jpf帮我们运行了所有可能的路径，同时找到了可能发生的错误<br>通过线程的角度来考虑，可以用官网给出的这个调度图来说明：<br><img src="/images/interleavings.png" alt="pictures"><br>对于一个多线程的java程序，jpf会组合出所有的可能的线程调度，并顺序遍历每一种执行顺序，知道找到可能存在的缺陷</p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/软件测试作业/" rel="tag"># 软件测试作业</a>
+          
+        </div>
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/03/26/SoftwareTest-LIB-2/" rel="next" title="【软件测试】Selenium Web 测试">
+                <i class="fa fa-chevron-left"></i> 【软件测试】Selenium Web 测试
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/04/14/SoftwareManagement-HW-2/" rel="prev" title="Jenkins 安装与使用">
+                Jenkins 安装与使用 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+          
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2017/04/08/SoftwareTest-HW-4/"
+           data-title="【软件测试】JAVA PATH FINDER [JPF]" data-url="http://yoursite.com/2017/04/08/SoftwareTest-HW-4/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/cimu.jpg"
+               alt="hardy" />
+          <p class="site-author-name" itemprop="name">hardy</p>
+           
+              <p class="site-description motion-element" itemprop="description">智障海痴的智障日志</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">20</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              
+                <span class="site-state-item-count">6</span>
+                <span class="site-state-item-name">分类</span>
+              
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              
+                <span class="site-state-item-count">18</span>
+                <span class="site-state-item-name">标签</span>
+              
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/wanghaichi" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+          <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+            <div class="links-of-blogroll-title">
+              <i class="fa  fa-fw fa-globe"></i>
+              Links
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="https://rjmonkey.github.io" title="郭基基" target="_blank">郭基基</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="https://shifengmin.github.io" title="我毛" target="_blank">我毛</a>
+                </li>
+              
+            </ul>
+          </div>
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#JAVA-PATH-FINDER-JPF"><span class="nav-number">1.</span> <span class="nav-text">JAVA PATH FINDER [JPF]</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#output"><span class="nav-number">2.</span> <span class="nav-text">output</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">hardy</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+    
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.0"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"wanghaichi"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+    
+    <script src="/lib/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+    <script src="/js/src/hook-duoshuo.js"></script>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length == 0) {
+      search_path = "search.xml";
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.popup').toggle();
+    }
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+      $.ajax({
+        url: path,
+        dataType: "xml",
+        async: true,
+        success: function( xmlResponse ) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = $( "entry", xmlResponse ).map(function() {
+            return {
+              title: $( "title", this ).text(),
+              content: $("content",this).text(),
+              url: $( "url" , this).text()
+            };
+          }).get();
+          var $input = document.getElementById(search_id);
+          var $resultContent = document.getElementById(content_id);
+          $input.addEventListener('input', function(){
+            var matchcounts = 0;
+            var str='<ul class=\"search-result-list\">';
+            var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+            $resultContent.innerHTML = "";
+            if (this.value.trim().length > 1) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var content_index = [];
+                var data_title = data.title.trim().toLowerCase();
+                var data_content = data.content.trim().replace(/<[^>]+>/g,"").toLowerCase();
+                var data_url = decodeURIComponent(data.url);
+                var index_title = -1;
+                var index_content = -1;
+                var first_occur = -1;
+                // only match artiles with not empty titles and contents
+                if(data_title != '') {
+                  keywords.forEach(function(keyword, i) {
+                    index_title = data_title.indexOf(keyword);
+                    index_content = data_content.indexOf(keyword);
+                    if( index_title >= 0 || index_content >= 0 ){
+                      isMatch = true;
+                      if (i == 0) {
+                        first_occur = index_content;
+                      }
+                    }
+
+                  });
+                }
+                // show search results
+                if (isMatch) {
+                  matchcounts += 1;
+                  str += "<li><a href='"+ data_url +"' class='search-result-title'>"+ data_title +"</a>";
+                  var content = data.content.trim().replace(/<[^>]+>/g,"");
+                  if (first_occur >= 0) {
+                    // cut out 100 characters
+                    var start = first_occur - 20;
+                    var end = first_occur + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if(start == 0){
+                      end = 50;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    var match_content = content.substring(start, end);
+                    // highlight all keywords
+                    keywords.forEach(function(keyword){
+                      var regS = new RegExp(keyword, "gi");
+                      match_content = match_content.replace(regS, "<b class=\"search-keyword\">"+keyword+"</b>");
+                    });
+
+                    str += "<p class=\"search-result\">" + match_content +"...</p>"
+                  }
+                  str += "</li>";
+                }
+              })};
+            str += "</ul>";
+            if (matchcounts == 0) { str = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>' }
+            if (keywords == "") { str = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>' }
+            $resultContent.innerHTML = str;
+          });
+          proceedsearch();
+        }
+      });}
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched == false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(function(e){
+      $('.popup').hide();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    });
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+  </script>
+
+
+  
+
+  
+
+  
+
+  
+
+
+  
+
+</body>
+</html>

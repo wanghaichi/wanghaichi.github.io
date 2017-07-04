@@ -1,0 +1,966 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Titillium Web:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Nginx,web server,Lemp," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="Unbuntu16.04 Nginx + php + mysql Web服务器搭建下决心不再用lamp的集成包了，自己搞一个出来。  Nginx php mysql   Nginx首先安装使用 apt 安装nginx$ sudo apt install nginx然而由于之前安装过nginx，卸载还不干净，导致配置文件读取失败，出现错误：123456789101112131415161718192">
+<meta name="keywords" content="Nginx,web server,Lemp">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Unbuntu16.04 Nginx + php + mysql Web服务器搭建">
+<meta property="og:url" content="http://yoursite.com/2017/03/10/lemp-Ubantu/index.html">
+<meta property="og:site_name" content="海痴的智障日志">
+<meta property="og:description" content="Unbuntu16.04 Nginx + php + mysql Web服务器搭建下决心不再用lamp的集成包了，自己搞一个出来。  Nginx php mysql   Nginx首先安装使用 apt 安装nginx$ sudo apt install nginx然而由于之前安装过nginx，卸载还不干净，导致配置文件读取失败，出现错误：123456789101112131415161718192">
+<meta property="og:image" content="http://yoursite.com/images/welcomeToNginx.png">
+<meta property="og:image" content="http://yoursite.com/images/phpinfo.png">
+<meta property="og:updated_time" content="2017-07-04T13:30:41.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Unbuntu16.04 Nginx + php + mysql Web服务器搭建">
+<meta name="twitter:description" content="Unbuntu16.04 Nginx + php + mysql Web服务器搭建下决心不再用lamp的集成包了，自己搞一个出来。  Nginx php mysql   Nginx首先安装使用 apt 安装nginx$ sudo apt install nginx然而由于之前安装过nginx，卸载还不干净，导致配置文件读取失败，出现错误：123456789101112131415161718192">
+<meta name="twitter:image" content="http://yoursite.com/images/welcomeToNginx.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2017/03/10/lemp-Ubantu/"/>
+
+
+
+
+
+  <title> Unbuntu16.04 Nginx + php + mysql Web服务器搭建 | 海痴的智障日志 </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">海痴的智障日志</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">心比天高，命比纸薄。</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocapitalize="off" autocomplete="off" autocorrect="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/03/10/lemp-Ubantu/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="hardy">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/cimu.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="海痴的智障日志">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                Unbuntu16.04 Nginx + php + mysql Web服务器搭建
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-03-10T23:34:00+08:00">
+                2017-03-10
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/个人日记/" itemprop="url" rel="index">
+                    <span itemprop="name">个人日记</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/03/10/lemp-Ubantu/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/03/10/lemp-Ubantu/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="Unbuntu16-04-Nginx-php-mysql-Web服务器搭建"><a href="#Unbuntu16-04-Nginx-php-mysql-Web服务器搭建" class="headerlink" title="Unbuntu16.04 Nginx + php + mysql Web服务器搭建"></a>Unbuntu16.04 Nginx + php + mysql Web服务器搭建</h1><p>下决心不再用lamp的集成包了，自己搞一个出来。</p>
+<ul>
+<li><a href="#nginx">Nginx</a></li>
+<li><a href="#php">php</a></li>
+<li><a href="#mysql">mysql</a></li>
+</ul>
+<hr>
+<p></p><h2 id="nginx">Nginx</h2><br>首先安装使用 apt 安装nginx<br>$ sudo apt install nginx<br>然而由于之前安装过nginx，卸载还不干净，导致配置文件读取失败，出现错误：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div></pre></td><td class="code"><pre><div class="line">Job for nginx.service failed because the control process exited with error code. See &quot;systemctl status nginx.service&quot; and &quot;journalctl -xe&quot; for details.</div><div class="line">invoke-rc.d: initscript nginx, action &quot;start&quot; failed.</div><div class="line">● nginx.service - A high performance web server and a reverse proxy server</div><div class="line">   Loaded: loaded (/lib/systemd/system/nginx.service; enabled; vendor preset: enabled)</div><div class="line">   Active: failed (Result: exit-code) since 四 2017-03-09 00:06:13 CST; 7ms ago</div><div class="line">  Process: 4540 ExecStartPre=/usr/sbin/nginx -t -q -g daemon on; master_process on; (code=exited, status=1/FAILURE)</div><div class="line">3月 09 00:06:13 hardy-Inspiron-5547 systemd[1]: Starting A high performance....</div><div class="line">3月 09 00:06:13 hardy-Inspiron-5547 nginx[4540]: nginx: [emerg] open() &quot;/etc...</div><div class="line">3月 09 00:06:13 hardy-Inspiron-5547 nginx[4540]: nginx: configuration file /...</div><div class="line">3月 09 00:06:13 hardy-Inspiron-5547 systemd[1]: nginx.service: Control proc...1</div><div class="line">3月 09 00:06:13 hardy-Inspiron-5547 systemd[1]: Failed to start A high perf....</div><div class="line">3月 09 00:06:13 hardy-Inspiron-5547 systemd[1]: nginx.service: Unit entered....</div><div class="line">3月 09 00:06:13 hardy-Inspiron-5547 systemd[1]: nginx.service: Failed with ....</div><div class="line">Hint: Some lines were ellipsized, use -l to show in full.</div><div class="line">dpkg: 处理软件包 nginx-core (--configure)时出错：</div><div class="line"> 子进程 已安装 post-installation 脚本 返回错误状态 1</div><div class="line">dpkg: 依赖关系问题使得 nginx 的配置工作不能继续：</div><div class="line"> nginx 依赖于 nginx-core (&gt;= 1.10.0-0ubuntu0.16.04.4) | nginx-full (&gt;= 1.10.0-0ubuntu0.16.04.4) | nginx-light (&gt;= 1.10.0-0ubuntu0.16.04.4) | nginx-extras (&gt;= 1.10.0-0ubuntu0.16.04.4)；然而：</div><div class="line">  软件包 nginx-core 尚未配置。</div><div class="line">  未安装软件包 nginx-full。</div><div class="line">  未安装软件包 nginx-light。</div><div class="line">  未安装软件包 nginx-extras。</div><div class="line"> nginx 依赖于 nginx-core (&lt;&lt; 1.10.0-0ubuntu0.16.04.4.1~) | nginx-full (&lt;&lt; 1.10.0-0ubuntu0.16.04.4.1~) | nginx-light (&lt;&lt; 1.10.0-0ubuntu0.16.04.4.1~) | nginx-extras (&lt;&lt; 1.10.0-0ubuntu0.16.04.4.1~)；然而：</div><div class="line">  软件包 nginx-core 尚未配置。</div><div class="line">  未安装软件包 nginx-full。</div><div class="line">  未安装软件包 nginx-light。</div><div class="line">  未安装软件包 nginx-extras。</div><div class="line">dpkg: 处理软件包 nginx (--configure)时出错：</div><div class="line"> 依赖关系问题 - 仍未被配置</div><div class="line">在处理时有错误发生：</div><div class="line"> nginx-core</div><div class="line"> nginx</div><div class="line">E: Sub-process /usr/bin/dpkg returned an error code (1)</div></pre></td></tr></table></figure><p></p>
+<p>在报错信息中可以看到配置文件读取失败，当然这个错误也有可能是因为apache占用了80端口<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"># 如果是apache占用端口的话</div><div class="line">$ systemctl stop apache2</div><div class="line"># 如果是东西没删干净的话，我的问题是这个</div><div class="line">$ sudo apt-get purge nginx nginx-common nginx-full</div></pre></td></tr></table></figure></p>
+<p>解决之后启动nginx服务，并设置开机启动<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"># 输入完，在本地打 127.0.0.1 已经可以访问了，然而在设置开机启动的时候又炸了</div><div class="line">$ systemctl start nginx</div><div class="line">$ systemctl enable nginx</div></pre></td></tr></table></figure></p>
+<p>然而自家系统又报错了：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">Synchronizing state of nginx.service with SysV init with /lib/systemd/systemd-sysv-install...</div><div class="line">Executing /lib/systemd/systemd-sysv-install enable nginx</div><div class="line">sh: 0: getcwd() failed: No such file or directory</div><div class="line">insserv: pushd() can not change to directory /etc/init.d: No such file or directory</div><div class="line">update-rc.d: error: insserv rejected the script header</div></pre></td></tr></table></figure></p>
+<p>结果原因是因为我当前的工作目录已经被删除了，所以……<br>成功后，访问 127.0.0.1 会看到nginx的欢迎界面</p>
+<h2 id=""><a href="#" class="headerlink" title=""></a><img src="/images/welcomeToNginx.png" alt="pictures"></h2><p></p><h2 id="php">编译安装PHP7</h2><br>首先下载php7的源码：<a href="http://php.net/get/php-7.0.9.tar.gz/from/a/mirror" target="_blank" rel="external">链接</a>然后安装需要的依赖<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">$ sudo apt-get update</div><div class="line">$ sudo apt-get install libxml2-dev</div><div class="line"># 安装gcc</div><div class="line">$ sudo apt-get install build-essential</div><div class="line">$ sudo apt-get install openssl</div><div class="line">$ sudo apt-get install libssl-dev</div><div class="line">$ sudo apt-get install make</div><div class="line">$ sudo apt-get install curl</div><div class="line">$ sudo apt-get install libcurl4-gnutls-dev</div><div class="line">$ sudo apt-get install libjpeg-dev</div><div class="line">$ sudo apt-get install libpng-dev</div><div class="line">$ sudo apt-get install libmcrypt-dev</div><div class="line">$ sudo apt-get install libreadline6 libreadline6-dev</div></pre></td></tr></table></figure><p></p>
+<p>解压下载好的php文件<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ sudo tar -zxf /tmp/php-7.0.9.tar.gz</div><div class="line">$ cd php-7.0.9</div></pre></td></tr></table></figure></p>
+<p>编译安装（这里需要好一会儿时间）<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ sudo ./configure --prefix=/usr/local/php --with-config-file-path=/usr/local/php/etc --enable-fpm --with-fpm-user=www --with-fpm-group=www --with-mysqli --with-pdo-mysql --with-iconv-dir --with-freetype-dir --with-jpeg-dir --with-png-dir --with-zlib --with-libxml-dir=/usr --enable-xml --disable-rpath --enable-bcmath --enable-shmop --enable-sysvsem --enable-inline-optimization --with-curl --enable-mbregex --enable-mbstring --with-mcrypt --enable-ftp --with-gd --enable-gd-native-ttf --with-openssl --with-mhash --enable-pcntl --enable-sockets --with-xmlrpc --enable-zip --enable-soap --without-pear --with-gettext --disable-fileinfo --enable-maintainer-zts</div><div class="line">$ sudo make &amp;&amp; sudo make install</div></pre></td></tr></table></figure></p>
+<p>安装结束后，需要配置一下php的配置文件<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">$ cd /usr/local/php/etc</div><div class="line">$ sudo cp php-fpm.conf.default php-fpm.conf</div><div class="line">$ cd /usr/local/php/etc/php-fpm.d</div><div class="line">$ sudo cp www.conf.default www.conf</div><div class="line"># 打开www.conf文件可以看到 user 和 group 默认设置为 www</div><div class="line"># 如果www用户不存在，那么先添加www用户</div><div class="line">$ sudo groupadd www</div><div class="line">$ sudo useradd -g www -s /bin/nologin www</div></pre></td></tr></table></figure></p>
+<p>在 <code>/etc/profile</code> 文件末尾加上：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">PATH=$PATH:/usr/local/php/bin</div><div class="line">export</div><div class="line"># 输入</div><div class="line">$ source /etc/profile</div></pre></td></tr></table></figure></p>
+<p>验证php安装情况并启动<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ php -v</div><div class="line">$ sudo /usr/local/php/sbin/php-fpm</div></pre></td></tr></table></figure></p>
+<p>配置nginx配置与php配置<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line"># 我们可以发现/usr/local/php/etc 下面是没有php.ini文件的，这个文件可以在你的源码目录下找到，有个 php.ini.development 的文件</div><div class="line">$ sudo cp php.ini.development /usr/local/php/etc/php.ini</div><div class="line"># 打开ini文件，作如下修改</div><div class="line">cgi.fix_pathinfo=0</div><div class="line"># 修改nginx配置文件 /etc/nginx/sites-available/default</div><div class="line">server &#123;</div><div class="line">	listen 80 default_server;</div><div class="line">	listen [::]:80 default_server;</div><div class="line">	root /var/www/html;</div><div class="line">	index index.html index.htm index.nginx-debian.html index.php;</div><div class="line">	server_name server_domain_or_IP;</div><div class="line">	location / &#123;</div><div class="line">		try_files $uri $uri/ =404;</div><div class="line">	&#125;</div><div class="line">	location ~ \.php$ &#123;</div><div class="line">		include snippets/fastcgi-php.conf;</div><div class="line">		fastcgi_pass 127.0.0.1:9000;</div><div class="line">	&#125;</div><div class="line">	location ~ /\.ht &#123;</div><div class="line">		deny all;</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>重新启动 nginx 并测试<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">$ sudo systemctl reload nginx</div><div class="line">$ sudo vi /var/www/html/test.php</div><div class="line">&lt;?php</div><div class="line">    echo phpinfo();</div><div class="line">?&gt;</div></pre></td></tr></table></figure></p>
+<h2 id="-1"><a href="#-1" class="headerlink" title=""></a><img src="/images/phpinfo.png" alt="picture"></h2><p></p><h2 id="mysql">安装MYSQL</h2><br>通过 apt 安装mysql，根据提示自定义mysql<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ sudo apt-get install mysql-server</div></pre></td></tr></table></figure><p></p>
+<hr>
+<p>至此，lemp的环境就搭建完了，下一篇文章海痴会搞一搞 vhost</p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Nginx/" rel="tag"># Nginx</a>
+          
+            <a href="/tags/web-server/" rel="tag"># web server</a>
+          
+            <a href="/tags/Lemp/" rel="tag"># Lemp</a>
+          
+        </div>
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/03/06/twt-17-3-6/" rel="next" title="关于php代码中一些简单的安全问题">
+                <i class="fa fa-chevron-left"></i> 关于php代码中一些简单的安全问题
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/03/10/SoftwareTest-LIB-1/" rel="prev" title="【软件测试】JUNIT使用及覆盖测试">
+                【软件测试】JUNIT使用及覆盖测试 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+          
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2017/03/10/lemp-Ubantu/"
+           data-title="Unbuntu16.04 Nginx + php + mysql Web服务器搭建" data-url="http://yoursite.com/2017/03/10/lemp-Ubantu/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/cimu.jpg"
+               alt="hardy" />
+          <p class="site-author-name" itemprop="name">hardy</p>
+           
+              <p class="site-description motion-element" itemprop="description">智障海痴的智障日志</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">20</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              
+                <span class="site-state-item-count">6</span>
+                <span class="site-state-item-name">分类</span>
+              
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              
+                <span class="site-state-item-count">18</span>
+                <span class="site-state-item-name">标签</span>
+              
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/wanghaichi" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+          <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+            <div class="links-of-blogroll-title">
+              <i class="fa  fa-fw fa-globe"></i>
+              Links
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="https://rjmonkey.github.io" title="郭基基" target="_blank">郭基基</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="https://shifengmin.github.io" title="我毛" target="_blank">我毛</a>
+                </li>
+              
+            </ul>
+          </div>
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Unbuntu16-04-Nginx-php-mysql-Web服务器搭建"><span class="nav-number">1.</span> <span class="nav-text">Unbuntu16.04 Nginx + php + mysql Web服务器搭建</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#nginx"><span class="nav-number">1.1.</span> <span class="nav-text">Nginx</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#"><span class="nav-number">1.2.</span> <span class="nav-text"></span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#php"><span class="nav-number">1.3.</span> <span class="nav-text">编译安装PHP7</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#-1"><span class="nav-number">1.4.</span> <span class="nav-text"></span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#mysql"><span class="nav-number">1.5.</span> <span class="nav-text">安装MYSQL</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">hardy</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+    
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.0"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"wanghaichi"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+    
+    <script src="/lib/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+    <script src="/js/src/hook-duoshuo.js"></script>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length == 0) {
+      search_path = "search.xml";
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.popup').toggle();
+    }
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+      $.ajax({
+        url: path,
+        dataType: "xml",
+        async: true,
+        success: function( xmlResponse ) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = $( "entry", xmlResponse ).map(function() {
+            return {
+              title: $( "title", this ).text(),
+              content: $("content",this).text(),
+              url: $( "url" , this).text()
+            };
+          }).get();
+          var $input = document.getElementById(search_id);
+          var $resultContent = document.getElementById(content_id);
+          $input.addEventListener('input', function(){
+            var matchcounts = 0;
+            var str='<ul class=\"search-result-list\">';
+            var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+            $resultContent.innerHTML = "";
+            if (this.value.trim().length > 1) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var content_index = [];
+                var data_title = data.title.trim().toLowerCase();
+                var data_content = data.content.trim().replace(/<[^>]+>/g,"").toLowerCase();
+                var data_url = decodeURIComponent(data.url);
+                var index_title = -1;
+                var index_content = -1;
+                var first_occur = -1;
+                // only match artiles with not empty titles and contents
+                if(data_title != '') {
+                  keywords.forEach(function(keyword, i) {
+                    index_title = data_title.indexOf(keyword);
+                    index_content = data_content.indexOf(keyword);
+                    if( index_title >= 0 || index_content >= 0 ){
+                      isMatch = true;
+                      if (i == 0) {
+                        first_occur = index_content;
+                      }
+                    }
+
+                  });
+                }
+                // show search results
+                if (isMatch) {
+                  matchcounts += 1;
+                  str += "<li><a href='"+ data_url +"' class='search-result-title'>"+ data_title +"</a>";
+                  var content = data.content.trim().replace(/<[^>]+>/g,"");
+                  if (first_occur >= 0) {
+                    // cut out 100 characters
+                    var start = first_occur - 20;
+                    var end = first_occur + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if(start == 0){
+                      end = 50;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    var match_content = content.substring(start, end);
+                    // highlight all keywords
+                    keywords.forEach(function(keyword){
+                      var regS = new RegExp(keyword, "gi");
+                      match_content = match_content.replace(regS, "<b class=\"search-keyword\">"+keyword+"</b>");
+                    });
+
+                    str += "<p class=\"search-result\">" + match_content +"...</p>"
+                  }
+                  str += "</li>";
+                }
+              })};
+            str += "</ul>";
+            if (matchcounts == 0) { str = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>' }
+            if (keywords == "") { str = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>' }
+            $resultContent.innerHTML = str;
+          });
+          proceedsearch();
+        }
+      });}
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched == false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(function(e){
+      $('.popup').hide();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    });
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+  </script>
+
+
+  
+
+  
+
+  
+
+  
+
+
+  
+
+</body>
+</html>
