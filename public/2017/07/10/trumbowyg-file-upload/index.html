@@ -1,0 +1,992 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Titillium Web:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="editor,文件上传," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="假期写代码，整理一些关于Editor，文件上传相关的东西。  editor 文件上传（Laravel）  Trumbowyg Editor  Trumbowyg 是一款轻量级的编辑器，可以高度DIY，界面也很简洁。 官方网站：Trumbowyg 首先下载官方包，在官网可以直接下载。 目录结构如下：  其中只需要留下 dist 文件夹即可，其余的是文档，例子，直接删除即可。 使用方法很简单，在 vi">
+<meta name="keywords" content="editor,文件上传">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Trumbowyg 轻量级的 WYSIWYG 编辑器（附带 Laravel 文件上传）">
+<meta property="og:url" content="http://yoursite.com/2017/07/10/trumbowyg-file-upload/index.html">
+<meta property="og:site_name" content="海痴的智障日志">
+<meta property="og:description" content="假期写代码，整理一些关于Editor，文件上传相关的东西。  editor 文件上传（Laravel）  Trumbowyg Editor  Trumbowyg 是一款轻量级的编辑器，可以高度DIY，界面也很简洁。 官方网站：Trumbowyg 首先下载官方包，在官网可以直接下载。 目录结构如下：  其中只需要留下 dist 文件夹即可，其余的是文档，例子，直接删除即可。 使用方法很简单，在 vi">
+<meta property="og:image" content="http://yoursite.com/images/2017-7-10-7-47.png">
+<meta property="og:image" content="http://yoursite.com/images/2017-7-10-21-20.png">
+<meta property="og:image" content="http://yoursite.com/images/2017-7-10-21-21.png">
+<meta property="og:updated_time" content="2017-07-10T13:53:36.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Trumbowyg 轻量级的 WYSIWYG 编辑器（附带 Laravel 文件上传）">
+<meta name="twitter:description" content="假期写代码，整理一些关于Editor，文件上传相关的东西。  editor 文件上传（Laravel）  Trumbowyg Editor  Trumbowyg 是一款轻量级的编辑器，可以高度DIY，界面也很简洁。 官方网站：Trumbowyg 首先下载官方包，在官网可以直接下载。 目录结构如下：  其中只需要留下 dist 文件夹即可，其余的是文档，例子，直接删除即可。 使用方法很简单，在 vi">
+<meta name="twitter:image" content="http://yoursite.com/images/2017-7-10-7-47.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2017/07/10/trumbowyg-file-upload/"/>
+
+
+
+
+
+  <title> Trumbowyg 轻量级的 WYSIWYG 编辑器（附带 Laravel 文件上传） | 海痴的智障日志 </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">海痴的智障日志</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">心比天高，命比纸薄。</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocapitalize="off" autocomplete="off" autocorrect="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/07/10/trumbowyg-file-upload/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="hardy">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/cimu.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="海痴的智障日志">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                Trumbowyg 轻量级的 WYSIWYG 编辑器（附带 Laravel 文件上传）
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-10T19:35:32+08:00">
+                2017-07-10
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/个人日志/" itemprop="url" rel="index">
+                    <span itemprop="name">个人日志</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/07/10/trumbowyg-file-upload/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/07/10/trumbowyg-file-upload/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>假期写代码，整理一些关于Editor，文件上传相关的东西。</p>
+<ul>
+<li><a href="#editor">editor</a></li>
+<li><a href="#upload">文件上传（Laravel）</a></li>
+</ul>
+<h2 id="editor">Trumbowyg Editor</h2>
+
+<p>Trumbowyg 是一款轻量级的编辑器，可以高度DIY，界面也很简洁。</p>
+<p>官方网站：<a href="https://alex-d.github.io/Trumbowyg/" target="_blank" rel="external">Trumbowyg</a></p>
+<p>首先下载官方包，在官网可以直接下载。</p>
+<p>目录结构如下：</p>
+<p><img src="/images/2017-7-10-7-47.png" alt="Pic"></p>
+<p>其中只需要留下 dist 文件夹即可，其余的是文档，例子，直接删除即可。</p>
+<p>使用方法很简单，在 view 界面引用相关的 css 文件与 js 文件，这里默认已经引用了Jquery</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">"stylesheet"</span> <span class="attr">href</span>=<span class="string">"/Trumbowyg/dist/ui/trumbowyg.min.css"</span>&gt;</span></div><div class="line"></div><div class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"/Trumbowyg/dist/trumbowyg.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div></pre></td></tr></table></figure>
+<p>同时需要创建一个 <code>textarea</code> 作为 editor 的容器</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;textarea id=&quot;editor&quot; name=&quot;editor&quot; rows=&quot;10&quot; cols=&quot;80&quot;&gt;&lt;/textarea&gt;</div></pre></td></tr></table></figure>
+<p>接下来就可以使用Trumbowyg 创建一个编辑器出来</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="undefined"></span></div><div class="line">        $('#editor').trumbowyg(&#123;</div><div class="line">            btnsDef: &#123;</div><div class="line">                // 设置上传的3种方法，远程上传，本地上传，图片64位加密</div><div class="line">                image: &#123;</div><div class="line">                    dropdown: ['insertImage', 'upload'],</div><div class="line">                    ico: 'insertImage'</div><div class="line">                &#125;</div><div class="line">            &#125;,</div><div class="line">            btns: [</div><div class="line">                ['viewHTML'],</div><div class="line">                ['formatting'],</div><div class="line">                'btnGrp-design',</div><div class="line">                ['superscript', 'subscript'],</div><div class="line">                'image',</div><div class="line">                'btnGrp-justify',</div><div class="line">                'btnGrp-lists',</div><div class="line">                ['horizontalRule'],</div><div class="line">                ['table'],</div><div class="line">                ['foreColor', 'backColor'],</div><div class="line">                ['removeformat'],</div><div class="line">                ['fullscreen']</div><div class="line">            ],</div><div class="line">            plugins: &#123;</div><div class="line">                upload: &#123;</div><div class="line">                    serverPath: '/manager/file',</div><div class="line">                    fileFieldName: 'upload',</div><div class="line">                    usage : 'notice'</div><div class="line">                &#125;</div><div class="line">            &#125;,</div><div class="line">            autogrow: true</div><div class="line">        &#125;);</div><div class="line"></div><div class="line">    <span class="tag">&lt;/<span class="name">script</span>&gt;</span></div></pre></td></tr></table></figure>
+<p>其中 <code>btnsDef</code> 是自己定义的按钮组，<code>btns</code> 是显示出来的按钮，下面是文件上传插件。<code>autogrow</code> 参数定义了文本域的自动缩放</p>
+<p>显示出来的效果如下：</p>
+<p><img src="/images/2017-7-10-21-20.png" alt="Pic"></p>
+<p><img src="/images/2017-7-10-21-21.png" alt="Pic"></p>
+<p>可能你会发现你的下拉图片按钮里面并没有上传图片的选项，因此我们还需要引用一下图片上传的插件。这个文件要在上面的js文件之后引入</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"/Trumbowyg/dist/plugins/upload/trumbowyg.upload.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div></pre></td></tr></table></figure>
+<p>接下俩介绍 plugins upload 里面的几个参数</p>
+<ul>
+<li>serverPath : 文件上传 Controller 的路径，用于后台处理上传图片</li>
+<li>fileFieldName : 后台接收文件的名字，也就是 <code>&lt;input name=&#39;upload&#39;&gt;</code></li>
+<li>usage : 是海痴自己加上的，用于判断上传来源，方便管理，这个不是官方参数，需要自己修改 js 源码</li>
+</ul>
+<h2 id="upload">文件上传（Laravel）</h2>
+
+<p>接下来需要定义后台代码，这里使用Laravel 5.4框架。</p>
+<p>配置文件：<code>config/imageUpload.php</code><br><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&lt;?php</span></div><div class="line"><span class="comment">/**</span></div><div class="line"> * Created by PhpStorm.</div><div class="line"> * User: liebes</div><div class="line"> * Date: 2017/7/10</div><div class="line"> * Time: 下午3:42</div><div class="line"> */</div><div class="line"></div><div class="line">$imageExtensions = [</div><div class="line">    <span class="string">'png'</span>, <span class="string">'jpeg'</span>, <span class="string">'jpg'</span>, <span class="string">'bmp'</span></div><div class="line">];</div><div class="line"></div><div class="line"><span class="keyword">return</span> [</div><div class="line">    <span class="string">'max_size'</span> =&gt; <span class="number">1024</span> * <span class="number">1024</span> * <span class="number">5</span>,  <span class="comment">// default 5MB</span></div><div class="line">    <span class="string">'rules'</span> =&gt; [</div><div class="line">        <span class="string">'notice'</span> =&gt; [</div><div class="line">            <span class="string">'path'</span> =&gt; <span class="string">'notification'</span>,</div><div class="line">            <span class="string">'extensions'</span> =&gt; $imageExtensions,</div><div class="line">            <span class="string">'disk'</span> =&gt; <span class="string">'public'</span>,</div><div class="line">            <span class="string">'max_size'</span> =&gt; <span class="number">1024</span> * <span class="number">1024</span> * <span class="number">50</span></div><div class="line">        ],</div><div class="line">    ]</div><div class="line">];</div></pre></td></tr></table></figure></p>
+<p>这个配置文件定义了图片上传大小，图片后缀，图片所属等等信息，可以自由定义</p>
+<p>Controller 文件 <code>FileController.class.php</code></p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&lt;?php</span></div><div class="line"></div><div class="line"><span class="keyword">namespace</span> <span class="title">App</span>\<span class="title">Http</span>\<span class="title">Controllers</span>\<span class="title">Manager</span>;</div><div class="line"></div><div class="line"><span class="keyword">use</span> <span class="title">App</span>\<span class="title">Http</span>\<span class="title">Helpers</span>\<span class="title">Resources</span>;</div><div class="line"><span class="keyword">use</span> <span class="title">Illuminate</span>\<span class="title">Http</span>\<span class="title">Request</span>;</div><div class="line"><span class="keyword">use</span> <span class="title">App</span>\<span class="title">Http</span>\<span class="title">Controllers</span>\<span class="title">Controller</span>;</div><div class="line"><span class="keyword">use</span> <span class="title">App</span>\<span class="title">Models</span>\<span class="title">Image</span>;</div><div class="line"><span class="keyword">use</span> <span class="title">Illuminate</span>\<span class="title">Support</span>\<span class="title">Facades</span>\<span class="title">Config</span>;</div><div class="line"><span class="keyword">use</span> <span class="title">Mockery</span>\<span class="title">Exception</span>;</div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">FileController</span> <span class="keyword">extends</span> <span class="title">Controller</span></span></div><div class="line">&#123;</div><div class="line">    <span class="comment">// 图片上传配置文件</span></div><div class="line">    <span class="keyword">protected</span> $config;</div><div class="line"></div><div class="line">    <span class="comment">// 上传规则</span></div><div class="line">    <span class="keyword">protected</span> $rules;</div><div class="line"></div><div class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">__construct</span><span class="params">()</span></span></div><div class="line">    &#123;</div><div class="line">        <span class="keyword">$this</span>-&gt;config = config(<span class="string">'imageUpload'</span>);</div><div class="line">        <span class="keyword">$this</span>-&gt;rules = array_keys(config(<span class="string">'imageUpload.rules'</span>));</div><div class="line">    &#125;</div><div class="line"></div><div class="line"></div><div class="line">    <span class="comment">/**</span></div><div class="line">     * 图片上传方法，配置参见config.ImageUpload</div><div class="line">     * <span class="doctag">@param</span> Request $request</div><div class="line">     * <span class="doctag">@return</span> \Illuminate\Http\JsonResponse</div><div class="line">     */</div><div class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">upload</span><span class="params">(Request $request)</span></span>&#123;</div><div class="line">        $usage = $request-&gt;input(<span class="string">'usage'</span>);</div><div class="line">        <span class="keyword">if</span>(<span class="keyword">empty</span>($usage) || !<span class="keyword">$this</span>-&gt;checkUsage($usage))&#123;</div><div class="line">            <span class="keyword">return</span> response()-&gt;json([</div><div class="line">                <span class="string">'message'</span> =&gt; <span class="string">'规则不符'</span></div><div class="line">            ]);</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        <span class="keyword">if</span>(!$request-&gt;hasFile(<span class="string">'upload'</span>))&#123;</div><div class="line">            <span class="keyword">return</span> response()-&gt;json([</div><div class="line">                <span class="string">'message'</span> =&gt; <span class="string">'上传失败'</span></div><div class="line">            ]);</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        $file = $request-&gt;file(<span class="string">'upload'</span>);</div><div class="line">        $size = $file-&gt;getSize();</div><div class="line">        $extension = $file-&gt;extension();</div><div class="line"></div><div class="line">        <span class="keyword">if</span>(!<span class="keyword">$this</span>-&gt;checkExtension($extension, $usage))&#123;</div><div class="line">            <span class="keyword">return</span> response()-&gt;json([</div><div class="line">                <span class="string">'message'</span> =&gt; <span class="string">'文件类型不符'</span></div><div class="line">            ]);</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        <span class="keyword">if</span>(!<span class="keyword">$this</span>-&gt;checkFileSize($size, $usage))&#123;</div><div class="line">            <span class="keyword">return</span> response()-&gt;json([</div><div class="line">                <span class="string">'message'</span> =&gt; <span class="string">'文件不能大于5M'</span></div><div class="line">            ]);</div><div class="line">        &#125;</div><div class="line">        $name = $file-&gt;hashName();</div><div class="line">        $disk = <span class="keyword">$this</span>-&gt;config[<span class="string">'rules'</span>][$usage][<span class="string">'disk'</span>];</div><div class="line">        $path = $file-&gt;store(<span class="keyword">$this</span>-&gt;config[<span class="string">'rules'</span>][$usage][<span class="string">'path'</span>], $disk);</div><div class="line"></div><div class="line">        $image = Image::createImg([</div><div class="line">            <span class="string">'name'</span>  =&gt; $name,</div><div class="line">            <span class="string">'size'</span>  =&gt; $size,</div><div class="line">            <span class="string">'extension'</span> =&gt; $extension,</div><div class="line">            <span class="string">'path'</span>  =&gt; $path</div><div class="line">        ]);</div><div class="line"></div><div class="line">        <span class="keyword">return</span> response()-&gt;json([</div><div class="line">            <span class="string">'success'</span> =&gt; <span class="keyword">true</span>,</div><div class="line">            <span class="string">'file'</span> =&gt; config(<span class="string">'filesystems.disks.'</span>.$disk.<span class="string">'.url'</span>).<span class="string">'/'</span>.$path,</div><div class="line">            <span class="string">'info'</span> =&gt; $image,</div><div class="line">        ]);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="comment">/**</span></div><div class="line">     * <span class="doctag">@param</span> $usage</div><div class="line">     * <span class="doctag">@return</span> bool</div><div class="line">     */</div><div class="line">    <span class="keyword">protected</span> <span class="function"><span class="keyword">function</span> <span class="title">checkUsage</span><span class="params">($usage)</span></span>&#123;</div><div class="line">        <span class="keyword">return</span> in_array($usage, <span class="keyword">$this</span>-&gt;rules);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="comment">/**</span></div><div class="line">     * <span class="doctag">@param</span> $extension</div><div class="line">     * <span class="doctag">@param</span> $usage</div><div class="line">     * <span class="doctag">@return</span> bool</div><div class="line">     */</div><div class="line">    <span class="keyword">protected</span> <span class="function"><span class="keyword">function</span> <span class="title">checkExtension</span><span class="params">($extension, $usage)</span></span>&#123;</div><div class="line">        <span class="keyword">return</span> in_array($extension, <span class="keyword">$this</span>-&gt;config[<span class="string">'rules'</span>][$usage][<span class="string">'extensions'</span>]);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="comment">/**</span></div><div class="line">     * <span class="doctag">@param</span> $size</div><div class="line">     * <span class="doctag">@param</span> $usage</div><div class="line">     * <span class="doctag">@return</span> bool</div><div class="line">     */</div><div class="line">    <span class="keyword">protected</span> <span class="function"><span class="keyword">function</span> <span class="title">checkFileSize</span><span class="params">($size, $usage)</span></span>&#123;</div><div class="line">        $max_size = <span class="keyword">$this</span>-&gt;config[<span class="string">'rules'</span>][$usage][<span class="string">'max_size'</span>] ?? <span class="keyword">$this</span>-&gt;config[<span class="string">'max_size'</span>];</div><div class="line">        <span class="keyword">return</span> $size &lt; $max_size;</div><div class="line">    &#125;</div><div class="line"></div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>之后在路由里面配置好路由，即可。</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Route::post(<span class="string">'file'</span>, <span class="string">'FileController@upload'</span>);</div></pre></td></tr></table></figure>
+<p>由于这里做了usage的检测，所以需要在上传文件的时候加上usage这个属性，需要修改js文件如下</p>
+<p><code>trumbowyg.upload.js</code></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">plugins: &#123;</div><div class="line">    <span class="attr">upload</span>: &#123;</div><div class="line">        <span class="attr">init</span>: <span class="function"><span class="keyword">function</span> (<span class="params">trumbowyg</span>) </span>&#123;</div><div class="line">            trumbowyg.o.plugins.upload = $.extend(<span class="literal">true</span>, &#123;&#125;, defaultOptions, trumbowyg.o.plugins.upload || &#123;&#125;);</div><div class="line">            <span class="keyword">var</span> btnDef = &#123;</div><div class="line">                <span class="attr">fn</span>: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">                    trumbowyg.saveRange();</div><div class="line"></div><div class="line">                    <span class="keyword">var</span> file,</div><div class="line">                        usage = trumbowyg.o.plugins.upload.usage,</div><div class="line">                        prefix = trumbowyg.o.prefix;</div><div class="line">                    <span class="keyword">var</span> $modal = trumbowyg.openModalInsert(</div><div class="line">                  ·········</div></pre></td></tr></table></figure>
+<p>在这里加上usage参数</p>
+<p><code>trumbowyg.upload.js</code></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// Callback</span></div><div class="line"><span class="function"><span class="keyword">function</span> (<span class="params">values</span>) </span>&#123;</div><div class="line">    <span class="keyword">var</span> data = <span class="keyword">new</span> FormData();</div><div class="line">    data.append(trumbowyg.o.plugins.upload.fileFieldName, file);</div><div class="line">    data.append(<span class="string">"usage"</span>, usage);</div><div class="line">    trumbowyg.o.plugins.upload.data.map(<span class="function"><span class="keyword">function</span> (<span class="params">cur</span>) </span>&#123;</div><div class="line">        data.append(cur.name, cur.value);</div><div class="line">    &#125;);</div></pre></td></tr></table></figure>
+<p>在提交的Form表单里加上usage的参数</p>
+<p>修改以上两处即可</p>
+<p>当然在提交的时候可能会出现csrftoken miss match 的问题，参考Laravel文档</p>
+<p><a href="http://d.laravel-china.org/docs/5.4/csrf#csrf-x-csrf-token" target="_blank" rel="external">Laravel 下的伪造跨站请求保护 CSRF</a></p>
+<p>在html界面头加上 meta 属性<br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">"csrf-token"</span> <span class="attr">content</span>=<span class="string">"&#123;&#123; csrf_token() &#125;&#125;"</span>&gt;</span></div></pre></td></tr></table></figure></p>
+<p>同时在调用ajax方法之前，进行设置<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">&lt;script&gt;</div><div class="line">    $.ajaxSetup(&#123;</div><div class="line">        <span class="attr">headers</span>: &#123;</div><div class="line">            <span class="string">'X-CSRF-TOKEN'</span>: $(<span class="string">'meta[name="csrf-token"]'</span>).attr(<span class="string">'content'</span>)</div><div class="line">        &#125;</div><div class="line">    &#125;);</div><div class="line"><span class="xml"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></div></pre></td></tr></table></figure></p>
+<p>以上就是全部的使用Trumbowyg编辑器与laravel文件上传的全部</p>
+<p>最后，吐槽一下ckeditor，丫把所有的文件上传界面都定义在一个iframe里，不是异步递交，到死我都没解决出来csrftoken的问题。</p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/editor/" rel="tag"># editor</a>
+          
+            <a href="/tags/文件上传/" rel="tag"># 文件上传</a>
+          
+        </div>
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/05/22/web-security-2/" rel="next" title="SQL injection 学习">
+                <i class="fa fa-chevron-left"></i> SQL injection 学习
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+          
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2017/07/10/trumbowyg-file-upload/"
+           data-title="Trumbowyg 轻量级的 WYSIWYG 编辑器（附带 Laravel 文件上传）" data-url="http://yoursite.com/2017/07/10/trumbowyg-file-upload/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/cimu.jpg"
+               alt="hardy" />
+          <p class="site-author-name" itemprop="name">hardy</p>
+           
+              <p class="site-description motion-element" itemprop="description">智障海痴的智障日志</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">20</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              
+                <span class="site-state-item-count">6</span>
+                <span class="site-state-item-name">分类</span>
+              
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              
+                <span class="site-state-item-count">20</span>
+                <span class="site-state-item-name">标签</span>
+              
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/wanghaichi" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+          <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+            <div class="links-of-blogroll-title">
+              <i class="fa  fa-fw fa-globe"></i>
+              Links
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="https://rjmonkey.github.io" title="郭基基" target="_blank">郭基基</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="https://shifengmin.github.io" title="我毛" target="_blank">我毛</a>
+                </li>
+              
+            </ul>
+          </div>
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#editor"><span class="nav-number">1.</span> <span class="nav-text">Trumbowyg Editor</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#upload"><span class="nav-number">2.</span> <span class="nav-text">文件上传（Laravel）</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">hardy</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+    
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.0"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"wanghaichi"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+    
+    <script src="/lib/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+    <script src="/js/src/hook-duoshuo.js"></script>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length == 0) {
+      search_path = "search.xml";
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.popup').toggle();
+    }
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+      $.ajax({
+        url: path,
+        dataType: "xml",
+        async: true,
+        success: function( xmlResponse ) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = $( "entry", xmlResponse ).map(function() {
+            return {
+              title: $( "title", this ).text(),
+              content: $("content",this).text(),
+              url: $( "url" , this).text()
+            };
+          }).get();
+          var $input = document.getElementById(search_id);
+          var $resultContent = document.getElementById(content_id);
+          $input.addEventListener('input', function(){
+            var matchcounts = 0;
+            var str='<ul class=\"search-result-list\">';
+            var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+            $resultContent.innerHTML = "";
+            if (this.value.trim().length > 1) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var content_index = [];
+                var data_title = data.title.trim().toLowerCase();
+                var data_content = data.content.trim().replace(/<[^>]+>/g,"").toLowerCase();
+                var data_url = decodeURIComponent(data.url);
+                var index_title = -1;
+                var index_content = -1;
+                var first_occur = -1;
+                // only match artiles with not empty titles and contents
+                if(data_title != '') {
+                  keywords.forEach(function(keyword, i) {
+                    index_title = data_title.indexOf(keyword);
+                    index_content = data_content.indexOf(keyword);
+                    if( index_title >= 0 || index_content >= 0 ){
+                      isMatch = true;
+                      if (i == 0) {
+                        first_occur = index_content;
+                      }
+                    }
+
+                  });
+                }
+                // show search results
+                if (isMatch) {
+                  matchcounts += 1;
+                  str += "<li><a href='"+ data_url +"' class='search-result-title'>"+ data_title +"</a>";
+                  var content = data.content.trim().replace(/<[^>]+>/g,"");
+                  if (first_occur >= 0) {
+                    // cut out 100 characters
+                    var start = first_occur - 20;
+                    var end = first_occur + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if(start == 0){
+                      end = 50;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    var match_content = content.substring(start, end);
+                    // highlight all keywords
+                    keywords.forEach(function(keyword){
+                      var regS = new RegExp(keyword, "gi");
+                      match_content = match_content.replace(regS, "<b class=\"search-keyword\">"+keyword+"</b>");
+                    });
+
+                    str += "<p class=\"search-result\">" + match_content +"...</p>"
+                  }
+                  str += "</li>";
+                }
+              })};
+            str += "</ul>";
+            if (matchcounts == 0) { str = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>' }
+            if (keywords == "") { str = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>' }
+            $resultContent.innerHTML = str;
+          });
+          proceedsearch();
+        }
+      });}
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched == false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(function(e){
+      $('.popup').hide();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    });
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+  </script>
+
+
+  
+
+  
+
+  
+
+  
+
+
+  
+
+</body>
+</html>
