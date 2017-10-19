@@ -71,7 +71,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="软件测试作业," />
+  <meta name="keywords" content="mysql," />
 
 
 
@@ -87,20 +87,18 @@
 
 
 
-<meta name="description" content="JAVA PATH FINDER [JPF]软件测试小组作业之JPF 首先先说说JPF是个什么东西 官方给出的解释：  JPF核心是用于Java™字节码的虚拟机（VM），这意味着它是一个程序，您可以让Java程序执行。它用于在这些程序中找到缺陷，因此您还需要给出属性以作为输入进行检查。 JPF通过一份报告来回复，该报告说如果属性持有和/或由JPF创建的验证工件进行进一步分析（如测试用例）。 JPF">
-<meta name="keywords" content="软件测试作业">
+<meta name="description" content="前情摘要自己作死干了一件特别蠢的事情（具体略） 然后开始研究如何进行增量备份 增量备份原理mysql 有个 binlog 的功能，会记录所有的用户的操作，可以依靠这个，配合全备份，将数据库回滚到某一个特殊的时刻。 简单来说，比如我们每周做一次全备份，每天做一次增量备份，当数据库发生问题的时候，我们就可以先将数据库回滚到上一周我们的全备份的时间，然后再通过每天的增量备份（其实就是模拟所有的数据库操作">
+<meta name="keywords" content="mysql">
 <meta property="og:type" content="article">
-<meta property="og:title" content="【软件测试】JAVA PATH FINDER [JPF]">
-<meta property="og:url" content="http://yoursite.com/2017/04/08/SoftwareTest-HW-4/index.html">
+<meta property="og:title" content="Mysql 增量备份，全部备份实现方法以及自动化脚本">
+<meta property="og:url" content="http://yoursite.com/2017/10/20/mysql-backup/index.html">
 <meta property="og:site_name" content="Liebes 的个人日志">
-<meta property="og:description" content="JAVA PATH FINDER [JPF]软件测试小组作业之JPF 首先先说说JPF是个什么东西 官方给出的解释：  JPF核心是用于Java™字节码的虚拟机（VM），这意味着它是一个程序，您可以让Java程序执行。它用于在这些程序中找到缺陷，因此您还需要给出属性以作为输入进行检查。 JPF通过一份报告来回复，该报告说如果属性持有和/或由JPF创建的验证工件进行进一步分析（如测试用例）。 JPF">
+<meta property="og:description" content="前情摘要自己作死干了一件特别蠢的事情（具体略） 然后开始研究如何进行增量备份 增量备份原理mysql 有个 binlog 的功能，会记录所有的用户的操作，可以依靠这个，配合全备份，将数据库回滚到某一个特殊的时刻。 简单来说，比如我们每周做一次全备份，每天做一次增量备份，当数据库发生问题的时候，我们就可以先将数据库回滚到上一周我们的全备份的时间，然后再通过每天的增量备份（其实就是模拟所有的数据库操作">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://yoursite.com/images/interleavings.png">
-<meta property="og:updated_time" content="2017-07-04T13:30:41.000Z">
+<meta property="og:updated_time" content="2017-10-19T16:42:21.189Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="【软件测试】JAVA PATH FINDER [JPF]">
-<meta name="twitter:description" content="JAVA PATH FINDER [JPF]软件测试小组作业之JPF 首先先说说JPF是个什么东西 官方给出的解释：  JPF核心是用于Java™字节码的虚拟机（VM），这意味着它是一个程序，您可以让Java程序执行。它用于在这些程序中找到缺陷，因此您还需要给出属性以作为输入进行检查。 JPF通过一份报告来回复，该报告说如果属性持有和/或由JPF创建的验证工件进行进一步分析（如测试用例）。 JPF">
-<meta name="twitter:image" content="http://yoursite.com/images/interleavings.png">
+<meta name="twitter:title" content="Mysql 增量备份，全部备份实现方法以及自动化脚本">
+<meta name="twitter:description" content="前情摘要自己作死干了一件特别蠢的事情（具体略） 然后开始研究如何进行增量备份 增量备份原理mysql 有个 binlog 的功能，会记录所有的用户的操作，可以依靠这个，配合全备份，将数据库回滚到某一个特殊的时刻。 简单来说，比如我们每周做一次全备份，每天做一次增量备份，当数据库发生问题的时候，我们就可以先将数据库回滚到上一周我们的全备份的时间，然后再通过每天的增量备份（其实就是模拟所有的数据库操作">
 
 
 
@@ -128,13 +126,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2017/04/08/SoftwareTest-HW-4/"/>
+  <link rel="canonical" href="http://yoursite.com/2017/10/20/mysql-backup/"/>
 
 
 
 
 
-  <title> 【软件测试】JAVA PATH FINDER [JPF] | Liebes 的个人日志 </title>
+  <title> Mysql 增量备份，全部备份实现方法以及自动化脚本 | Liebes 的个人日志 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -307,7 +305,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/04/08/SoftwareTest-HW-4/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/10/20/mysql-backup/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Liebes">
@@ -328,7 +326,7 @@
             
             
               
-                【软件测试】JAVA PATH FINDER [JPF]
+                Mysql 增量备份，全部备份实现方法以及自动化脚本
               
             
           </h1>
@@ -343,8 +341,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-04-08T15:07:09+08:00">
-                2017-04-08
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-10-20T00:41:45+08:00">
+                2017-10-20
               </time>
             
 
@@ -354,28 +352,6 @@
           </span>
 
           
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/作业/" itemprop="url" rel="index">
-                    <span itemprop="name">作业</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
 
           
             
@@ -384,8 +360,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2017/04/08/SoftwareTest-HW-4/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/04/08/SoftwareTest-HW-4/" itemprop="commentCount"></span>
+                <a href="/2017/10/20/mysql-backup/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/10/20/mysql-backup/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -411,32 +387,33 @@
       
 
       
-        <h1 id="JAVA-PATH-FINDER-JPF"><a href="#JAVA-PATH-FINDER-JPF" class="headerlink" title="JAVA PATH FINDER [JPF]"></a>JAVA PATH FINDER [JPF]</h1><p>软件测试小组作业之JPF</p>
-<p>首先先说说JPF是个什么东西</p>
-<p>官方给出的解释：</p>
-<blockquote>
-<p>JPF核心是用于Java™字节码的虚拟机（VM），这意味着它是一个程序，您可以让Java程序执行。它用于在这些程序中找到缺陷，因此您还需要给出属性以作为输入进行检查。 JPF通过一份报告来回复，该报告说如果属性持有和/或由JPF创建的验证工件进行进一步分析（如测试用例）。</p>
-<p>JPF是一个有几个扭曲的虚拟机。它在Java本身中实现，所以不要指望它像您的普通Java一样快速运行。它是在VM上运行的VM。虽然Java字节码的执行语义在<a href="http://java.sun.com/docs/books/jvms/second_edition/html/VMSpecTOC.doc.html/" target="_blank" rel="external">http://java.sun.com/docs/books/jvms/second_edition/html/VMSpecTOC.doc.html/</a> Sun的Java虚拟机规范中有明确定义，但我们在JPF中几乎没有硬连线语义 - VM指令集由一组可被替换的类表示。</p>
-<p>默认指令集使用下一个JPF功能：执行选项。 JPF可以识别您的程序中的执行可能不同的进程，然后系统地探索所有这些点。这意味着JPF（理论上）通过程序执行所有路径，而不仅仅是像普通的VM那样。典型的选择是不同的调度序列或随机值，但JPF可以再次介绍您自己的类型，如用户输入或statemachine事件。</p>
-</blockquote>
-<p>个人觉得JPF是一个针对JAVA程序寻找可执行路径的工具。看了一下官方的例子，觉得JPF可以在JAVA程序执行时自动检测所有的可执行路径，找到可能出现问题的路径。不同于传统的基于用例的Testing，JPF采用的是Model Checking，尽管基于用例的测试在用例足够多的时候有着很不错的测试效果，但是很难保证测试到所有的可行路径。JPF官方给出了基于测试用例的Testing 与 Model Testing 的差别：<a href="http://babelfish.arc.nasa.gov/trac/jpf/wiki/intro/testing_vs_model_checking" target="_blank" rel="external">testing_vs_model_checking</a></p>
-<p>那么说说JPF安装的方式，JPF安装需要使用一个类似于git的管理工具：Mercurial，同时需要JUNIT，与Apache ant。<br>安装之前我们需要先下载Mercuial 和 ant<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ sudo apt install Mercuial</div><div class="line">$ sudo apt install ant</div></pre></td></tr></table></figure></p>
-<p>由于我使用的IDE是 idea ,自带了JUNIT的包，没有的需要去下载一下。<br>需要将JUNIT包的目录加入到环境变量中<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">$ sudo vi /etc/provile</div><div class="line">export JUNIT_HOME=/home/hardy/app/idea-IU-163.13906.18/lib</div><div class="line">export CLASSPATH=.:$CLASSPATH:$JUNIT_HOME/junit-4.12.jar</div><div class="line">$ source /etc/provile</div></pre></td></tr></table></figure></p>
-<p>使用Mercuial下载jpf-core的仓库<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$ hg clone http://babelfish.arc.nasa.gov/hg/jpf/jpf-core</div><div class="line">$ cd jpf-core</div><div class="line">$ ant test</div></pre></td></tr></table></figure></p>
-<p>成功后会提示安装成功<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">BUILD SUCCESSFUL</div><div class="line">Total time: 3 minutes 53 seconds</div></pre></td></tr></table></figure></p>
-<p>新建一个JAVA类，测试jpf<br><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line"># Racer.java</div><div class="line">public class Racer implements Runnable &#123;</div><div class="line">    int d = 42;</div><div class="line">    public void run () &#123;</div><div class="line">        doSomething(1000);                   // (1)</div><div class="line">        d = 0;                               // (2)</div><div class="line">    &#125;</div><div class="line">    public static void main (String[] args)&#123;</div><div class="line">        Racer racer = new Racer();</div><div class="line">        Thread t = new Thread(racer);</div><div class="line">        t.start();</div><div class="line"></div><div class="line">        doSomething(1000);                   // (3)</div><div class="line">        int c = 420 / racer.d;               // (4)</div><div class="line">        System.out.println(c);</div><div class="line">    &#125;</div><div class="line">    static void doSomething (int n) &#123;</div><div class="line">        // not very interesting..</div><div class="line">        try &#123; Thread.sleep(n); &#125; catch (InterruptedException ix) &#123;&#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>在同一目录下建立Racer.jpf，写入jpf的配置信息<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"># Racer.jpf</div><div class="line">target = Racer</div><div class="line"></div><div class="line">listener=gov.nasa.jpf.listener.PreciseRaceDetector</div><div class="line"></div><div class="line">report.console.property_violation=error,trace</div><div class="line">```工作站</div><div class="line"></div><div class="line">上述配置能够输出jpf的工作栈</div><div class="line">此程序正常的输出应为10</div><div class="line">然而由于我们不知道线程的调度关系，因而忽略了可能导致的除0的问题</div></pre></td></tr></table></figure></p>
-<p>$ ~/jpf-core/bin/jpf Racer.jpf</p>
-<h1 id="output"><a href="#output" class="headerlink" title="output"></a>output</h1><p>JavaPathfinder core system v8.0 (rev 32) - (C) 2005-2014 United States Government. All rights reserved.</p>
-<p>====================================================== system under test<br>Racer.main()</p>
-<p>====================================================== search started: 17-4-10 下午4:21<br>10<br>10</p>
-<p>====================================================== error 1<br>gov.nasa.jpf.listener.PreciseRaceDetector<br>race for field Racer@15b.d<br>  main at Racer.main(Racer.java:35)<br>        “int c = 420 / racer.d;               // (4)”  READ:  getfield Racer.d<br>  Thread-1 at Racer.run(Racer.java:26)<br>        “d = 0;                               // (2)”  WRITE: putfield Racer.d</p>
-<p>====================================================== trace #1<br>—————————————————— transition #0 thread: 0<br>gov.nasa.jpf.vm.choice.ThreadChoiceFromSet {id:”ROOT” ,1/1,isCascaded:false}<br>      [3157 insn w/o sources]<br>  Racer.java:30                  : Racer racer = new Racer();<br>  Racer.java:19                  : public class Racer implements Runnable {<br>      [1 insn w/o sources]<br>  Racer.java:21                  : int d = 42;<br>  Racer.java:30                  : Racer racer = new Racer();<br>  Racer.java:31                  : Thread t = new Thread(racer);<br>      [145 insn w/o sources]<br>  Racer.java:31                  : Thread t = new Thread(racer);<br>  Racer.java:32                  : t.start();<br>      [1 insn w/o sources]<br>—————————————————— transition #1 thread: 0<br>gov.nasa.jpf.vm.choice.ThreadChoiceFromSet {id:”START” ,1/2,isCascaded:false}<br>      [2 insn w/o sources]<br>  Racer.java:34                  : doSomething(1000);                   // (3)<br>  Racer.java:41                  : try { Thread.sleep(n); } catch (InterruptedException ix) {}<br>      [4 insn w/o sources]<br>—————————————————— transition #2 thread: 1<br>gov.nasa.jpf.vm.choice.ThreadChoiceFromSet {id:”SLEEP” ,2/2,isCascaded:false}<br>      [1 insn w/o sources]<br>  Racer.java:1                   : /*<br>  Racer.java:25                  : doSomething(1001);                   // (1)<br>  Racer.java:41                  : try { Thread.sleep(n); } catch (InterruptedException ix) {}<br>      [4 insn w/o sources]<br>—————————————————— transition #3 thread: 1<br>gov.nasa.jpf.vm.choice.ThreadChoiceFromSet {id:”SLEEP” ,2/2,isCascaded:false}<br>      [3 insn w/o sources]<br>  Racer.java:41                  : try { Thread.sleep(n); } catch (InterruptedException ix) {}<br>  Racer.java:42                  : }<br>  Racer.java:26                  : d = 0;                               // (2)<br>—————————————————— transition #4 thread: 0<br>gov.nasa.jpf.vm.choice.ThreadChoiceFromSet {id:”SHARED_OBJECT” ,1/2,isCascaded:false}<br>      [3 insn w/o sources]<br>  Racer.java:41                  : try { Thread.sleep(n); } catch (InterruptedException ix) {}<br>  Racer.java:42                  : }<br>  Racer.java:35                  : int c = 420 / racer.d;               // (4)<br>—————————————————— transition #5 thread: 0<br>gov.nasa.jpf.vm.choice.ThreadChoiceFromSet {id:”SHARED_OBJECT” ,1/2,isCascaded:false}<br>  Racer.java:35                  : int c = 420 / racer.d;               // (4)</p>
-<p>====================================================== results<br>error #1: gov.nasa.jpf.listener.PreciseRaceDetector “race for field Racer@15b.d   main at Racer.main(Ra…”</p>
-<p>====================================================== statistics<br>elapsed time:       00:00:00<br>states:             new=9,visited=1,backtracked=4,end=2<br>search:             maxDepth=6,constraints=0<br>choice generators:  thread=8 (signal=0,lock=1,sharedRef=2,threadApi=3,reschedule=2), data=0<br>heap:               new=362,released=33,maxLive=357,gcCycles=7<br>instructions:       3424<br>max memory:         119MB<br>loaded code:        classes=62,methods=1477</p>
-<p>====================================================== search finished: 17-4-10 下午4:21</p>
-<p>```</p>
-<p>可以看到jpf帮我们运行了所有可能的路径，同时找到了可能发生的错误<br>通过线程的角度来考虑，可以用官网给出的这个调度图来说明：<br><img src="/images/interleavings.png" alt="pictures"><br>对于一个多线程的java程序，jpf会组合出所有的可能的线程调度，并顺序遍历每一种执行顺序，知道找到可能存在的缺陷</p>
+        <h2 id="前情摘要"><a href="#前情摘要" class="headerlink" title="前情摘要"></a>前情摘要</h2><p>自己作死干了一件特别蠢的事情（具体略）</p>
+<p>然后开始研究如何进行增量备份</p>
+<h2 id="增量备份"><a href="#增量备份" class="headerlink" title="增量备份"></a>增量备份</h2><h3 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h3><p>mysql 有个 binlog 的功能，会记录所有的用户的操作，可以依靠这个，配合全备份，将数据库回滚到某一个特殊的时刻。</p>
+<p>简单来说，比如我们每周做一次全备份，每天做一次增量备份，当数据库发生问题的时候，我们就可以先将数据库回滚到上一周我们的全备份的时间，然后再通过每天的增量备份（其实就是模拟所有的数据库操作，全部执行一遍），将数据恢复到我们想要的时间点。</p>
+<h3 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h3><p>mysql 的 binlog 功能需要在配置文件中打开，在 my.cnf 或者 mysqld.cnf 中添加以下几行：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line">server-id               = 1</div><div class="line"><span class="meta"></span></div><div class="line"># binlog存放路径</div><div class="line">log_bin                 = /var/log/mysql/mysql-bin.log</div><div class="line"><span class="meta"></span></div><div class="line"># binlog记录的格式，有row、statement、mixed三种选项</div><div class="line">binlog-format           = row</div><div class="line"><span class="meta"></span></div><div class="line"># binlog写缓冲区设置大小，由于是内存，写速度非常快，可以有效提高binlog的写效率，如果数据库中经常出现大事务，可以酌情提高该参数。</div><div class="line">binlog_cache_size       = 32m</div><div class="line"><span class="meta"></span></div><div class="line"># 最大缓存区大小</div><div class="line">max_binlog_cache_size   = 512m</div><div class="line"><span class="meta"></span></div><div class="line"># binlog文件最大的大小</div><div class="line">max_binlog_size         = 1000m</div><div class="line"><span class="meta"></span></div><div class="line"># 需要备份的数据库名，如果备份多个数据库，重复设置这个选项即可</div><div class="line">binlog-do-db=game     </div><div class="line">binlog-do-db=platform</div><div class="line"><span class="meta"></span></div><div class="line"># 不需要备份的数据库，如果备份多个数据库，重复设置这个选项即可</div><div class="line">binlog-ignore-db=</div></pre></td></tr></table></figure>
+<p>重启mysql服务，在对应的文件夹下(这里是<code>/var/log/mysql</code>)会看到 <code>mysql-bin.000001</code> 和 <code>mysql-bin.index</code> 两个文件，第一个就是我们需要的 binlog 文件，里面会记录我们的操作，第二个负责记录 binlog 的名称，可以用来判断当前最新的 binlog 是哪一个</p>
+<h3 id="一些相关的操作"><a href="#一些相关的操作" class="headerlink" title="一些相关的操作"></a>一些相关的操作</h3><p>开启了binlog之后，就可以进行一些尝试了，可以先去数据库做一些修改操作。（因为binlog的格式选择的是row，所以select语句是不会被记录的）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">mysql&gt; UPDATE ....</div><div class="line">mysql&gt; DELETE ....</div><div class="line">// 查看当前log的备份情况</div><div class="line">mysql&gt; show master logs;</div><div class="line">// 查看最新的备份文件的情况</div><div class="line">mysql&gt; show master status;</div><div class="line">// 将当前的log写入磁盘，并创建新的binlog文件</div><div class="line">mysql&gt; flush log;</div></pre></td></tr></table></figure>
+<p>binlog 文件可以使用 mysqlbinlog 命令查看</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">// 查看binlogfile即可看到这份log中记录的数据库操作</div><div class="line">mysqlbinlog mysql-bin.000011 &gt; /tmp/binlogfile</div><div class="line">// 获取指定位置范围的记录</div><div class="line">mysqlbinlog --start-position=1285 --stop-position=1681 mysql-bin.000011 &gt; /tmp/binlogfile</div><div class="line">// 获取指定时间范围内的记录，常用</div><div class="line">mysqlbinlog --start-date=&quot;2012-10-15 16:30:00&quot; --stop-date=&quot;2012-10-15 17:00:00&quot;</div></pre></td></tr></table></figure>
+<h2 id="全备份"><a href="#全备份" class="headerlink" title="全备份"></a>全备份</h2><p>全备份没什么好说的，mysqldump一条命令就可以了<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">mysqldump -uroot -ppwd --quick --all-databases --flush-logs --delete-master-logs --single-transaction &gt; $dumpFile</div></pre></td></tr></table></figure></p>
+<p>注意里面的一些参数，尤其是flush-logs和single-transaction两个参数，建议开启</p>
+<h2 id="自动化脚本"><a href="#自动化脚本" class="headerlink" title="自动化脚本"></a>自动化脚本</h2><p>全备份<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#</span>!/bin/bash</div><div class="line"><span class="meta"></span></div><div class="line"># 全备份路径</div><div class="line">backDir=/var/log/mysql/backup/weekly</div><div class="line"><span class="meta"></span></div><div class="line"># 日志文件</div><div class="line">logFile=/var/log/mysql/backup/bak-all.log</div><div class="line"><span class="meta"></span></div><div class="line"># 获取当前时间，用于命名</div><div class="line">nowDate=`date +%Y%m%d`</div><div class="line">beginTime=`date +"%Y%m%d %H:%M:%S"`</div><div class="line"><span class="meta"></span></div><div class="line"># 进入备份文件夹</div><div class="line">cd $backDir</div><div class="line">dumpFile=$nowDate.sql</div><div class="line">dumpFileTgz=$nowDate.sql.tgz</div><div class="line"><span class="meta"></span></div><div class="line"># mysqldump 导出所有数据库</div><div class="line">echo dumping...</div><div class="line">mysqldump -uroot -ppwd --quick --all-databases --flush-logs --delete-master-logs --single-transaction &gt; $dumpFile</div><div class="line">echo compressing...</div><div class="line"><span class="meta"></span></div><div class="line"># 压缩文件</div><div class="line">tar czvf $dumpFileTgz $dumpFile</div><div class="line">rm $dumpFile</div><div class="line">endTime=`date +"%Y%m%d %H:%M:%S"`</div><div class="line">echo begin:$beginTime end:$endTime $dumpFileTgz succ &gt;&gt; $logFile</div><div class="line"><span class="meta"></span></div><div class="line"># 清楚之前的增量备份</div><div class="line">cd $backDir/../daily</div><div class="line">rm -f *</div></pre></td></tr></table></figure></p>
+<p>增量备份脚本</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#</span>!/bin/bash</div><div class="line"><span class="meta"></span></div><div class="line"># 增量备份存放路径</div><div class="line">backDir=/var/log/mysql/backup/daily</div><div class="line"><span class="meta">#</span> binlog存放路径</div><div class="line">binDir=/var/log/mysql/</div><div class="line"><span class="meta">#</span> 日志文件</div><div class="line">logFile=/var/log/mysql/backup/bak-daily.log</div><div class="line"><span class="meta">#</span> binlog.index 文件路径</div><div class="line">binIndex=/var/log/mysql/mysql-bin.index</div><div class="line"><span class="meta">#</span> 将当前所有的日志写到磁盘，会新建一个00000*的binlog文件</div><div class="line">mysqladmin -uroot -phhxxttxs flush-logs</div><div class="line"><span class="meta">#</span> 获取当前有几条binlog文件（需要保证是从1开始的）</div><div class="line">count=`wc -l $binIndex | awk '&#123;print $1&#125;'`</div><div class="line"></div><div class="line">nextNum=0</div><div class="line"></div><div class="line">for file in  `cat $binIndex`</div><div class="line">do</div><div class="line">    # 获取文件名，去除文件夹名</div><div class="line">    base=`basename $file`</div><div class="line">    # 遍历每个binlog文件，如果是最新的不做操作，否则备份</div><div class="line">    nextNum=`expr $nextNum + 1`</div><div class="line">    if [ $nextNum -eq $count ]</div><div class="line">    then</div><div class="line">    	echo $base skip!  &gt;&gt; $logFile</div><div class="line">    else</div><div class="line">        dest=$backDir/$base</div><div class="line">        # file already exist</div><div class="line">        if(test -e $dest)</div><div class="line">        then</div><div class="line">            echo  $base exist! &gt;&gt; $logFile</div><div class="line">       	else</div><div class="line">            cp $binDir/$base $backDir</div><div class="line">            echo $base copyed &gt;&gt; $logFile</div><div class="line">        fi</div><div class="line">    fi</div><div class="line">done</div><div class="line"></div><div class="line">echo `date +"%Y%m%d %H:%M:%S"` Backup succ! &gt;&gt; $logFile</div></pre></td></tr></table></figure>
+<p>做一下定时就好了</p>
+<h2 id="具体恢复操作"><a href="#具体恢复操作" class="headerlink" title="具体恢复操作"></a>具体恢复操作</h2><p>当发现数据丢失时</p>
+<ol>
+<li>确认丢失数据的开始时间</li>
+<li>找到距离这个时间最近的全量备份</li>
+<li>mysql -uuser -p &lt; all.sql</li>
+<li>依次运行从全备份到丢失时间之间的增量备份</li>
+<li>mysqlbinlog mysql-bin.000123 –start-date=”” –end-date=”” &gt; /tmp/tmpfile</li>
+<li>mysql -uuser -p &lt; /tmp/tmpfile</li>
+</ol>
+<p>通过以上，就可以将数据还原到需要的还原点。<br>记得定期查看备份的log文件，以防出现问题，全备份需要定时清理</p>
 
       
     </div>
@@ -466,7 +443,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/软件测试作业/" rel="tag"># 软件测试作业</a>
+            <a href="/tags/mysql/" rel="tag"># mysql</a>
           
         </div>
       
@@ -479,8 +456,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/03/26/SoftwareTest-LIB-2/" rel="next" title="【软件测试】Selenium Web 测试">
-                <i class="fa fa-chevron-left"></i> 【软件测试】Selenium Web 测试
+              <a href="/2017/07/11/editor-xss/" rel="next" title="编辑器带来的XSS漏洞问题解决方案">
+                <i class="fa fa-chevron-left"></i> 编辑器带来的XSS漏洞问题解决方案
               </a>
             
           </div>
@@ -488,10 +465,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/04/14/SoftwareManagement-HW-2/" rel="prev" title="Jenkins 安装与使用">
-                Jenkins 安装与使用 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -517,8 +490,8 @@
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2017/04/08/SoftwareTest-HW-4/"
-           data-title="【软件测试】JAVA PATH FINDER [JPF]" data-url="http://yoursite.com/2017/04/08/SoftwareTest-HW-4/">
+      <div class="ds-thread" data-thread-key="2017/10/20/mysql-backup/"
+           data-title="Mysql 增量备份，全部备份实现方法以及自动化脚本" data-url="http://yoursite.com/2017/10/20/mysql-backup/">
       </div>
     
   </div>
@@ -653,7 +626,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#JAVA-PATH-FINDER-JPF"><span class="nav-number">1.</span> <span class="nav-text">JAVA PATH FINDER [JPF]</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#output"><span class="nav-number">2.</span> <span class="nav-text">output</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#前情摘要"><span class="nav-number">1.</span> <span class="nav-text">前情摘要</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#增量备份"><span class="nav-number">2.</span> <span class="nav-text">增量备份</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#原理"><span class="nav-number">2.1.</span> <span class="nav-text">原理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#配置"><span class="nav-number">2.2.</span> <span class="nav-text">配置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#一些相关的操作"><span class="nav-number">2.3.</span> <span class="nav-text">一些相关的操作</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#全备份"><span class="nav-number">3.</span> <span class="nav-text">全备份</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#自动化脚本"><span class="nav-number">4.</span> <span class="nav-text">自动化脚本</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#具体恢复操作"><span class="nav-number">5.</span> <span class="nav-text">具体恢复操作</span></a></li></ol></div>
             
 
           </div>
