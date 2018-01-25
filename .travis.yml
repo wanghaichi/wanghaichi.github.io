@@ -23,12 +23,13 @@ after_script:
   - git add .
   - git commit -m "Travis CI Auto Builder"
   - git push --force --quiet "https://${GH_TOKEN}@${GH_REF}" master:master
+  - ls ~/.ssh
   - rsync -az -vv --delete -e 'ssh -i ~/.ssh/travis' public/ root@www.liebes.top:/var/www/blog
 addons:
   ssh_known_hosts: www.liebes.top:22
 branches:
   only:
-  - hexo
+    - hexo
 env:
   global:
-  - GH_REF: github.com/wanghaichi/wanghaichi.github.io.git
+    - GH_REF: github.com/wanghaichi/wanghaichi.github.io.git
