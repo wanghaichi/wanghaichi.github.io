@@ -15,6 +15,7 @@ install:
 script:
   - hexo clean
   - hexo g
+  - rsync -az -vv --delete -e 'ssh' public/ root@www.liebes.top:/var/www/blog
 after_script:
   - cd ./public
   - git init
@@ -23,9 +24,6 @@ after_script:
   - git add .
   - git commit -m "Travis CI Auto Builder"
   - git push --force --quiet "https://${GH_TOKEN}@${GH_REF}" master:master
-  - ls -al ~/.ssh
-  - whoami
-  - rsync -az -vv --delete -e 'ssh' public/ root@www.liebes.top:/var/www/blog
 addons:
   ssh_known_hosts: www.liebes.top:22
 branches:
