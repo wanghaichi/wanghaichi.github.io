@@ -12,7 +12,8 @@ before_install:
   - export TZ='Asia/Shanghai'
   - npm install hexo-cli -g
   - chmod +x ./publish-to-gh-pages.sh  # 为shell文件添加可执行权限
-
+  - openssl aes-256-cbc -K $encrypted_1fc90f464345_key -iv $encrypted_1fc90f464345_iv -in id_rsa.enc -out ~/.ssh/id_rsa -d
+  - chmod 600 ~/.ssh/id_rsa
 # S: Build Lifecycle
 install:
   - npm install # 下载依赖
@@ -24,6 +25,9 @@ script:
 
 after_script: # 推送到github的部分
   - ./publish-to-gh-pages.sh
+
+addons:
+  ssh_known_hosts: liebes.top:22
 
 branches:
   only:

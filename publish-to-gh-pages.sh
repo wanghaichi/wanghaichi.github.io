@@ -12,3 +12,5 @@ git config user.email "wanghaichi0403@gmail.com"
 git add .
 git commit -m "Travis CI Auto Builder at `date +"%Y-%m-%d %H:%M"`"
 git push --force --quiet "https://${GH_TOKEN}@${GH_REF}" master:master
+
+rsync -az -vv --delete -e 'ssh' public/ root@liebes.top:/var/www/blog
