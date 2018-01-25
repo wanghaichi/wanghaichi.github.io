@@ -24,6 +24,8 @@
 
 
 
+    <link rel="dns-prefetch" href="https://changyan.sohu.com"/>
+
 
 
 
@@ -223,8 +225,8 @@
     <link rel="apple-touch-icon" href="/img/favicon.png">
 
     <!-- Site Verification -->
-    
-    
+    <meta name="google-site-verification" content="3y0DPspok4T6uDMqNvKTJXM12vfNAPuI7fwhn4u9hvo" />
+    <meta name="baidu-site-verification" content="Ou5GByZRoU" />
 
     <!-- RSS -->
     
@@ -314,7 +316,15 @@
     <div class="mdl-color-text--grey-600 mdl-card__supporting-text post_entry-content">
         
             接上一篇编辑器的使用，自己尝试着写了一段js代码，本以为laravel的
+1&#123;&#123; $item &#125;&#125;
+渲染可以完美的避免 XSS 的攻击（确实可以避免），但是由于 Editor 生成的时候，重新渲染了一遍，导致了可能出现的XSS漏洞。
 
+
+可以看到，Editor已经帮助我们做了html的编码，于是我觉得不需要进行二次编码，就直接存到了数据库里，并且直接在前端进行了渲染。
+Controller
+123456$res = Notification::updateById($notice_id, [                'content'   =&gt; $content,                'title'     =&gt; $title,                'fileName'  =&gt; $file_name,                'filePath'  =&gt; $file_path            ]);
+view
+123&lt;textarea id="editor" name="editor" rows="10" cols="80"&gt;    &#123;&#123; $notice['content'] &#125;&#125;&lt;/textarea&g...
         
         &nbsp;&nbsp;&nbsp;
         <span>
@@ -326,7 +336,7 @@
         <div id="post_entry-left-info" class="mdl-card__supporting-text meta mdl-color-text--grey-600 ">
             <!-- Author Avatar -->
             <div id="author-avatar">
-                <img src="/img/avatar.png" width="44px" height="44px" alt="Liebes's avatar">
+                <img src="/img/avatar.jpg" width="44px" height="44px" alt="Liebes's avatar">
             </div>
             <div>
                 <strong>Liebes</strong>
@@ -343,6 +353,12 @@
 
             
 
+            
+                <!-- Comment Number -->
+                &nbsp;|&nbsp;
+                <span class="post_entry-comment" >
+                        <span id = "sourceId::2017/07/11/editor-xss/" class = "cy_cmt_count" ></span>条评论
+                </span>
             
 
             <!-- Post Views -->
@@ -378,6 +394,22 @@
             假期写代码，整理一些关于Editor，文件上传相关的东西。
 
 editor
+文件上传（Laravel）
+
+Trumbowyg Editor
+
+Trumbowyg 是一款轻量级的编辑器，可以高度DIY，界面也很简洁。
+官方网站：Trumbowyg
+首先下载官方包，在官网可以直接下载。
+目录结构如下：
+
+其中只需要留下 dist 文件夹即可，其余的是文档，例子，直接删除即可。
+使用方法很简单，在 view 界面引用相关的 css 文件与 js 文件，这里默认已经引用了Jquery
+123&lt;link rel="stylesheet" href="/Trumbowyg/dist/ui/trumbowyg.min.css"&gt;&lt;script src="/Trumbowyg/dist/trumbowyg.js"&gt;&lt;/script&gt;
+同时需要创建一个 textarea 作为 editor 的容器
+1&lt;textarea id=&quot;editor&quot; name=&quot;editor&quot; rows=&quot;10&quot; cols=&quot;80&quot;&gt;&lt;/textarea&gt;
+接下来就可以使用Trumbowyg 创建一个编辑器出来
+12345678910
         
         &nbsp;&nbsp;&nbsp;
         <span>
@@ -389,7 +421,7 @@ editor
         <div id="post_entry-left-info" class="mdl-card__supporting-text meta mdl-color-text--grey-600 ">
             <!-- Author Avatar -->
             <div id="author-avatar">
-                <img src="/img/avatar.png" width="44px" height="44px" alt="Liebes's avatar">
+                <img src="/img/avatar.jpg" width="44px" height="44px" alt="Liebes's avatar">
             </div>
             <div>
                 <strong>Liebes</strong>
@@ -406,6 +438,12 @@ editor
 
             
 
+            
+                <!-- Comment Number -->
+                &nbsp;|&nbsp;
+                <span class="post_entry-comment" >
+                        <span id = "sourceId::2017/07/10/trumbowyg-file-upload/" class = "cy_cmt_count" ></span>条评论
+                </span>
             
 
             <!-- Post Views -->
@@ -465,12 +503,12 @@ editor
 
     <!-- Sidebar Avatar -->
     <div class="sidebar-image">
-        <img src="/img/avatar.png" alt="Liebes's avatar">
+        <img src="/img/avatar.jpg" alt="Liebes's avatar">
     </div>
 
     <!-- Sidebar Email -->
     <a data-toggle="dropdown" class="sidebar-brand" href="#settings-dropdown">
-        youremail@email.com
+        wanghaichi0403@gmail.com
         <b class="caret"></b>
     </a>
 </div>
@@ -527,11 +565,74 @@ editor
 
     <!-- Categories  -->
     
+        <li class="dropdown">
+            <a href="#" class="ripple-effect dropdown-toggle" data-toggle="dropdown">
+                
+                    <i class="material-icons sidebar-material-icons">chrome_reader_mode</i>
+                
+                分类
+                <b class="caret"></b>
+            </a>
+            <ul class="dropdown-menu">
+                <li>
+                <a class="sidebar_archives-link" href="/categories/TwT/">TwT<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/categories/上机实验/">上机实验<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/categories/个人日志/">个人日志<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/categories/个人日记/">个人日记<span class="sidebar_archives-count">8</span></a></li><li><a class="sidebar_archives-link" href="/categories/作业/">作业<span class="sidebar_archives-count">6</span></a></li><li><a class="sidebar_archives-link" href="/categories/安全/">安全<span class="sidebar_archives-count">2</span></a>
+            </ul>
+        </li>
+        
+    
 
     <!-- Pages  -->
     
+        <li>
+            <a href="tags" title="标签">
+                
+                    <i class="material-icons sidebar-material-icons">note</i>
+                
+                标签
+            </a>
+        </li>
+        
+    
+        <li>
+            <a href="timeline" title="时间轴">
+                
+                    <i class="material-icons sidebar-material-icons">timeline</i>
+                
+                时间轴
+            </a>
+        </li>
+        
+    
+        <li>
+            <a href="gallery" title="相册">
+                
+                    <i class="material-icons sidebar-material-icons">image</i>
+                
+                相册
+            </a>
+        </li>
+        
+    
+        <li>
+            <a href="links" title="友情链接">
+                
+                    <i class="material-icons sidebar-material-icons">share</i>
+                
+                友情链接
+            </a>
+        </li>
+        
+    
 
     <!-- Article Number  -->
+    
+        <li>
+            <a href="/archives">
+                文章总数
+                <span class="sidebar-badge">22</span>
+            </a>
+        </li>
+        
     
 </ul>
 
@@ -554,16 +655,18 @@ It will not impact the appearance and can give developers a lot of support :)
 
 <!-- Theme Material -->
 
-    <a href="https://github.com/viosey/hexo-theme-material"  class="sidebar-footer-text-a" target="_blank">
-        <div class="sidebar-text mdl-button mdl-js-button mdl-js-ripple-effect sidebar-footer-text-div" data-upgraded=",MaterialButton,MaterialRipple">
-            主题 - Material
-            <span class="sidebar-badge badge-circle">i</span>
-        </div>
-    </a>
-
 
 <!-- Help & Support -->
 <!--
+
+    <a href="mailto:hiviosey@gmail.com" class="sidebar-footer-text-a">
+        <div class="sidebar-text mdl-button mdl-js-button mdl-js-ripple-effect sidebar-footer-text-div" data-upgraded=",MaterialButton,MaterialRipple">
+        sidebar.help
+        <span class="mdl-button__ripple-container">
+          <span class="mdl-ripple"></span>
+        </span>
+      </div>
+    </a>
 
 -->
 
@@ -595,16 +698,10 @@ It will not impact the appearance and can give developers a lot of support :)
         <div class="mdl-mini-footer--left-section sns-list">
     <!-- Twitter -->
     
-        <a href="https://twitter.com/twitter" target="_blank">
-            <button class="mdl-mini-footer--social-btn social-btn footer-sns-twitter">
-                <span class="visuallyhidden">Twitter</span>
-            </button><!--
-     --></a>
-    
 
     <!-- Facebook -->
     
-        <a href="https://www.facebook.com/facebook" target="_blank">
+        <a href="https://www.facebook.com/profile.php?id=100015246426771" target="_blank">
             <button class="mdl-mini-footer--social-btn social-btn footer-sns-facebook">
                 <span class="visuallyhidden">Facebook</span>
             </button><!--
@@ -612,12 +709,6 @@ It will not impact the appearance and can give developers a lot of support :)
     
 
     <!-- Google + -->
-    
-        <a href="https://www.google.com/" target="_blank">
-            <button class="mdl-mini-footer--social-btn social-btn footer-sns-gplus">
-                <span class="visuallyhidden">Google Plus</span>
-            </button><!--
-     --></a>
     
 
     <!-- Weibo -->
@@ -630,6 +721,12 @@ It will not impact the appearance and can give developers a lot of support :)
     
 
     <!-- Github -->
+    
+        <a href="https://github.com/wanghaichi" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn footer-sns-github">
+                <span class="visuallyhidden">Github</span>
+            </button><!--
+     --></a>
     
 
     <!-- LinkedIn -->
@@ -651,7 +748,12 @@ It will not impact the appearance and can give developers a lot of support :)
 
         <!--Copyright-->
         <div id="copyright">
-            Copyright&nbsp;©<script type="text/javascript">var fd = new Date();document.write("&nbsp;" + fd.getFullYear() + "&nbsp;");</script>Liebes 的个人日志
+            Copyright&nbsp;©&nbsp;2015&nbsp;-<script type="text/javascript">var fd = new Date();document.write("&nbsp;" + fd.getFullYear() + "&nbsp;");</script>Liebes 的个人日志
+            
+                <br>
+                
+                    <a href="http://www.miitbeian.gov.cn" rel="nofollow">津ICP备17008789号-1</a>
+                
             
         </div>
 
@@ -716,6 +818,11 @@ It will not impact the appearance and can give developers a lot of support :)
 
 
 
+
+   <!-- 畅言公共 js 代码 start -->
+<script id="cy_cmt_num" src="https://changyan.sohu.com/upload/plugins/plugins.list.count.js?clientId=cytqWOkv6">
+</script>
+<!-- 畅言公共 js 代码 end -->
 
 
 

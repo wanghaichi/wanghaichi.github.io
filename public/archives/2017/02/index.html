@@ -24,6 +24,8 @@
 
 
 
+    <link rel="dns-prefetch" href="https://changyan.sohu.com"/>
+
 
 
 
@@ -223,8 +225,8 @@
     <link rel="apple-touch-icon" href="/img/favicon.png">
 
     <!-- Site Verification -->
-    
-    
+    <meta name="google-site-verification" content="3y0DPspok4T6uDMqNvKTJXM12vfNAPuI7fwhn4u9hvo" />
+    <meta name="baidu-site-verification" content="Ou5GByZRoU" />
 
     <!-- RSS -->
     
@@ -315,7 +317,14 @@
         
             #【软件测试】作业2 设计测试用例软件测试课程作业，按照要求设计相关的测试用例
 
+问题描述
+问题解答
 
+
+问题描述
+
+Below are two faulty programs. Each includes a test case that results in failure. Answer the following questions about each program.123456789101112131415// program 1public int findLast (int[] x, int y) &#123;//Effects: If x==null throw NullPointerException// else return the index of the last element// in x that equals y.// If no such element exists, return -1  for (int i=x.length-1; i &gt; 0; i--)&#123;    if (x[i] == y)&#123;      return i;    &#125;  &#125;  return -1;&#125;// test: x=[2, 3, 5]; y = 2// Expected = 0
+123456789101112131...
         
         &nbsp;&nbsp;&nbsp;
         <span>
@@ -327,7 +336,7 @@
         <div id="post_entry-left-info" class="mdl-card__supporting-text meta mdl-color-text--grey-600 ">
             <!-- Author Avatar -->
             <div id="author-avatar">
-                <img src="/img/avatar.png" width="44px" height="44px" alt="Liebes's avatar">
+                <img src="/img/avatar.jpg" width="44px" height="44px" alt="Liebes's avatar">
             </div>
             <div>
                 <strong>Liebes</strong>
@@ -344,6 +353,12 @@
 
             
 
+            
+                <!-- Comment Number -->
+                &nbsp;|&nbsp;
+                <span class="post_entry-comment" >
+                        <span id = "sourceId::2017/02/26/SoftwareTest-HW-2/" class = "cy_cmt_count" ></span>条评论
+                </span>
             
 
             <!-- Post Views -->
@@ -376,7 +391,23 @@
     <!-- Post Excerpt -->
     <div class="mdl-color-text--grey-600 mdl-card__supporting-text post_entry-content">
         
-            
+            【软件测试】记录几个曾经遇到的坑
+php中过滤函数的编码问题
+mysql不经过滤直接拼接的问题
+
+
+php中过滤函数的编码问题问题发生的背景是整理服务器，将一部分php5的代码迁移到php7的服务器上。
+
+If omitted, the default value of the encoding varies depending on the PHP version in use. In 5.6 and later, the default_charset configuration option is used as the default value. PHP 5.4 and 5.5 will use UTF-8 as the default. Earlier versions of PHP use ISO-8859-1.
+
+这是官方的文档，能看到在php5.6之前与之后1string htmlspecialchars ( string $string [, int $flags = ENT_COMPAT | ENT_HTML401 [, string $encoding = ini_get(&quot;default_charset&quot;) [, bool $double_encode = true ]]] )
+这个函数的默认编码变了，使得当在php5.6之后的版本，该函数无法对编码格式为gbk的进行过滤。需要显示定义 string $encoding = ini_get(&quot;default_charset&quot;)这个参数。
+
+mysql不经过滤直接拼接的问题这个则是蠢得不行不行的bug，懂点的人都知道mysql如果直接拼接字符串会导致各种注入问题。比如：123$id = $_GET[&apos;id&apos;];//获取id$where = &quot; where id =&apos;&quot; . $id . &quot;&apos;&quot;;$result = getByWhere(&apos;specialnews&apos;, $where);
+只要人家输入个 &quot;AND 1 = 1&quot; 之类的，就血崩。然后使用mysqli函数族中的 real_escape_string() 过滤一下就好了
+
+最后，挽尊。
+
         
         &nbsp;&nbsp;&nbsp;
         <span>
@@ -388,7 +419,7 @@
         <div id="post_entry-left-info" class="mdl-card__supporting-text meta mdl-color-text--grey-600 ">
             <!-- Author Avatar -->
             <div id="author-avatar">
-                <img src="/img/avatar.png" width="44px" height="44px" alt="Liebes's avatar">
+                <img src="/img/avatar.jpg" width="44px" height="44px" alt="Liebes's avatar">
             </div>
             <div>
                 <strong>Liebes</strong>
@@ -405,6 +436,12 @@
 
             
 
+            
+                <!-- Comment Number -->
+                &nbsp;|&nbsp;
+                <span class="post_entry-comment" >
+                        <span id = "sourceId::2017/02/26/SoftwareTest-HW-1/" class = "cy_cmt_count" ></span>条评论
+                </span>
             
 
             <!-- Post Views -->
@@ -437,7 +474,59 @@
     <!-- Post Excerpt -->
     <div class="mdl-color-text--grey-600 mdl-card__supporting-text post_entry-content">
         
-            
+            [Software Management] Homework 1
+Homework Description
+Project Description
+
+
+Homework Description
+
+A project is collection of coordinated work activities conducted within a specific time frame that utilizes resources to achieve specified objectives.
+
+Briefly describe a project from your personal life that you have recently completed. State the nature of the project, the initial objectives, and planned the starting and ending dates and the actual starting and ending dates of the project. List any resources used (money, tools, materials, labor).
+
+List and compare the outcome of your project to the initial objectives.
+
+
+
+
+Project Description
+
+Initial objectives
+We wanted to add some new funcitons on TJU online judge such that the system can automaticly find out the possible bugs of the code users submited.
+
+
+Nature of the project
+It’s an online error correction system
+
+
+Planned dates
+started time 2016-03-20
+ending time 2017-04-01
+
+
+Actual dates
+started time 2016-04-01
+ending time 2017-01-23
+
+
+Resources
+money: RMB 1250
+tools: marven, git, server
+
+
+Labor
+Five programmers
+
+
+Initial objectives VS Outcome
+For some special codes or strange bugs, it’s difficult for the system to find them out.
+Sometimes the system gives the wrong error loction.
+It may drops into a never ending loops for some strange codes.
+It still acts unfriendly in linux platform
+
+
+
         
         &nbsp;&nbsp;&nbsp;
         <span>
@@ -449,7 +538,7 @@
         <div id="post_entry-left-info" class="mdl-card__supporting-text meta mdl-color-text--grey-600 ">
             <!-- Author Avatar -->
             <div id="author-avatar">
-                <img src="/img/avatar.png" width="44px" height="44px" alt="Liebes's avatar">
+                <img src="/img/avatar.jpg" width="44px" height="44px" alt="Liebes's avatar">
             </div>
             <div>
                 <strong>Liebes</strong>
@@ -466,6 +555,12 @@
 
             
 
+            
+                <!-- Comment Number -->
+                &nbsp;|&nbsp;
+                <span class="post_entry-comment" >
+                        <span id = "sourceId::2017/02/26/SoftwareManagement-HW-1/" class = "cy_cmt_count" ></span>条评论
+                </span>
             
 
             <!-- Post Views -->
@@ -525,12 +620,12 @@
 
     <!-- Sidebar Avatar -->
     <div class="sidebar-image">
-        <img src="/img/avatar.png" alt="Liebes's avatar">
+        <img src="/img/avatar.jpg" alt="Liebes's avatar">
     </div>
 
     <!-- Sidebar Email -->
     <a data-toggle="dropdown" class="sidebar-brand" href="#settings-dropdown">
-        youremail@email.com
+        wanghaichi0403@gmail.com
         <b class="caret"></b>
     </a>
 </div>
@@ -587,11 +682,74 @@
 
     <!-- Categories  -->
     
+        <li class="dropdown">
+            <a href="#" class="ripple-effect dropdown-toggle" data-toggle="dropdown">
+                
+                    <i class="material-icons sidebar-material-icons">chrome_reader_mode</i>
+                
+                分类
+                <b class="caret"></b>
+            </a>
+            <ul class="dropdown-menu">
+                <li>
+                <a class="sidebar_archives-link" href="/categories/TwT/">TwT<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/categories/上机实验/">上机实验<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/categories/个人日志/">个人日志<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/categories/个人日记/">个人日记<span class="sidebar_archives-count">8</span></a></li><li><a class="sidebar_archives-link" href="/categories/作业/">作业<span class="sidebar_archives-count">6</span></a></li><li><a class="sidebar_archives-link" href="/categories/安全/">安全<span class="sidebar_archives-count">2</span></a>
+            </ul>
+        </li>
+        
+    
 
     <!-- Pages  -->
     
+        <li>
+            <a href="tags" title="标签">
+                
+                    <i class="material-icons sidebar-material-icons">note</i>
+                
+                标签
+            </a>
+        </li>
+        
+    
+        <li>
+            <a href="timeline" title="时间轴">
+                
+                    <i class="material-icons sidebar-material-icons">timeline</i>
+                
+                时间轴
+            </a>
+        </li>
+        
+    
+        <li>
+            <a href="gallery" title="相册">
+                
+                    <i class="material-icons sidebar-material-icons">image</i>
+                
+                相册
+            </a>
+        </li>
+        
+    
+        <li>
+            <a href="links" title="友情链接">
+                
+                    <i class="material-icons sidebar-material-icons">share</i>
+                
+                友情链接
+            </a>
+        </li>
+        
+    
 
     <!-- Article Number  -->
+    
+        <li>
+            <a href="/archives">
+                文章总数
+                <span class="sidebar-badge">22</span>
+            </a>
+        </li>
+        
     
 </ul>
 
@@ -614,16 +772,18 @@ It will not impact the appearance and can give developers a lot of support :)
 
 <!-- Theme Material -->
 
-    <a href="https://github.com/viosey/hexo-theme-material"  class="sidebar-footer-text-a" target="_blank">
-        <div class="sidebar-text mdl-button mdl-js-button mdl-js-ripple-effect sidebar-footer-text-div" data-upgraded=",MaterialButton,MaterialRipple">
-            主题 - Material
-            <span class="sidebar-badge badge-circle">i</span>
-        </div>
-    </a>
-
 
 <!-- Help & Support -->
 <!--
+
+    <a href="mailto:hiviosey@gmail.com" class="sidebar-footer-text-a">
+        <div class="sidebar-text mdl-button mdl-js-button mdl-js-ripple-effect sidebar-footer-text-div" data-upgraded=",MaterialButton,MaterialRipple">
+        sidebar.help
+        <span class="mdl-button__ripple-container">
+          <span class="mdl-ripple"></span>
+        </span>
+      </div>
+    </a>
 
 -->
 
@@ -663,16 +823,10 @@ It will not impact the appearance and can give developers a lot of support :)
         <div class="mdl-mini-footer--left-section sns-list">
     <!-- Twitter -->
     
-        <a href="https://twitter.com/twitter" target="_blank">
-            <button class="mdl-mini-footer--social-btn social-btn footer-sns-twitter">
-                <span class="visuallyhidden">Twitter</span>
-            </button><!--
-     --></a>
-    
 
     <!-- Facebook -->
     
-        <a href="https://www.facebook.com/facebook" target="_blank">
+        <a href="https://www.facebook.com/profile.php?id=100015246426771" target="_blank">
             <button class="mdl-mini-footer--social-btn social-btn footer-sns-facebook">
                 <span class="visuallyhidden">Facebook</span>
             </button><!--
@@ -680,12 +834,6 @@ It will not impact the appearance and can give developers a lot of support :)
     
 
     <!-- Google + -->
-    
-        <a href="https://www.google.com/" target="_blank">
-            <button class="mdl-mini-footer--social-btn social-btn footer-sns-gplus">
-                <span class="visuallyhidden">Google Plus</span>
-            </button><!--
-     --></a>
     
 
     <!-- Weibo -->
@@ -698,6 +846,12 @@ It will not impact the appearance and can give developers a lot of support :)
     
 
     <!-- Github -->
+    
+        <a href="https://github.com/wanghaichi" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn footer-sns-github">
+                <span class="visuallyhidden">Github</span>
+            </button><!--
+     --></a>
     
 
     <!-- LinkedIn -->
@@ -719,7 +873,12 @@ It will not impact the appearance and can give developers a lot of support :)
 
         <!--Copyright-->
         <div id="copyright">
-            Copyright&nbsp;©<script type="text/javascript">var fd = new Date();document.write("&nbsp;" + fd.getFullYear() + "&nbsp;");</script>Liebes 的个人日志
+            Copyright&nbsp;©&nbsp;2015&nbsp;-<script type="text/javascript">var fd = new Date();document.write("&nbsp;" + fd.getFullYear() + "&nbsp;");</script>Liebes 的个人日志
+            
+                <br>
+                
+                    <a href="http://www.miitbeian.gov.cn" rel="nofollow">津ICP备17008789号-1</a>
+                
             
         </div>
 
@@ -784,6 +943,11 @@ It will not impact the appearance and can give developers a lot of support :)
 
 
 
+
+   <!-- 畅言公共 js 代码 start -->
+<script id="cy_cmt_num" src="https://changyan.sohu.com/upload/plugins/plugins.list.count.js?clientId=cytqWOkv6">
+</script>
+<!-- 畅言公共 js 代码 end -->
 
 
 

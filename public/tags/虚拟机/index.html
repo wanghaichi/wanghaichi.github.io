@@ -24,6 +24,8 @@
 
 
 
+    <link rel="dns-prefetch" href="https://changyan.sohu.com"/>
+
 
 
 
@@ -223,8 +225,8 @@
     <link rel="apple-touch-icon" href="/img/favicon.png">
 
     <!-- Site Verification -->
-    
-    
+    <meta name="google-site-verification" content="3y0DPspok4T6uDMqNvKTJXM12vfNAPuI7fwhn4u9hvo" />
+    <meta name="baidu-site-verification" content="Ou5GByZRoU" />
 
     <!-- RSS -->
     
@@ -313,7 +315,24 @@
     <!-- Post Excerpt -->
     <div class="mdl-color-text--grey-600 mdl-card__supporting-text post_entry-content">
         
-            
+            Vagrant ： Windows下开发小助手，告别双系统不知道广大程序员们是怎么处理 Windows 和 Linux 的，最开始在 Windows 下面跑 Linux 的虚拟机，卡的自己怀疑人生。后来做了个双系统，自己 250 的固态表示根本不够用，而且动不动关机重启，别问我为什么，毕竟 office 割舍不了。后来一个学长点了我一下，既然想用 Linux 搞事情，用什么图形化界面，搞个服务器不就好了。然后我就搞了个腾讯云，然而，网络不好的时候真的蛋疼。最后，在宁哥大腿的指引下，尝试了一下 Vagrant 虚拟机，快的飞起，果断放弃双系统。
+这里记录一些自己在搭建 Vagrant 环境时的步骤以及踩的坑。
+提前准备：
+
+Vagrant
+VirtureBox
+
+首先，我们要选择一个适合我们的 box 也就是操作系统。Vagrant 提供了许多 box 供我们使用：Vagrant Box 。这里，海痴选择的是 ubuntu16.04。
+那么，当我们装好了 Vagrant，VirtureBox，并且下载好所需要的box以后，就可以开始搞事情了。当然，为了接下来的发展更加顺利，强烈建议装一个 Git ，毕竟 Git bash 异常的好用。
+我们新建一个文件夹，命名为 ubuntu，并且将我们的 box 移到这个目录下。在这个目录打开命令行界面，添加box1$ vagrant box add xenial-server-cloudimg-amd64-vagrant.box
+添加后的 box 可以使用 vagrant box list 来查看更多的 vagrant 操作，可以参考这篇博客 使用 Vagrant 打造跨平台开发环境
+接下来，运行 vagrant up 来启动这个虚拟机。这是一个漫长的过程，如果你使用 Windows 命令行，可能会更慢。
+
+细心地你如果打开 VirtureBox，会发现那里已经有一个虚拟机躺着啦
+这个时候，我们的名为 ubuntu 的文件夹里面会多几个文件，其中 Vagrantfile 是 Vagrant 虚拟机的配置文件，这个先不用管，以后再说。
+此时我们可以通过 ssh 的方式连接虚拟机，Windows 可以使用 PuTTy，当然，我们的 Git bash 帮我们准备好了这些。打开终端（Git bash），执行 vagrant ssh ，怎么样，是不是看到了一个闪闪发亮的 Linux！
+
+接下来的配置大家就可以按需进行拉，和 Vagrant 就没有太大关系了。...
         
         &nbsp;&nbsp;&nbsp;
         <span>
@@ -325,7 +344,7 @@
         <div id="post_entry-left-info" class="mdl-card__supporting-text meta mdl-color-text--grey-600 ">
             <!-- Author Avatar -->
             <div id="author-avatar">
-                <img src="/img/avatar.png" width="44px" height="44px" alt="Liebes's avatar">
+                <img src="/img/avatar.jpg" width="44px" height="44px" alt="Liebes's avatar">
             </div>
             <div>
                 <strong>Liebes</strong>
@@ -342,6 +361,12 @@
 
             
 
+            
+                <!-- Comment Number -->
+                &nbsp;|&nbsp;
+                <span class="post_entry-comment" >
+                        <span id = "sourceId::2017/05/17/vagrant-windows-init/" class = "cy_cmt_count" ></span>条评论
+                </span>
             
 
             <!-- Post Views -->
@@ -401,12 +426,12 @@
 
     <!-- Sidebar Avatar -->
     <div class="sidebar-image">
-        <img src="/img/avatar.png" alt="Liebes's avatar">
+        <img src="/img/avatar.jpg" alt="Liebes's avatar">
     </div>
 
     <!-- Sidebar Email -->
     <a data-toggle="dropdown" class="sidebar-brand" href="#settings-dropdown">
-        youremail@email.com
+        wanghaichi0403@gmail.com
         <b class="caret"></b>
     </a>
 </div>
@@ -463,11 +488,74 @@
 
     <!-- Categories  -->
     
+        <li class="dropdown">
+            <a href="#" class="ripple-effect dropdown-toggle" data-toggle="dropdown">
+                
+                    <i class="material-icons sidebar-material-icons">chrome_reader_mode</i>
+                
+                分类
+                <b class="caret"></b>
+            </a>
+            <ul class="dropdown-menu">
+                <li>
+                <a class="sidebar_archives-link" href="/categories/TwT/">TwT<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/categories/上机实验/">上机实验<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/categories/个人日志/">个人日志<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/categories/个人日记/">个人日记<span class="sidebar_archives-count">8</span></a></li><li><a class="sidebar_archives-link" href="/categories/作业/">作业<span class="sidebar_archives-count">6</span></a></li><li><a class="sidebar_archives-link" href="/categories/安全/">安全<span class="sidebar_archives-count">2</span></a>
+            </ul>
+        </li>
+        
+    
 
     <!-- Pages  -->
     
+        <li>
+            <a href="tags" title="标签">
+                
+                    <i class="material-icons sidebar-material-icons">note</i>
+                
+                标签
+            </a>
+        </li>
+        
+    
+        <li>
+            <a href="timeline" title="时间轴">
+                
+                    <i class="material-icons sidebar-material-icons">timeline</i>
+                
+                时间轴
+            </a>
+        </li>
+        
+    
+        <li>
+            <a href="gallery" title="相册">
+                
+                    <i class="material-icons sidebar-material-icons">image</i>
+                
+                相册
+            </a>
+        </li>
+        
+    
+        <li>
+            <a href="links" title="友情链接">
+                
+                    <i class="material-icons sidebar-material-icons">share</i>
+                
+                友情链接
+            </a>
+        </li>
+        
+    
 
     <!-- Article Number  -->
+    
+        <li>
+            <a href="/archives">
+                文章总数
+                <span class="sidebar-badge">22</span>
+            </a>
+        </li>
+        
     
 </ul>
 
@@ -490,16 +578,18 @@ It will not impact the appearance and can give developers a lot of support :)
 
 <!-- Theme Material -->
 
-    <a href="https://github.com/viosey/hexo-theme-material"  class="sidebar-footer-text-a" target="_blank">
-        <div class="sidebar-text mdl-button mdl-js-button mdl-js-ripple-effect sidebar-footer-text-div" data-upgraded=",MaterialButton,MaterialRipple">
-            主题 - Material
-            <span class="sidebar-badge badge-circle">i</span>
-        </div>
-    </a>
-
 
 <!-- Help & Support -->
 <!--
+
+    <a href="mailto:hiviosey@gmail.com" class="sidebar-footer-text-a">
+        <div class="sidebar-text mdl-button mdl-js-button mdl-js-ripple-effect sidebar-footer-text-div" data-upgraded=",MaterialButton,MaterialRipple">
+        sidebar.help
+        <span class="mdl-button__ripple-container">
+          <span class="mdl-ripple"></span>
+        </span>
+      </div>
+    </a>
 
 -->
 
@@ -531,16 +621,10 @@ It will not impact the appearance and can give developers a lot of support :)
         <div class="mdl-mini-footer--left-section sns-list">
     <!-- Twitter -->
     
-        <a href="https://twitter.com/twitter" target="_blank">
-            <button class="mdl-mini-footer--social-btn social-btn footer-sns-twitter">
-                <span class="visuallyhidden">Twitter</span>
-            </button><!--
-     --></a>
-    
 
     <!-- Facebook -->
     
-        <a href="https://www.facebook.com/facebook" target="_blank">
+        <a href="https://www.facebook.com/profile.php?id=100015246426771" target="_blank">
             <button class="mdl-mini-footer--social-btn social-btn footer-sns-facebook">
                 <span class="visuallyhidden">Facebook</span>
             </button><!--
@@ -548,12 +632,6 @@ It will not impact the appearance and can give developers a lot of support :)
     
 
     <!-- Google + -->
-    
-        <a href="https://www.google.com/" target="_blank">
-            <button class="mdl-mini-footer--social-btn social-btn footer-sns-gplus">
-                <span class="visuallyhidden">Google Plus</span>
-            </button><!--
-     --></a>
     
 
     <!-- Weibo -->
@@ -566,6 +644,12 @@ It will not impact the appearance and can give developers a lot of support :)
     
 
     <!-- Github -->
+    
+        <a href="https://github.com/wanghaichi" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn footer-sns-github">
+                <span class="visuallyhidden">Github</span>
+            </button><!--
+     --></a>
     
 
     <!-- LinkedIn -->
@@ -587,7 +671,12 @@ It will not impact the appearance and can give developers a lot of support :)
 
         <!--Copyright-->
         <div id="copyright">
-            Copyright&nbsp;©<script type="text/javascript">var fd = new Date();document.write("&nbsp;" + fd.getFullYear() + "&nbsp;");</script>Liebes 的个人日志
+            Copyright&nbsp;©&nbsp;2015&nbsp;-<script type="text/javascript">var fd = new Date();document.write("&nbsp;" + fd.getFullYear() + "&nbsp;");</script>Liebes 的个人日志
+            
+                <br>
+                
+                    <a href="http://www.miitbeian.gov.cn" rel="nofollow">津ICP备17008789号-1</a>
+                
             
         </div>
 
@@ -652,6 +741,11 @@ It will not impact the appearance and can give developers a lot of support :)
 
 
 
+
+   <!-- 畅言公共 js 代码 start -->
+<script id="cy_cmt_num" src="https://changyan.sohu.com/upload/plugins/plugins.list.count.js?clientId=cytqWOkv6">
+</script>
+<!-- 畅言公共 js 代码 end -->
 
 
 

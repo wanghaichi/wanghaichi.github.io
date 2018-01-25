@@ -24,6 +24,8 @@
 
 
 
+    <link rel="dns-prefetch" href="https://changyan.sohu.com"/>
+
 
 
 
@@ -223,8 +225,8 @@
     <link rel="apple-touch-icon" href="/img/favicon.png">
 
     <!-- Site Verification -->
-    
-    
+    <meta name="google-site-verification" content="3y0DPspok4T6uDMqNvKTJXM12vfNAPuI7fwhn4u9hvo" />
+    <meta name="baidu-site-verification" content="Ou5GByZRoU" />
 
     <!-- RSS -->
     
@@ -314,7 +316,15 @@
     <div class="mdl-color-text--grey-600 mdl-card__supporting-text post_entry-content">
         
             接上一篇编辑器的使用，自己尝试着写了一段js代码，本以为laravel的
+1&#123;&#123; $item &#125;&#125;
+渲染可以完美的避免 XSS 的攻击（确实可以避免），但是由于 Editor 生成的时候，重新渲染了一遍，导致了可能出现的XSS漏洞。
 
+
+可以看到，Editor已经帮助我们做了html的编码，于是我觉得不需要进行二次编码，就直接存到了数据库里，并且直接在前端进行了渲染。
+Controller
+123456$res = Notification::updateById($notice_id, [                'content'   =&gt; $content,                'title'     =&gt; $title,                'fileName'  =&gt; $file_name,                'filePath'  =&gt; $file_path            ]);
+view
+123&lt;textarea id="editor" name="editor" rows="10" cols="80"&gt;    &#123;&#123; $notice['content'] &#125;&#125;&lt;/textarea&g...
         
         &nbsp;&nbsp;&nbsp;
         <span>
@@ -326,7 +336,7 @@
         <div id="post_entry-left-info" class="mdl-card__supporting-text meta mdl-color-text--grey-600 ">
             <!-- Author Avatar -->
             <div id="author-avatar">
-                <img src="/img/avatar.png" width="44px" height="44px" alt="Liebes's avatar">
+                <img src="/img/avatar.jpg" width="44px" height="44px" alt="Liebes's avatar">
             </div>
             <div>
                 <strong>Liebes</strong>
@@ -343,6 +353,12 @@
 
             
 
+            
+                <!-- Comment Number -->
+                &nbsp;|&nbsp;
+                <span class="post_entry-comment" >
+                        <span id = "sourceId::2017/07/11/editor-xss/" class = "cy_cmt_count" ></span>条评论
+                </span>
             
 
             <!-- Post Views -->
@@ -375,7 +391,24 @@
     <!-- Post Excerpt -->
     <div class="mdl-color-text--grey-600 mdl-card__supporting-text post_entry-content">
         
-            
+            Vagrant ： Windows下开发小助手，告别双系统不知道广大程序员们是怎么处理 Windows 和 Linux 的，最开始在 Windows 下面跑 Linux 的虚拟机，卡的自己怀疑人生。后来做了个双系统，自己 250 的固态表示根本不够用，而且动不动关机重启，别问我为什么，毕竟 office 割舍不了。后来一个学长点了我一下，既然想用 Linux 搞事情，用什么图形化界面，搞个服务器不就好了。然后我就搞了个腾讯云，然而，网络不好的时候真的蛋疼。最后，在宁哥大腿的指引下，尝试了一下 Vagrant 虚拟机，快的飞起，果断放弃双系统。
+这里记录一些自己在搭建 Vagrant 环境时的步骤以及踩的坑。
+提前准备：
+
+Vagrant
+VirtureBox
+
+首先，我们要选择一个适合我们的 box 也就是操作系统。Vagrant 提供了许多 box 供我们使用：Vagrant Box 。这里，海痴选择的是 ubuntu16.04。
+那么，当我们装好了 Vagrant，VirtureBox，并且下载好所需要的box以后，就可以开始搞事情了。当然，为了接下来的发展更加顺利，强烈建议装一个 Git ，毕竟 Git bash 异常的好用。
+我们新建一个文件夹，命名为 ubuntu，并且将我们的 box 移到这个目录下。在这个目录打开命令行界面，添加box1$ vagrant box add xenial-server-cloudimg-amd64-vagrant.box
+添加后的 box 可以使用 vagrant box list 来查看更多的 vagrant 操作，可以参考这篇博客 使用 Vagrant 打造跨平台开发环境
+接下来，运行 vagrant up 来启动这个虚拟机。这是一个漫长的过程，如果你使用 Windows 命令行，可能会更慢。
+
+细心地你如果打开 VirtureBox，会发现那里已经有一个虚拟机躺着啦
+这个时候，我们的名为 ubuntu 的文件夹里面会多几个文件，其中 Vagrantfile 是 Vagrant 虚拟机的配置文件，这个先不用管，以后再说。
+此时我们可以通过 ssh 的方式连接虚拟机，Windows 可以使用 PuTTy，当然，我们的 Git bash 帮我们准备好了这些。打开终端（Git bash），执行 vagrant ssh ，怎么样，是不是看到了一个闪闪发亮的 Linux！
+
+接下来的配置大家就可以按需进行拉，和 Vagrant 就没有太大关系了。...
         
         &nbsp;&nbsp;&nbsp;
         <span>
@@ -387,7 +420,7 @@
         <div id="post_entry-left-info" class="mdl-card__supporting-text meta mdl-color-text--grey-600 ">
             <!-- Author Avatar -->
             <div id="author-avatar">
-                <img src="/img/avatar.png" width="44px" height="44px" alt="Liebes's avatar">
+                <img src="/img/avatar.jpg" width="44px" height="44px" alt="Liebes's avatar">
             </div>
             <div>
                 <strong>Liebes</strong>
@@ -404,6 +437,12 @@
 
             
 
+            
+                <!-- Comment Number -->
+                &nbsp;|&nbsp;
+                <span class="post_entry-comment" >
+                        <span id = "sourceId::2017/05/17/vagrant-windows-init/" class = "cy_cmt_count" ></span>条评论
+                </span>
             
 
             <!-- Post Views -->
@@ -436,7 +475,13 @@
     <!-- Post Excerpt -->
     <div class="mdl-color-text--grey-600 mdl-card__supporting-text post_entry-content">
         
-            
+            laravel学习之路记录记录自己踩过的坑
+
+按照官方文档，乖乖的用composer进行安装：1$ composer global require &quot;laravel/installer&quot;
+然后，就给我报了噼里啪啦一堆错误1234[Composer\Downloader\TransportException]                                     The &quot;https://packagist.org/packages.json&quot; file could not be downloaded: fai  led to open stream: Connection timed out
+EXM？我还啥也没干呢啊 = =。然后吧，我就把这个错误扔到了google上，注意了注意了，划重点了！搜出来解决方案的没有一个可以用的！然后我发现只是单纯的被墙了而已。WHAT THE FUCK !!!解决办法也挺简单，把composer的源切成国内镜像就好了1$ composer config -g repo.packagist composer https://packagist.phpcomposer.com
+具体的可以参见 Packagist / Composer 中国全量镜像 这里。接下来就可以愉快的使用laravel了1$ composer global require &quot;laravel/installer&quot;
+使用laravel新建一个项目，然后就可以看到牛逼闪闪的lavavel的目录结构：1$ laravel new myProject
         
         &nbsp;&nbsp;&nbsp;
         <span>
@@ -448,7 +493,7 @@
         <div id="post_entry-left-info" class="mdl-card__supporting-text meta mdl-color-text--grey-600 ">
             <!-- Author Avatar -->
             <div id="author-avatar">
-                <img src="/img/avatar.png" width="44px" height="44px" alt="Liebes's avatar">
+                <img src="/img/avatar.jpg" width="44px" height="44px" alt="Liebes's avatar">
             </div>
             <div>
                 <strong>Liebes</strong>
@@ -465,6 +510,12 @@
 
             
 
+            
+                <!-- Comment Number -->
+                &nbsp;|&nbsp;
+                <span class="post_entry-comment" >
+                        <span id = "sourceId::2017/03/20/laravel-learn-1/" class = "cy_cmt_count" ></span>条评论
+                </span>
             
 
             <!-- Post Views -->
@@ -497,7 +548,10 @@
     <!-- Post Excerpt -->
     <div class="mdl-color-text--grey-600 mdl-card__supporting-text post_entry-content">
         
-            
+            hexo 使用git备份hexo源文件这是个悲伤的故事，海痴的linux出了点毛病，然后就想着重装一遍。掐指一算，自家的代码在git上面都保存了，直接重装！然后吧，hexo你大爷，你没事就不能把博客原文备份一下么？又不占你的空间！那么费劲么！是的，海痴的博客都没了，别问我为什么还能看着，宝宝复制粘贴都快吐了，弄到凌晨两点多才恢复了。这件事情告诉我们，没事闲的别重装系统。
+
+具体的思路就是在我们的博客仓库中新建一个分支，用来保存源码，master分支用来提交hexo自动生成的文件。以海痴的博客为例。打开wanghaichi.github.io工作目录，我们可以喜闻乐见的发现没有.git文件夹。那么接下来的事情就简单了打开工作目录，执行以下操作123456789101112131415$ git init$ vi .gitignore.DS_StoreThumbs.dbdb.json  *.log.deploy*/node_modules/.npmignorepublic/$ git branch -b hexo$ git add .$ git commit -m &quot;backup&quot;$ git remote add origin git@github.com:wanghaichi/wanghaichi.github.io.git$ git push origin hexo
+如果没设置ssh权限可能需要设置一下，然后去github仓库里面切换以下分支，你的可爱的博客就都在里面啦。以后每次写完博客，先执行一遍123$ git add .$ git commit -m &quot;backup&quot;$ git push origin hexo
         
         &nbsp;&nbsp;&nbsp;
         <span>
@@ -509,7 +563,7 @@
         <div id="post_entry-left-info" class="mdl-card__supporting-text meta mdl-color-text--grey-600 ">
             <!-- Author Avatar -->
             <div id="author-avatar">
-                <img src="/img/avatar.png" width="44px" height="44px" alt="Liebes's avatar">
+                <img src="/img/avatar.jpg" width="44px" height="44px" alt="Liebes's avatar">
             </div>
             <div>
                 <strong>Liebes</strong>
@@ -526,6 +580,12 @@
 
             
 
+            
+                <!-- Comment Number -->
+                &nbsp;|&nbsp;
+                <span class="post_entry-comment" >
+                        <span id = "sourceId::2017/03/17/hexo-backup/" class = "cy_cmt_count" ></span>条评论
+                </span>
             
 
             <!-- Post Views -->
@@ -558,7 +618,14 @@
     <!-- Post Excerpt -->
     <div class="mdl-color-text--grey-600 mdl-card__supporting-text post_entry-content">
         
-            
+            Unbuntu16.04 Nginx + php + mysql Web服务器搭建下决心不再用lamp的集成包了，自己搞一个出来。
+
+Nginx
+php
+mysql
+
+
+Nginx首先安装使用 apt 安装nginx$ sudo apt install nginx然而由于之前安装过nginx，卸载还不干净，导致配置文件读取失败，出现错误：123456789101112131415161718192021222324252627282930313233Job for nginx.service failed because the control process exited with error code. See &quot;systemctl status nginx.service&quot; and &quot;journalctl -xe&quot; for details.invoke-rc.d: initscript nginx, action &quot;start&quot; failed.● nginx.service - A high performance web server and a reverse proxy server   Loaded: loaded (/lib/systemd/system/nginx.service; enabled; vendor preset: enabled)   Active: failed (Result: exit-code) since 四...
         
         &nbsp;&nbsp;&nbsp;
         <span>
@@ -570,7 +637,7 @@
         <div id="post_entry-left-info" class="mdl-card__supporting-text meta mdl-color-text--grey-600 ">
             <!-- Author Avatar -->
             <div id="author-avatar">
-                <img src="/img/avatar.png" width="44px" height="44px" alt="Liebes's avatar">
+                <img src="/img/avatar.jpg" width="44px" height="44px" alt="Liebes's avatar">
             </div>
             <div>
                 <strong>Liebes</strong>
@@ -587,6 +654,12 @@
 
             
 
+            
+                <!-- Comment Number -->
+                &nbsp;|&nbsp;
+                <span class="post_entry-comment" >
+                        <span id = "sourceId::2017/03/10/lemp-Ubantu/" class = "cy_cmt_count" ></span>条评论
+                </span>
             
 
             <!-- Post Views -->
@@ -619,7 +692,14 @@
     <!-- Post Excerpt -->
     <div class="mdl-color-text--grey-600 mdl-card__supporting-text post_entry-content">
         
-            
+            Centos 7 Nginx + php + mysql Web服务器搭建
+安装Nginx
+安装php5
+安装php7
+安装mysql
+
+
+搭建nginx服务在所有工作之前，先更新一下yum咯12$ yum install yum$ yum -y update然后使用yum安装nginx1234567# 如果没有nginx包尝试使用下面的命令添加$ yum install epel-release$ yum install nginx# 启动$ systemctl start nginx# 开机自启$ systemctl enable nginx然后就可以在浏览器输入http://127.0.0.1，会看到nginx的欢迎界面，如果是远程服务器请输入以下命令查看ip123$ ip addr show eth0 | grep inet | awk &apos;&#123; print $2; &#125;&apos; | sed &apos;s/\/.*$//&apos;# 或者$ curl http://icanhazip.com—安装php5使用yum安装，十分简单。1
         
         &nbsp;&nbsp;&nbsp;
         <span>
@@ -631,7 +711,7 @@
         <div id="post_entry-left-info" class="mdl-card__supporting-text meta mdl-color-text--grey-600 ">
             <!-- Author Avatar -->
             <div id="author-avatar">
-                <img src="/img/avatar.png" width="44px" height="44px" alt="Liebes's avatar">
+                <img src="/img/avatar.jpg" width="44px" height="44px" alt="Liebes's avatar">
             </div>
             <div>
                 <strong>Liebes</strong>
@@ -648,6 +728,12 @@
 
             
 
+            
+                <!-- Comment Number -->
+                &nbsp;|&nbsp;
+                <span class="post_entry-comment" >
+                        <span id = "sourceId::2017/01/21/lempServer/" class = "cy_cmt_count" ></span>条评论
+                </span>
             
 
             <!-- Post Views -->
@@ -680,7 +766,17 @@
     <!-- Post Excerpt -->
     <div class="mdl-color-text--grey-600 mdl-card__supporting-text post_entry-content">
         
-            
+            在CentOS7上搭建ftp服务器在ninge的帮助下，终于搞出了ftp服务器，记下来以后用
+
+ftp服务器搭建
+sftp服务器搭建
+用户权限设置
+啰嗦几句
+
+
+ftp服务器搭建首先安装sftp服务1[root@hardy ~]# yum install vsftpd
+修改配置文件，在修改配置文件之前记得备份12[root@hardy ~]# cp /etc/vsftpd/vsftpd.conf /etc/vsftpd/vsftpd.conf.bak[root@hardy ~]# vim /etc/vsftpd/vsftpd.conf
+vsftpd服务有许多配置，这里不一一赘述，将一些常用的写出来12345678910111213141516#匿名用户是否可以登录anonymous_enable=YES#允许系统用户名登录local_enable=YES#允许使用任何可以修改文件系统的FTP的指令，禁用这项则用户无法修改write_enable=YES#本地用户新建文件的掩码local_umask=022#开启日志功能xferlog_enable=YES#日志文件位置xferlog_file=/var/log/v...
         
         &nbsp;&nbsp;&nbsp;
         <span>
@@ -692,7 +788,7 @@
         <div id="post_entry-left-info" class="mdl-card__supporting-text meta mdl-color-text--grey-600 ">
             <!-- Author Avatar -->
             <div id="author-avatar">
-                <img src="/img/avatar.png" width="44px" height="44px" alt="Liebes's avatar">
+                <img src="/img/avatar.jpg" width="44px" height="44px" alt="Liebes's avatar">
             </div>
             <div>
                 <strong>Liebes</strong>
@@ -709,6 +805,12 @@
 
             
 
+            
+                <!-- Comment Number -->
+                &nbsp;|&nbsp;
+                <span class="post_entry-comment" >
+                        <span id = "sourceId::2017/01/17/initFtpInCentos7/" class = "cy_cmt_count" ></span>条评论
+                </span>
             
 
             <!-- Post Views -->
@@ -741,7 +843,17 @@
     <!-- Post Excerpt -->
     <div class="mdl-color-text--grey-600 mdl-card__supporting-text post_entry-content">
         
-            
+            Ubuntu16.04 配置JAVA环境、搭建tomcat环境、安装php-java-bridge工具
+下载安装jdk
+配置JAVA环境变量
+搭建tomcat环境
+安装php-java-bridge工具
+
+
+下载安装jdk首先去Oracle官网下载jdk安装包：下载地址根据系统版本选择要下载的安装包，海痴选择的是 jdk-8u111-linux-x64.tar.gz下载后解压1$ tar -xzvf jdk-8u111-linux-x64.tar.gz
+在/opt下创建java目录，并将解压后的文件夹移动到java目录下12$ sudo mkdir /opt/java$ sudo mv jdk1.8.0_111 /opt/java
+
+配置JAVA环境变量修改 /etc/profile 文件，在文件尾添加如下内容12345$ sudo vim /etc/profileexport JAVA_HOME=/opt/java/jdk1.8.0_111export JRE_HOME=$JAVA_HOME/jreexport CLASSPATH=.:$CLASSPATH:$JAVA_HOME/lib:$JRE_HOME/libexport PATH=$PATH:$JAVA_HOME/bin:$JRE...
         
         &nbsp;&nbsp;&nbsp;
         <span>
@@ -753,7 +865,7 @@
         <div id="post_entry-left-info" class="mdl-card__supporting-text meta mdl-color-text--grey-600 ">
             <!-- Author Avatar -->
             <div id="author-avatar">
-                <img src="/img/avatar.png" width="44px" height="44px" alt="Liebes's avatar">
+                <img src="/img/avatar.jpg" width="44px" height="44px" alt="Liebes's avatar">
             </div>
             <div>
                 <strong>Liebes</strong>
@@ -770,6 +882,12 @@
 
             
 
+            
+                <!-- Comment Number -->
+                &nbsp;|&nbsp;
+                <span class="post_entry-comment" >
+                        <span id = "sourceId::2017/01/17/java-tomcat-javabridge/" class = "cy_cmt_count" ></span>条评论
+                </span>
             
 
             <!-- Post Views -->
@@ -829,12 +947,12 @@
 
     <!-- Sidebar Avatar -->
     <div class="sidebar-image">
-        <img src="/img/avatar.png" alt="Liebes's avatar">
+        <img src="/img/avatar.jpg" alt="Liebes's avatar">
     </div>
 
     <!-- Sidebar Email -->
     <a data-toggle="dropdown" class="sidebar-brand" href="#settings-dropdown">
-        youremail@email.com
+        wanghaichi0403@gmail.com
         <b class="caret"></b>
     </a>
 </div>
@@ -891,11 +1009,74 @@
 
     <!-- Categories  -->
     
+        <li class="dropdown">
+            <a href="#" class="ripple-effect dropdown-toggle" data-toggle="dropdown">
+                
+                    <i class="material-icons sidebar-material-icons">chrome_reader_mode</i>
+                
+                分类
+                <b class="caret"></b>
+            </a>
+            <ul class="dropdown-menu">
+                <li>
+                <a class="sidebar_archives-link" href="/categories/TwT/">TwT<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/categories/上机实验/">上机实验<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/categories/个人日志/">个人日志<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/categories/个人日记/">个人日记<span class="sidebar_archives-count">8</span></a></li><li><a class="sidebar_archives-link" href="/categories/作业/">作业<span class="sidebar_archives-count">6</span></a></li><li><a class="sidebar_archives-link" href="/categories/安全/">安全<span class="sidebar_archives-count">2</span></a>
+            </ul>
+        </li>
+        
+    
 
     <!-- Pages  -->
     
+        <li>
+            <a href="tags" title="标签">
+                
+                    <i class="material-icons sidebar-material-icons">note</i>
+                
+                标签
+            </a>
+        </li>
+        
+    
+        <li>
+            <a href="timeline" title="时间轴">
+                
+                    <i class="material-icons sidebar-material-icons">timeline</i>
+                
+                时间轴
+            </a>
+        </li>
+        
+    
+        <li>
+            <a href="gallery" title="相册">
+                
+                    <i class="material-icons sidebar-material-icons">image</i>
+                
+                相册
+            </a>
+        </li>
+        
+    
+        <li>
+            <a href="links" title="友情链接">
+                
+                    <i class="material-icons sidebar-material-icons">share</i>
+                
+                友情链接
+            </a>
+        </li>
+        
+    
 
     <!-- Article Number  -->
+    
+        <li>
+            <a href="/archives">
+                文章总数
+                <span class="sidebar-badge">22</span>
+            </a>
+        </li>
+        
     
 </ul>
 
@@ -918,16 +1099,18 @@ It will not impact the appearance and can give developers a lot of support :)
 
 <!-- Theme Material -->
 
-    <a href="https://github.com/viosey/hexo-theme-material"  class="sidebar-footer-text-a" target="_blank">
-        <div class="sidebar-text mdl-button mdl-js-button mdl-js-ripple-effect sidebar-footer-text-div" data-upgraded=",MaterialButton,MaterialRipple">
-            主题 - Material
-            <span class="sidebar-badge badge-circle">i</span>
-        </div>
-    </a>
-
 
 <!-- Help & Support -->
 <!--
+
+    <a href="mailto:hiviosey@gmail.com" class="sidebar-footer-text-a">
+        <div class="sidebar-text mdl-button mdl-js-button mdl-js-ripple-effect sidebar-footer-text-div" data-upgraded=",MaterialButton,MaterialRipple">
+        sidebar.help
+        <span class="mdl-button__ripple-container">
+          <span class="mdl-ripple"></span>
+        </span>
+      </div>
+    </a>
 
 -->
 
@@ -967,16 +1150,10 @@ It will not impact the appearance and can give developers a lot of support :)
         <div class="mdl-mini-footer--left-section sns-list">
     <!-- Twitter -->
     
-        <a href="https://twitter.com/twitter" target="_blank">
-            <button class="mdl-mini-footer--social-btn social-btn footer-sns-twitter">
-                <span class="visuallyhidden">Twitter</span>
-            </button><!--
-     --></a>
-    
 
     <!-- Facebook -->
     
-        <a href="https://www.facebook.com/facebook" target="_blank">
+        <a href="https://www.facebook.com/profile.php?id=100015246426771" target="_blank">
             <button class="mdl-mini-footer--social-btn social-btn footer-sns-facebook">
                 <span class="visuallyhidden">Facebook</span>
             </button><!--
@@ -984,12 +1161,6 @@ It will not impact the appearance and can give developers a lot of support :)
     
 
     <!-- Google + -->
-    
-        <a href="https://www.google.com/" target="_blank">
-            <button class="mdl-mini-footer--social-btn social-btn footer-sns-gplus">
-                <span class="visuallyhidden">Google Plus</span>
-            </button><!--
-     --></a>
     
 
     <!-- Weibo -->
@@ -1002,6 +1173,12 @@ It will not impact the appearance and can give developers a lot of support :)
     
 
     <!-- Github -->
+    
+        <a href="https://github.com/wanghaichi" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn footer-sns-github">
+                <span class="visuallyhidden">Github</span>
+            </button><!--
+     --></a>
     
 
     <!-- LinkedIn -->
@@ -1023,7 +1200,12 @@ It will not impact the appearance and can give developers a lot of support :)
 
         <!--Copyright-->
         <div id="copyright">
-            Copyright&nbsp;©<script type="text/javascript">var fd = new Date();document.write("&nbsp;" + fd.getFullYear() + "&nbsp;");</script>Liebes 的个人日志
+            Copyright&nbsp;©&nbsp;2015&nbsp;-<script type="text/javascript">var fd = new Date();document.write("&nbsp;" + fd.getFullYear() + "&nbsp;");</script>Liebes 的个人日志
+            
+                <br>
+                
+                    <a href="http://www.miitbeian.gov.cn" rel="nofollow">津ICP备17008789号-1</a>
+                
             
         </div>
 
@@ -1088,6 +1270,11 @@ It will not impact the appearance and can give developers a lot of support :)
 
 
 
+
+   <!-- 畅言公共 js 代码 start -->
+<script id="cy_cmt_num" src="https://changyan.sohu.com/upload/plugins/plugins.list.count.js?clientId=cytqWOkv6">
+</script>
+<!-- 畅言公共 js 代码 end -->
 
 
 

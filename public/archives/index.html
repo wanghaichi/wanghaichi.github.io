@@ -24,6 +24,8 @@
 
 
 
+    <link rel="dns-prefetch" href="https://changyan.sohu.com"/>
+
 
 
 
@@ -223,8 +225,8 @@
     <link rel="apple-touch-icon" href="/img/favicon.png">
 
     <!-- Site Verification -->
-    
-    
+    <meta name="google-site-verification" content="3y0DPspok4T6uDMqNvKTJXM12vfNAPuI7fwhn4u9hvo" />
+    <meta name="baidu-site-verification" content="Ou5GByZRoU" />
 
     <!-- RSS -->
     
@@ -313,7 +315,12 @@
     <!-- Post Excerpt -->
     <div class="mdl-color-text--grey-600 mdl-card__supporting-text post_entry-content">
         
-            前情摘要
+            前情摘要自己作死干了一件特别蠢的事情（具体略）
+然后开始研究如何进行增量备份
+增量备份原理mysql 有个 binlog 的功能，会记录所有的用户的操作，可以依靠这个，配合全备份，将数据库回滚到某一个特殊的时刻。hhh
+简单来说，比如我们每周做一次全备份，每天做一次增量备份，当数据库发生问题的时候，我们就可以先将数据库回滚到上一周我们的全备份的时间，然后再通过每天的增量备份（其实就是模拟所有的数据库操作，全部执行一遍），将数据恢复到我们想要的时间点。
+配置mysql 的 binlog 功能需要在配置文件中打开，在 my.cnf 或者 mysqld.cnf 中添加以下几行：
+1234567891011121314151617181920212223server-id               = 1# binlog存放路径log_bin                 = /var/log/mysql/mysql-bin.log# binlog记录的格式，有row、statement、mixed三种选项binlog-format           = row# binlog写缓冲区设置大小，由于是内存，写速度非常快，可以有效提高binlog的写效率，如果数据库中经常出现大事务，可以酌情提高该参数。binlog_cache_size       = 32m# 最大缓存区大小max_binlog_cache_size   = 512m
         
         &nbsp;&nbsp;&nbsp;
         <span>
@@ -325,7 +332,7 @@
         <div id="post_entry-left-info" class="mdl-card__supporting-text meta mdl-color-text--grey-600 ">
             <!-- Author Avatar -->
             <div id="author-avatar">
-                <img src="/img/avatar.png" width="44px" height="44px" alt="Liebes's avatar">
+                <img src="/img/avatar.jpg" width="44px" height="44px" alt="Liebes's avatar">
             </div>
             <div>
                 <strong>Liebes</strong>
@@ -337,6 +344,12 @@
 
             
 
+            
+                <!-- Comment Number -->
+                &nbsp;|&nbsp;
+                <span class="post_entry-comment" >
+                        <span id = "sourceId::2017/10/20/mysql-backup/" class = "cy_cmt_count" ></span>条评论
+                </span>
             
 
             <!-- Post Views -->
@@ -370,7 +383,15 @@
     <div class="mdl-color-text--grey-600 mdl-card__supporting-text post_entry-content">
         
             接上一篇编辑器的使用，自己尝试着写了一段js代码，本以为laravel的
+1&#123;&#123; $item &#125;&#125;
+渲染可以完美的避免 XSS 的攻击（确实可以避免），但是由于 Editor 生成的时候，重新渲染了一遍，导致了可能出现的XSS漏洞。
 
+
+可以看到，Editor已经帮助我们做了html的编码，于是我觉得不需要进行二次编码，就直接存到了数据库里，并且直接在前端进行了渲染。
+Controller
+123456$res = Notification::updateById($notice_id, [                'content'   =&gt; $content,                'title'     =&gt; $title,                'fileName'  =&gt; $file_name,                'filePath'  =&gt; $file_path            ]);
+view
+123&lt;textarea id="editor" name="editor" rows="10" cols="80"&gt;    &#123;&#123; $notice['content'] &#125;&#125;&lt;/textarea&g...
         
         &nbsp;&nbsp;&nbsp;
         <span>
@@ -382,7 +403,7 @@
         <div id="post_entry-left-info" class="mdl-card__supporting-text meta mdl-color-text--grey-600 ">
             <!-- Author Avatar -->
             <div id="author-avatar">
-                <img src="/img/avatar.png" width="44px" height="44px" alt="Liebes's avatar">
+                <img src="/img/avatar.jpg" width="44px" height="44px" alt="Liebes's avatar">
             </div>
             <div>
                 <strong>Liebes</strong>
@@ -399,6 +420,12 @@
 
             
 
+            
+                <!-- Comment Number -->
+                &nbsp;|&nbsp;
+                <span class="post_entry-comment" >
+                        <span id = "sourceId::2017/07/11/editor-xss/" class = "cy_cmt_count" ></span>条评论
+                </span>
             
 
             <!-- Post Views -->
@@ -434,6 +461,22 @@
             假期写代码，整理一些关于Editor，文件上传相关的东西。
 
 editor
+文件上传（Laravel）
+
+Trumbowyg Editor
+
+Trumbowyg 是一款轻量级的编辑器，可以高度DIY，界面也很简洁。
+官方网站：Trumbowyg
+首先下载官方包，在官网可以直接下载。
+目录结构如下：
+
+其中只需要留下 dist 文件夹即可，其余的是文档，例子，直接删除即可。
+使用方法很简单，在 view 界面引用相关的 css 文件与 js 文件，这里默认已经引用了Jquery
+123&lt;link rel="stylesheet" href="/Trumbowyg/dist/ui/trumbowyg.min.css"&gt;&lt;script src="/Trumbowyg/dist/trumbowyg.js"&gt;&lt;/script&gt;
+同时需要创建一个 textarea 作为 editor 的容器
+1&lt;textarea id=&quot;editor&quot; name=&quot;editor&quot; rows=&quot;10&quot; cols=&quot;80&quot;&gt;&lt;/textarea&gt;
+接下来就可以使用Trumbowyg 创建一个编辑器出来
+12345678910
         
         &nbsp;&nbsp;&nbsp;
         <span>
@@ -445,7 +488,7 @@ editor
         <div id="post_entry-left-info" class="mdl-card__supporting-text meta mdl-color-text--grey-600 ">
             <!-- Author Avatar -->
             <div id="author-avatar">
-                <img src="/img/avatar.png" width="44px" height="44px" alt="Liebes's avatar">
+                <img src="/img/avatar.jpg" width="44px" height="44px" alt="Liebes's avatar">
             </div>
             <div>
                 <strong>Liebes</strong>
@@ -462,6 +505,12 @@ editor
 
             
 
+            
+                <!-- Comment Number -->
+                &nbsp;|&nbsp;
+                <span class="post_entry-comment" >
+                        <span id = "sourceId::2017/07/10/trumbowyg-file-upload/" class = "cy_cmt_count" ></span>条评论
+                </span>
             
 
             <!-- Post Views -->
@@ -494,7 +543,12 @@ editor
     <!-- Post Excerpt -->
     <div class="mdl-color-text--grey-600 mdl-card__supporting-text post_entry-content">
         
-            
+            SQL injection在国哥的安排下，对着 kali渗透测试之 SQL injeciton 视频教程一顿撸（虽然没什么卵用），记录下来自己的一些实验过程和经历。
+提前准备
+本地的 lemp 环境，搭建可参考：Centos 7 Nginx + php + mysql Web服务器搭建 和 Unbuntu16.04 Nginx + php + mysql Web服务器搭建 当然 xampp 也是极好的。
+用于攻击的 php 脚本和数据库，下面会给出
+
+编写脚本找个能够访问的地方，编写如下 php 脚本12345678910111213141516171819202122232425262728293031&lt;html&gt;	&lt;head&gt;&lt;/head&gt;	&lt;body&gt;		&lt;form action="./login.php" method="post"&gt;			ID&lt;input name="id" type="text"&gt;&lt;br/...
         
         &nbsp;&nbsp;&nbsp;
         <span>
@@ -506,7 +560,7 @@ editor
         <div id="post_entry-left-info" class="mdl-card__supporting-text meta mdl-color-text--grey-600 ">
             <!-- Author Avatar -->
             <div id="author-avatar">
-                <img src="/img/avatar.png" width="44px" height="44px" alt="Liebes's avatar">
+                <img src="/img/avatar.jpg" width="44px" height="44px" alt="Liebes's avatar">
             </div>
             <div>
                 <strong>Liebes</strong>
@@ -523,6 +577,12 @@ editor
 
             
 
+            
+                <!-- Comment Number -->
+                &nbsp;|&nbsp;
+                <span class="post_entry-comment" >
+                        <span id = "sourceId::2017/05/22/web-security-2/" class = "cy_cmt_count" ></span>条评论
+                </span>
             
 
             <!-- Post Views -->
@@ -555,7 +615,24 @@ editor
     <!-- Post Excerpt -->
     <div class="mdl-color-text--grey-600 mdl-card__supporting-text post_entry-content">
         
-            
+            Vagrant ： Windows下开发小助手，告别双系统不知道广大程序员们是怎么处理 Windows 和 Linux 的，最开始在 Windows 下面跑 Linux 的虚拟机，卡的自己怀疑人生。后来做了个双系统，自己 250 的固态表示根本不够用，而且动不动关机重启，别问我为什么，毕竟 office 割舍不了。后来一个学长点了我一下，既然想用 Linux 搞事情，用什么图形化界面，搞个服务器不就好了。然后我就搞了个腾讯云，然而，网络不好的时候真的蛋疼。最后，在宁哥大腿的指引下，尝试了一下 Vagrant 虚拟机，快的飞起，果断放弃双系统。
+这里记录一些自己在搭建 Vagrant 环境时的步骤以及踩的坑。
+提前准备：
+
+Vagrant
+VirtureBox
+
+首先，我们要选择一个适合我们的 box 也就是操作系统。Vagrant 提供了许多 box 供我们使用：Vagrant Box 。这里，海痴选择的是 ubuntu16.04。
+那么，当我们装好了 Vagrant，VirtureBox，并且下载好所需要的box以后，就可以开始搞事情了。当然，为了接下来的发展更加顺利，强烈建议装一个 Git ，毕竟 Git bash 异常的好用。
+我们新建一个文件夹，命名为 ubuntu，并且将我们的 box 移到这个目录下。在这个目录打开命令行界面，添加box1$ vagrant box add xenial-server-cloudimg-amd64-vagrant.box
+添加后的 box 可以使用 vagrant box list 来查看更多的 vagrant 操作，可以参考这篇博客 使用 Vagrant 打造跨平台开发环境
+接下来，运行 vagrant up 来启动这个虚拟机。这是一个漫长的过程，如果你使用 Windows 命令行，可能会更慢。
+
+细心地你如果打开 VirtureBox，会发现那里已经有一个虚拟机躺着啦
+这个时候，我们的名为 ubuntu 的文件夹里面会多几个文件，其中 Vagrantfile 是 Vagrant 虚拟机的配置文件，这个先不用管，以后再说。
+此时我们可以通过 ssh 的方式连接虚拟机，Windows 可以使用 PuTTy，当然，我们的 Git bash 帮我们准备好了这些。打开终端（Git bash），执行 vagrant ssh ，怎么样，是不是看到了一个闪闪发亮的 Linux！
+
+接下来的配置大家就可以按需进行拉，和 Vagrant 就没有太大关系了。...
         
         &nbsp;&nbsp;&nbsp;
         <span>
@@ -567,7 +644,7 @@ editor
         <div id="post_entry-left-info" class="mdl-card__supporting-text meta mdl-color-text--grey-600 ">
             <!-- Author Avatar -->
             <div id="author-avatar">
-                <img src="/img/avatar.png" width="44px" height="44px" alt="Liebes's avatar">
+                <img src="/img/avatar.jpg" width="44px" height="44px" alt="Liebes's avatar">
             </div>
             <div>
                 <strong>Liebes</strong>
@@ -584,6 +661,12 @@ editor
 
             
 
+            
+                <!-- Comment Number -->
+                &nbsp;|&nbsp;
+                <span class="post_entry-comment" >
+                        <span id = "sourceId::2017/05/17/vagrant-windows-init/" class = "cy_cmt_count" ></span>条评论
+                </span>
             
 
             <!-- Post Views -->
@@ -616,7 +699,27 @@ editor
     <!-- Post Excerpt -->
     <div class="mdl-color-text--grey-600 mdl-card__supporting-text post_entry-content">
         
-            
+            网络安全学习之浏览器安全最近在看《白帽子讲WEB安全》这本书，按着章节记录一下实践和学习的过程。
+同源策略
+简单来说，同源策略限制了来自不同源的“document”或脚本，对当前“document”读取或设置某些属性
+
+同源的网站指起host地址是一致的
+比如以下几个地址
+
+http://store.company.com/dir2/index.html
+http://store.company.com/dir1/index.html
+https://store.company.com/dir1/index.html
+http://store.company.com:8080/dir2/index.html
+http://news.company.com/dir1/index.html
+
+其中1,2是同源的，而其他几个则不是。
+对于一个网页中加载的javascript资源而言，其域是当前打开的页面
+比如在a.com中引用了b.com中的文件1&lt;script src=&quot;http://b.com/b.js&quot;&gt;&lt;/script&gt;
+其中b.js的源是a.com而非b.com
+XSS简介跨站脚本攻击，全称是 Cross Site Script。XSS攻击通常指黑客通过“Html 注入”篡改了网页，插入恶意的脚本，从而在浏览网页时，控制用户浏览器的一种攻击。
+反射型XSS反射型XSS只是简单地把用户输入的数据“反射”给浏览器，也就是说，黑客需要诱使用户点击一个恶意链接，才能攻击成功。反射型XSS也叫做“非持久型CSS”（Non-persistent XSS）
+储存型XSS储存型XSS会把用户输入的数据“储存”在服务器端。这种XSS具有很强的稳定性。
+
         
         &nbsp;&nbsp;&nbsp;
         <span>
@@ -628,7 +731,7 @@ editor
         <div id="post_entry-left-info" class="mdl-card__supporting-text meta mdl-color-text--grey-600 ">
             <!-- Author Avatar -->
             <div id="author-avatar">
-                <img src="/img/avatar.png" width="44px" height="44px" alt="Liebes's avatar">
+                <img src="/img/avatar.jpg" width="44px" height="44px" alt="Liebes's avatar">
             </div>
             <div>
                 <strong>Liebes</strong>
@@ -645,6 +748,12 @@ editor
 
             
 
+            
+                <!-- Comment Number -->
+                &nbsp;|&nbsp;
+                <span class="post_entry-comment" >
+                        <span id = "sourceId::2017/05/10/web-security-1/" class = "cy_cmt_count" ></span>条评论
+                </span>
             
 
             <!-- Post Views -->
@@ -677,7 +786,13 @@ editor
     <!-- Post Excerpt -->
     <div class="mdl-color-text--grey-600 mdl-card__supporting-text post_entry-content">
         
-            
+            Jenkins 安装与使用Jenkins旨在编程的持续继承，测试部署自动化，官方给的简介如下：
+
+Jenkins is a self-contained, open source automation server which can be used to automate all sorts of tasks such as building, testing, and deploying software. Jenkins can be installed through native system packages, Docker, or even run standalone by any machine with the Java Runtime Environment installed.
+
+首先下载 Jenkins 的war包jenkins.war运行命令1$ java -jar jenkins.war
+该命令会在本地的8080端口运行jenkins访问 localhost:8080 会看到jenkins 的欢迎界面，按照步骤依次进行设置。在安装插件的界面，选择默认即可，jenkins会帮你安装一些常见的插件，比如git，pipeline等设置结束后会看到如下界面点击左上角新建按钮，即可新建一个项目，这里我们选择新建一个maven项目。在github project选项上选择我们的github地址在源码管理设置上选择git，并设置默认编译的分支为主分支在构建触发器设置上，选择Poll SCM 并在日程表里面输入* * * * *表示每一分钟就会执行依次构建在构建的位置，选择新增一个shell 并输入mvn test点击保存后即可此后每一次将代码更新到github之后，jenkins会自动进行检测，同时在每次构建时会自动进行测试。在Consloe Output中可以看到测试结果
+
         
         &nbsp;&nbsp;&nbsp;
         <span>
@@ -689,7 +804,7 @@ editor
         <div id="post_entry-left-info" class="mdl-card__supporting-text meta mdl-color-text--grey-600 ">
             <!-- Author Avatar -->
             <div id="author-avatar">
-                <img src="/img/avatar.png" width="44px" height="44px" alt="Liebes's avatar">
+                <img src="/img/avatar.jpg" width="44px" height="44px" alt="Liebes's avatar">
             </div>
             <div>
                 <strong>Liebes</strong>
@@ -706,6 +821,12 @@ editor
 
             
 
+            
+                <!-- Comment Number -->
+                &nbsp;|&nbsp;
+                <span class="post_entry-comment" >
+                        <span id = "sourceId::2017/04/14/SoftwareManagement-HW-2/" class = "cy_cmt_count" ></span>条评论
+                </span>
             
 
             <!-- Post Views -->
@@ -738,7 +859,17 @@ editor
     <!-- Post Excerpt -->
     <div class="mdl-color-text--grey-600 mdl-card__supporting-text post_entry-content">
         
-            
+            JAVA PATH FINDER [JPF]软件测试小组作业之JPF
+首先先说说JPF是个什么东西
+官方给出的解释：
+
+JPF核心是用于Java™字节码的虚拟机（VM），这意味着它是一个程序，您可以让Java程序执行。它用于在这些程序中找到缺陷，因此您还需要给出属性以作为输入进行检查。 JPF通过一份报告来回复，该报告说如果属性持有和/或由JPF创建的验证工件进行进一步分析（如测试用例）。
+JPF是一个有几个扭曲的虚拟机。它在Java本身中实现，所以不要指望它像您的普通Java一样快速运行。它是在VM上运行的VM。虽然Java字节码的执行语义在http://java.sun.com/docs/books/jvms/second_edition/html/VMSpecTOC.doc.html/ Sun的Java虚拟机规范中有明确定义，但我们在JPF中几乎没有硬连线语义 - VM指令集由一组可被替换的类表示。
+默认指令集使用下一个JPF功能：执行选项。 JPF可以识别您的程序中的执行可能不同的进程，然后系统地探索所有这些点。这意味着JPF（理论上）通过程序执行所有路径，而不仅仅是像普通的VM那样。典型的选择是不同的调度序列或随机值，但JPF可以再次介绍您自己的类型，如用户输入或statemachine事件。
+
+个人觉得JPF是一个针对JAVA程序寻找可执行路径的工具。看了一下官方的例子，觉得JPF可以在JAVA程序执行时自动检测所有的可执行路径，找到可能出现问题的路径。不同于传统的基于用例的Testing，JPF采用的是Model Checking，尽管基于用例的测试在用例足够多的时候有着很不错的测试效果，但是很难保证测试到所有的可行路径。JPF官方给出了基于测试用例的Testing 与 Model Testing 的差别：testing_vs_model_checking
+那么说说JPF安装的方式，JPF安装需要使用一个类似于git的管理工具：Mercurial，同时需要JUNIT，与Apache ant。安装之前我们需要先下载Mercuial 和 ant12$ sudo apt install Mercuial$ sudo apt install ant
+由于我使用的IDE是 idea ,自带了JUNIT的包，没有的需要去下载一下。需要将JUNIT包的目录加入到环境变量中1234$ sudo vi /etc/provileexport JUNIT_HOME=/home/hardy/app/idea...
         
         &nbsp;&nbsp;&nbsp;
         <span>
@@ -750,7 +881,7 @@ editor
         <div id="post_entry-left-info" class="mdl-card__supporting-text meta mdl-color-text--grey-600 ">
             <!-- Author Avatar -->
             <div id="author-avatar">
-                <img src="/img/avatar.png" width="44px" height="44px" alt="Liebes's avatar">
+                <img src="/img/avatar.jpg" width="44px" height="44px" alt="Liebes's avatar">
             </div>
             <div>
                 <strong>Liebes</strong>
@@ -767,6 +898,12 @@ editor
 
             
 
+            
+                <!-- Comment Number -->
+                &nbsp;|&nbsp;
+                <span class="post_entry-comment" >
+                        <span id = "sourceId::2017/04/08/SoftwareTest-HW-4/" class = "cy_cmt_count" ></span>条评论
+                </span>
             
 
             <!-- Post Views -->
@@ -799,7 +936,21 @@ editor
     <!-- Post Excerpt -->
     <div class="mdl-color-text--grey-600 mdl-card__supporting-text post_entry-content">
         
-            
+            【软件测试】Selenium Web 测试Selenium 用于WEB程序测试，可以录制下来点击过程的脚本，并自动进行测试。
+
+使用selenium-ide 进行脚本录制
+使用java编写selenium程序，实现自动验证
+
+
+使用selenium-ide 进行脚本录制在开始实验之前，需要安装所需要的软件。首先想要使用selenium-ide，需要是用firefox浏览器。firefox下载链接selenium-ide下载链接将下载后的selenium插件拖到firefox里即可自动安装。成功安装后，在firefox中可以打开selenium插件:选择开发者工具中的selenium-ide打开后长这个样子在1的位置输入想要测试的网址，接着点击2位置的按钮开始录制。去浏览器访问对应的网站，完成表单提交操作，回到selenium-ide会看到录制下来的case，最后点击4,会将当前所有的case执行一遍。
+
+使用java编写selenium程序，实现自动验证新建一个java项目，然后导入下列jar包
+
+selenium-server-standalone-3.3.1.jar
+selenium-java-3.3.1.zip
+
+导入成功后需要下载firefox的驱动：geckodriver-v0.15.0-linux64.tar.gz
+以上就是全部的准备工作了新建一个项目，在main方法中写如下代码:12345678910
         
         &nbsp;&nbsp;&nbsp;
         <span>
@@ -811,7 +962,7 @@ editor
         <div id="post_entry-left-info" class="mdl-card__supporting-text meta mdl-color-text--grey-600 ">
             <!-- Author Avatar -->
             <div id="author-avatar">
-                <img src="/img/avatar.png" width="44px" height="44px" alt="Liebes's avatar">
+                <img src="/img/avatar.jpg" width="44px" height="44px" alt="Liebes's avatar">
             </div>
             <div>
                 <strong>Liebes</strong>
@@ -828,6 +979,12 @@ editor
 
             
 
+            
+                <!-- Comment Number -->
+                &nbsp;|&nbsp;
+                <span class="post_entry-comment" >
+                        <span id = "sourceId::2017/03/26/SoftwareTest-LIB-2/" class = "cy_cmt_count" ></span>条评论
+                </span>
             
 
             <!-- Post Views -->
@@ -860,7 +1017,13 @@ editor
     <!-- Post Excerpt -->
     <div class="mdl-color-text--grey-600 mdl-card__supporting-text post_entry-content">
         
-            
+            laravel学习之路记录记录自己踩过的坑
+
+按照官方文档，乖乖的用composer进行安装：1$ composer global require &quot;laravel/installer&quot;
+然后，就给我报了噼里啪啦一堆错误1234[Composer\Downloader\TransportException]                                     The &quot;https://packagist.org/packages.json&quot; file could not be downloaded: fai  led to open stream: Connection timed out
+EXM？我还啥也没干呢啊 = =。然后吧，我就把这个错误扔到了google上，注意了注意了，划重点了！搜出来解决方案的没有一个可以用的！然后我发现只是单纯的被墙了而已。WHAT THE FUCK !!!解决办法也挺简单，把composer的源切成国内镜像就好了1$ composer config -g repo.packagist composer https://packagist.phpcomposer.com
+具体的可以参见 Packagist / Composer 中国全量镜像 这里。接下来就可以愉快的使用laravel了1$ composer global require &quot;laravel/installer&quot;
+使用laravel新建一个项目，然后就可以看到牛逼闪闪的lavavel的目录结构：1$ laravel new myProject
         
         &nbsp;&nbsp;&nbsp;
         <span>
@@ -872,7 +1035,7 @@ editor
         <div id="post_entry-left-info" class="mdl-card__supporting-text meta mdl-color-text--grey-600 ">
             <!-- Author Avatar -->
             <div id="author-avatar">
-                <img src="/img/avatar.png" width="44px" height="44px" alt="Liebes's avatar">
+                <img src="/img/avatar.jpg" width="44px" height="44px" alt="Liebes's avatar">
             </div>
             <div>
                 <strong>Liebes</strong>
@@ -889,6 +1052,12 @@ editor
 
             
 
+            
+                <!-- Comment Number -->
+                &nbsp;|&nbsp;
+                <span class="post_entry-comment" >
+                        <span id = "sourceId::2017/03/20/laravel-learn-1/" class = "cy_cmt_count" ></span>条评论
+                </span>
             
 
             <!-- Post Views -->
@@ -953,12 +1122,12 @@ editor
 
     <!-- Sidebar Avatar -->
     <div class="sidebar-image">
-        <img src="/img/avatar.png" alt="Liebes's avatar">
+        <img src="/img/avatar.jpg" alt="Liebes's avatar">
     </div>
 
     <!-- Sidebar Email -->
     <a data-toggle="dropdown" class="sidebar-brand" href="#settings-dropdown">
-        youremail@email.com
+        wanghaichi0403@gmail.com
         <b class="caret"></b>
     </a>
 </div>
@@ -1015,11 +1184,74 @@ editor
 
     <!-- Categories  -->
     
+        <li class="dropdown">
+            <a href="#" class="ripple-effect dropdown-toggle" data-toggle="dropdown">
+                
+                    <i class="material-icons sidebar-material-icons">chrome_reader_mode</i>
+                
+                分类
+                <b class="caret"></b>
+            </a>
+            <ul class="dropdown-menu">
+                <li>
+                <a class="sidebar_archives-link" href="/categories/TwT/">TwT<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/categories/上机实验/">上机实验<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/categories/个人日志/">个人日志<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/categories/个人日记/">个人日记<span class="sidebar_archives-count">8</span></a></li><li><a class="sidebar_archives-link" href="/categories/作业/">作业<span class="sidebar_archives-count">6</span></a></li><li><a class="sidebar_archives-link" href="/categories/安全/">安全<span class="sidebar_archives-count">2</span></a>
+            </ul>
+        </li>
+        
+    
 
     <!-- Pages  -->
     
+        <li>
+            <a href="tags" title="标签">
+                
+                    <i class="material-icons sidebar-material-icons">note</i>
+                
+                标签
+            </a>
+        </li>
+        
+    
+        <li>
+            <a href="timeline" title="时间轴">
+                
+                    <i class="material-icons sidebar-material-icons">timeline</i>
+                
+                时间轴
+            </a>
+        </li>
+        
+    
+        <li>
+            <a href="gallery" title="相册">
+                
+                    <i class="material-icons sidebar-material-icons">image</i>
+                
+                相册
+            </a>
+        </li>
+        
+    
+        <li>
+            <a href="links" title="友情链接">
+                
+                    <i class="material-icons sidebar-material-icons">share</i>
+                
+                友情链接
+            </a>
+        </li>
+        
+    
 
     <!-- Article Number  -->
+    
+        <li>
+            <a href="/archives">
+                文章总数
+                <span class="sidebar-badge">22</span>
+            </a>
+        </li>
+        
     
 </ul>
 
@@ -1042,16 +1274,18 @@ It will not impact the appearance and can give developers a lot of support :)
 
 <!-- Theme Material -->
 
-    <a href="https://github.com/viosey/hexo-theme-material"  class="sidebar-footer-text-a" target="_blank">
-        <div class="sidebar-text mdl-button mdl-js-button mdl-js-ripple-effect sidebar-footer-text-div" data-upgraded=",MaterialButton,MaterialRipple">
-            主题 - Material
-            <span class="sidebar-badge badge-circle">i</span>
-        </div>
-    </a>
-
 
 <!-- Help & Support -->
 <!--
+
+    <a href="mailto:hiviosey@gmail.com" class="sidebar-footer-text-a">
+        <div class="sidebar-text mdl-button mdl-js-button mdl-js-ripple-effect sidebar-footer-text-div" data-upgraded=",MaterialButton,MaterialRipple">
+        sidebar.help
+        <span class="mdl-button__ripple-container">
+          <span class="mdl-ripple"></span>
+        </span>
+      </div>
+    </a>
 
 -->
 
@@ -1091,16 +1325,10 @@ It will not impact the appearance and can give developers a lot of support :)
         <div class="mdl-mini-footer--left-section sns-list">
     <!-- Twitter -->
     
-        <a href="https://twitter.com/twitter" target="_blank">
-            <button class="mdl-mini-footer--social-btn social-btn footer-sns-twitter">
-                <span class="visuallyhidden">Twitter</span>
-            </button><!--
-     --></a>
-    
 
     <!-- Facebook -->
     
-        <a href="https://www.facebook.com/facebook" target="_blank">
+        <a href="https://www.facebook.com/profile.php?id=100015246426771" target="_blank">
             <button class="mdl-mini-footer--social-btn social-btn footer-sns-facebook">
                 <span class="visuallyhidden">Facebook</span>
             </button><!--
@@ -1108,12 +1336,6 @@ It will not impact the appearance and can give developers a lot of support :)
     
 
     <!-- Google + -->
-    
-        <a href="https://www.google.com/" target="_blank">
-            <button class="mdl-mini-footer--social-btn social-btn footer-sns-gplus">
-                <span class="visuallyhidden">Google Plus</span>
-            </button><!--
-     --></a>
     
 
     <!-- Weibo -->
@@ -1126,6 +1348,12 @@ It will not impact the appearance and can give developers a lot of support :)
     
 
     <!-- Github -->
+    
+        <a href="https://github.com/wanghaichi" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn footer-sns-github">
+                <span class="visuallyhidden">Github</span>
+            </button><!--
+     --></a>
     
 
     <!-- LinkedIn -->
@@ -1147,7 +1375,12 @@ It will not impact the appearance and can give developers a lot of support :)
 
         <!--Copyright-->
         <div id="copyright">
-            Copyright&nbsp;©<script type="text/javascript">var fd = new Date();document.write("&nbsp;" + fd.getFullYear() + "&nbsp;");</script>Liebes 的个人日志
+            Copyright&nbsp;©&nbsp;2015&nbsp;-<script type="text/javascript">var fd = new Date();document.write("&nbsp;" + fd.getFullYear() + "&nbsp;");</script>Liebes 的个人日志
+            
+                <br>
+                
+                    <a href="http://www.miitbeian.gov.cn" rel="nofollow">津ICP备17008789号-1</a>
+                
             
         </div>
 
@@ -1212,6 +1445,11 @@ It will not impact the appearance and can give developers a lot of support :)
 
 
 
+
+   <!-- 畅言公共 js 代码 start -->
+<script id="cy_cmt_num" src="https://changyan.sohu.com/upload/plugins/plugins.list.count.js?clientId=cytqWOkv6">
+</script>
+<!-- 畅言公共 js 代码 end -->
 
 
 

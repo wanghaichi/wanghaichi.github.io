@@ -24,6 +24,8 @@
 
 
 
+    <link rel="dns-prefetch" href="https://changyan.sohu.com"/>
+
 
 
 
@@ -223,8 +225,8 @@
     <link rel="apple-touch-icon" href="/img/favicon.png">
 
     <!-- Site Verification -->
-    
-    
+    <meta name="google-site-verification" content="3y0DPspok4T6uDMqNvKTJXM12vfNAPuI7fwhn4u9hvo" />
+    <meta name="baidu-site-verification" content="Ou5GByZRoU" />
 
     <!-- RSS -->
     
@@ -313,7 +315,17 @@
     <!-- Post Excerpt -->
     <div class="mdl-color-text--grey-600 mdl-card__supporting-text post_entry-content">
         
-            
+            JAVA PATH FINDER [JPF]软件测试小组作业之JPF
+首先先说说JPF是个什么东西
+官方给出的解释：
+
+JPF核心是用于Java™字节码的虚拟机（VM），这意味着它是一个程序，您可以让Java程序执行。它用于在这些程序中找到缺陷，因此您还需要给出属性以作为输入进行检查。 JPF通过一份报告来回复，该报告说如果属性持有和/或由JPF创建的验证工件进行进一步分析（如测试用例）。
+JPF是一个有几个扭曲的虚拟机。它在Java本身中实现，所以不要指望它像您的普通Java一样快速运行。它是在VM上运行的VM。虽然Java字节码的执行语义在http://java.sun.com/docs/books/jvms/second_edition/html/VMSpecTOC.doc.html/ Sun的Java虚拟机规范中有明确定义，但我们在JPF中几乎没有硬连线语义 - VM指令集由一组可被替换的类表示。
+默认指令集使用下一个JPF功能：执行选项。 JPF可以识别您的程序中的执行可能不同的进程，然后系统地探索所有这些点。这意味着JPF（理论上）通过程序执行所有路径，而不仅仅是像普通的VM那样。典型的选择是不同的调度序列或随机值，但JPF可以再次介绍您自己的类型，如用户输入或statemachine事件。
+
+个人觉得JPF是一个针对JAVA程序寻找可执行路径的工具。看了一下官方的例子，觉得JPF可以在JAVA程序执行时自动检测所有的可执行路径，找到可能出现问题的路径。不同于传统的基于用例的Testing，JPF采用的是Model Checking，尽管基于用例的测试在用例足够多的时候有着很不错的测试效果，但是很难保证测试到所有的可行路径。JPF官方给出了基于测试用例的Testing 与 Model Testing 的差别：testing_vs_model_checking
+那么说说JPF安装的方式，JPF安装需要使用一个类似于git的管理工具：Mercurial，同时需要JUNIT，与Apache ant。安装之前我们需要先下载Mercuial 和 ant12$ sudo apt install Mercuial$ sudo apt install ant
+由于我使用的IDE是 idea ,自带了JUNIT的包，没有的需要去下载一下。需要将JUNIT包的目录加入到环境变量中1234$ sudo vi /etc/provileexport JUNIT_HOME=/home/hardy/app/idea...
         
         &nbsp;&nbsp;&nbsp;
         <span>
@@ -325,7 +337,7 @@
         <div id="post_entry-left-info" class="mdl-card__supporting-text meta mdl-color-text--grey-600 ">
             <!-- Author Avatar -->
             <div id="author-avatar">
-                <img src="/img/avatar.png" width="44px" height="44px" alt="Liebes's avatar">
+                <img src="/img/avatar.jpg" width="44px" height="44px" alt="Liebes's avatar">
             </div>
             <div>
                 <strong>Liebes</strong>
@@ -342,6 +354,12 @@
 
             
 
+            
+                <!-- Comment Number -->
+                &nbsp;|&nbsp;
+                <span class="post_entry-comment" >
+                        <span id = "sourceId::2017/04/08/SoftwareTest-HW-4/" class = "cy_cmt_count" ></span>条评论
+                </span>
             
 
             <!-- Post Views -->
@@ -374,7 +392,14 @@
     <!-- Post Excerpt -->
     <div class="mdl-color-text--grey-600 mdl-card__supporting-text post_entry-content">
         
-            
+            【软件测试】作业3 测试之路径覆盖书上的练习题，要求设计相应的测试用例，写出主路径覆盖
+
+Problem Description
+Answer
+
+
+
+Problem Description1234567891011121314151617181920212223242526272829303132/*********************************** * Finds and prints n prime integers * Jeff Offutt, Spring 2003************************************/private static void printPrimes (int n)&#123;	int curPrime;		// Value currently considered for primeness	int numPrimes;		// Number of primes found so far.	boolean isPrime;	// Is curPrime prime?	int [] primes = new int [MAXPRIMES]; // The list of prime numbers.	// Initialize 2 into the list of primes.	primes[0] = 2;	numPrimes ...
         
         &nbsp;&nbsp;&nbsp;
         <span>
@@ -386,7 +411,7 @@
         <div id="post_entry-left-info" class="mdl-card__supporting-text meta mdl-color-text--grey-600 ">
             <!-- Author Avatar -->
             <div id="author-avatar">
-                <img src="/img/avatar.png" width="44px" height="44px" alt="Liebes's avatar">
+                <img src="/img/avatar.jpg" width="44px" height="44px" alt="Liebes's avatar">
             </div>
             <div>
                 <strong>Liebes</strong>
@@ -403,6 +428,12 @@
 
             
 
+            
+                <!-- Comment Number -->
+                &nbsp;|&nbsp;
+                <span class="post_entry-comment" >
+                        <span id = "sourceId::2017/03/15/SoftwareTest-HW-3/" class = "cy_cmt_count" ></span>条评论
+                </span>
             
 
             <!-- Post Views -->
@@ -437,7 +468,14 @@
         
             #【软件测试】作业2 设计测试用例软件测试课程作业，按照要求设计相关的测试用例
 
+问题描述
+问题解答
 
+
+问题描述
+
+Below are two faulty programs. Each includes a test case that results in failure. Answer the following questions about each program.123456789101112131415// program 1public int findLast (int[] x, int y) &#123;//Effects: If x==null throw NullPointerException// else return the index of the last element// in x that equals y.// If no such element exists, return -1  for (int i=x.length-1; i &gt; 0; i--)&#123;    if (x[i] == y)&#123;      return i;    &#125;  &#125;  return -1;&#125;// test: x=[2, 3, 5]; y = 2// Expected = 0
+123456789101112131...
         
         &nbsp;&nbsp;&nbsp;
         <span>
@@ -449,7 +487,7 @@
         <div id="post_entry-left-info" class="mdl-card__supporting-text meta mdl-color-text--grey-600 ">
             <!-- Author Avatar -->
             <div id="author-avatar">
-                <img src="/img/avatar.png" width="44px" height="44px" alt="Liebes's avatar">
+                <img src="/img/avatar.jpg" width="44px" height="44px" alt="Liebes's avatar">
             </div>
             <div>
                 <strong>Liebes</strong>
@@ -466,6 +504,12 @@
 
             
 
+            
+                <!-- Comment Number -->
+                &nbsp;|&nbsp;
+                <span class="post_entry-comment" >
+                        <span id = "sourceId::2017/02/26/SoftwareTest-HW-2/" class = "cy_cmt_count" ></span>条评论
+                </span>
             
 
             <!-- Post Views -->
@@ -498,7 +542,23 @@
     <!-- Post Excerpt -->
     <div class="mdl-color-text--grey-600 mdl-card__supporting-text post_entry-content">
         
-            
+            【软件测试】记录几个曾经遇到的坑
+php中过滤函数的编码问题
+mysql不经过滤直接拼接的问题
+
+
+php中过滤函数的编码问题问题发生的背景是整理服务器，将一部分php5的代码迁移到php7的服务器上。
+
+If omitted, the default value of the encoding varies depending on the PHP version in use. In 5.6 and later, the default_charset configuration option is used as the default value. PHP 5.4 and 5.5 will use UTF-8 as the default. Earlier versions of PHP use ISO-8859-1.
+
+这是官方的文档，能看到在php5.6之前与之后1string htmlspecialchars ( string $string [, int $flags = ENT_COMPAT | ENT_HTML401 [, string $encoding = ini_get(&quot;default_charset&quot;) [, bool $double_encode = true ]]] )
+这个函数的默认编码变了，使得当在php5.6之后的版本，该函数无法对编码格式为gbk的进行过滤。需要显示定义 string $encoding = ini_get(&quot;default_charset&quot;)这个参数。
+
+mysql不经过滤直接拼接的问题这个则是蠢得不行不行的bug，懂点的人都知道mysql如果直接拼接字符串会导致各种注入问题。比如：123$id = $_GET[&apos;id&apos;];//获取id$where = &quot; where id =&apos;&quot; . $id . &quot;&apos;&quot;;$result = getByWhere(&apos;specialnews&apos;, $where);
+只要人家输入个 &quot;AND 1 = 1&quot; 之类的，就血崩。然后使用mysqli函数族中的 real_escape_string() 过滤一下就好了
+
+最后，挽尊。
+
         
         &nbsp;&nbsp;&nbsp;
         <span>
@@ -510,7 +570,7 @@
         <div id="post_entry-left-info" class="mdl-card__supporting-text meta mdl-color-text--grey-600 ">
             <!-- Author Avatar -->
             <div id="author-avatar">
-                <img src="/img/avatar.png" width="44px" height="44px" alt="Liebes's avatar">
+                <img src="/img/avatar.jpg" width="44px" height="44px" alt="Liebes's avatar">
             </div>
             <div>
                 <strong>Liebes</strong>
@@ -527,6 +587,12 @@
 
             
 
+            
+                <!-- Comment Number -->
+                &nbsp;|&nbsp;
+                <span class="post_entry-comment" >
+                        <span id = "sourceId::2017/02/26/SoftwareTest-HW-1/" class = "cy_cmt_count" ></span>条评论
+                </span>
             
 
             <!-- Post Views -->
@@ -586,12 +652,12 @@
 
     <!-- Sidebar Avatar -->
     <div class="sidebar-image">
-        <img src="/img/avatar.png" alt="Liebes's avatar">
+        <img src="/img/avatar.jpg" alt="Liebes's avatar">
     </div>
 
     <!-- Sidebar Email -->
     <a data-toggle="dropdown" class="sidebar-brand" href="#settings-dropdown">
-        youremail@email.com
+        wanghaichi0403@gmail.com
         <b class="caret"></b>
     </a>
 </div>
@@ -648,11 +714,74 @@
 
     <!-- Categories  -->
     
+        <li class="dropdown">
+            <a href="#" class="ripple-effect dropdown-toggle" data-toggle="dropdown">
+                
+                    <i class="material-icons sidebar-material-icons">chrome_reader_mode</i>
+                
+                分类
+                <b class="caret"></b>
+            </a>
+            <ul class="dropdown-menu">
+                <li>
+                <a class="sidebar_archives-link" href="/categories/TwT/">TwT<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/categories/上机实验/">上机实验<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/categories/个人日志/">个人日志<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/categories/个人日记/">个人日记<span class="sidebar_archives-count">8</span></a></li><li><a class="sidebar_archives-link" href="/categories/作业/">作业<span class="sidebar_archives-count">6</span></a></li><li><a class="sidebar_archives-link" href="/categories/安全/">安全<span class="sidebar_archives-count">2</span></a>
+            </ul>
+        </li>
+        
+    
 
     <!-- Pages  -->
     
+        <li>
+            <a href="tags" title="标签">
+                
+                    <i class="material-icons sidebar-material-icons">note</i>
+                
+                标签
+            </a>
+        </li>
+        
+    
+        <li>
+            <a href="timeline" title="时间轴">
+                
+                    <i class="material-icons sidebar-material-icons">timeline</i>
+                
+                时间轴
+            </a>
+        </li>
+        
+    
+        <li>
+            <a href="gallery" title="相册">
+                
+                    <i class="material-icons sidebar-material-icons">image</i>
+                
+                相册
+            </a>
+        </li>
+        
+    
+        <li>
+            <a href="links" title="友情链接">
+                
+                    <i class="material-icons sidebar-material-icons">share</i>
+                
+                友情链接
+            </a>
+        </li>
+        
+    
 
     <!-- Article Number  -->
+    
+        <li>
+            <a href="/archives">
+                文章总数
+                <span class="sidebar-badge">22</span>
+            </a>
+        </li>
+        
     
 </ul>
 
@@ -675,16 +804,18 @@ It will not impact the appearance and can give developers a lot of support :)
 
 <!-- Theme Material -->
 
-    <a href="https://github.com/viosey/hexo-theme-material"  class="sidebar-footer-text-a" target="_blank">
-        <div class="sidebar-text mdl-button mdl-js-button mdl-js-ripple-effect sidebar-footer-text-div" data-upgraded=",MaterialButton,MaterialRipple">
-            主题 - Material
-            <span class="sidebar-badge badge-circle">i</span>
-        </div>
-    </a>
-
 
 <!-- Help & Support -->
 <!--
+
+    <a href="mailto:hiviosey@gmail.com" class="sidebar-footer-text-a">
+        <div class="sidebar-text mdl-button mdl-js-button mdl-js-ripple-effect sidebar-footer-text-div" data-upgraded=",MaterialButton,MaterialRipple">
+        sidebar.help
+        <span class="mdl-button__ripple-container">
+          <span class="mdl-ripple"></span>
+        </span>
+      </div>
+    </a>
 
 -->
 
@@ -716,16 +847,10 @@ It will not impact the appearance and can give developers a lot of support :)
         <div class="mdl-mini-footer--left-section sns-list">
     <!-- Twitter -->
     
-        <a href="https://twitter.com/twitter" target="_blank">
-            <button class="mdl-mini-footer--social-btn social-btn footer-sns-twitter">
-                <span class="visuallyhidden">Twitter</span>
-            </button><!--
-     --></a>
-    
 
     <!-- Facebook -->
     
-        <a href="https://www.facebook.com/facebook" target="_blank">
+        <a href="https://www.facebook.com/profile.php?id=100015246426771" target="_blank">
             <button class="mdl-mini-footer--social-btn social-btn footer-sns-facebook">
                 <span class="visuallyhidden">Facebook</span>
             </button><!--
@@ -733,12 +858,6 @@ It will not impact the appearance and can give developers a lot of support :)
     
 
     <!-- Google + -->
-    
-        <a href="https://www.google.com/" target="_blank">
-            <button class="mdl-mini-footer--social-btn social-btn footer-sns-gplus">
-                <span class="visuallyhidden">Google Plus</span>
-            </button><!--
-     --></a>
     
 
     <!-- Weibo -->
@@ -751,6 +870,12 @@ It will not impact the appearance and can give developers a lot of support :)
     
 
     <!-- Github -->
+    
+        <a href="https://github.com/wanghaichi" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn footer-sns-github">
+                <span class="visuallyhidden">Github</span>
+            </button><!--
+     --></a>
     
 
     <!-- LinkedIn -->
@@ -772,7 +897,12 @@ It will not impact the appearance and can give developers a lot of support :)
 
         <!--Copyright-->
         <div id="copyright">
-            Copyright&nbsp;©<script type="text/javascript">var fd = new Date();document.write("&nbsp;" + fd.getFullYear() + "&nbsp;");</script>Liebes 的个人日志
+            Copyright&nbsp;©&nbsp;2015&nbsp;-<script type="text/javascript">var fd = new Date();document.write("&nbsp;" + fd.getFullYear() + "&nbsp;");</script>Liebes 的个人日志
+            
+                <br>
+                
+                    <a href="http://www.miitbeian.gov.cn" rel="nofollow">津ICP备17008789号-1</a>
+                
             
         </div>
 
@@ -837,6 +967,11 @@ It will not impact the appearance and can give developers a lot of support :)
 
 
 
+
+   <!-- 畅言公共 js 代码 start -->
+<script id="cy_cmt_num" src="https://changyan.sohu.com/upload/plugins/plugins.list.count.js?clientId=cytqWOkv6">
+</script>
+<!-- 畅言公共 js 代码 end -->
 
 
 

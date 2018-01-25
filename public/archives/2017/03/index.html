@@ -24,6 +24,8 @@
 
 
 
+    <link rel="dns-prefetch" href="https://changyan.sohu.com"/>
+
 
 
 
@@ -223,8 +225,8 @@
     <link rel="apple-touch-icon" href="/img/favicon.png">
 
     <!-- Site Verification -->
-    
-    
+    <meta name="google-site-verification" content="3y0DPspok4T6uDMqNvKTJXM12vfNAPuI7fwhn4u9hvo" />
+    <meta name="baidu-site-verification" content="Ou5GByZRoU" />
 
     <!-- RSS -->
     
@@ -313,7 +315,21 @@
     <!-- Post Excerpt -->
     <div class="mdl-color-text--grey-600 mdl-card__supporting-text post_entry-content">
         
-            
+            【软件测试】Selenium Web 测试Selenium 用于WEB程序测试，可以录制下来点击过程的脚本，并自动进行测试。
+
+使用selenium-ide 进行脚本录制
+使用java编写selenium程序，实现自动验证
+
+
+使用selenium-ide 进行脚本录制在开始实验之前，需要安装所需要的软件。首先想要使用selenium-ide，需要是用firefox浏览器。firefox下载链接selenium-ide下载链接将下载后的selenium插件拖到firefox里即可自动安装。成功安装后，在firefox中可以打开selenium插件:选择开发者工具中的selenium-ide打开后长这个样子在1的位置输入想要测试的网址，接着点击2位置的按钮开始录制。去浏览器访问对应的网站，完成表单提交操作，回到selenium-ide会看到录制下来的case，最后点击4,会将当前所有的case执行一遍。
+
+使用java编写selenium程序，实现自动验证新建一个java项目，然后导入下列jar包
+
+selenium-server-standalone-3.3.1.jar
+selenium-java-3.3.1.zip
+
+导入成功后需要下载firefox的驱动：geckodriver-v0.15.0-linux64.tar.gz
+以上就是全部的准备工作了新建一个项目，在main方法中写如下代码:12345678910
         
         &nbsp;&nbsp;&nbsp;
         <span>
@@ -325,7 +341,7 @@
         <div id="post_entry-left-info" class="mdl-card__supporting-text meta mdl-color-text--grey-600 ">
             <!-- Author Avatar -->
             <div id="author-avatar">
-                <img src="/img/avatar.png" width="44px" height="44px" alt="Liebes's avatar">
+                <img src="/img/avatar.jpg" width="44px" height="44px" alt="Liebes's avatar">
             </div>
             <div>
                 <strong>Liebes</strong>
@@ -342,6 +358,12 @@
 
             
 
+            
+                <!-- Comment Number -->
+                &nbsp;|&nbsp;
+                <span class="post_entry-comment" >
+                        <span id = "sourceId::2017/03/26/SoftwareTest-LIB-2/" class = "cy_cmt_count" ></span>条评论
+                </span>
             
 
             <!-- Post Views -->
@@ -374,7 +396,13 @@
     <!-- Post Excerpt -->
     <div class="mdl-color-text--grey-600 mdl-card__supporting-text post_entry-content">
         
-            
+            laravel学习之路记录记录自己踩过的坑
+
+按照官方文档，乖乖的用composer进行安装：1$ composer global require &quot;laravel/installer&quot;
+然后，就给我报了噼里啪啦一堆错误1234[Composer\Downloader\TransportException]                                     The &quot;https://packagist.org/packages.json&quot; file could not be downloaded: fai  led to open stream: Connection timed out
+EXM？我还啥也没干呢啊 = =。然后吧，我就把这个错误扔到了google上，注意了注意了，划重点了！搜出来解决方案的没有一个可以用的！然后我发现只是单纯的被墙了而已。WHAT THE FUCK !!!解决办法也挺简单，把composer的源切成国内镜像就好了1$ composer config -g repo.packagist composer https://packagist.phpcomposer.com
+具体的可以参见 Packagist / Composer 中国全量镜像 这里。接下来就可以愉快的使用laravel了1$ composer global require &quot;laravel/installer&quot;
+使用laravel新建一个项目，然后就可以看到牛逼闪闪的lavavel的目录结构：1$ laravel new myProject
         
         &nbsp;&nbsp;&nbsp;
         <span>
@@ -386,7 +414,7 @@
         <div id="post_entry-left-info" class="mdl-card__supporting-text meta mdl-color-text--grey-600 ">
             <!-- Author Avatar -->
             <div id="author-avatar">
-                <img src="/img/avatar.png" width="44px" height="44px" alt="Liebes's avatar">
+                <img src="/img/avatar.jpg" width="44px" height="44px" alt="Liebes's avatar">
             </div>
             <div>
                 <strong>Liebes</strong>
@@ -403,6 +431,12 @@
 
             
 
+            
+                <!-- Comment Number -->
+                &nbsp;|&nbsp;
+                <span class="post_entry-comment" >
+                        <span id = "sourceId::2017/03/20/laravel-learn-1/" class = "cy_cmt_count" ></span>条评论
+                </span>
             
 
             <!-- Post Views -->
@@ -435,7 +469,10 @@
     <!-- Post Excerpt -->
     <div class="mdl-color-text--grey-600 mdl-card__supporting-text post_entry-content">
         
-            
+            hexo 使用git备份hexo源文件这是个悲伤的故事，海痴的linux出了点毛病，然后就想着重装一遍。掐指一算，自家的代码在git上面都保存了，直接重装！然后吧，hexo你大爷，你没事就不能把博客原文备份一下么？又不占你的空间！那么费劲么！是的，海痴的博客都没了，别问我为什么还能看着，宝宝复制粘贴都快吐了，弄到凌晨两点多才恢复了。这件事情告诉我们，没事闲的别重装系统。
+
+具体的思路就是在我们的博客仓库中新建一个分支，用来保存源码，master分支用来提交hexo自动生成的文件。以海痴的博客为例。打开wanghaichi.github.io工作目录，我们可以喜闻乐见的发现没有.git文件夹。那么接下来的事情就简单了打开工作目录，执行以下操作123456789101112131415$ git init$ vi .gitignore.DS_StoreThumbs.dbdb.json  *.log.deploy*/node_modules/.npmignorepublic/$ git branch -b hexo$ git add .$ git commit -m &quot;backup&quot;$ git remote add origin git@github.com:wanghaichi/wanghaichi.github.io.git$ git push origin hexo
+如果没设置ssh权限可能需要设置一下，然后去github仓库里面切换以下分支，你的可爱的博客就都在里面啦。以后每次写完博客，先执行一遍123$ git add .$ git commit -m &quot;backup&quot;$ git push origin hexo
         
         &nbsp;&nbsp;&nbsp;
         <span>
@@ -447,7 +484,7 @@
         <div id="post_entry-left-info" class="mdl-card__supporting-text meta mdl-color-text--grey-600 ">
             <!-- Author Avatar -->
             <div id="author-avatar">
-                <img src="/img/avatar.png" width="44px" height="44px" alt="Liebes's avatar">
+                <img src="/img/avatar.jpg" width="44px" height="44px" alt="Liebes's avatar">
             </div>
             <div>
                 <strong>Liebes</strong>
@@ -464,6 +501,12 @@
 
             
 
+            
+                <!-- Comment Number -->
+                &nbsp;|&nbsp;
+                <span class="post_entry-comment" >
+                        <span id = "sourceId::2017/03/17/hexo-backup/" class = "cy_cmt_count" ></span>条评论
+                </span>
             
 
             <!-- Post Views -->
@@ -496,7 +539,14 @@
     <!-- Post Excerpt -->
     <div class="mdl-color-text--grey-600 mdl-card__supporting-text post_entry-content">
         
-            
+            【软件测试】作业3 测试之路径覆盖书上的练习题，要求设计相应的测试用例，写出主路径覆盖
+
+Problem Description
+Answer
+
+
+
+Problem Description1234567891011121314151617181920212223242526272829303132/*********************************** * Finds and prints n prime integers * Jeff Offutt, Spring 2003************************************/private static void printPrimes (int n)&#123;	int curPrime;		// Value currently considered for primeness	int numPrimes;		// Number of primes found so far.	boolean isPrime;	// Is curPrime prime?	int [] primes = new int [MAXPRIMES]; // The list of prime numbers.	// Initialize 2 into the list of primes.	primes[0] = 2;	numPrimes ...
         
         &nbsp;&nbsp;&nbsp;
         <span>
@@ -508,7 +558,7 @@
         <div id="post_entry-left-info" class="mdl-card__supporting-text meta mdl-color-text--grey-600 ">
             <!-- Author Avatar -->
             <div id="author-avatar">
-                <img src="/img/avatar.png" width="44px" height="44px" alt="Liebes's avatar">
+                <img src="/img/avatar.jpg" width="44px" height="44px" alt="Liebes's avatar">
             </div>
             <div>
                 <strong>Liebes</strong>
@@ -525,6 +575,12 @@
 
             
 
+            
+                <!-- Comment Number -->
+                &nbsp;|&nbsp;
+                <span class="post_entry-comment" >
+                        <span id = "sourceId::2017/03/15/SoftwareTest-HW-3/" class = "cy_cmt_count" ></span>条评论
+                </span>
             
 
             <!-- Post Views -->
@@ -557,7 +613,11 @@
     <!-- Post Excerpt -->
     <div class="mdl-color-text--grey-600 mdl-card__supporting-text post_entry-content">
         
-            
+            Nginx 本地虚拟主机搭建之前每次都死在这里，这把终于搞明白了。弄个虚拟主机的目的是将多个项目都可以跑在虚拟域名的根目录下，在本地调试结构也比较清晰。
+
+首先备份一份 default 配置文件1$ sudo cp /etc/nginx/sites-available/default /etc/nginx/sites-available/default.bak
+接下来以example.com域名为例1$ sudo cp /etc/nginx/sites-available/default /etc/nginx/sites-available/example.com.conf
+修改新的配置文件的内容123456789101112131415161718server &#123;	listen 80;	listen [::]:80;	server_name example.com;	root /var/www/example.com;	index index.html index.php;	location / &#123;		try_files $uri $uri/ =404;	&#125;	location ~ \.php$ &#123;		include snippets/fastcgi-php.conf;		fastcgi_pass 127.0.0.1:9000;	&#125;	loc...
         
         &nbsp;&nbsp;&nbsp;
         <span>
@@ -569,7 +629,7 @@
         <div id="post_entry-left-info" class="mdl-card__supporting-text meta mdl-color-text--grey-600 ">
             <!-- Author Avatar -->
             <div id="author-avatar">
-                <img src="/img/avatar.png" width="44px" height="44px" alt="Liebes's avatar">
+                <img src="/img/avatar.jpg" width="44px" height="44px" alt="Liebes's avatar">
             </div>
             <div>
                 <strong>Liebes</strong>
@@ -586,6 +646,12 @@
 
             
 
+            
+                <!-- Comment Number -->
+                &nbsp;|&nbsp;
+                <span class="post_entry-comment" >
+                        <span id = "sourceId::2017/03/13/lemp-vhost/" class = "cy_cmt_count" ></span>条评论
+                </span>
             
 
             <!-- Post Views -->
@@ -618,7 +684,18 @@
     <!-- Post Excerpt -->
     <div class="mdl-color-text--grey-600 mdl-card__supporting-text post_entry-content">
         
-            
+            【软件测试】JUNIT使用及覆盖测试软件测试第一次上机，测试了一下JUnit的使用和覆盖测试，虽然实验要求是用eclipse，但我还是被idea的美色所臣服。
+
+Junit 安装与使用
+覆盖测试
+
+
+Junit 安装与使用首先去官网下载Junit的jar包和其依赖
+
+junit-4.12.jar
+hamcrest-core-1.3.jar
+
+打开Idea，新建一个项目，并在项目中与src目录平级创建test和lib文件夹，并将下载的jar包放在lib文件夹中在idea中导入junit：File&gt;Project Structure&gt;Modules 点击 ‘+’ 引入刚刚下载的jar包，点击 Apply将test文件夹设置为测试文件夹在test文件夹右键 &gt; Mark Directory as &gt; Test Resources Root回到Main.java 编写testTriangle方法12345678910111213//判断一个三角形的形状：等边，等腰，普通public static String testTriangle(int a, int b, int c)&#123;    if(a &lt; 0 || b &lt; 0 || c &lt; 0)        return &quot;illegal input&quot;;    else if (a + b &lt;= c || a + c &lt;= b || b + c &lt;= a)        return &quot;illegal input&quot;;    else if (a == b &amp;&amp; b == c)        return &quot;...
         
         &nbsp;&nbsp;&nbsp;
         <span>
@@ -630,7 +707,7 @@
         <div id="post_entry-left-info" class="mdl-card__supporting-text meta mdl-color-text--grey-600 ">
             <!-- Author Avatar -->
             <div id="author-avatar">
-                <img src="/img/avatar.png" width="44px" height="44px" alt="Liebes's avatar">
+                <img src="/img/avatar.jpg" width="44px" height="44px" alt="Liebes's avatar">
             </div>
             <div>
                 <strong>Liebes</strong>
@@ -647,6 +724,12 @@
 
             
 
+            
+                <!-- Comment Number -->
+                &nbsp;|&nbsp;
+                <span class="post_entry-comment" >
+                        <span id = "sourceId::2017/03/10/SoftwareTest-LIB-1/" class = "cy_cmt_count" ></span>条评论
+                </span>
             
 
             <!-- Post Views -->
@@ -679,7 +762,14 @@
     <!-- Post Excerpt -->
     <div class="mdl-color-text--grey-600 mdl-card__supporting-text post_entry-content">
         
-            
+            Unbuntu16.04 Nginx + php + mysql Web服务器搭建下决心不再用lamp的集成包了，自己搞一个出来。
+
+Nginx
+php
+mysql
+
+
+Nginx首先安装使用 apt 安装nginx$ sudo apt install nginx然而由于之前安装过nginx，卸载还不干净，导致配置文件读取失败，出现错误：123456789101112131415161718192021222324252627282930313233Job for nginx.service failed because the control process exited with error code. See &quot;systemctl status nginx.service&quot; and &quot;journalctl -xe&quot; for details.invoke-rc.d: initscript nginx, action &quot;start&quot; failed.● nginx.service - A high performance web server and a reverse proxy server   Loaded: loaded (/lib/systemd/system/nginx.service; enabled; vendor preset: enabled)   Active: failed (Result: exit-code) since 四...
         
         &nbsp;&nbsp;&nbsp;
         <span>
@@ -691,7 +781,7 @@
         <div id="post_entry-left-info" class="mdl-card__supporting-text meta mdl-color-text--grey-600 ">
             <!-- Author Avatar -->
             <div id="author-avatar">
-                <img src="/img/avatar.png" width="44px" height="44px" alt="Liebes's avatar">
+                <img src="/img/avatar.jpg" width="44px" height="44px" alt="Liebes's avatar">
             </div>
             <div>
                 <strong>Liebes</strong>
@@ -708,6 +798,12 @@
 
             
 
+            
+                <!-- Comment Number -->
+                &nbsp;|&nbsp;
+                <span class="post_entry-comment" >
+                        <span id = "sourceId::2017/03/10/lemp-Ubantu/" class = "cy_cmt_count" ></span>条评论
+                </span>
             
 
             <!-- Post Views -->
@@ -740,7 +836,24 @@
     <!-- Post Excerpt -->
     <div class="mdl-color-text--grey-600 mdl-card__supporting-text post_entry-content">
         
-            
+            [TwT]关于php代码中一些简单的安全问题第一周的分享，记录一些常见的防止漏洞的办法。
+
+浅谈php过滤函数
+数据库查询之PDO
+
+
+浅谈php过滤函数常见的php中的过滤函数无非就那么几个1234addslashes();mysqli_real_escape_string();strip_tags();htmlspecialchars();
+addslashes()首先是 addslashes() 这个函数，官方给的说明如下：
+
+string addslashes ( string $str )
+Returns a string with backslashes before characters that need to be escaped. These characters are single quote (‘), double quote (“), backslash () and NUL (the NULL byte).
+An example use of addslashes() is when you’re entering data into string that is evaluated by PHP. For example, O’Reilly is stored in $str, you need to escape $str. (e.g. eval(“echo ‘“.addslashes($str).”‘;”); )
+
+可以看到这个函数会将字符串中的单引号，双引号，反斜杠和空字符进行转义，这个函数使用前要先确认php.ini中有没有开启magic_quotes_gpc，可以使用get_magic_quotes_gpc()方法进行查看，避免二次转义
+mysqli_real_escape_string()为了防止SQL注入，这个过滤函数是必备的，由于官方的解释没找到，参考一下W3School上的解释。
+
+mysql_real_escape_string() 函数转义 SQL 语句中使用的字符串中的特殊字符。下列字符受影响：
+\x00 \n \r \
         
         &nbsp;&nbsp;&nbsp;
         <span>
@@ -752,7 +865,7 @@
         <div id="post_entry-left-info" class="mdl-card__supporting-text meta mdl-color-text--grey-600 ">
             <!-- Author Avatar -->
             <div id="author-avatar">
-                <img src="/img/avatar.png" width="44px" height="44px" alt="Liebes's avatar">
+                <img src="/img/avatar.jpg" width="44px" height="44px" alt="Liebes's avatar">
             </div>
             <div>
                 <strong>Liebes</strong>
@@ -769,6 +882,12 @@
 
             
 
+            
+                <!-- Comment Number -->
+                &nbsp;|&nbsp;
+                <span class="post_entry-comment" >
+                        <span id = "sourceId::2017/03/06/twt-17-3-6/" class = "cy_cmt_count" ></span>条评论
+                </span>
             
 
             <!-- Post Views -->
@@ -828,12 +947,12 @@
 
     <!-- Sidebar Avatar -->
     <div class="sidebar-image">
-        <img src="/img/avatar.png" alt="Liebes's avatar">
+        <img src="/img/avatar.jpg" alt="Liebes's avatar">
     </div>
 
     <!-- Sidebar Email -->
     <a data-toggle="dropdown" class="sidebar-brand" href="#settings-dropdown">
-        youremail@email.com
+        wanghaichi0403@gmail.com
         <b class="caret"></b>
     </a>
 </div>
@@ -890,11 +1009,74 @@
 
     <!-- Categories  -->
     
+        <li class="dropdown">
+            <a href="#" class="ripple-effect dropdown-toggle" data-toggle="dropdown">
+                
+                    <i class="material-icons sidebar-material-icons">chrome_reader_mode</i>
+                
+                分类
+                <b class="caret"></b>
+            </a>
+            <ul class="dropdown-menu">
+                <li>
+                <a class="sidebar_archives-link" href="/categories/TwT/">TwT<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/categories/上机实验/">上机实验<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/categories/个人日志/">个人日志<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/categories/个人日记/">个人日记<span class="sidebar_archives-count">8</span></a></li><li><a class="sidebar_archives-link" href="/categories/作业/">作业<span class="sidebar_archives-count">6</span></a></li><li><a class="sidebar_archives-link" href="/categories/安全/">安全<span class="sidebar_archives-count">2</span></a>
+            </ul>
+        </li>
+        
+    
 
     <!-- Pages  -->
     
+        <li>
+            <a href="tags" title="标签">
+                
+                    <i class="material-icons sidebar-material-icons">note</i>
+                
+                标签
+            </a>
+        </li>
+        
+    
+        <li>
+            <a href="timeline" title="时间轴">
+                
+                    <i class="material-icons sidebar-material-icons">timeline</i>
+                
+                时间轴
+            </a>
+        </li>
+        
+    
+        <li>
+            <a href="gallery" title="相册">
+                
+                    <i class="material-icons sidebar-material-icons">image</i>
+                
+                相册
+            </a>
+        </li>
+        
+    
+        <li>
+            <a href="links" title="友情链接">
+                
+                    <i class="material-icons sidebar-material-icons">share</i>
+                
+                友情链接
+            </a>
+        </li>
+        
+    
 
     <!-- Article Number  -->
+    
+        <li>
+            <a href="/archives">
+                文章总数
+                <span class="sidebar-badge">22</span>
+            </a>
+        </li>
+        
     
 </ul>
 
@@ -917,16 +1099,18 @@ It will not impact the appearance and can give developers a lot of support :)
 
 <!-- Theme Material -->
 
-    <a href="https://github.com/viosey/hexo-theme-material"  class="sidebar-footer-text-a" target="_blank">
-        <div class="sidebar-text mdl-button mdl-js-button mdl-js-ripple-effect sidebar-footer-text-div" data-upgraded=",MaterialButton,MaterialRipple">
-            主题 - Material
-            <span class="sidebar-badge badge-circle">i</span>
-        </div>
-    </a>
-
 
 <!-- Help & Support -->
 <!--
+
+    <a href="mailto:hiviosey@gmail.com" class="sidebar-footer-text-a">
+        <div class="sidebar-text mdl-button mdl-js-button mdl-js-ripple-effect sidebar-footer-text-div" data-upgraded=",MaterialButton,MaterialRipple">
+        sidebar.help
+        <span class="mdl-button__ripple-container">
+          <span class="mdl-ripple"></span>
+        </span>
+      </div>
+    </a>
 
 -->
 
@@ -966,16 +1150,10 @@ It will not impact the appearance and can give developers a lot of support :)
         <div class="mdl-mini-footer--left-section sns-list">
     <!-- Twitter -->
     
-        <a href="https://twitter.com/twitter" target="_blank">
-            <button class="mdl-mini-footer--social-btn social-btn footer-sns-twitter">
-                <span class="visuallyhidden">Twitter</span>
-            </button><!--
-     --></a>
-    
 
     <!-- Facebook -->
     
-        <a href="https://www.facebook.com/facebook" target="_blank">
+        <a href="https://www.facebook.com/profile.php?id=100015246426771" target="_blank">
             <button class="mdl-mini-footer--social-btn social-btn footer-sns-facebook">
                 <span class="visuallyhidden">Facebook</span>
             </button><!--
@@ -983,12 +1161,6 @@ It will not impact the appearance and can give developers a lot of support :)
     
 
     <!-- Google + -->
-    
-        <a href="https://www.google.com/" target="_blank">
-            <button class="mdl-mini-footer--social-btn social-btn footer-sns-gplus">
-                <span class="visuallyhidden">Google Plus</span>
-            </button><!--
-     --></a>
     
 
     <!-- Weibo -->
@@ -1001,6 +1173,12 @@ It will not impact the appearance and can give developers a lot of support :)
     
 
     <!-- Github -->
+    
+        <a href="https://github.com/wanghaichi" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn footer-sns-github">
+                <span class="visuallyhidden">Github</span>
+            </button><!--
+     --></a>
     
 
     <!-- LinkedIn -->
@@ -1022,7 +1200,12 @@ It will not impact the appearance and can give developers a lot of support :)
 
         <!--Copyright-->
         <div id="copyright">
-            Copyright&nbsp;©<script type="text/javascript">var fd = new Date();document.write("&nbsp;" + fd.getFullYear() + "&nbsp;");</script>Liebes 的个人日志
+            Copyright&nbsp;©&nbsp;2015&nbsp;-<script type="text/javascript">var fd = new Date();document.write("&nbsp;" + fd.getFullYear() + "&nbsp;");</script>Liebes 的个人日志
+            
+                <br>
+                
+                    <a href="http://www.miitbeian.gov.cn" rel="nofollow">津ICP备17008789号-1</a>
+                
             
         </div>
 
@@ -1087,6 +1270,11 @@ It will not impact the appearance and can give developers a lot of support :)
 
 
 
+
+   <!-- 畅言公共 js 代码 start -->
+<script id="cy_cmt_num" src="https://changyan.sohu.com/upload/plugins/plugins.list.count.js?clientId=cytqWOkv6">
+</script>
+<!-- 畅言公共 js 代码 end -->
 
 
 
