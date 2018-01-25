@@ -7,12 +7,12 @@ title: Liebes 的个人日志
 subtitle: 心比天高，命比纸薄。
 description: 记录工作、学习的点滴
 author: Liebes
-language: zh-Hans
+language: zh-CN
 timezone:
 
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
-url: http://yoursite.com
+url: https://blog.liebes.top
 root: /
 permalink: :year/:month/:day/:title/
 permalink_defaults:
@@ -63,7 +63,7 @@ pagination_dir: page
 # Extensions
 ## Plugins: https://hexo.io/plugins/
 ## Themes: https://hexo.io/themes/
-theme: next
+theme: material
 # theme: casper
 
 # Deployment
