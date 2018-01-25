@@ -1,4 +1,17 @@
-Name: 
-  full_link: http://example.com/full-image.png
-  thumb_link: http://example.com/thumb-image.png
-  descr: "这是一个描述"
+2018-1-20_1: 
+  full_link: /gallery/IMG_4402.jpg
+  thumb_link: /gallery/IMG_4402.jpg
+  descr: "Viking在吃烤地瓜"
+2018-1-20_2: 
+  full_link: /gallery/IMG_4423.jpg
+  thumb_link: /gallery/IMG_4423.jpg
+  descr: "Viking在意式风情区"
+2018-1-20_3: 
+  full_link: /gallery/IMG_4429.jpg
+  thumb_link: /gallery/IMG_4429.jpg
+  descr: "Viking在埃菲尔铁塔（误）"
+2018-1-20_4: 
+  full_link: /gallery/IMG_4459.jpg
+  thumb_link: /gallery/IMG_4459.jpg
+  descr: "Viking在吃关东煮"
+  

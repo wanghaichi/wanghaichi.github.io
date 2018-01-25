@@ -203,19 +203,19 @@ sidebar:
         divider: false
     pages:
         标签:
-            link: "tags"
+            link: "/tags"
             icon: note
             divider: false
         时间轴:
-            link: "timeline"
+            link: "/timeline"
             icon: timeline
             divider: false
         相册:
-            link: "gallery"
+            link: "/gallery"
             icon: image
             divider: false
         友情链接:
-            link: "links"
+            link: "/links"
             icon: share
             divider: false
 
