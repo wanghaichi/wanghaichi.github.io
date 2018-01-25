@@ -24,10 +24,17 @@ script:
 
 
 after_script: # 推送到github的部分
-  - ./publish-to-gh-pages.sh
+  - cd ./public
+  - git init
+  - git config user.name  "liebes"
+  - git config user.email "wanghaichi0403@gmail.com"
+  - git add .
+  - git commit -m "Travis CI Auto Builder"
+  - git push --force --quiet "https://${GH_TOKEN}@${GH_REF}" master:master # GH_TOKEN是在Travis中配置token的名称
+  - rsync -az -vv --delete -e 'ssh' public/ root@liebes.top:/var/www/blog
 
 addons:
-  ssh_known_hosts: liebes.top:22
+  ssh_known_hosts: www.liebes.top:22
 
 branches:
   only:
