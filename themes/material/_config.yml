@@ -187,7 +187,7 @@ sns_share:
 sidebar:
     dropdown:
         Email Me:
-            link: "#"
+            link: "mailto:wanghaichi0403@gmail.com"
             icon: email
     homepage:
         use: true
@@ -202,10 +202,6 @@ sidebar:
         icon: chrome_reader_mode
         divider: false
     pages:
-        # About:
-        #     link: "/about"
-        #     icon: person
-        #     divider: false
         标签:
             link: "tags"
             icon: note
