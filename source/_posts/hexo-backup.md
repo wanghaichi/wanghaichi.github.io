@@ -1,11 +1,10 @@
 layout: article
-title: hexo-backup
+title: hexo 使用git备份hexo源文件
 date: 2017-03-17 15:29:17
 tags:
 - hexo
 categories: 个人日记
 ---
-# hexo 使用git备份hexo源文件
 这是个悲伤的故事，海痴的linux出了点毛病，然后就想着重装一遍。掐指一算，自家的代码在git上面都保存了，直接重装！
 然后吧，hexo你大爷，你没事就不能把博客原文备份一下么？又不占你的空间！那么费劲么！
 是的，海痴的博客都没了，别问我为什么还能看着，宝宝复制粘贴都快吐了，弄到凌晨两点多才恢复了。
