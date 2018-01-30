@@ -150,7 +150,7 @@ Region Avg IOU: 0.432582, Class: 0.452631, Obj: 0.143766, No Obj: 0.005994, Avg 
 
 最后一行的格式：
 
-<迭代次数> : <train loss>, <avg train loss>, <学习率> ...
+<迭代次数> : < train loss >, < avg train loss >, <学习率> ...
 
 反正我主要关心召回率和损失
 
