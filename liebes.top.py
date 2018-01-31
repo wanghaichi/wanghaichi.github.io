@@ -68,7 +68,7 @@ def change_html(html_path, mdList, totalCount):
 	with open(html_path, 'w') as file:
 		file.write(content)
 
-def convert_gallery(filePath):
+def convert_links(filePath):
 	links = {}
 	template = ""
 	html = ""
@@ -104,6 +104,40 @@ def convert_gallery(filePath):
 	with open(os.getcwd() + "/liebes.top/index.html", "w") as file:
 		file.write(content)
 
+def convert_gallery(filePath):
+	links = {}
+	template = ""
+	html = ""
+	with open(filePath + "/gallery.yaml", 'r') as file:
+		links = yaml.load(file)
+	
+	with open(filePath + "/li-gallery.html", "r") as file:
+		template = file.read()
+
+	s = ""
+	for idx, k in enumerate(links):
+		tem = template
+		tem = tem.replace("{src}", "https://blog.liebes.top%s"%links[k]["full_link"])
+		s = s + tem
+		if idx % 2 == 1:
+			s = "<div class=\"col-md-4 wp4\">" + s + "</div>"
+			html = html + s
+			s = ""
+		if(idx == 5)
+			break
+	if s != "":
+		s = "<div class=\"col-md-4 wp4\">" + s + "</div>"
+		html = html + s
+		s = ""
+	content = ""
+	with open(os.getcwd() + "/liebes.top/index.html", "r") as file:
+		content = file.read()
+
+	content = content.replace("{gallery}", html.encode("utf-8"))
+	
+	with open(os.getcwd() + "/liebes.top/index.html", "w") as file:
+		file.write(content)
+
 baseDir = os.getcwd()
 mds = os.listdir(baseDir + "/source/_posts")
 totalCount = len(mds)
@@ -118,8 +152,8 @@ mdList = sorted(mdList, key = lambda item: item['date'], reverse=True)
 mdList = mdList[0:6]
 
 change_html(baseDir + "/liebes.top/index.html", mdList, totalCount)
+convert_links(baseDir + "/source/_data")
 convert_gallery(baseDir + "/source/_data")
-
 
 
 
