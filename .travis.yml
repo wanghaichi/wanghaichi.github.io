@@ -9,8 +9,8 @@ before_install:
     -in travis.enc -out ~/.ssh/id_rsa -d
   - chmod 600 ~/.ssh/id_rsa
   - echo -e "Host 60.205.188.39\n\tStrictHostKeyChecking no\n" >> ~/.ssh/config
-  - wget https://imsun.github.io/gitment/style/default.css
-  - wget https://imsun.github.io/gitment/dist/gitment.browser.js
+  - wget -P themes/material/source/css/gitmen/ https://imsun.github.io/gitment/style/default.css
+  - wget -P themes/material/source/js/gitmen/ https://imsun.github.io/gitment/dist/gitment.browser.js
   - npm install hexo-cli -g
   - git clone https://github.com/yaml/pyyaml.git
   - cd pyyaml
@@ -19,8 +19,6 @@ before_install:
 install:
   - npm install
 script:
-  - mv ./default.css ./themes/material/source/css/gitmen/default.css
-  - mv ./gitment.browser.js ./themes/material/source/js/gitmen/gitment.browser.js
   - hexo clean
   - hexo g
   - python liebes.top.py
