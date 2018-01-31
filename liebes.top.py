@@ -19,7 +19,12 @@ def convert_md(filePath):
 	title = re.search(pattern, prefix).group(2)
 	pattern = re.compile(r'date:( *)(.*?)( *)\n')
 	date = re.search(pattern, prefix).group(2)
-
+	pattern = re.compile(r'img:( *)(.*?)( *)\n')
+	img = ""
+	try: 
+		img = "https://blog.liebes.top" + re.search(pattern, prefix).group(2)
+	except:
+		img = "img/portfolio-01.jpg"
 	webSite = "https://blog.liebes.top"
 	url = date[0:10]
 	url = url.replace("-", "/")
@@ -30,7 +35,8 @@ def convert_md(filePath):
 		'title': title,
 		'date' : date,
 		'main' : main,
-		'url'  : webSite + "/" + url + "/" + basename
+		'url'  : webSite + "/" + url + "/" + basename,
+		'src'  : img
 	}
 
 def change_html(html_path, mdList, totalCount):
@@ -48,6 +54,7 @@ def change_html(html_path, mdList, totalCount):
 		tem = tem.replace("{title}", item['title'])
 		tem = tem.replace("{url}", item['url'])
 		tem = tem.replace("{content}", item['main'])
+		tem = tem.replace("{src}", item['src'])
 		s = s + tem
 		if idx % 3 == 2:
 			s = "<li>" + s + "</li>"

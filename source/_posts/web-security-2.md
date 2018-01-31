@@ -6,6 +6,7 @@ categories: 安全
 tags:
 - 网络安全
 - sql injection
+img: /images/2018-01-31-11-20-webseq.jpg
 ---
 
 在国哥的安排下，对着 kali渗透测试之 SQL injeciton 视频教程一顿撸（虽然没什么卵用），记录下来自己的一些实验过程和经历。

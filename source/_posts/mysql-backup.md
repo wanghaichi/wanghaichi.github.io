@@ -3,6 +3,7 @@ layout: article
 title: Mysql 增量备份，全部备份实现方法以及自动化脚本
 date: 2017-10-20 00:41:45
 tags: mysql
+img: /images/2018-01-31-11-26-data.jpg
 ---
 
 ## 前情摘要

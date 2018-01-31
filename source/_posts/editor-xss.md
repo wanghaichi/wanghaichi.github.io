@@ -6,6 +6,7 @@ tags:
 - editor
 - xss
 categories: 个人日记
+img: /images/2018-01-31-11-22-webseq.jpg
 ---
 
 接上一篇编辑器的使用，自己尝试着写了一段js代码，本以为laravel的

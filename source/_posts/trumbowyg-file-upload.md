@@ -6,6 +6,7 @@ tags:
 - editor
 - 文件上传
 categories: 个人日志
+img: /images/2018-01-31-11-24-trum.jpg
 ---
 
 
