@@ -1,10 +1,11 @@
+---
 layout: article
 title: 【软件测试】作业2 设计测试用例
 date: 2017-02-26 23:34:02
 tags: 软件测试作业
 categories: 作业
 ---
-#【软件测试】作业2 设计测试用例
+
 软件测试课程作业，按照要求设计相关的测试用例
 - [问题描述](#problem)
 - [问题解答](#answer)
@@ -12,13 +13,14 @@ categories: 作业
 <h2 id='problem'>问题描述</h2>
 > Below are two faulty programs. Each includes a test case that results in failure. Answer the following questions about each program.
 > ```
-// program 1
-public int findLast (int[] x, int y) {
-//Effects: If x==null throw NullPointerException
-// else return the index of the last element
-// in x that equals y.
-// If no such element exists, return -1
-  for (int i=x.length-1; i > 0; i--){
+> // program 1
+> public int findLast (int[] x, int y) {
+> //Effects: If x==null throw NullPointerException
+> // else return the index of the last element
+> // in x that equals y.
+> // If no such element exists, return -1
+>   for (int i=x.length-1; i > 0; i--){
+> ```
     if (x[i] == y){
       return i;
     }
@@ -50,7 +52,7 @@ public static int lastZero (int[] x) {
 - If possible, identify a test case that does not execute the fault. (Reachability)
 - If possible, identify a test case that executes the fault, but does not result in an error state.
 - If possible identify a test case that results in an error, but
-not a failure.
+  not a failure.
 ---
 <h2 id='answer'>问题解答</h2>
 - program 1

@@ -1,10 +1,11 @@
+---
 layout: article
 title: 【软件测试】Selenium Web 测试
 date: 2017-03-26 17:08:07
 tags: 软件测试上机实验
 categories: 上机实验
 ---
-# 【软件测试】Selenium Web 测试
+
 Selenium 用于WEB程序测试，可以录制下来点击过程的脚本，并自动进行测试。
 
 - [使用selenium-ide 进行脚本录制](#ide)

@@ -1,10 +1,11 @@
+---
 layout: article
 title: 【软件测试】记录几个曾经遇到的坑
 date: 2017-02-26 23:34:01
 tags: 软件测试作业
 categories: 作业
 ---
-# 【软件测试】记录几个曾经遇到的坑
+
 - [php中过滤函数的编码问题](#htmlspecialchars)
 - [mysql不经过滤直接拼接的问题](#mysql)
 ---

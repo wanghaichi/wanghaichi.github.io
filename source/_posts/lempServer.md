@@ -1,3 +1,4 @@
+---
 layout: article
 title: Centos 7 Nginx + php + mysql Web服务器搭建
 date: 2017-01-21 23:34:00
@@ -7,7 +8,7 @@ tags:
 - Lemp
 categories: 个人日记
 ---
-# Centos 7 Nginx + php + mysql Web服务器搭建
+
 - [安装Nginx](#nginx)
 - [安装php5](#php5)
 - [安装php7](#php7)

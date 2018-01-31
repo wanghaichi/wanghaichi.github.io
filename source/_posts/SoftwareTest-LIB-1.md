@@ -1,10 +1,11 @@
+---
 layout: article
 title: 【软件测试】JUNIT使用及覆盖测试
 date: 2017-03-10 23:34:01
 tags: 软件测试上机实验
 categories: 上机实验
 ---
-# 【软件测试】JUNIT使用及覆盖测试
+
 软件测试第一次上机，测试了一下JUnit的使用和覆盖测试，虽然实验要求是用eclipse，但我还是被idea的美色所臣服。
 - [Junit 安装与使用](#junit)
 - [覆盖测试](#cover)

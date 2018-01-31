@@ -1,10 +1,11 @@
+---
 layout: article
 title: Ubuntu16.04 配置JAVA环境、搭建tomcat环境、安装php-java-bridge工具
 date: 2017-01-17 23:34:00
 tags: java
 categories: 个人日记
 ---
-# Ubuntu16.04 配置JAVA环境、搭建tomcat环境、安装php-java-bridge工具
+
 - [下载安装jdk](#jdk)
 - [配置JAVA环境变量](#javahome)
 - [搭建tomcat环境](#tomcat)

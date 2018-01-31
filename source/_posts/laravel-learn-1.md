@@ -1,3 +1,4 @@
+---
 layout: article
 title: laravel的学习日常-初识
 date: 2017-03-20 00:24:17
@@ -5,7 +6,7 @@ tags:
 - laravel
 categories: 个人日记
 ---
-# laravel学习之路
+
 记录记录自己踩过的坑
 
 ---

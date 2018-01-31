@@ -1,3 +1,4 @@
+---
 layout: article
 title: 【软件测试】JAVA PATH FINDER [JPF]
 date: 2017-04-08 15:07:09
@@ -5,7 +6,6 @@ tags: 软件测试作业
 categories: 作业
 ---
 
-# JAVA PATH FINDER [JPF]
 软件测试小组作业之JPF
 
 首先先说说JPF是个什么东西
@@ -77,7 +77,7 @@ target = Racer
 listener=gov.nasa.jpf.listener.PreciseRaceDetector
 
 report.console.property_violation=error,trace
-```工作站
+​```工作站
 
 上述配置能够输出jpf的工作栈
 此程序正常的输出应为10
@@ -169,3 +169,5 @@ loaded code:        classes=62,methods=1477
 通过线程的角度来考虑，可以用官网给出的这个调度图来说明：
 ![pictures](/images/interleavings.png)
 对于一个多线程的java程序，jpf会组合出所有的可能的线程调度，并顺序遍历每一种执行顺序，知道找到可能存在的缺陷
+
+```

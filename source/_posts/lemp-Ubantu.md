@@ -1,3 +1,4 @@
+---
 layout: article
 title: Unbuntu16.04 Nginx + php + mysql Web服务器搭建
 date: 2017-03-10 23:34:00
@@ -7,7 +8,7 @@ tags:
 - Lemp
 categories: 个人日记
 ---
-# Unbuntu16.04 Nginx + php + mysql Web服务器搭建
+
 下决心不再用lamp的集成包了，自己搞一个出来。
 - [Nginx](#nginx)
 - [php](#php)

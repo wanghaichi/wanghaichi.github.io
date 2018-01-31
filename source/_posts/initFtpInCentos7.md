@@ -1,10 +1,11 @@
+---
 layout: article
 title: 在CentOS7上搭建ftp服务器
 date: 2017-01-17 23:34:00
 tags: ftp
 categories: 个人日记
 ---
-# 在CentOS7上搭建ftp服务器
+
 在ninge的帮助下，终于搞出了ftp服务器，记下来以后用
 
 - [ftp服务器搭建](#ftp)

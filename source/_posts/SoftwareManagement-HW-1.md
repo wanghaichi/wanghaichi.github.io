@@ -1,10 +1,11 @@
+---
 layout: article
 title: (Software Management) Homework 1
 date: 2017-02-26 23:34:00
 tags: 软件项目管理作业
 categories: 作业
 ---
-# [Software Management] Homework 1
+
 - [Homework Description](#description)
 - [Project Description](#project)
 ---

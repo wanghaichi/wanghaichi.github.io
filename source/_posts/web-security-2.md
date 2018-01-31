@@ -8,8 +8,6 @@ tags:
 - sql injection
 ---
 
-# SQL injection
-
 在国哥的安排下，对着 kali渗透测试之 SQL injeciton 视频教程一顿撸（虽然没什么卵用），记录下来自己的一些实验过程和经历。
 
 ## 提前准备
