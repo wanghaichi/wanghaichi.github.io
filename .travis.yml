@@ -17,10 +17,10 @@ before_install:
   - sudo python setup.py install
   - cd ..
 install:
-  - mv default.css themes/material/source/css/gitmen/default.css
-  - mv gitment.browser.js themes/material/source/js/gitmen/gitment.browser.js
   - npm install
 script:
+  - mv ./default.css ./themes/material/source/css/gitmen/default.css
+  - mv ./gitment.browser.js ./themes/material/source/js/gitmen/gitment.browser.js
   - hexo clean
   - hexo g
   - python liebes.top.py
