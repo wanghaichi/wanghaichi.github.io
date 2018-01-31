@@ -10,16 +10,15 @@ before_install:
   - chmod 600 ~/.ssh/id_rsa
   - echo -e "Host 60.205.188.39\n\tStrictHostKeyChecking no\n" >> ~/.ssh/config
   - wget https://imsun.github.io/gitment/style/default.css
-  - ls -al
-  - mv default.css themes/material/source/css/gitmen/default.css
   - wget https://imsun.github.io/gitment/dist/gitment.browser.js
-  - mv gitment.browser.js themes/material/source/js/gitmen/gitment.browser.js
   - npm install hexo-cli -g
   - git clone https://github.com/yaml/pyyaml.git
   - cd pyyaml
   - sudo python setup.py install
   - cd ..
 install:
+  - mv default.css themes/material/source/css/gitmen/default.css
+  - mv gitment.browser.js themes/material/source/js/gitmen/gitment.browser.js
   - npm install
 script:
   - hexo clean
