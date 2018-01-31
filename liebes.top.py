@@ -123,7 +123,7 @@ def convert_gallery(filePath):
 			s = "<div class=\"col-md-4 wp4\">" + s + "</div>"
 			html = html + s
 			s = ""
-		if(idx == 5)
+		if idx == 5:
 			break
 	if s != "":
 		s = "<div class=\"col-md-4 wp4\">" + s + "</div>"
