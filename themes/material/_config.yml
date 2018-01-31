@@ -241,10 +241,11 @@ sidebar:
 # If you want to use gitment or gitalk,you should get the client_id and client_secret form https://github.com/settings/applications/new
 # If you want to use valine,you should get the app_id and app_key form https://leancloud.cn ,more setting please see https://valine.js.org
 comment:
-    use: changyan
-    changyan_appid: cytqWOkv6
-    changyan_conf: prod_19065a8dc76e24e356244498e2a59470
-    changyan_thread_key_type: path
+    use: gitment
+    gitment_repo: wanghaichi.github.io
+    gitment_owner: wanghaichi
+    gitment_client_id: b2b84f478b5f60314808
+    gitment_client_secret : 414d8da1c393a1e615654a6528fc98f7b9d38ade
 
 # Search Systems
 # Available value:

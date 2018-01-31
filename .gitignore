@@ -5,6 +5,6 @@ db.json
 .deploy*/
 node_modules/
 .npmignore
-public/
+public
 .idea
 pyyaml
