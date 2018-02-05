@@ -61,7 +61,7 @@
   <div class="container">
     <div class="row">
       <div class="col-md-8 col-md-offset-2">
-        <h1>我共写了 24 篇博客<span>记录生活，记录点滴</span></h1>
+        <h1>我共写了 {count} 篇博客<span>记录生活，记录点滴</span></h1>
         <a href="#portfolio" class="down-arrow-btn"><i class="fa fa-chevron-down"></i></a>
       </div>
     </div>
@@ -72,85 +72,7 @@
     <div class="row">
       <div id="servicesSlider">
         <ul class="slides">
-          <li>
-<div class="col-md-4 wp4">
-    <div class="overlay-effect effects clearfix">
-        <div class="img">
-            <img src="https://blog.liebes.top/images/2018-01-31-11-15-darknet.jpg" alt="Portfolio Item">
-            <div class="overlay">
-                <a href="https://blog.liebes.top/2018/01/30/ML-darknet-1" class="expand"><i class="fa fa-search"></i><br>View More</a>
-                <a class="close-overlay hidden">x</a>
-            </div>
-        </div>
-    </div>
-    <h2>机器学习之 darknet YOLO 训练 VOC 数据集</h2>
-    <p>然后说说自己的数据集怎么训练，公司给的数据集是按照VOC的格式标注的，虽然有一点不一样，不过总体上已经解决很多问题了，在转换VOC数据集的时候，官方提供了一个脚本voc_label.py我们修改这个文件即可。**强烈建议大家复制一份配置文件出来，不要直接在原文件修改**首先我们来看看在训练VOC的数据集中，darknet都用到了什么。在cfg/voc.data中classes=20train=<yourworkdirectory>/darknet/train.txtvalid=<yourwork</p>
-</div>
-<div class="col-md-4 wp4">
-    <div class="overlay-effect effects clearfix">
-        <div class="img">
-            <img src="https://blog.liebes.top/images/2018-01-31-11-19-material.jpg" alt="Portfolio Item">
-            <div class="overlay">
-                <a href="https://blog.liebes.top/2018/01/25/hexo-material" class="expand"><i class="fa fa-search"></i><br>View More</a>
-                <a class="close-overlay hidden">x</a>
-            </div>
-        </div>
-    </div>
-    <h2>Hexo 更换 materail 主题，使用 Travis 持续集成</h2>
-    <p>是的，我折腾了一天把博客的模版换了一下。怎么说呢，之前用的Next主题，很简约，看起来也很舒服，但总觉得少点什么，后来逛了逛其他人的站，感觉Next主题没有图，视觉上没什么冲击力，灰蒙蒙的感觉，于是采用了material这个主题，也很简洁，相比之下色彩丰富一些。之前在使用githubpages有一些不爽的地方就是地址不是自己的域名，然而宝宝是买了域名的，为什么要在github下弄呢，之前尝试过使用CNAME进行域名解析，但是在处理https的问题上比较麻烦，想着弄一套CI流程出来。试过hexo的</p>
-</div>
-<div class="col-md-4 wp4">
-    <div class="overlay-effect effects clearfix">
-        <div class="img">
-            <img src="https://blog.liebes.top/images/2018-01-31-11-26-data.jpg" alt="Portfolio Item">
-            <div class="overlay">
-                <a href="https://blog.liebes.top/2017/10/20/mysql-backup" class="expand"><i class="fa fa-search"></i><br>View More</a>
-                <a class="close-overlay hidden">x</a>
-            </div>
-        </div>
-    </div>
-    <h2>Mysql 增量备份，全部备份实现方法以及自动化脚本</h2>
-    <p>前情摘要自己作死干了一件特别蠢的事情（具体略）然后开始研究如何进行增量备份增量备份原理mysql有个binlog的功能，会记录所有的用户的操作，可以依靠这个，配合全备份，将数据库回滚到某一个特殊的时刻。hhh简单来说，比如我们每周做一次全备份，每天做一次增量备份，当数据库发生问题的时候，我们就可以先将数据库回滚到上一周我们的全备份的时间，然后再通过每天的增量备份（其实就是模拟所有的数据库操作，全部执行一遍），将数据恢复到我们想要的时间点。配置mysql的binlog功能需要在配置文件中打开，在m</p>
-</div></li><li>
-<div class="col-md-4 wp4">
-    <div class="overlay-effect effects clearfix">
-        <div class="img">
-            <img src="https://blog.liebes.top/images/2018-01-31-11-22-webseq.jpg" alt="Portfolio Item">
-            <div class="overlay">
-                <a href="https://blog.liebes.top/2017/07/11/editor-xss" class="expand"><i class="fa fa-search"></i><br>View More</a>
-                <a class="close-overlay hidden">x</a>
-            </div>
-        </div>
-    </div>
-    <h2>编辑器带来的XSS漏洞问题解决方案</h2>
-    <p>接上一篇编辑器的使用，自己尝试着写了一段js代码，本以为laravel的{{$item}}渲染可以完美的避免XSS的攻击（确实可以避免），但是由于Editor生成的时候，重新渲染了一遍，导致了可能出现的XSS漏洞。![Pic](/images/20177112051.png)![Pic](/images/20177112052.png)可以看到，Editor已经帮助我们做了html的编码，于是我觉得不需要进行二次编码，就直接存到了数据库里，并且直接在前端进行了渲染。Controllerphp$r</p>
-</div>
-<div class="col-md-4 wp4">
-    <div class="overlay-effect effects clearfix">
-        <div class="img">
-            <img src="https://blog.liebes.top/images/2018-01-31-11-24-trum.jpg" alt="Portfolio Item">
-            <div class="overlay">
-                <a href="https://blog.liebes.top/2017/07/10/trumbowyg-file-upload" class="expand"><i class="fa fa-search"></i><br>View More</a>
-                <a class="close-overlay hidden">x</a>
-            </div>
-        </div>
-    </div>
-    <h2>Trumbowyg 轻量级的 WYSIWYG 编辑器（附带 Laravel 文件上传）</h2>
-    <p>假期写代码，整理一些关于Editor，文件上传相关的东西。[editor](editor)[文件上传（Laravel）](upload)<h2id='editor'>TrumbowygEditor</h2>Trumbowyg是一款轻量级的编辑器，可以高度DIY，界面也很简洁。官方网站：[Trumbowyg](https://alexd.github.io/Trumbowyg/)首先下载官方包，在官网可以直接下载。目录结构如下：![Pic](/images/2017710747.png)其中只需要</p>
-</div>
-<div class="col-md-4 wp4">
-    <div class="overlay-effect effects clearfix">
-        <div class="img">
-            <img src="https://blog.liebes.top/images/2018-01-31-11-20-webseq.jpg" alt="Portfolio Item">
-            <div class="overlay">
-                <a href="https://blog.liebes.top/2017/05/22/web-security-2" class="expand"><i class="fa fa-search"></i><br>View More</a>
-                <a class="close-overlay hidden">x</a>
-            </div>
-        </div>
-    </div>
-    <h2>SQL injection 学习</h2>
-    <p>在国哥的安排下，对着kali渗透测试之SQLinjeciton视频教程一顿撸（虽然没什么卵用），记录下来自己的一些实验过程和经历。提前准备本地的lemp环境，搭建可参考：[Centos7Nginx+php+mysqlWeb服务器搭建](https://wanghaichi.github.io/2017/01/21/lempServer/)和[Unbuntu16.04Nginx+php+mysqlWeb服务器搭建](https://wanghaichi.github.io/2017/03/10/l</p>
-</div></li>
+          {articles}
         </ul>
       </div>
     </div>
@@ -176,37 +98,7 @@
       <div class="team-wrapper">
         <div id="teamSlider">
           <ul class="slides">
-            <li>
-<div class="col-md-4 wp5">
-    <a href="https://halcao.me"><img src="https://avatars2.githubusercontent.com/u/17468884?v=3&s=460" alt="Tzingtao Chow"></a>
-    <h2>Halcao</h2>
-    <p>Everest of my heart.</p>
-</div>
-
-<div class="col-md-4 wp5">
-    <a href="http://blog.fed.ink/"><img src="http://files.fed.ink/img/ekkimukk.jpg" alt="Tzingtao Chow"></a>
-    <h2>Tzingtao Chow</h2>
-    <p>Ekki múkk「这里的平静」</p>
-</div>
-
-<div class="col-md-4 wp5">
-    <a href="https://cismon.net/"><img src="https://blog.liebes.top/img/rangnibufangzhaopian3.jpg" alt="Tzingtao Chow"></a>
-    <h2>CismonX</h2>
-    <p>Pensieve</p>
-</div>
-</li><li>
-<div class="col-md-4 wp5">
-    <a href="https://life2015.github.io/"><img src="https://life2015.github.io/img/avatar.jpg" alt="Tzingtao Chow"></a>
-    <h2>RetroX</h2>
-    <p>I am you.</p>
-</div>
-
-<div class="col-md-4 wp5">
-    <a href="https://ame.moe/"><img src="https://blog.liebes.top/img/rangnibufangzhaopian1.jpg" alt="Tzingtao Chow"></a>
-    <h2>ZHYUPE</h2>
-    <p>ZHYUPEの鲜为人知の窝</p>
-</div>
-</li>
+            {links}
           </ul>
         </div>
       </div>
@@ -225,61 +117,7 @@
       <div id="portfolioSlider">
         <ul class="slides">
           <li>
-            <div class="col-md-4 wp4">
-<div class="overlay-effect effects clearfix">
-    <div class="img">
-        <img src="https://blog.liebes.top/gallery/IMG_4402.jpg" alt="Portfolio Item">
-        <div class="overlay">
-            <a href="https://blog.liebes.top/gallery/" class="expand"><i class="fa fa-search"></i><br>View More</a>
-            <a class="close-overlay hidden">x</a>
-        </div>
-    </div>
-</div>
-<div class="overlay-effect effects clearfix">
-    <div class="img">
-        <img src="https://blog.liebes.top/gallery/IMG_4423.jpg" alt="Portfolio Item">
-        <div class="overlay">
-            <a href="https://blog.liebes.top/gallery/" class="expand"><i class="fa fa-search"></i><br>View More</a>
-            <a class="close-overlay hidden">x</a>
-        </div>
-    </div>
-</div></div><div class="col-md-4 wp4">
-<div class="overlay-effect effects clearfix">
-    <div class="img">
-        <img src="https://blog.liebes.top/gallery/IMG_4429.jpg" alt="Portfolio Item">
-        <div class="overlay">
-            <a href="https://blog.liebes.top/gallery/" class="expand"><i class="fa fa-search"></i><br>View More</a>
-            <a class="close-overlay hidden">x</a>
-        </div>
-    </div>
-</div>
-<div class="overlay-effect effects clearfix">
-    <div class="img">
-        <img src="https://blog.liebes.top/gallery/IMG_4459.jpg" alt="Portfolio Item">
-        <div class="overlay">
-            <a href="https://blog.liebes.top/gallery/" class="expand"><i class="fa fa-search"></i><br>View More</a>
-            <a class="close-overlay hidden">x</a>
-        </div>
-    </div>
-</div></div><div class="col-md-4 wp4">
-<div class="overlay-effect effects clearfix">
-    <div class="img">
-        <img src="https://blog.liebes.top/gallery/2018-01-25/WechatIMG677.jpg" alt="Portfolio Item">
-        <div class="overlay">
-            <a href="https://blog.liebes.top/gallery/" class="expand"><i class="fa fa-search"></i><br>View More</a>
-            <a class="close-overlay hidden">x</a>
-        </div>
-    </div>
-</div>
-<div class="overlay-effect effects clearfix">
-    <div class="img">
-        <img src="https://blog.liebes.top/gallery/2018-01-25/WechatIMG676.jpg" alt="Portfolio Item">
-        <div class="overlay">
-            <a href="https://blog.liebes.top/gallery/" class="expand"><i class="fa fa-search"></i><br>View More</a>
-            <a class="close-overlay hidden">x</a>
-        </div>
-    </div>
-</div></div>
+            {gallery}
           </li>
         </ul>
       </div>
