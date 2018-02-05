@@ -108,7 +108,8 @@ $(window).load(function() {
 		controlNav: true,
 		touch: false,
 		pauseOnHover: true,
-		start: function() {
+        smoothHeight: true,
+        start: function() {
 			$.waypoints('refresh');
 		}
 	});
