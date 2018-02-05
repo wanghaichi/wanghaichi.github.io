@@ -41,8 +41,8 @@ def convert_md(filePath):
 
 def change_html(html_path, mdList, totalCount):
 
-
 	html = ""
+	html2 = ""
 	s = ""
 	template = ""
 
@@ -56,6 +56,7 @@ def change_html(html_path, mdList, totalCount):
 		tem = tem.replace("{content}", item['main'])
 		tem = tem.replace("{src}", item['src'])
 		s = s + tem
+		html2 = html2 + "<li>" + tem + "</li>"
 		if idx % 3 == 2:
 			s = "<li>" + s + "</li>"
 			html = html + s
@@ -65,6 +66,7 @@ def change_html(html_path, mdList, totalCount):
 		content = file.read()
 	content = content.replace("{articles}", html)
 	content = content.replace("{count}", str(totalCount))
+	content = content.replace("{articles2}", html2)
 	with open(html_path, 'w') as file:
 		file.write(content)
 
@@ -72,6 +74,7 @@ def convert_links(filePath):
 	links = {}
 	template = ""
 	html = ""
+	html2 = ""
 	with open(filePath + "/links.yaml", 'r') as file:
 		links = yaml.load(file)
 	
@@ -85,6 +88,7 @@ def convert_links(filePath):
 		tem = tem.replace("{pic}", links[k]["avatar"])
 		tem = tem.replace("{desc}", links[k]["descr"])
 		tem = tem.replace("{name}", k)
+		html2 = html2 + "<li>" + tem + "</li>"
 		s = s + tem
 		if idx % 3 == 2:
 			s = "<li>" + s + "</li>"
@@ -100,7 +104,8 @@ def convert_links(filePath):
 		content = file.read()
 
 	content = content.replace("{links}", html.encode("utf-8"))
-	
+	content = content.replace("{links2}", html2.encode("utf-8"))
+
 	with open(os.getcwd() + "/liebes.top/index.html", "w") as file:
 		file.write(content)
 
@@ -108,6 +113,7 @@ def convert_gallery(filePath):
 	links = {}
 	template = ""
 	html = ""
+	html2 = ""
 	with open(filePath + "/gallery.yaml", 'r') as file:
 		links = yaml.load(file)
 	
@@ -119,6 +125,7 @@ def convert_gallery(filePath):
 		tem = template
 		tem = tem.replace("{src}", "https://blog.liebes.top%s"%links[k]["full_link"])
 		s = s + tem
+		html2 = html2 + "<li>" + tem + "</li>"
 		if idx % 2 == 1:
 			s = "<div class=\"col-md-4 wp4\">" + s + "</div>"
 			html = html + s
@@ -129,12 +136,13 @@ def convert_gallery(filePath):
 		s = "<div class=\"col-md-4 wp4\">" + s + "</div>"
 		html = html + s
 		s = ""
+	html = "<li>" + html + "</li>"
 	content = ""
 	with open(os.getcwd() + "/liebes.top/index.html", "r") as file:
 		content = file.read()
 
 	content = content.replace("{gallery}", html.encode("utf-8"))
-	
+	content = content.replace("{gallery2}", html2.encode("utf-8"))
 	with open(os.getcwd() + "/liebes.top/index.html", "w") as file:
 		file.write(content)
 
