@@ -2,6 +2,9 @@ import os
 import re
 import yaml
 
+imgPath = "http://p3q6bdexg.bkt.clouddn.com"
+#imgPath = "https://blog.liebes.top"
+
 def convert_md(filePath):
 	file = open(filePath, 'r')
 	content = file.read()
@@ -123,7 +126,7 @@ def convert_gallery(filePath):
 	s = ""
 	for idx, k in enumerate(links):
 		tem = template
-		tem = tem.replace("{src}", "https://blog.liebes.top%s"%links[k]["full_link"])
+		tem = tem.replace("{src}", "%s%s"%(imgPath, links[k]["full_link"]))
 		s = s + tem
 		html2 = html2 + "<li>" + tem + "</li>"
 		if idx % 2 == 1:
