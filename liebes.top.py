@@ -129,7 +129,8 @@ def convert_gallery(filePath):
 	s = ""
 	for idx, k in enumerate(links):
 		tem = template
-		tem = tem.replace("{src}", "%s%s%s"%((imgPath, imgCdnPath)[useCdn], links[k]["full_link"], ("", imgRule_ori)[useCdn]))
+		tem = tem.replace("{src}", "%s"%(links[k]["full_link"]))
+		#tem = tem.replace("{src}", "%s%s%s"%((imgPath, imgCdnPath)[useCdn], links[k]["full_link"], ("", imgRule_ori)[useCdn]))
 		s = s + tem
 		html2 = html2 + "<li>" + tem + "</li>"
 		if idx % 2 == 1:
