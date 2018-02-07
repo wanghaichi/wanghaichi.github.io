@@ -3,7 +3,9 @@ import re
 import yaml
 
 imgPath = "http://p3q6bdexg.bkt.clouddn.com"
-#imgPath = "https://blog.liebes.top"
+imgRule_ori = "?imageMogr2/thumbnail/600x/blur/1x0/quality/75"
+imgRule_webp = "?imageMogr2/thumbnail/600x/format/webp/blur/1x0/quality/75|imageslim"
+#imgPath = "https://blog.liebes.top/gallery"
 
 def convert_md(filePath):
 	file = open(filePath, 'r')
@@ -126,7 +128,7 @@ def convert_gallery(filePath):
 	s = ""
 	for idx, k in enumerate(links):
 		tem = template
-		tem = tem.replace("{src}", "%s%s"%(imgPath, links[k]["full_link"]))
+		tem = tem.replace("{src}", "%s%s%s"%(imgPath, links[k]["full_link"], imgRule_ori))
 		s = s + tem
 		html2 = html2 + "<li>" + tem + "</li>"
 		if idx % 2 == 1:
