@@ -11,6 +11,7 @@ categories: 作业
 - [问题解答](#answer)
 ---
 <h2 id='problem'>问题描述</h2>
+
 > Below are two faulty programs. Each includes a test case that results in failure. Answer the following questions about each program.
 > ```
 > // program 1
@@ -20,32 +21,34 @@ categories: 作业
 > // in x that equals y.
 > // If no such element exists, return -1
 >   for (int i=x.length-1; i > 0; i--){
+>   if (x[i] == y){
+>     return i;
+>   }
+> }
+> return -1;
+> }
+> / test: x=[2, 3, 5]; y = 2
+> / Expected = 0
+>
 > ```
-    if (x[i] == y){
-      return i;
-    }
-  }
-  return -1;
-}
-// test: x=[2, 3, 5]; y = 2
-// Expected = 0
-```
 > ```
-// program 2
-public static int lastZero (int[] x) {
-// Effects: if x==null throw NullPointerException
-// else return the index of the LAST 0 in x.
-// Return -1 if 0 does not occur in x
-  for (int i = 0; i < x.length; i++){
-    if (x[i] == 0){
-      return i;
-    }
-  }
-  return -1;
-}
-// test: x=[0, 1, 0]
-// Expected = 2
-```
+>
+> / program 2
+> ublic static int lastZero (int[] x) {
+> / Effects: if x==null throw NullPointerException
+> / else return the index of the LAST 0 in x.
+> / Return -1 if 0 does not occur in x
+> for (int i = 0; i < x.length; i++){
+>   if (x[i] == 0){
+>     return i;
+>   }
+> }
+> return -1;
+> }
+> / test: x=[0, 1, 0]
+> / Expected = 2
+> ```
+
 
 #### Questions
 - Identify the fault.
