@@ -33,11 +33,11 @@ categories: 作业
 > ```
 > ```
 >
-> / program 2
-> ublic static int lastZero (int[] x) {
-> / Effects: if x==null throw NullPointerException
-> / else return the index of the LAST 0 in x.
-> / Return -1 if 0 does not occur in x
+> // program 2
+> public static int lastZero (int[] x) {
+> // Effects: if x==null throw NullPointerException
+> // else return the index of the LAST 0 in x.
+> // Return -1 if 0 does not occur in x
 > for (int i = 0; i < x.length; i++){
 >   if (x[i] == 0){
 >     return i;
@@ -45,8 +45,8 @@ categories: 作业
 > }
 > return -1;
 > }
-> / test: x=[0, 1, 0]
-> / Expected = 2
+> // test: x=[0, 1, 0]
+> // Expected = 2
 > ```
 
 
@@ -54,8 +54,7 @@ categories: 作业
 - Identify the fault.
 - If possible, identify a test case that does not execute the fault. (Reachability)
 - If possible, identify a test case that executes the fault, but does not result in an error state.
-- If possible identify a test case that results in an error, but
-  not a failure.
+- If possible identify a test case that results in an error, but not a failure.
 ---
 <h2 id='answer'>问题解答</h2>
 - program 1
