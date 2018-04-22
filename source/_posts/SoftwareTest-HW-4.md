@@ -22,7 +22,7 @@ categories: 作业
 那么说说JPF安装的方式，JPF安装需要使用一个类似于git的管理工具：Mercurial，同时需要JUNIT，与Apache ant。
 安装之前我们需要先下载Mercuial 和 ant
 ```
-$ sudo apt install Mercuial
+$ sudo apt install Mercurial
 $ sudo apt install ant
 ```
 由于我使用的IDE是 idea ,自带了JUNIT的包，没有的需要去下载一下。
