@@ -77,8 +77,7 @@ target = Racer
 listener=gov.nasa.jpf.listener.PreciseRaceDetector
 
 report.console.property_violation=error,trace
-​```工作站
-
+​```
 上述配置能够输出jpf的工作栈
 此程序正常的输出应为10
 然而由于我们不知道线程的调度关系，因而忽略了可能导致的除0的问题
@@ -169,5 +168,3 @@ loaded code:        classes=62,methods=1477
 通过线程的角度来考虑，可以用官网给出的这个调度图来说明：
 ![pictures](/images/interleavings.png)
 对于一个多线程的java程序，jpf会组合出所有的可能的线程调度，并顺序遍历每一种执行顺序，知道找到可能存在的缺陷
-
-```
