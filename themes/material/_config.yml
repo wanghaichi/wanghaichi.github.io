@@ -49,7 +49,7 @@ js_effect:
 
 # Reading experience
 reading:
-    entry_excerpt: 2000
+    entry_excerpt: 1000
 
 # Thumbnail Settings
 thumbnail:
