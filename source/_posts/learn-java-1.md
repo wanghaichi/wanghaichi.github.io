@@ -571,7 +571,7 @@ public class Main {
         );
         System.out.println(stateToCityPopulationSummary.get("liaoning"));
 
-        // reducing 操作，第一个参数应该是默认的第一个元素
+        // reducing 操作，第一个参数应该是默认的第一个元素，且当流为空时作为返回值
         cities = readCities("/Users/liebes/cities.txt");
         Map<String, String> stateToCityNames = cities.collect(
                 groupingBy(
@@ -611,4 +611,97 @@ jilin, jilin, 56
 haerbin, heilongjiang, 14
 mohe, heilongjiang, 56
 ```
+
+## 约简操作 & 初始数据流
+
+约简操作是终结操作，用来将整个流约简为一个数据，比如求和操作。
+
+> <U> U reduce(U identity,
+>              BiFunction<U,? super T,U> accumulator,
+>              BinaryOperator<U> combiner)
+> Performs a reduction on the elements of this stream, using the provided identity, accumulation and combining functions. This is equivalent to:
+>      **U result = identity;**
+>      **for (T element : this stream)**
+>          **result = accumulator.apply(result, element)**
+>      **return result;**
+> but is not constrained to execute sequentially.
+> The `identity` value must be an identity for the combiner function. This means that for all `u`, `combiner(identity, u)` is equal to `u`. Additionally, the `combiner` function must be compatible with the `accumulator` function; for all `u` and `t`, the following must hold:
+>
+>      combiner.apply(u, accumulator.apply(identity, t)) == accumulator.apply(u, t)
+>
+> This is a [terminal operation]().
+
+reduce函数接收三个参数，第三个参数将并行操作的结果合并。因此要求第二个参数的二元操作满足交换律。
+
+前面提到的流的操作都是针对 Object 类型，有时我们更需要一些包装了基本类型的流，例如 StringStream IntStream DoubleStream 等
+
+下方是 IntSteam 相关的程序清单
+
+```java
+import java.io.IOException;
+import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.util.stream.Collectors;
+import java.util.stream.IntStream;
+import java.util.stream.Stream;
+
+public class Main {
+    public static void show(String title, IntStream stream){
+        final int SIZE = 10;
+        int[] firstElements = stream.limit(SIZE + 1).toArray();
+        System.out.print(title + ": [");
+        int i;
+        for(i = 0; i < SIZE && i < firstElements.length; i ++){
+            System.out.print(firstElements[i]);
+            if(i < firstElements.length - 1)
+                System.out.print(", ");
+        }
+        if(i < firstElements.length)
+            System.out.print("...");
+        System.out.println("]");
+    }
+
+    public static void main(String args[]) throws IOException{
+        // 整数流
+        IntStream is1 = IntStream.generate(() -> (int)(Math.random() * 100));
+        show("is1", is1);
+        // 左闭右开
+        IntStream is2 = IntStream.range(5, 10);
+        show("is2", is2);
+        // 左闭右闭
+        IntStream is3 = IntStream.rangeClosed(5, 10);
+        show("is3", is3);
+        String contents = new String(Files.readAllBytes(Paths.get("/Users/liebes/Desktop/open.route")), StandardCharsets.UTF_8);
+        Stream<String> words = Stream.of(contents.split("\\PL+"));
+        // 通过mapToInt方法转换成整数流
+        IntStream is4 = words.mapToInt(String::length);
+        show("is4", is4);
+        // 获取 Unicode 编码
+        String sentence = "\uD835\uDD46 is the set of octonions.";
+        System.out.println(sentence);
+        IntStream codes = sentence.codePoints();
+        System.out.println(codes.mapToObj(c -> String.format("%X", c)).collect(
+                Collectors.joining()
+        ));
+        // boxed 将 IntStream 重新变成包装 Integer 的 Stream
+        Stream<Integer> integers = IntStream.range(0, 100).boxed();
+        IntStream is5 = integers.mapToInt(Integer::intValue);
+        show("is5", is5);
+    }
+}
+// output
+is1: [7, 61, 22, 99, 45, 81, 42, 84, 97, 82, ...]
+is2: [5, 6, 7, 8, 9]
+is3: [5, 6, 7, 8, 9, 10]
+is4: [3, 8, 3, 5, 3, 13, 4, 4, 3, 4, ...]
+𝕆 is the set of octonions.
+1D5462069732074686520736574206F66206F63746F6E696F6E732E
+is5: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, ...]
+```
+
+## 并行流 Parallel Stream
+
+TODO
 
