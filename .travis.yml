@@ -8,7 +8,7 @@ before_install:
   - openssl aes-256-cbc -K $encrypted_ea018b0605ca_key -iv $encrypted_ea018b0605ca_iv
     -in travis.enc -out ~/.ssh/id_rsa -d
   - chmod 600 ~/.ssh/id_rsa
-  - echo -e "Host 60.205.188.39\n\tStrictHostKeyChecking no\n" >> ~/.ssh/config
+  - echo -e "Host 128.199.186.96\n\tStrictHostKeyChecking no\n" >> ~/.ssh/config
   - wget -P themes/material/source/css/gitmen/ https://imsun.github.io/gitment/style/default.css
   - wget -P themes/material/source/js/gitmen/ https://imsun.github.io/gitment/dist/gitment.browser.js
   - npm install hexo-cli -g
