@@ -6,7 +6,7 @@ cache:
   - node_modules
 before_install:
 - openssl aes-256-cbc -K $encrypted_1670894d079d_key -iv $encrypted_1670894d079d_iv
-  -in travis.enc -out ~\/.ssh/id_rsa -d
+  -in travis.enc -out ~/.ssh/id_rsa -d
 - chmod 600 ~/.ssh/id_rsa
 - echo -e "Host 128.199.186.96\n\tStrictHostKeyChecking no\n" >> ~/.ssh/config
 - wget -P themes/material/source/css/gitmen/ https://imsun.github.io/gitment/style/default.css
