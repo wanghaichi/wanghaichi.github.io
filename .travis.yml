@@ -5,38 +5,38 @@ cache:
   directories:
   - node_modules
 before_install:
-  - openssl aes-256-cbc -K $encrypted_ea018b0605ca_key -iv $encrypted_ea018b0605ca_iv
-    -in travis.enc -out ~/.ssh/id_rsa -d
-  - chmod 600 ~/.ssh/id_rsa
-  - echo -e "Host 128.199.186.96\n\tStrictHostKeyChecking no\n" >> ~/.ssh/config
-  - wget -P themes/material/source/css/gitmen/ https://imsun.github.io/gitment/style/default.css
-  - wget -P themes/material/source/js/gitmen/ https://imsun.github.io/gitment/dist/gitment.browser.js
-  - npm install hexo-cli -g
-  - git clone https://github.com/yaml/pyyaml.git
-  - cd pyyaml
-  - sudo python setup.py install
-  - cd ..
+- openssl aes-256-cbc -K $encrypted_1670894d079d_key -iv $encrypted_1670894d079d_iv
+  -in travis.enc -out ~\/.ssh/id_rsa -d
+- chmod 600 ~/.ssh/id_rsa
+- echo -e "Host 128.199.186.96\n\tStrictHostKeyChecking no\n" >> ~/.ssh/config
+- wget -P themes/material/source/css/gitmen/ https://imsun.github.io/gitment/style/default.css
+- wget -P themes/material/source/js/gitmen/ https://imsun.github.io/gitment/dist/gitment.browser.js
+- npm install hexo-cli -g
+- git clone https://github.com/yaml/pyyaml.git
+- cd pyyaml
+- sudo python setup.py install
+- cd ..
 install:
-  - npm install
+- npm install
 script:
-  - hexo clean
-  - hexo g
-  - python liebes.top.py
-  - rsync -az -vv --delete -e 'ssh' public/ ubuntu@www.liebes.top:/var/www/blog
-  - rsync -az -vv --delete -e 'ssh' liebes.top/ ubuntu@www.liebes.top:/var/www/www
+- hexo clean
+- hexo g
+- python liebes.top.py
+- rsync -az -vv --delete -e 'ssh' public/ root@www.liebes.top:/var/www/blog
+- rsync -az -vv --delete -e 'ssh' liebes.top/ root@www.liebes.top:/var/www/www
 after_script:
-  - cd ./public
-  - git init
-  - git config user.name  "liebes"
-  - git config user.email "wanghaichi0403@gmail.com"
-  - git add .
-  - git commit -m "Travis CI Auto Builder"
-  - git push --force --quiet "https://${GH_TOKEN}@${GH_REF}" master:master
+- cd ./public
+- git init
+- git config user.name  "liebes"
+- git config user.email "wanghaichi0403@gmail.com"
+- git add .
+- git commit -m "Travis CI Auto Builder"
+- git push --force --quiet "https://${GH_TOKEN}@${GH_REF}" master:master
 addons:
   ssh_known_hosts: www.liebes.top:22
 branches:
   only:
-    - hexo
+  - hexo
 env:
   global:
-    - GH_REF: github.com/wanghaichi/wanghaichi.github.io.git
+  - GH_REF: github.com/wanghaichi/wanghaichi.github.io.git
