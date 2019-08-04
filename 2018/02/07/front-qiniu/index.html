@@ -1,0 +1,1361 @@
+<!DOCTYPE html>
+<html style="display: none;" lang="zh">
+    <head><meta name="generator" content="Hexo 3.9.0">
+    <meta charset="utf-8">
+    <!--
+        © Material Theme
+        https://github.com/viosey/hexo-theme-material
+        Version: 1.5.2 -->
+    <script>
+        window.materialVersion = "1.5.2"
+        // Delete localstorage with these tags
+        window.oldVersion = [
+            'codestartv1',
+            '1.3.4',
+            '1.4.0',
+            '1.4.0b1',
+            '1.5.0'
+        ]
+    </script>
+
+    <!-- dns prefetch -->
+    <meta http-equiv="x-dns-prefetch-control" content="on">
+
+
+    <link rel="dns-prefetch" href="https://cdn1.lncld.net">
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Meta & Info -->
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta name="renderer" content="webkit">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+    <!-- Title -->
+    
+    <title>
+        
+            hexo 设置相册、主页并使用七牛云加速图片加载 | 
+        
+        Liebes 的个人日志
+    </title>
+
+    <!-- Favicons -->
+    <link rel="icon shortcut" type="image/ico" href="/img/favicon.png">
+    <link rel="icon" href="/img/favicon.png">
+
+    <meta name="format-detection" content="telephone=no">
+    <meta name="description" itemprop="description" content="记录工作、学习的点滴">
+    <meta name="keywords" content="null,hexo">
+    <meta name="theme-color" content="#0097A7">
+
+    <!-- Disable Fucking Bloody Baidu Tranformation -->
+    <meta http-equiv="Cache-Control" content="no-transform">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+
+    <!--[if lte IE 9]>
+        <link rel="stylesheet" href="/css/ie-blocker.css">
+
+        
+            <script src="/js/ie-blocker.zhCN.js"></script>
+        
+    <![endif]-->
+
+    <!-- Import lsloader -->
+    <script>(function(){window.lsloader={jsRunSequence:[],jsnamemap:{},cssnamemap:{}};lsloader.removeLS=function(a){try{localStorage.removeItem(a)}catch(b){}};lsloader.setLS=function(a,c){try{localStorage.setItem(a,c)}catch(b){}};lsloader.getLS=function(a){var c="";try{c=localStorage.getItem(a)}catch(b){c=""}return c};versionString="/*"+(window.materialVersion||"unknownVersion")+"*/";lsloader.clean=function(){try{var b=[];for(var a=0;a<localStorage.length;a++){b.push(localStorage.key(a))}b.forEach(function(e){var f=lsloader.getLS(e);if(window.oldVersion){var d=window.oldVersion.reduce(function(g,h){return g||f.indexOf("/*"+h+"*/")!==-1},false);if(d){lsloader.removeLS(e)}}})}catch(c){}};lsloader.clean();lsloader.load=function(f,a,b,d){if(typeof b==="boolean"){d=b;b=undefined}d=d||false;b=b||function(){};var e;e=this.getLS(f);if(e&&e.indexOf(versionString)===-1){this.removeLS(f);this.requestResource(f,a,b,d);return}if(e){var c=e.split(versionString)[0];if(c!=a){console.log("reload:"+a);this.removeLS(f);this.requestResource(f,a,b,d);return}e=e.split(versionString)[1];if(d){this.jsRunSequence.push({name:f,code:e});this.runjs(a,f,e)}else{document.getElementById(f).appendChild(document.createTextNode(e));b()}}else{this.requestResource(f,a,b,d)}};lsloader.requestResource=function(b,e,a,c){var d=this;if(c){this.iojs(e,b,function(h,f,g){d.setLS(f,h+versionString+g);d.runjs(h,f,g)})}else{this.iocss(e,b,function(f){document.getElementById(b).appendChild(document.createTextNode(f));d.setLS(b,e+versionString+f)},a)}};lsloader.iojs=function(d,b,g){var a=this;a.jsRunSequence.push({name:b,code:""});try{var f=new XMLHttpRequest();f.open("get",d,true);f.onreadystatechange=function(){if(f.readyState==4){if((f.status>=200&&f.status<300)||f.status==304){if(f.response!=""){g(d,b,f.response);return}}a.jsfallback(d,b)}};f.send(null)}catch(c){a.jsfallback(d,b)}};lsloader.iocss=function(f,c,h,a){var b=this;try{var g=new XMLHttpRequest();g.open("get",f,true);g.onreadystatechange=function(){if(g.readyState==4){if((g.status>=200&&g.status<300)||g.status==304){if(g.response!=""){h(g.response);a();return}}b.cssfallback(f,c,a)}};g.send(null)}catch(d){b.cssfallback(f,c,a)}};lsloader.iofonts=function(f,c,h,a){var b=this;try{var g=new XMLHttpRequest();g.open("get",f,true);g.onreadystatechange=function(){if(g.readyState==4){if((g.status>=200&&g.status<300)||g.status==304){if(g.response!=""){h(g.response);a();return}}b.cssfallback(f,c,a)}};g.send(null)}catch(d){b.cssfallback(f,c,a)}};lsloader.runjs=function(f,c,e){if(!!c&&!!e){for(var b in this.jsRunSequence){if(this.jsRunSequence[b].name==c){this.jsRunSequence[b].code=e}}}if(!!this.jsRunSequence[0]&&!!this.jsRunSequence[0].code&&this.jsRunSequence[0].status!="failed"){var a=document.createElement("script");a.appendChild(document.createTextNode(this.jsRunSequence[0].code));a.type="text/javascript";document.getElementsByTagName("head")[0].appendChild(a);this.jsRunSequence.shift();if(this.jsRunSequence.length>0){this.runjs()}}else{if(!!this.jsRunSequence[0]&&this.jsRunSequence[0].status=="failed"){var d=this;var a=document.createElement("script");a.src=this.jsRunSequence[0].path;a.type="text/javascript";this.jsRunSequence[0].status="loading";a.onload=function(){d.jsRunSequence.shift();if(d.jsRunSequence.length>0){d.runjs()}};document.body.appendChild(a)}}};lsloader.tagLoad=function(b,a){this.jsRunSequence.push({name:a,code:"",path:b,status:"failed"});this.runjs()};lsloader.jsfallback=function(c,b){if(!!this.jsnamemap[b]){return}else{this.jsnamemap[b]=b}for(var a in this.jsRunSequence){if(this.jsRunSequence[a].name==b){this.jsRunSequence[a].code="";this.jsRunSequence[a].status="failed";this.jsRunSequence[a].path=c}}this.runjs()};lsloader.cssfallback=function(e,c,b){if(!!this.cssnamemap[c]){return}else{this.cssnamemap[c]=1}var d=document.createElement("link");d.type="text/css";d.href=e;d.rel="stylesheet";d.onload=d.onerror=b;var a=document.getElementsByTagName("script")[0];a.parentNode.insertBefore(d,a)};lsloader.runInlineScript=function(c,b){var a=document.getElementById(b).innerText;this.jsRunSequence.push({name:c,code:a});this.runjs()}})();</script>
+
+    <!-- Import queue -->
+    <script>function Queue(){this.dataStore=[];this.offer=b;this.poll=d;this.execNext=a;this.debug=false;this.startDebug=c;function b(e){if(this.debug){console.log("Offered a Queued Function.")}if(typeof e==="function"){this.dataStore.push(e)}else{console.log("You must offer a function.")}}function d(){if(this.debug){console.log("Polled a Queued Function.")}return this.dataStore.shift()}function a(){var e=this.poll();if(e!==undefined){if(this.debug){console.log("Run a Queued Function.")}e()}}function c(){this.debug=true}}var queue=new Queue();</script>
+
+    <!-- Import CSS -->
+    
+        <style id="material_css"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("material_css","/css/material.min.css?Z7a72R1E4SxzBKR/WGctOA==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+        <style id="style_css"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("style_css","/css/style.min.css?MKetZV3cUTfDxvMffaOezg==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+
+        
+            
+                <style id="prettify_css"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("prettify_css","/css/prettify.min.css?zp8STOU9v89XWFEnN+6YmQ==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+                <style id="prettify_theme"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("prettify_theme","/css/prettify/atelier-cave-light.min.css?5MK/TK/zbpdHM7rmG+ehCw==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+            
+        
+
+    
+
+    
+
+    <!-- Config CSS -->
+
+<!-- Other Styles -->
+<style>
+  body, html {
+    font-family: Roboto, "Helvetica Neue", Helvetica, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "微软雅黑", Arial, sans-serif;
+    overflow-x: hidden !important;
+  }
+  
+  code {
+    font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+  }
+
+  a {
+    color: #00838F;
+  }
+
+  .mdl-card__media,
+  #search-label,
+  #search-form-label:after,
+  #scheme-Paradox .hot_tags-count,
+  #scheme-Paradox .sidebar_archives-count,
+  #scheme-Paradox .sidebar-colored .sidebar-header,
+  #scheme-Paradox .sidebar-colored .sidebar-badge{
+    background-color: #0097A7 !important;
+  }
+
+  /* Sidebar User Drop Down Menu Text Color */
+  #scheme-Paradox .sidebar-colored .sidebar-nav>.dropdown>.dropdown-menu>li>a:hover,
+  #scheme-Paradox .sidebar-colored .sidebar-nav>.dropdown>.dropdown-menu>li>a:focus {
+    color: #0097A7 !important;
+  }
+
+  #post_entry-right-info,
+  .sidebar-colored .sidebar-nav li:hover > a,
+  .sidebar-colored .sidebar-nav li:hover > a i,
+  .sidebar-colored .sidebar-nav li > a:hover,
+  .sidebar-colored .sidebar-nav li > a:hover i,
+  .sidebar-colored .sidebar-nav li > a:focus i,
+  .sidebar-colored .sidebar-nav > .open > a,
+  .sidebar-colored .sidebar-nav > .open > a:hover,
+  .sidebar-colored .sidebar-nav > .open > a:focus,
+  #ds-reset #ds-ctx .ds-ctx-entry .ds-ctx-head a {
+    color: #0097A7 !important;
+  }
+
+  .toTop {
+    background: #757575 !important;
+  }
+
+  .material-layout .material-post>.material-nav,
+  .material-layout .material-index>.material-nav,
+  .material-nav a {
+    color: #757575;
+  }
+
+  #scheme-Paradox .MD-burger-layer {
+    background-color: #757575;
+  }
+
+  #scheme-Paradox #post-toc-trigger-btn {
+    color: #757575;
+  }
+
+  .post-toc a:hover {
+    color: #00838F;
+    text-decoration: underline;
+  }
+
+</style>
+
+
+<!-- Theme Background Related-->
+
+    <style>
+      body{
+        background-image: url(/img/bg.png);
+      }
+    </style>
+
+
+
+
+<!-- Fade Effect -->
+
+    <style>
+      .fade {
+        transition: all 800ms linear;
+        -webkit-transform: translate3d(0,0,0);
+        -moz-transform: translate3d(0,0,0);
+        -ms-transform: translate3d(0,0,0);
+        -o-transform: translate3d(0,0,0);
+        transform: translate3d(0,0,0);
+        opacity: 1;
+      }
+
+      .fade.out{
+        opacity: 0;
+      }
+    </style>
+
+
+<!-- Import Font -->
+<!-- Import Roboto -->
+
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet">
+
+
+<!-- Import Material Icons -->
+
+
+    <style id="material_icons"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("material_icons","/css/material-icons.css?pqhB/Rd/ab0H2+kZp0RDmw==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+
+
+
+
+    <!-- Import jQuery -->
+    
+        <script>lsloader.load("jq_js","/js/jquery.min.js?qcusAULNeBksqffqUM2+Ig==", true)</script>
+    
+
+    <!-- WebAPP Icons -->
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="application-name" content="Liebes 的个人日志">
+    <meta name="msapplication-starturl" content="https://blog.liebes.top/2018/02/07/front-qiniu/">
+    <meta name="msapplication-navbutton-color" content="#0097A7">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-title" content="Liebes 的个人日志">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon" href="/img/favicon.png">
+
+    <!-- Site Verification -->
+    <meta name="google-site-verification" content="3y0DPspok4T6uDMqNvKTJXM12vfNAPuI7fwhn4u9hvo">
+    <meta name="baidu-site-verification" content="Ou5GByZRoU">
+
+    <!-- RSS -->
+    
+
+    <!-- The Open Graph protocol -->
+    <meta property="og:url" content="https://blog.liebes.top/2018/02/07/front-qiniu/">
+    <meta property="og:type" content="blog">
+    <meta property="og:title" content="hexo 设置相册、主页并使用七牛云加速图片加载 | Liebes 的个人日志">
+    <meta property="og:image" content="/img/favicon.png">
+    <meta property="og:description" content="记录工作、学习的点滴">
+    <meta property="og:article:tag" content="hexo"> 
+
+    
+        <meta property="article:published_time" content="Wed Feb 07 2018 15:23:00 GMT+0000">
+        <meta property="article:modified_time" content="Sun Aug 04 2019 12:56:30 GMT+0000">
+    
+
+    <!-- The Twitter Card protocol -->
+    <meta name="twitter:card" content="summary_large_image">
+
+    <!-- Add canonical link for SEO -->
+    
+        <link rel="canonical" href="https://blog.liebes.top/2018/02/07/front-qiniu/index.html">
+    
+
+    <!-- Structured-data for SEO -->
+    
+        
+
+
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "mainEntityOfPage": "https://blog.liebes.top/2018/02/07/front-qiniu/index.html",
+    "headline": "hexo 设置相册、主页并使用七牛云加速图片加载",
+    "datePublished": "Wed Feb 07 2018 15:23:00 GMT+0000",
+    "dateModified": "Sun Aug 04 2019 12:56:30 GMT+0000",
+    "author": {
+        "@type": "Person",
+        "name": "Liebes",
+        "image": {
+            "@type": "ImageObject",
+            "url": "/img/avatar.jpg"
+        },
+        "description": "可以反驳，但要先思考"
+    },
+    "publisher": {
+        "@type": "Organization",
+        "name": "Liebes 的个人日志",
+        "logo": {
+            "@type":"ImageObject",
+            "url": "/img/favicon.png"
+        }
+    },
+    "keywords": ",hexonull",
+    "description": "记录工作、学习的点滴",
+}
+</script>
+
+
+    
+
+    <!-- Analytics -->
+    
+        <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+    ga('create', 'UA-113353642-1', 'auto');ga('send', 'pageview');
+</script>
+    
+    
+    
+
+    <!-- Custom Head -->
+    
+
+</head>
+
+
+    
+        <body id="scheme-Paradox" class="lazy">
+            <div class="material-layout  mdl-js-layout has-drawer is-upgraded">
+                
+
+                <!-- Main Container -->
+                <main class="material-layout__content" id="main">
+
+                    <!-- Top Anchor -->
+                    <div id="top"></div>
+
+                    
+                        <!-- Hamburger Button -->
+                        <button class="MD-burger-icon sidebar-toggle">
+                            <span class="MD-burger-layer"></span>
+                        </button>
+                    
+
+                    <!-- Post TOC -->
+
+    
+    <!-- Back Button -->
+    <!--
+    <div class="material-back" id="backhome-div" tabindex="0">
+        <a class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon"
+           href="#" onclick="window.history.back();return false;"
+           target="_self"
+           role="button"
+           data-upgraded=",MaterialButton,MaterialRipple">
+            <i class="material-icons" role="presentation">arrow_back</i>
+            <span class="mdl-button__ripple-container">
+                <span class="mdl-ripple"></span>
+            </span>
+        </a>
+    </div>
+    -->
+
+
+    <!-- Left aligned menu below button -->
+    
+    
+    <button id="post-toc-trigger-btn"
+        class="mdl-button mdl-js-button mdl-button--icon">
+        <i class="material-icons">format_list_numbered</i>
+    </button>
+
+    <ul class="post-toc-wrap mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="post-toc-trigger-btn" style="max-height:80vh; overflow-y:scroll;">
+        <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#一份靠谱的主页模板"><span class="post-toc-number">1.</span> <span class="post-toc-text">一份靠谱的主页模板</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#动态获取博客内容，嵌入主页中"><span class="post-toc-number">2.</span> <span class="post-toc-text">动态获取博客内容，嵌入主页中</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Travis-脚本修改"><span class="post-toc-number">3.</span> <span class="post-toc-text">Travis 脚本修改</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#图片加载加速"><span class="post-toc-number">4.</span> <span class="post-toc-text">图片加载加速</span></a></li></ol>
+    </ul>
+    
+
+
+
+
+<!-- Layouts -->
+
+    <!-- Post Module -->
+    <div class="material-post_container">
+
+        <div class="material-post mdl-grid">
+            <div class="mdl-card mdl-shadow--4dp mdl-cell mdl-cell--12-col">
+
+                <!-- Post Header(Thumbnail & Title) -->
+                
+    <!-- Paradox Post Header -->
+    
+        
+            <!-- Random Thumbnail -->
+            <div class="post_thumbnail-random mdl-card__media mdl-color-text--grey-50">
+            <script type="text/ls-javascript" id="post-thumbnail-script">
+    var randomNum = Math.floor(Math.random() * 19 + 1);
+
+    $('.post_thumbnail-random').attr('data-original', '/img/random/material-' + randomNum + '.png');
+    $('.post_thumbnail-random').addClass('lazy');
+</script>
+
+        
+    
+            <p class="article-headline-p">
+                hexo 设置相册、主页并使用七牛云加速图片加载
+            </p>
+        </div>
+
+
+
+
+
+                
+                    <!-- Paradox Post Info -->
+                    <div class="mdl-color-text--grey-700 mdl-card__supporting-text meta">
+
+    <!-- Author Avatar -->
+    <div id="author-avatar">
+        <img src="/img/avatar.jpg" width="44px" height="44px" alt="Author Avatar"/>
+    </div>
+    <!-- Author Name & Date -->
+    <div>
+        <strong>Liebes</strong>
+        <span>2月 07, 2018</span>
+    </div>
+
+    <div class="section-spacer"></div>
+
+    <!-- Favorite -->
+    <!--
+        <button id="article-functions-like-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon btn-like">
+            <i class="material-icons" role="presentation">favorite</i>
+            <span class="visuallyhidden">favorites</span>
+        </button>
+    -->
+
+    <!-- Qrcode -->
+    
+
+    <!-- Tags (bookmark) -->
+    
+    <button id="article-functions-viewtags-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+        <i class="material-icons" role="presentation">bookmark</i>
+        <span class="visuallyhidden">bookmark</span>
+    </button>
+    <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-functions-viewtags-button">
+        <li class="mdl-menu__item">
+        <a class="post_tag-link" href="/tags/hexo/">hexo</a>
+    </ul>
+    
+
+    <!-- Share -->
+    
+        <button id="article-fuctions-share-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+    <i class="material-icons" role="presentation">share</i>
+    <span class="visuallyhidden">share</span>
+</button>
+<ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-fuctions-share-button">
+    
+    <!-- Leancloud Views -->
+        <a class="post_share-link" href="#">
+            <li class="mdl-menu__item">
+                <span id="/2018/02/07/front-qiniu/" class="leancloud-views_num" data-flag-title="hexo 设置相册、主页并使用七牛云加速图片加载">
+     &nbsp;浏览量
+</span>
+
+            </li>
+        </a>
+    
+
+    
+
+    <!-- Share Weibo -->
+    
+        <a class="post_share-link" href="http://service.weibo.com/share/share.php?appkey=&title=hexo 设置相册、主页并使用七牛云加速图片加载&url=https://blog.liebes.top/2018/02/07/front-qiniu/index.html&pic=https://blog.liebes.top/img/favicon.png&searchPic=false&style=simple" target="_blank">
+            <li class="mdl-menu__item">
+                分享到微博
+            </li>
+        </a>
+    
+
+    <!-- Share Twitter -->
+    
+        <a class="post_share-link" href="https://twitter.com/intent/tweet?text=hexo 设置相册、主页并使用七牛云加速图片加载&url=https://blog.liebes.top/2018/02/07/front-qiniu/index.html&via=Liebes" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Twitter
+            </li>
+        </a>
+    
+
+    <!-- Share Facebook -->
+    
+        <a class="post_share-link" href="https://www.facebook.com/sharer/sharer.php?u=https://blog.liebes.top/2018/02/07/front-qiniu/index.html" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Facebook
+            </li>
+        </a>
+    
+
+    <!-- Share Google+ -->
+    
+        <a class="post_share-link" href="https://plus.google.com/share?url=https://blog.liebes.top/2018/02/07/front-qiniu/index.html" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Google+
+            </li>
+        </a>
+    
+
+    <!-- Share LinkedIn -->
+    
+
+    <!-- Share QQ -->
+    
+
+    <!-- Share Telegram -->
+    
+        <a class="post_share-link" href="https://telegram.me/share/url?url=https://blog.liebes.top/2018/02/07/front-qiniu/index.html&text=hexo 设置相册、主页并使用七牛云加速图片加载" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Telegram
+            </li>
+        </a>
+    
+</ul>
+
+    
+</div>
+
+                
+
+                <!-- Post Content -->
+                <div id="post-content" class="mdl-color-text--grey-700 mdl-card__supporting-text fade out">
+    
+        <p>据换完博客主题之后也有一段时间了，但总觉得哪里不对的样子，别人家都是主页和博客分开的，或者把博客放在主页的子目录下，而自己的却只有一个博客，反正自己也有域名，为什么不整个单独的主页出来呢。</p>
+<p>这篇文章记录了海痴是如何在 google 上扒模版，如何利用 travis 来将博客的内容同步到主页上，又如何与某涛互相比较，解决图片加载慢的问题。</p>
+<p>我们可以看看最终的效果：<a href="https://www.liebes.top" target="_blank" rel="noopener">https://www.liebes.top</a></p>
+<p>在一切开始之前，海痴已经准备好了用 hexo 搭建起来的博客，一个自己的域名，以及使用 travis 将博客部署到自己的服务器的脚本。可以参见上一篇博客：<a href="https://blog.liebes.top/2018/01/25/hexo-material/">Hexo 更换 materail 主题，使用 Travis 持续集成</a></p>
+<h2 id="一份靠谱的主页模板"><a href="#一份靠谱的主页模板" class="headerlink" title="一份靠谱的主页模板"></a>一份靠谱的主页模板</h2><p>关于如何找到一份高端上档次的主题模板，大家可以各显神通，当然，最快的还是 google 上搜一下：“主页 模板 bootstrap”，请一定加上 bootstrap 这个关键字，因为经过实践，这样搜出的结果最靠谱。</p>
+<p>准备好之后，就可以将模板文件放在博客的根目录下，随便起个名字，就像这样：</p>
+<pre><code>├── _config.yml
+├── db.json
+├── liebes.top &lt;- 这个是模板文件
+├── liebes.top.py &lt;- 这个是之后会用到的脚本文件
+├── node_modules
+├── package-lock.json
+├── package.json
+├── public
+├── pyyaml
+├── scaffolds
+├── source
+├── themes
+└── travis.enc
+</code></pre><p>根据你的需要来修改你的主页模板。</p>
+<h2 id="动态获取博客内容，嵌入主页中"><a href="#动态获取博客内容，嵌入主页中" class="headerlink" title="动态获取博客内容，嵌入主页中"></a>动态获取博客内容，嵌入主页中</h2><p>如果你希望你的主页上显示一些你的个人动态，你就要动一番手脚了。</p>
+<p>一个简单的办法，就是使用 php 做个后台支持，这并不难。</p>
+<p>海痴希望将自己最近写的博客显示在主页上，同时显示一些相册里面的照片。一个简单的思路，就是读取博客目录中的静态文件，提取内容，找出时间相近的部分，使用脚本文件对 html 进行替换。</p>
+<p>于是我的 <code>index.html</code> 文件就变成了这个样子：</p>
+<pre><code class="Html">&lt;section class=&quot;swag text-center&quot;&gt;
+  &lt;div class=&quot;container&quot;&gt;
+    &lt;div class=&quot;row&quot;&gt;
+      &lt;div class=&quot;col-md-8 col-md-offset-2&quot;&gt;
+        &lt;h1&gt;我共写了 {count} 篇博客&lt;span&gt;记录生活，记录点滴&lt;/span&gt;&lt;/h1&gt;
+        &lt;a href=&quot;#portfolio&quot; class=&quot;down-arrow-btn&quot;&gt;&lt;i class=&quot;fa fa-chevron-down&quot;&gt;&lt;/i&gt;&lt;/a&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/section&gt;
+&lt;section class=&quot;portfolio text-center section-padding&quot; id=&quot;portfolio&quot;&gt;
+  &lt;div class=&quot;container&quot;&gt;
+    &lt;div class=&quot;row&quot;&gt;
+      &lt;div id=&quot;servicesSlider&quot; class=&quot;hidden-sm hidden-xs&quot;&gt;
+        &lt;ul class=&quot;slides&quot;&gt;
+          {articles}
+        &lt;/ul&gt;
+      &lt;/div&gt;
+        &lt;div id=&quot;servicesSlider2&quot; class=&quot;hidden-md hidden-lg&quot;&gt;
+            &lt;ul class=&quot;slides&quot;&gt;
+                {articles2} &lt;- 这个是适配小屏幕的
+            &lt;/ul&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/section&gt;
+</code></pre>
+<p>我将需要替换的部分用 <code>{var}</code> 来标记，为之后的脚本文件作准备。</p>
+<p>由于最近在弄机器学习相关的东西，python 使用的比较多，就顺手用 python 写的脚本。</p>
+<pre><code class="python">import os
+import re
+import yaml
+
+imgCdnPath = &quot;http://p3q6bdexg.bkt.clouddn.com&quot;
+imgRule_ori = &quot;?imageMogr2/thumbnail/600x/blur/1x0/quality/75&quot;
+imgRule_webp = &quot;?imageMogr2/thumbnail/600x/format/webp/blur/1x0/quality/75|imageslim&quot;
+imgPath = &quot;https://blog.liebes.top&quot;
+useCdn = True
+
+def convert_md(filePath):
+    file = open(filePath, &#39;r&#39;)
+    content = file.read()
+    pattern = re.compile(r&#39;---([\s\S]*)---\n([\s\S]*)&#39;)
+    content = re.search(pattern, content)
+    prefix = content.group(1)
+    main = content.group(2)
+    pattern = re.compile(r&#39;[-`#\s]&#39;)
+    # print(prefix)
+    main = re.sub(pattern, &quot;&quot;, main)
+    mLen = min(len(main), 250)
+    main = main.decode(&#39;utf-8&#39;)[0:mLen].encode(&#39;utf-8&#39;)
+
+    pattern = re.compile(r&#39;title:( *)(.*?)( *)\n&#39;)
+    title = re.search(pattern, prefix).group(2)
+    pattern = re.compile(r&#39;date:( *)(.*?)( *)\n&#39;)
+    date = re.search(pattern, prefix).group(2)
+    pattern = re.compile(r&#39;img:( *)(.*?)( *)\n&#39;)
+    img = &quot;&quot;
+    try: 
+        img = (imgPath, imgCdnPath)[useCdn] + re.search(pattern, prefix).group(2) + (&quot;&quot;, imgRule_ori)[useCdn]
+    except:
+        img = &quot;img/portfolio-01.jpg&quot;
+    webSite = &quot;https://blog.liebes.top&quot;
+    url = date[0:10]
+    url = url.replace(&quot;-&quot;, &quot;/&quot;)
+    basename = os.path.basename(filePath)
+    basename = os.path.splitext(basename)[0]
+
+    return {
+        &#39;title&#39;: title,
+        &#39;date&#39; : date,
+        &#39;main&#39; : main,
+        &#39;url&#39;  : webSite + &quot;/&quot; + url + &quot;/&quot; + basename,
+        &#39;src&#39;  : img
+    }
+
+def change_html(html_path, mdList, totalCount):
+
+    html = &quot;&quot;
+    html2 = &quot;&quot;
+    s = &quot;&quot;
+    template = &quot;&quot;
+
+    with open(os.getcwd() + &quot;/source/_data/li-article.html&quot;, &quot;r&quot;) as file:
+        template = file.read()
+
+    for idx, item in enumerate(mdList):
+        tem = template
+        tem = tem.replace(&quot;{title}&quot;, item[&#39;title&#39;])
+        tem = tem.replace(&quot;{url}&quot;, item[&#39;url&#39;])
+        tem = tem.replace(&quot;{content}&quot;, item[&#39;main&#39;])
+        tem = tem.replace(&quot;{src}&quot;, item[&#39;src&#39;])
+        s = s + tem
+        html2 = html2 + &quot;&lt;li&gt;&quot; + tem + &quot;&lt;/li&gt;&quot;
+        if idx % 3 == 2:
+            s = &quot;&lt;li&gt;&quot; + s + &quot;&lt;/li&gt;&quot;
+            html = html + s
+            s = &quot;&quot;
+    content = &quot;&quot;
+    with open(html_path, &#39;r&#39;) as file:
+        content = file.read()
+    content = content.replace(&quot;{articles}&quot;, html)
+    content = content.replace(&quot;{count}&quot;, str(totalCount))
+    content = content.replace(&quot;{articles2}&quot;, html2)
+    with open(html_path, &#39;w&#39;) as file:
+        file.write(content)
+
+def convert_links(filePath):
+    links = {}
+    template = &quot;&quot;
+    html = &quot;&quot;
+    html2 = &quot;&quot;
+    with open(filePath + &quot;/links.yaml&quot;, &#39;r&#39;) as file:
+        links = yaml.load(file)
+
+    with open(filePath + &quot;/li-links.html&quot;, &quot;r&quot;) as file:
+        template = file.read()
+
+    s = &quot;&quot;
+    for idx, k in enumerate(links):
+        tem = template
+        tem = tem.replace(&quot;{link}&quot;, links[k][&quot;link&quot;])
+        tem = tem.replace(&quot;{pic}&quot;, links[k][&quot;avatar&quot;])
+        tem = tem.replace(&quot;{desc}&quot;, links[k][&quot;descr&quot;])
+        tem = tem.replace(&quot;{name}&quot;, k)
+        html2 = html2 + &quot;&lt;li&gt;&quot; + tem + &quot;&lt;/li&gt;&quot;
+        s = s + tem
+        if idx % 3 == 2:
+            s = &quot;&lt;li&gt;&quot; + s + &quot;&lt;/li&gt;&quot;
+            html = html + s
+            s = &quot;&quot;
+    if s != &quot;&quot;:
+        s = &quot;&lt;li&gt;&quot; + s + &quot;&lt;/li&gt;&quot;
+        html = html + s
+        s = &quot;&quot;
+
+    content = &quot;&quot;
+    with open(os.getcwd() + &quot;/liebes.top/index.html&quot;, &quot;r&quot;) as file:
+        content = file.read()
+
+    content = content.replace(&quot;{links}&quot;, html.encode(&quot;utf-8&quot;))
+    content = content.replace(&quot;{links2}&quot;, html2.encode(&quot;utf-8&quot;))
+
+    with open(os.getcwd() + &quot;/liebes.top/index.html&quot;, &quot;w&quot;) as file:
+        file.write(content)
+
+def convert_gallery(filePath):
+    links = {}
+    template = &quot;&quot;
+    html = &quot;&quot;
+    html2 = &quot;&quot;
+    with open(filePath + &quot;/gallery.yaml&quot;, &#39;r&#39;) as file:
+        links = yaml.load(file)
+
+    with open(filePath + &quot;/li-gallery.html&quot;, &quot;r&quot;) as file:
+        template = file.read()
+
+    s = &quot;&quot;
+    for idx, k in enumerate(links):
+        tem = template
+        tem = tem.replace(&quot;{src}&quot;, &quot;%s&quot;%(links[k][&quot;full_link&quot;]))
+        #tem = tem.replace(&quot;{src}&quot;, &quot;%s%s%s&quot;%((imgPath, imgCdnPath)[useCdn], links[k][&quot;full_link&quot;], (&quot;&quot;, imgRule_ori)[useCdn]))
+        s = s + tem
+        html2 = html2 + &quot;&lt;li&gt;&quot; + tem + &quot;&lt;/li&gt;&quot;
+        if idx % 2 == 1:
+            s = &quot;&lt;div class=\&quot;col-md-4 wp4\&quot;&gt;&quot; + s + &quot;&lt;/div&gt;&quot;
+            html = html + s
+            s = &quot;&quot;
+        if idx == 5:
+            break
+    if s != &quot;&quot;:
+        s = &quot;&lt;div class=\&quot;col-md-4 wp4\&quot;&gt;&quot; + s + &quot;&lt;/div&gt;&quot;
+        html = html + s
+        s = &quot;&quot;
+    html = &quot;&lt;li&gt;&quot; + html + &quot;&lt;/li&gt;&quot;
+    content = &quot;&quot;
+    with open(os.getcwd() + &quot;/liebes.top/index.html&quot;, &quot;r&quot;) as file:
+        content = file.read()
+
+    content = content.replace(&quot;{gallery}&quot;, html.encode(&quot;utf-8&quot;))
+    content = content.replace(&quot;{gallery2}&quot;, html2.encode(&quot;utf-8&quot;))
+    with open(os.getcwd() + &quot;/liebes.top/index.html&quot;, &quot;w&quot;) as file:
+        file.write(content)
+
+baseDir = os.getcwd()
+mds = os.listdir(baseDir + &quot;/source/_posts&quot;)
+totalCount = len(mds)
+
+mdList = []
+for md in mds:
+    md = baseDir + &quot;/source/_posts&quot; + &quot;/&quot; + md
+    turple = convert_md(md)
+    mdList.append(turple)
+
+mdList = sorted(mdList, key = lambda item: item[&#39;date&#39;], reverse=True)
+mdList = mdList[0:6]
+
+change_html(baseDir + &quot;/liebes.top/index.html&quot;, mdList, totalCount)
+convert_links(baseDir + &quot;/source/_data&quot;)
+convert_gallery(baseDir + &quot;/source/_data&quot;)
+</code></pre>
+<p>这份 python 文件引用了 pyyaml 这个依赖包，所以需要先安装一下。</p>
+<pre><code> - git clone https://github.com/yaml/pyyaml.git
+ - cd pyyaml
+ - sudo python setup.py install
+</code></pre><p>具体的做法就是使用正则读取出文章最开始的数据信息，比如时间、标题等等，然后去对 html 做替换。不详说，有问题可以在评论区提问。</p>
+<h2 id="Travis-脚本修改"><a href="#Travis-脚本修改" class="headerlink" title="Travis 脚本修改"></a>Travis 脚本修改</h2><p>本着程序员一切从简的心态，当把项目提交到 github 上之后，就应该完成一切的部署操作，于是适当修改Travis 脚本</p>
+<pre><code>before_install:
+  - git clone https://github.com/yaml/pyyaml.git
+  - cd pyyaml
+  - sudo python setup.py install
+  - cd ..
+  ...
+script:
+  - python liebes.top.py
+  - rsync -az -vv --delete -e &#39;ssh&#39; liebes.top/ root@www.liebes.top:/var/www/www
+  ...
+</code></pre><p>当然，这需要你在服务器上提前配置好 nginx </p>
+<h2 id="图片加载加速"><a href="#图片加载加速" class="headerlink" title="图片加载加速"></a>图片加载加速</h2><p>在我美滋滋的弄完所有的工作之后，下一个问题困扰了我：网站加载慢。如果你也是使用的阿里云最低配的服务器，你也一定会遇到这个问题。图片加载慢带来的连锁反应就是 js 的执行会等待 DOM 加载完毕，于是刚打开网站的时候就会有一种网站烂掉的错觉。</p>
+<p>七牛云可以提供免费的对象存储服务，有免费的 10G 可以使用。</p>
+<p><a href="https://portal.qiniu.com" target="_blank" rel="noopener">https://portal.qiniu.com</a> 七牛云网址</p>
+<p>实名认证后可以创建对象存储资源，创建好之后在 <code>内容管理 -&gt; 上传文件</code> 上传你的文件，之后就可以使用外链进行访问了。</p>
+<p>请一定继续将图片传到你的 git 仓库中，因为如果某一天加速服务取消了，你的图片就不见了。</p>
+<p>这样折腾完，基本上页面加载速度会在 5s 内搞定</p>
+<p>最后吐槽一句，写完 python 写其他语言，出现的错误基本都是没写分号 ：）</p>
+
+        
+    
+
+    
+</div>
+
+
+                
+
+                <!-- Post Comments -->
+                
+                    
+    <!-- 使用 gitcoment -->
+<div id="gitment-comment">
+    <!-- Gitment 评论框 -->
+<div id="container"></div>
+</div>
+<style>
+    #gitment-comment{
+        background-color: #eee;
+        padding: 2pc;
+    }
+</style>
+<link rel="stylesheet" href="/css/gitmen/default.css">
+<script src="/js/gitmen/gitment.browser.js"></script>
+<script>
+    var gitment = new Gitment({
+        //id: '页面 ID', // 可选。默认为 location.href
+        owner: 'wanghaichi',
+        repo: 'wanghaichi.github.io',
+        oauth: {
+            client_id: 'b2b84f478b5f60314808',
+            client_secret: '414d8da1c393a1e615654a6528fc98f7b9d38ade',
+        },
+    })
+    gitment.render('container')
+</script>
+
+                
+            </div>
+
+            <!-- Post Prev & Next Nav -->
+            <nav class="material-nav mdl-color-text--grey-50 mdl-cell mdl-cell--12-col">
+    <!-- Prev Nav -->
+    
+        <a href="/2018/05/03/learn-java-1/" id="post_nav-newer" class="prev-content">
+            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
+                <i class="material-icons">arrow_back</i>
+            </button>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            新篇
+        </a>
+    
+
+    <!-- Section Spacer -->
+    <div class="section-spacer"></div>
+
+    <!-- Next Nav -->
+    
+        <a href="/2018/01/30/ML-darknet-1/" id="post_nav-older" class="next-content">
+            旧篇
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
+                <i class="material-icons">arrow_forward</i>
+            </button>
+        </a>
+    
+</nav>
+
+        </div>
+    </div>
+
+
+
+                    
+                        <!-- Overlay For Active Sidebar -->
+<div class="sidebar-overlay"></div>
+
+<!-- Material sidebar -->
+<aside id="sidebar" class="sidebar sidebar-colored sidebar-fixed-left" role="navigation">
+    <div id="sidebar-main">
+        <!-- Sidebar Header -->
+        <div class="sidebar-header header-cover" style="background-image: url(/img/sidebar_header.png);">
+    <!-- Top bar -->
+    <div class="top-bar"></div>
+
+    <!-- Sidebar toggle button -->
+    <button type="button" class="sidebar-toggle mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" style="display: initial;" data-upgraded=",MaterialButton,MaterialRipple">
+        <i class="material-icons">clear_all</i>
+        <span class="mdl-button__ripple-container">
+            <span class="mdl-ripple">
+            </span>
+        </span>
+    </button>
+
+    <!-- Sidebar Avatar -->
+    <div class="sidebar-image">
+        <img src="/img/avatar.jpg" alt="Liebes's avatar">
+    </div>
+
+    <!-- Sidebar Email -->
+    <a data-toggle="dropdown" class="sidebar-brand" href="#settings-dropdown">
+        wanghaichi0403@gmail.com
+        <b class="caret"></b>
+    </a>
+</div>
+
+
+        <!-- Sidebar Navigation  -->
+        <ul class="nav sidebar-nav">
+    <!-- User dropdown  -->
+    <li class="dropdown">
+        <ul id="settings-dropdown" class="dropdown-menu">
+            
+                <li>
+                    <a href="mailto:wanghaichi0403@gmail.com" target="_blank" title="Email Me">
+                        
+                            <i class="material-icons sidebar-material-icons sidebar-indent-left1pc-element">email</i>
+                        
+                        Email Me
+                    </a>
+                </li>
+            
+        </ul>
+    </li>
+
+    <!-- Homepage -->
+    
+        <li id="sidebar-first-li">
+            <a href="/">
+                
+                    <i class="material-icons sidebar-material-icons">home</i>
+                
+                主页
+            </a>
+        </li>
+        
+    
+
+    <!-- Archives  -->
+    
+        <li class="dropdown">
+            <a href="#" class="ripple-effect dropdown-toggle" data-toggle="dropdown">
+                
+                    <i class="material-icons sidebar-material-icons">inbox</i>
+                
+                    归档
+                <b class="caret"></b>
+            </a>
+            <ul class="dropdown-menu">
+            <li>
+                <a class="sidebar_archives-link" href="/archives/2018/05/">五月 2018<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2018/02/">二月 2018<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2018/01/">一月 2018<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/10/">十月 2017<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/07/">七月 2017<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/05/">五月 2017<span class="sidebar_archives-count">3</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/04/">四月 2017<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/03/">三月 2017<span class="sidebar_archives-count">7</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/02/">二月 2017<span class="sidebar_archives-count">3</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/01/">一月 2017<span class="sidebar_archives-count">3</span></a>
+            </ul>
+        </li>
+        
+    
+
+    <!-- Categories  -->
+    
+        <li class="dropdown">
+            <a href="#" class="ripple-effect dropdown-toggle" data-toggle="dropdown">
+                
+                    <i class="material-icons sidebar-material-icons">chrome_reader_mode</i>
+                
+                分类
+                <b class="caret"></b>
+            </a>
+            <ul class="dropdown-menu">
+                <li>
+                <a class="sidebar_archives-link" href="/categories/JAVA学习笔记/">JAVA学习笔记<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/categories/上机实验/">上机实验<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/categories/个人日志/">个人日志<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/categories/个人日记/">个人日记<span class="sidebar_archives-count">11</span></a></li><li><a class="sidebar_archives-link" href="/categories/作业/">作业<span class="sidebar_archives-count">6</span></a></li><li><a class="sidebar_archives-link" href="/categories/安全/">安全<span class="sidebar_archives-count">2</span></a>
+            </ul>
+        </li>
+        
+    
+
+    <!-- Pages  -->
+    
+        <li>
+            <a href="/tags" title="标签">
+                
+                    <i class="material-icons sidebar-material-icons">note</i>
+                
+                标签
+            </a>
+        </li>
+        
+    
+        <li>
+            <a href="/timeline" title="时间轴">
+                
+                    <i class="material-icons sidebar-material-icons">timeline</i>
+                
+                时间轴
+            </a>
+        </li>
+        
+    
+        <li>
+            <a href="/gallery" title="相册">
+                
+                    <i class="material-icons sidebar-material-icons">image</i>
+                
+                相册
+            </a>
+        </li>
+        
+    
+        <li>
+            <a href="/links" title="友情链接">
+                
+                    <i class="material-icons sidebar-material-icons">share</i>
+                
+                友情链接
+            </a>
+        </li>
+        
+    
+
+    <!-- Article Number  -->
+    
+        <li>
+            <a href="/archives">
+                文章总数
+                <span class="sidebar-badge">25</span>
+            </a>
+        </li>
+        
+    
+</ul>
+
+
+        <!-- Sidebar Footer -->
+        <!--
+I'm glad you use this theme, the development is no so easy, I hope you can keep the copyright, I will thank you so much.
+If you still want to delete the copyrights, could you still retain the first one? Which namely "Theme Material"
+It will not impact the appearance and can give developers a lot of support :)
+
+很高兴您使用并喜欢该主题，开发不易 十分谢谢与希望您可以保留一下版权声明。
+如果您仍然想删除的话 能否只保留第一项呢？即 "Theme Material"
+它不会影响美观并可以给开发者很大的支持和动力。 :)
+-->
+
+<!-- Sidebar Divider -->
+
+    <div class="sidebar-divider"></div>
+
+
+<!-- Theme Material -->
+
+
+<!-- Help & Support -->
+<!--
+
+    <a href="mailto:hiviosey@gmail.com" class="sidebar-footer-text-a">
+        <div class="sidebar-text mdl-button mdl-js-button mdl-js-ripple-effect sidebar-footer-text-div" data-upgraded=",MaterialButton,MaterialRipple">
+        sidebar.help
+        <span class="mdl-button__ripple-container">
+          <span class="mdl-ripple"></span>
+        </span>
+      </div>
+    </a>
+
+-->
+
+<!-- Feedback -->
+<!--
+
+-->
+
+<!-- About Theme -->
+<!--
+
+-->
+
+    </div>
+
+    <!-- Sidebar Image -->
+    
+
+</aside>
+
+                    
+
+                    
+                        <!-- Footer Top Button -->
+                        <div id="back-to-top" class="toTop-wrap">
+    <a href="#top" class="toTop">
+        <i class="material-icons footer_top-i">expand_less</i>
+    </a>
+</div>
+
+                    
+
+                    <!--Footer-->
+<footer class="mdl-mini-footer" id="bottom">
+    
+        <!-- Paradox Footer Left Section -->
+        <div class="mdl-mini-footer--left-section sns-list">
+    <!-- Twitter -->
+    
+
+    <!-- Facebook -->
+    
+        <a href="https://www.facebook.com/profile.php?id=100015246426771" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn footer-sns-facebook">
+                <span class="visuallyhidden">Facebook</span>
+            </button><!--
+     --></a>
+    
+
+    <!-- Google + -->
+    
+
+    <!-- Weibo -->
+    
+
+    <!-- Instagram -->
+    
+
+    <!-- Tumblr -->
+    
+
+    <!-- Github -->
+    
+        <a href="https://github.com/wanghaichi" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn footer-sns-github">
+                <span class="visuallyhidden">Github</span>
+            </button><!--
+     --></a>
+    
+
+    <!-- LinkedIn -->
+    
+
+    <!-- Zhihu -->
+    
+
+    <!-- Bilibili -->
+    
+
+    <!-- Telegram -->
+    
+    
+    <!-- V2EX -->
+    
+</div>
+
+
+        <!--Copyright-->
+        <div id="copyright">
+            Copyright&nbsp;©&nbsp;2015&nbsp;-<script type="text/javascript">var fd = new Date();document.write("&nbsp;" + fd.getFullYear() + "&nbsp;");</script>Liebes 的个人日志
+            
+                <br>
+                
+                    <a href="http://www.miitbeian.gov.cn" rel="nofollow">津ICP备17008789号-1</a>
+                
+            
+        </div>
+
+        <!-- Paradox Footer Right Section -->
+
+        <!--
+        I am glad you use this theme, the development is no so easy, I hope you can keep the copyright.
+        It will not impact the appearance and can give developers a lot of support :)
+
+        很高兴您使用该主题，开发不易，希望您可以保留一下版权声明。
+        它不会影响美观并可以给开发者很大的支持。 :)
+        -->
+
+        <div class="mdl-mini-footer--right-section">
+            <div>
+                <div class="footer-develop-div">Powered by <a href="https://hexo.io" target="_blank" class="footer-develop-a">Hexo</a></div>
+                <div class="footer-develop-div">Theme - <a href="https://github.com/viosey/hexo-theme-material" target="_blank" class="footer-develop-a">Material</a></div>
+            </div>
+        </div>
+    
+</footer>
+
+
+                    <!-- Import JS File -->
+
+    <script>lsloader.load("lazyload_js","/js/lazyload.min.js?1BcfzuNXqV+ntF6gq+5X3Q==", true)</script>
+
+
+
+    <script>lsloader.load("js_js","/js/js.min.js?V/53wGualMuiPM3xoetD5Q==", true)</script>
+
+
+
+    <script>lsloader.load("np_js","/js/nprogress.js?pl3Qhb9lvqR1FlyLUna1Yw==", true)</script>
+
+
+<script type="text/ls-javascript" id="NProgress-script">
+    NProgress.configure({
+        showSpinner: true
+    });
+    NProgress.start();
+    $('#nprogress .bar').css({
+        'background': '#29d'
+    });
+    $('#nprogress .peg').css({
+        'box-shadow': '0 0 10px #29d, 0 0 15px #29d'
+    });
+    $('#nprogress .spinner-icon').css({
+        'border-top-color': '#29d',
+        'border-left-color': '#29d'
+    });
+    setTimeout(function() {
+        NProgress.done();
+        $('.fade').removeClass('out');
+    }, 800);
+</script>
+
+
+
+
+
+    <!-- Leancloud -->
+    <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+    <script>
+        AV.initialize('YaKIDc6FuRET2JG9li8y3qXY-gzGzoHsz', 'QwqjSxSAbuLlYuf5PoHG415U');
+    </script>
+    <script type="text/ls-javascript" id="leancloud-views-script">
+    function showTime(Counter) {
+        var query = new AV.Query(Counter);
+        $('.leancloud-views_num').each(function() {
+            var url = $(this).attr('id').trim();
+            query.equalTo('url', url);
+            query.find({
+                success: function(results) {
+                    if (results.length === 0) {
+                        var content = '0 ' + $(document.getElementById(url)).text();
+                        $(document.getElementById(url)).text(content);
+                        return;
+                    }
+                    for (var i = 0; i < results.length; i++) {
+                        var object = results[i];
+                        var content = object.get('time') + ' ' + $(document.getElementById(url)).text();
+                        $(document.getElementById(url)).text(content);
+                    }
+                },
+                error: function(object, error) {
+                    console.log('Error: ' + error.code + ' ' + error.message);
+                }
+            });
+        });
+    }
+
+    function addCount(Counter) {
+      var Counter = AV.Object.extend('Counter');
+      url = $('.leancloud-views_num').attr('id').trim();
+      title = $('.leancloud-views_num').attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+      query.equalTo('url', url);
+      query.find({
+          success: function(results) {
+            if (results.length > 0) {
+                var counter = results[0];
+                counter.fetchWhenSave(true);
+                counter.increment('time');
+                counter.save(null, {
+                    success: function(counter) {
+                        var content =  counter.get('time') + ' ' + $(document.getElementById(url)).text();
+                        $(document.getElementById(url)).text(content);
+                    },
+                    error: function(counter, error) {
+                        console.log('Failed to save Visitor num, with error message: ' + error.message);
+                    }
+                });
+            } else {
+              var newcounter = new Counter();
+              newcounter.set('title', title);
+              newcounter.set('url', url);
+              newcounter.set('time', 1);
+              newcounter.save(null, {
+                  success: function(newcounter) {
+                      console.log('newcounter.get(\'time\')='+newcounter.get('time'));
+                      var content = newcounter.get('time') + ' ' + $(document.getElementById(url)).text();
+                      $(document.getElementById(url)).text(content);
+                  },
+                  error: function(newcounter, error) {
+                      console.log('Failed to create');
+                  }
+              });
+            }
+        },
+        error: function(error) {
+            console.log('Error:' + error.code + ' ' + error.message);
+        }
+      });
+    }
+    $(function() {
+        var Counter = AV.Object.extend('Counter');
+        if ($('.leancloud-views_num').length === 1) {
+            addCount(Counter);
+        } else if ($('.post-title-link').length > 1) {
+            showTime(Counter);
+        }
+    });
+</script>
+
+
+
+
+
+
+   <!-- Gitment -->
+
+
+
+
+
+<!-- UC Browser Compatible -->
+<script>
+	var agent = navigator.userAgent.toLowerCase();
+	if(agent.indexOf('ucbrowser')>0) {
+		document.write('<link rel="stylesheet" href="/css/uc.css">');
+	   alert('由于 UC 浏览器使用极旧的内核，而本网站使用了一些新的特性。\n为了您能更好的浏览，推荐使用 Chrome 或 Firefox 浏览器。');
+	}
+</script>
+
+<!-- Import prettify js  -->
+
+    
+        
+            <script>lsloader.load("prettify_js","/js/prettify.min.js?WN07fivHQSMKWy7BmHBB6w==", true)</script>
+        
+    
+
+
+
+<!-- Window Load -->
+<!-- add class for prettify -->
+<script type="text/ls-javascript" id="window-load">
+    $(window).on('load', function() {
+        // Post_Toc parent position fixed
+        $('.post-toc-wrap').parent('.mdl-menu__container').css('position', 'fixed');
+    });
+
+    
+        
+            $(function() {
+                $('pre').addClass('prettyprint linenums').attr('style', 'overflow:auto;');
+                prettyPrint();
+                })
+        
+    
+    
+</script>
+
+<!-- MathJax Load-->
+
+
+<!-- Bing Background -->
+
+
+<script type="text/ls-javascript" id="lazy-load">
+    // Offer LazyLoad
+    queue.offer(function(){
+        $('.lazy').lazyload({
+            effect : 'show'
+        });
+    });
+
+    // Start Queue
+    $(document).ready(function(){
+        setInterval(function(){
+            queue.execNext();
+        },200);
+    });
+</script>
+
+<!-- Custom Footer -->
+
+
+
+<script>
+    (function(){
+        var scriptList = document.querySelectorAll('script[type="text/ls-javascript"]')
+
+        for (var i = 0; i < scriptList.length; ++i) {
+            var item = scriptList[i];
+            lsloader.runInlineScript(item.id,item.id);
+        }
+    })()
+console.log('\n %c © Material Theme | Version: 1.5.2 | https://github.com/viosey/hexo-theme-material %c \n', 'color:#455a64;background:#e0e0e0;padding:5px 0;border-top-left-radius:5px;border-bottom-left-radius:5px;', 'color:#455a64;background:#e0e0e0;padding:5px 0;border-top-right-radius:5px;border-bottom-right-radius:5px;');
+</script>
+
+                </main>
+            </div>
+        </body>
+    
+</html>

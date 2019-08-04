@@ -1,0 +1,2277 @@
+<!DOCTYPE html>
+<html style="display: none;" lang="zh">
+    <head><meta name="generator" content="Hexo 3.9.0">
+    <meta charset="utf-8">
+    <!--
+        © Material Theme
+        https://github.com/viosey/hexo-theme-material
+        Version: 1.5.2 -->
+    <script>
+        window.materialVersion = "1.5.2"
+        // Delete localstorage with these tags
+        window.oldVersion = [
+            'codestartv1',
+            '1.3.4',
+            '1.4.0',
+            '1.4.0b1',
+            '1.5.0'
+        ]
+    </script>
+
+    <!-- dns prefetch -->
+    <meta http-equiv="x-dns-prefetch-control" content="on">
+
+
+    <link rel="dns-prefetch" href="https://cdn1.lncld.net">
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Meta & Info -->
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta name="renderer" content="webkit">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+    <!-- Title -->
+    
+    <title>
+        
+            timeline | 
+        
+        Liebes 的个人日志
+    </title>
+
+    <!-- Favicons -->
+    <link rel="icon shortcut" type="image/ico" href="/img/favicon.png">
+    <link rel="icon" href="/img/favicon.png">
+
+    <meta name="format-detection" content="telephone=no">
+    <meta name="description" itemprop="description" content="记录工作、学习的点滴">
+    <meta name="keywords" content="null">
+    <meta name="theme-color" content="#0097A7">
+
+    <!-- Disable Fucking Bloody Baidu Tranformation -->
+    <meta http-equiv="Cache-Control" content="no-transform">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+
+    <!--[if lte IE 9]>
+        <link rel="stylesheet" href="/css/ie-blocker.css">
+
+        
+            <script src="/js/ie-blocker.zhCN.js"></script>
+        
+    <![endif]-->
+
+    <!-- Import lsloader -->
+    <script>(function(){window.lsloader={jsRunSequence:[],jsnamemap:{},cssnamemap:{}};lsloader.removeLS=function(a){try{localStorage.removeItem(a)}catch(b){}};lsloader.setLS=function(a,c){try{localStorage.setItem(a,c)}catch(b){}};lsloader.getLS=function(a){var c="";try{c=localStorage.getItem(a)}catch(b){c=""}return c};versionString="/*"+(window.materialVersion||"unknownVersion")+"*/";lsloader.clean=function(){try{var b=[];for(var a=0;a<localStorage.length;a++){b.push(localStorage.key(a))}b.forEach(function(e){var f=lsloader.getLS(e);if(window.oldVersion){var d=window.oldVersion.reduce(function(g,h){return g||f.indexOf("/*"+h+"*/")!==-1},false);if(d){lsloader.removeLS(e)}}})}catch(c){}};lsloader.clean();lsloader.load=function(f,a,b,d){if(typeof b==="boolean"){d=b;b=undefined}d=d||false;b=b||function(){};var e;e=this.getLS(f);if(e&&e.indexOf(versionString)===-1){this.removeLS(f);this.requestResource(f,a,b,d);return}if(e){var c=e.split(versionString)[0];if(c!=a){console.log("reload:"+a);this.removeLS(f);this.requestResource(f,a,b,d);return}e=e.split(versionString)[1];if(d){this.jsRunSequence.push({name:f,code:e});this.runjs(a,f,e)}else{document.getElementById(f).appendChild(document.createTextNode(e));b()}}else{this.requestResource(f,a,b,d)}};lsloader.requestResource=function(b,e,a,c){var d=this;if(c){this.iojs(e,b,function(h,f,g){d.setLS(f,h+versionString+g);d.runjs(h,f,g)})}else{this.iocss(e,b,function(f){document.getElementById(b).appendChild(document.createTextNode(f));d.setLS(b,e+versionString+f)},a)}};lsloader.iojs=function(d,b,g){var a=this;a.jsRunSequence.push({name:b,code:""});try{var f=new XMLHttpRequest();f.open("get",d,true);f.onreadystatechange=function(){if(f.readyState==4){if((f.status>=200&&f.status<300)||f.status==304){if(f.response!=""){g(d,b,f.response);return}}a.jsfallback(d,b)}};f.send(null)}catch(c){a.jsfallback(d,b)}};lsloader.iocss=function(f,c,h,a){var b=this;try{var g=new XMLHttpRequest();g.open("get",f,true);g.onreadystatechange=function(){if(g.readyState==4){if((g.status>=200&&g.status<300)||g.status==304){if(g.response!=""){h(g.response);a();return}}b.cssfallback(f,c,a)}};g.send(null)}catch(d){b.cssfallback(f,c,a)}};lsloader.iofonts=function(f,c,h,a){var b=this;try{var g=new XMLHttpRequest();g.open("get",f,true);g.onreadystatechange=function(){if(g.readyState==4){if((g.status>=200&&g.status<300)||g.status==304){if(g.response!=""){h(g.response);a();return}}b.cssfallback(f,c,a)}};g.send(null)}catch(d){b.cssfallback(f,c,a)}};lsloader.runjs=function(f,c,e){if(!!c&&!!e){for(var b in this.jsRunSequence){if(this.jsRunSequence[b].name==c){this.jsRunSequence[b].code=e}}}if(!!this.jsRunSequence[0]&&!!this.jsRunSequence[0].code&&this.jsRunSequence[0].status!="failed"){var a=document.createElement("script");a.appendChild(document.createTextNode(this.jsRunSequence[0].code));a.type="text/javascript";document.getElementsByTagName("head")[0].appendChild(a);this.jsRunSequence.shift();if(this.jsRunSequence.length>0){this.runjs()}}else{if(!!this.jsRunSequence[0]&&this.jsRunSequence[0].status=="failed"){var d=this;var a=document.createElement("script");a.src=this.jsRunSequence[0].path;a.type="text/javascript";this.jsRunSequence[0].status="loading";a.onload=function(){d.jsRunSequence.shift();if(d.jsRunSequence.length>0){d.runjs()}};document.body.appendChild(a)}}};lsloader.tagLoad=function(b,a){this.jsRunSequence.push({name:a,code:"",path:b,status:"failed"});this.runjs()};lsloader.jsfallback=function(c,b){if(!!this.jsnamemap[b]){return}else{this.jsnamemap[b]=b}for(var a in this.jsRunSequence){if(this.jsRunSequence[a].name==b){this.jsRunSequence[a].code="";this.jsRunSequence[a].status="failed";this.jsRunSequence[a].path=c}}this.runjs()};lsloader.cssfallback=function(e,c,b){if(!!this.cssnamemap[c]){return}else{this.cssnamemap[c]=1}var d=document.createElement("link");d.type="text/css";d.href=e;d.rel="stylesheet";d.onload=d.onerror=b;var a=document.getElementsByTagName("script")[0];a.parentNode.insertBefore(d,a)};lsloader.runInlineScript=function(c,b){var a=document.getElementById(b).innerText;this.jsRunSequence.push({name:c,code:a});this.runjs()}})();</script>
+
+    <!-- Import queue -->
+    <script>function Queue(){this.dataStore=[];this.offer=b;this.poll=d;this.execNext=a;this.debug=false;this.startDebug=c;function b(e){if(this.debug){console.log("Offered a Queued Function.")}if(typeof e==="function"){this.dataStore.push(e)}else{console.log("You must offer a function.")}}function d(){if(this.debug){console.log("Polled a Queued Function.")}return this.dataStore.shift()}function a(){var e=this.poll();if(e!==undefined){if(this.debug){console.log("Run a Queued Function.")}e()}}function c(){this.debug=true}}var queue=new Queue();</script>
+
+    <!-- Import CSS -->
+    
+        <style id="material_css"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("material_css","/css/material.min.css?Z7a72R1E4SxzBKR/WGctOA==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+        <style id="style_css"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("style_css","/css/style.min.css?MKetZV3cUTfDxvMffaOezg==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+
+        
+            
+        
+
+    
+
+    
+
+    <!-- Config CSS -->
+
+<!-- Other Styles -->
+<style>
+  body, html {
+    font-family: Roboto, "Helvetica Neue", Helvetica, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "微软雅黑", Arial, sans-serif;
+    overflow-x: hidden !important;
+  }
+  
+  code {
+    font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+  }
+
+  a {
+    color: #00838F;
+  }
+
+  .mdl-card__media,
+  #search-label,
+  #search-form-label:after,
+  #scheme-Paradox .hot_tags-count,
+  #scheme-Paradox .sidebar_archives-count,
+  #scheme-Paradox .sidebar-colored .sidebar-header,
+  #scheme-Paradox .sidebar-colored .sidebar-badge{
+    background-color: #0097A7 !important;
+  }
+
+  /* Sidebar User Drop Down Menu Text Color */
+  #scheme-Paradox .sidebar-colored .sidebar-nav>.dropdown>.dropdown-menu>li>a:hover,
+  #scheme-Paradox .sidebar-colored .sidebar-nav>.dropdown>.dropdown-menu>li>a:focus {
+    color: #0097A7 !important;
+  }
+
+  #post_entry-right-info,
+  .sidebar-colored .sidebar-nav li:hover > a,
+  .sidebar-colored .sidebar-nav li:hover > a i,
+  .sidebar-colored .sidebar-nav li > a:hover,
+  .sidebar-colored .sidebar-nav li > a:hover i,
+  .sidebar-colored .sidebar-nav li > a:focus i,
+  .sidebar-colored .sidebar-nav > .open > a,
+  .sidebar-colored .sidebar-nav > .open > a:hover,
+  .sidebar-colored .sidebar-nav > .open > a:focus,
+  #ds-reset #ds-ctx .ds-ctx-entry .ds-ctx-head a {
+    color: #0097A7 !important;
+  }
+
+  .toTop {
+    background: #757575 !important;
+  }
+
+  .material-layout .material-post>.material-nav,
+  .material-layout .material-index>.material-nav,
+  .material-nav a {
+    color: #757575;
+  }
+
+  #scheme-Paradox .MD-burger-layer {
+    background-color: #757575;
+  }
+
+  #scheme-Paradox #post-toc-trigger-btn {
+    color: #757575;
+  }
+
+  .post-toc a:hover {
+    color: #00838F;
+    text-decoration: underline;
+  }
+
+</style>
+
+
+<!-- Theme Background Related-->
+
+    <style>
+      body{
+        background-image: url(/img/bg.png);
+      }
+    </style>
+
+
+
+
+<!-- Fade Effect -->
+
+    <style>
+      .fade {
+        transition: all 800ms linear;
+        -webkit-transform: translate3d(0,0,0);
+        -moz-transform: translate3d(0,0,0);
+        -ms-transform: translate3d(0,0,0);
+        -o-transform: translate3d(0,0,0);
+        transform: translate3d(0,0,0);
+        opacity: 1;
+      }
+
+      .fade.out{
+        opacity: 0;
+      }
+    </style>
+
+
+<!-- Import Font -->
+<!-- Import Roboto -->
+
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet">
+
+
+<!-- Import Material Icons -->
+
+
+    <style id="material_icons"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("material_icons","/css/material-icons.css?pqhB/Rd/ab0H2+kZp0RDmw==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+
+
+
+
+    <!-- Import jQuery -->
+    
+        <script>lsloader.load("jq_js","/js/jquery.min.js?qcusAULNeBksqffqUM2+Ig==", true)</script>
+    
+
+    <!-- WebAPP Icons -->
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="application-name" content="Liebes 的个人日志">
+    <meta name="msapplication-starturl" content="https://blog.liebes.top/timeline/">
+    <meta name="msapplication-navbutton-color" content="#0097A7">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-title" content="Liebes 的个人日志">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon" href="/img/favicon.png">
+
+    <!-- Site Verification -->
+    <meta name="google-site-verification" content="3y0DPspok4T6uDMqNvKTJXM12vfNAPuI7fwhn4u9hvo">
+    <meta name="baidu-site-verification" content="Ou5GByZRoU">
+
+    <!-- RSS -->
+    
+
+    <!-- The Open Graph protocol -->
+    <meta property="og:url" content="https://blog.liebes.top/timeline/">
+    <meta property="og:type" content="blog">
+    <meta property="og:title" content="timeline | Liebes 的个人日志">
+    <meta property="og:image" content="/img/favicon.png">
+    <meta property="og:description" content="记录工作、学习的点滴">
+    
+
+    
+
+    <!-- The Twitter Card protocol -->
+    <meta name="twitter:card" content="summary_large_image">
+
+    <!-- Add canonical link for SEO -->
+    
+        <link rel="canonical" href="https://blog.liebes.top/timeline/index.html">
+    
+
+    <!-- Structured-data for SEO -->
+    
+        
+
+
+
+    
+
+    <!-- Analytics -->
+    
+        <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+    ga('create', 'UA-113353642-1', 'auto');ga('send', 'pageview');
+</script>
+    
+    
+    
+
+    <!-- Custom Head -->
+    
+
+</head>
+
+
+    
+        <body id="scheme-Paradox" class="lazy">
+            <div class="material-layout  mdl-js-layout has-drawer is-upgraded">
+                
+
+                <!-- Main Container -->
+                <main class="material-layout__content" id="main">
+
+                    <!-- Top Anchor -->
+                    <div id="top"></div>
+
+                    
+                        <!-- Hamburger Button -->
+                        <button class="MD-burger-icon sidebar-toggle">
+                            <span class="MD-burger-layer"></span>
+                        </button>
+                    
+
+                    <!-- Post TOC -->
+
+
+<!-- Layouts -->
+
+    <!-- Single Timeline Page -->
+    <style>
+	.md-container {
+		width: 90%;
+		max-width: 1170px;
+		margin: 0 auto;
+	}
+	.md-container::after {
+		content: '';
+		display: table;
+		clear: both;
+	}
+	#md-timeline {
+		position: relative;
+		padding: 2em 0;
+		margin-top: 2em;
+		margin-bottom: 2em;
+	}
+	@media screen and (max-device-width:480px){
+		#md-timeline {
+			margin-top: 6em;
+		}
+	}
+	#md-timeline::before {
+		content: '';
+		position: absolute;
+		top: 0;
+		left: 18px;
+		height: 100%;
+		width: 2px;
+		background: #d7e4ed;
+	}
+	.md-timeline-title {
+		font-size: 20px;
+		line-height: 24px;
+	}
+	.md-timeline-content a {
+		text-decoration: none;
+	}
+	.md-timeline-info {
+		height: 20px;
+		width: 100%;
+		margin: 10px 0px;
+	}
+	.md-timeline-info-span {
+		float: right;
+		margin-right: 10px;
+		text-align: right;
+	}
+	.md-timeline-excerpt {
+	    	clear: right; 
+	}
+	@media only screen and (min-width: 1170px) {
+		#md-timeline {
+			margin-top: 3em;
+			margin-bottom: 3em;
+		}
+		#md-timeline::before {
+			left: 50%;
+			margin-left: -2px;
+		}
+	}
+	.md-timeline-block {
+		position: relative;
+		margin: 2em 0;
+	}
+	.md-timeline-block:after {
+		content: "";
+		display: table;
+		clear: both;
+	}
+	.md-timeline-block:first-child {
+		margin-top: 0;
+	}
+	.md-timeline-block:last-child {
+		margin-bottom: 0;
+	}
+	@media only screen and (min-width: 1170px) {
+		.md-timeline-block {
+			margin: 4em 0;
+		}
+		.md-timeline-block:first-child {
+			margin-top: 0;
+		}
+		.md-timeline-block:last-child {
+			margin-bottom: 0;
+		}
+	}
+	.md-timeline-date {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 60px;
+		height: 40px;
+		border-radius: box-shadow: 0 0 0 4px white, inset 0 2px 0 rgba(0, 0, 0, 0.08), 0 3px 0 4px rgba(0, 0, 0, 0.05);
+	}
+	.md-timeline-date.blue {
+		background: #0D395F;
+		-webkit-box-shadow: 0px 4px 15px 0px rgba(0, 0, 0, 0.75);
+		-moz-box-shadow: 0px 4px 15px 0px rgba(0, 0, 0, 0.75);
+		box-shadow: 0px 4px 15px 0px rgba(0, 0, 0, 0.75);
+	}
+	@media only screen and (min-width: 1170px) {
+		.md-timeline-date {
+			width: 60px;
+			height: 60px;
+			left: 50%;
+			margin-left: -30px;
+			/* Force Hardware Acceleration in WebKit */
+			-webkit-transform: translateZ(0);
+			-webkit-backface-visibility: hidden;
+		}
+		.cssanimations .md-timeline-date.is-hidden {
+			visibility: hidden;
+		}
+		.cssanimations .md-timeline-date.bounce-in {
+			visibility: visible;
+			-webkit-animation: md-bounce-1 0.6s;
+			-moz-animation: md-bounce-1 0.6s;
+			animation: md-bounce-1 0.6s;
+		}
+	}
+	@-webkit-keyframes md-bounce-1 {
+		0% {
+			opacity: 0;
+			-webkit-transform: scale(0.5);
+		}
+		60% {
+			opacity: 1;
+			-webkit-transform: scale(1.2);
+		}
+		100% {
+			-webkit-transform: scale(1);
+		}
+	}
+	@-moz-keyframes md-bounce-1 {
+		0% {
+			opacity: 0;
+			-moz-transform: scale(0.5);
+		}
+		60% {
+			opacity: 1;
+			-moz-transform: scale(1.2);
+		}
+		100% {
+			-moz-transform: scale(1);
+		}
+	}
+	@keyframes md-bounce-1 {
+		0% {
+			opacity: 0;
+			-webkit-transform: scale(0.5);
+			-moz-transform: scale(0.5);
+			-ms-transform: scale(0.5);
+			-o-transform: scale(0.5);
+			transform: scale(0.5);
+		}
+		60% {
+			opacity: 1;
+			-webkit-transform: scale(1.2);
+			-moz-transform: scale(1.2);
+			-ms-transform: scale(1.2);
+			-o-transform: scale(1.2);
+			transform: scale(1.2);
+		}
+		100% {
+			-webkit-transform: scale(1);
+			-moz-transform: scale(1);
+			-ms-transform: scale(1);
+			-o-transform: scale(1);
+			transform: scale(1);
+		}
+	}
+	.md-timeline-content {
+		position: relative;
+		margin-left: 60px;
+		background: white;
+		padding: 1em;
+		-webkit-box-shadow: 0px 4px 15px 0px rgba(0, 0, 0, 0.75);
+		-moz-box-shadow: 0px 4px 15px 0px rgba(0, 0, 0, 0.75);
+		box-shadow: 0px 4px 15px 0px rgba(0, 0, 0, 0.75);
+	}
+	.md-timeline-content:after {
+		content: "";
+		display: table;
+		clear: both;
+	}
+	.md-timeline-content h2 {
+		color: #303e49;
+	}
+	.md-timeline-content p, .md-timeline-content .md-read-more, .md-timeline-content .md-date {
+		font-size: 13px;
+		font-size: 0.8125rem;
+	}
+	.md-timeline-content .md-read-more, .md-timeline-content .md-date {
+		display: inline-block;
+	}
+	.md-timeline-content p {
+		margin: 1em 0;
+		line-height: 1.6;
+	}
+	.md-timeline-content .md-read-more {
+		float: right;
+		padding: .8em 1em;
+		background: #acb7c0;
+		color: white;
+		border-radius: 0.25em;
+	}
+	.md-date {
+		color: white;
+		text-align: center;
+	}
+	.no-touch .md-timeline-content .md-read-more:hover {
+		background-color: #bac4cb;
+	}
+	.md-timeline-content::before {
+		content: '';
+		position: absolute;
+		top: 16px;
+		right: 100%;
+		height: 0;
+		width: 0;
+		border: 7px solid transparent;
+		border-right: 7px solid white;
+	}
+	@media only screen and (min-width: 768px) {
+		.md-timeline-content h2 {
+			font-size: 20px;
+			font-size: 1.25rem;
+		}
+		.md-timeline-content p {
+			font-size: 16px;
+			font-size: 1rem;
+		}
+		.md-timeline-content .md-read-more {
+			font-size: 14px;
+			font-size: 0.875rem;
+		}
+	}
+	@media only screen and (min-width: 1170px) {
+		.md-date {
+			text-align: center;
+			margin-top: 10px;
+			line-height: 20px;
+		}
+		.md-timeline-content {
+			margin-left: 0;
+			padding: 1.6em;
+			width: 45%;
+		}
+		.md-timeline-content::before {
+			top: 24px;
+			left: 100%;
+			border-color: transparent;
+			border-left-color: white;
+		}
+		.md-timeline-content .md-read-more {
+			float: left;
+		}
+		.md-timeline-block:nth-child(even) .md-timeline-content {
+			float: right;
+		}
+		.md-timeline-block:nth-child(even) .md-timeline-content::before {
+			top: 24px;
+			left: auto;
+			right: 100%;
+			border-color: transparent;
+			border-right-color: white;
+		}
+		.md-timeline-block:nth-child(even) .md-timeline-content .md-read-more {
+			float: right;
+		}
+		.cssanimations .md-timeline-content.is-hidden {
+			visibility: hidden;
+		}
+		.cssanimations .md-timeline-content.bounce-in {
+			visibility: visible;
+			-webkit-animation: md-bounce-2 0.6s;
+			-moz-animation: md-bounce-2 0.6s;
+			animation: md-bounce-2 0.6s;
+		}
+	}
+	@media only screen and (min-width: 1170px) {
+		/* inverse bounce effect on even content blocks */
+		.cssanimations .md-timeline-block:nth-child(even) .md-timeline-content.bounce-in {
+			-webkit-animation: md-bounce-2-inverse 0.6s;
+			-moz-animation: md-bounce-2-inverse 0.6s;
+			animation: md-bounce-2-inverse 0.6s;
+		}
+	}
+	@-webkit-keyframes md-bounce-2 {
+		0% {
+			opacity: 0;
+			-webkit-transform: translateX(-100px);
+		}
+		60% {
+			opacity: 1;
+			-webkit-transform: translateX(20px);
+		}
+		100% {
+			-webkit-transform: translateX(0);
+		}
+	}
+	@-moz-keyframes md-bounce-2 {
+		0% {
+			opacity: 0;
+			-moz-transform: translateX(-100px);
+		}
+		60% {
+			opacity: 1;
+			-moz-transform: translateX(20px);
+		}
+		100% {
+			-moz-transform: translateX(0);
+		}
+	}
+	@keyframes md-bounce-2 {
+		0% {
+			opacity: 0;
+			-webkit-transform: translateX(-100px);
+			-moz-transform: translateX(-100px);
+			-ms-transform: translateX(-100px);
+			-o-transform: translateX(-100px);
+			transform: translateX(-100px);
+		}
+		60% {
+			opacity: 1;
+			-webkit-transform: translateX(20px);
+			-moz-transform: translateX(20px);
+			-ms-transform: translateX(20px);
+			-o-transform: translateX(20px);
+			transform: translateX(20px);
+		}
+		100% {
+			-webkit-transform: translateX(0);
+			-moz-transform: translateX(0);
+			-ms-transform: translateX(0);
+			-o-transform: translateX(0);
+			transform: translateX(0);
+		}
+	}
+	@-webkit-keyframes md-bounce-2-inverse {
+		0% {
+			opacity: 0;
+			-webkit-transform: translateX(100px);
+		}
+		60% {
+			opacity: 1;
+			-webkit-transform: translateX(-20px);
+		}
+		100% {
+			-webkit-transform: translateX(0);
+		}
+	}
+	@-moz-keyframes md-bounce-2-inverse {
+		0% {
+			opacity: 0;
+			-moz-transform: translateX(100px);
+		}
+		60% {
+			opacity: 1;
+			-moz-transform: translateX(-20px);
+		}
+		100% {
+			-moz-transform: translateX(0);
+		}
+	}
+	@keyframes md-bounce-2-inverse {
+		0% {
+			opacity: 0;
+			-webkit-transform: translateX(100px);
+			-moz-transform: translateX(100px);
+			-ms-transform: translateX(100px);
+			-o-transform: translateX(100px);
+			transform: translateX(100px);
+		}
+		60% {
+			opacity: 1;
+			-webkit-transform: translateX(-20px);
+			-moz-transform: translateX(-20px);
+			-ms-transform: translateX(-20px);
+			-o-transform: translateX(-20px);
+			transform: translateX(-20px);
+		}
+		100% {
+			-webkit-transform: translateX(0);
+			-moz-transform: translateX(0);
+			-ms-transform: translateX(0);
+			-o-transform: translateX(0);
+			transform: translateX(0);
+		}
+	}
+</style>
+
+<section id="md-timeline" class="md-container">
+   	   		
+			<div class="md-timeline-block">
+                		<div class="md-timeline-date blue">
+                   			<div class="md-date">5月 03 2018</div>
+                		</div>
+
+                		<div class="md-timeline-content">
+                    			<div class="md-timeline-title"><a href="/2018/05/03/learn-java-1/">Java SE8 的流库</a></div>
+					<div class="md-timeline-info">
+						<span class="md-timeline-info-span">Categories:
+							<a class="category-link" href="/categories/JAVA学习笔记/">JAVA学习笔记</a>
+						</span>
+						<span class="md-timeline-info-span">Tags:
+							<a class="tag-link" href="/tags/java/">java</a>
+						</span>
+						
+					</div>
+					<p class="md-timeline-excerpt">
+						
+							JAVA中，流旨在创建一种关注“做什么而非怎么做”的设计理念，我们无需关心流内具体的实现，而把更多精力放在流需要做什么上面。例如我们需要计算一个字符串数组中，长度大于10的有多少，参见下面的代码清单：
+public static void main(String args[]) throws IOException{
+    String contents = new String(Files.readAllBytes(Paths.get(&quot;/Users/liebes/Desktop/open.route&quot;)), StandardCharsets.UTF_8);
+    List&lt;String&gt; words = Arrays.asList(contents.split(&quot;\\PL+&quot;));
+    long count = 0;
+    // 怎么做
+    for(String s : words){
+        if(s.length() &gt; 10) count++;
+    }
+    System.out.println(count);
+    // 做什么
+    count = words.stream().filter(s -&gt; s.length() &gt; 10).count();
+    System.out.println(count);
+    count = words.parallelStream().filter(s -&gt; s.length() &gt; 10).count();
+    System.out.println(count);
+}
+
+第一种方式，是很容易想到的一种，循环遍历计算的一种方法，而第二种则是使用了流的概念。
+Stream，流。我们可以理解为水流，所有的流操作都是惰性的，即当你访问数据的时候，相关操作才会执行。我们在水流的行进方向设置我们想要完成的操作，当水流经过时，就会执行相关的操作。例如上面的 count = words.stream().filter(s -&gt; s.length() &gt; 10).cou...
+						...
+					</p>
+                    		</div>
+			</div>	
+   		
+			<div class="md-timeline-block">
+                		<div class="md-timeline-date blue">
+                   			<div class="md-date">2月 07 2018</div>
+                		</div>
+
+                		<div class="md-timeline-content">
+                    			<div class="md-timeline-title"><a href="/2018/02/07/front-qiniu/">hexo 设置相册、主页并使用七牛云加速图片加载</a></div>
+					<div class="md-timeline-info">
+						<span class="md-timeline-info-span">Categories:
+							<a class="category-link" href="/categories/个人日记/">个人日记</a>
+						</span>
+						<span class="md-timeline-info-span">Tags:
+							<a class="tag-link" href="/tags/hexo/">hexo</a>
+						</span>
+						
+					</div>
+					<p class="md-timeline-excerpt">
+						
+							据换完博客主题之后也有一段时间了，但总觉得哪里不对的样子，别人家都是主页和博客分开的，或者把博客放在主页的子目录下，而自己的却只有一个博客，反正自己也有域名，为什么不整个单独的主页出来呢。
+这篇文章记录了海痴是如何在 google 上扒模版，如何利用 travis 来将博客的内容同步到主页上，又如何与某涛互相比较，解决图片加载慢的问题。
+我们可以看看最终的效果：https://www.liebes.top
+在一切开始之前，海痴已经准备好了用 hexo 搭建起来的博客，一个自己的域名，以及使用 travis 将博客部署到自己的服务器的脚本。可以参见上一篇博客：Hexo 更换 materail 主题，使用 Travis 持续集成
+一份靠谱的主页模板关于如何找到一份高端上档次的主题模板，大家可以各显神通，当然，最快的还是 google 上搜一下：“主页 模板 bootstrap”，请一定加上 bootstrap 这个关键字，因为经过实践，这样搜出的结果最靠谱。
+准备好之后，就可以将模板文件放在博客的根目录下，随便起个名字，就像这样：
+├── _config.yml
+├── db.json
+├── liebes.top &lt;- 这个是模板文件
+├── liebes.top.py &lt;- 这个是之后会用到的脚本文件
+├── node_modules
+├── package-lock.json
+├── package.json
+├── public
+├── pyyaml
+├── scaffolds
+├── source
+├── themes
+└── travis.enc
+根据你的需要来修改你的主页模板...
+						...
+					</p>
+                    		</div>
+			</div>	
+   		
+			<div class="md-timeline-block">
+                		<div class="md-timeline-date blue">
+                   			<div class="md-date">1月 30 2018</div>
+                		</div>
+
+                		<div class="md-timeline-content">
+                    			<div class="md-timeline-title"><a href="/2018/01/30/ML-darknet-1/">机器学习之 darknet YOLO 训练 VOC 数据集</a></div>
+					<div class="md-timeline-info">
+						<span class="md-timeline-info-span">Categories:
+							<a class="category-link" href="/categories/个人日记/">个人日记</a>
+						</span>
+						<span class="md-timeline-info-span">Tags:
+							<a class="tag-link" href="/tags/darknet/">darknet</a>, <a class="tag-link" href="/tags/machine-learning/">machine learning</a>
+						</span>
+						
+					</div>
+					<p class="md-timeline-excerpt">
+						
+							最近被安排到中汽研实习（就算是实习吧），做了一些基于深度学习的图像识别工作，其实说起来自己对深度学习也没什么太深入的了解，都是现学现卖，跑人家的例子。不过还是在这边记录一下，以后回首可以稍稍感慨一下年轻时的无知。
+关于机器学习，基础知识是看周志华的西瓜书（清华大学出版社的机器学习）来学习的，不过大致是囫囵吞枣，没有静下心来安安稳稳地钻研（时间也不允许）。
+之后看了网易云课堂中吴恩达的机器学习教程，受益匪浅，推荐刚入门的同学去看看，讲的很好。
+在吴恩达的视频中，大致了解了卷积神经网络和深度学习大致的套路，其实说到底就是各种卷积层（convolution layer），池化层（pooling layer），全连接层（fool connected layer）不断组合。
+感觉机器学习想要深入了解，可能需要看很多相关的论文，之后的学习路程就记录在之后的博客中好了。
+先说说甲方的需求：需要在行车过程中动态识别出前方交通标志，如果是限速标识，需要识别中里面的数字。
+最近只做了第一部分，也就是交通标志的识别。对卷积神经网络有过了解的话能感觉出来这就是一个分类问题，好在公司已经标好了数据，并且是按照 VOC 格式标记的，接下来就是使用现成的网络训练就可以了。
+我用的是 YOLO 在darknet 网站上有 v1 和 v2 两个版本。
+https://pjreddie.com/darknet/yolo/
+以上是 YOLO darknet 版本的官网，上面的说明非常详细，也非常人性化，即使没有 GPU 也可以使用，可以简单的按照上面的教程进行安装。
+注意，darknet 默认是不开启 GPU
+						...
+					</p>
+                    		</div>
+			</div>	
+   		
+			<div class="md-timeline-block">
+                		<div class="md-timeline-date blue">
+                   			<div class="md-date">1月 25 2018</div>
+                		</div>
+
+                		<div class="md-timeline-content">
+                    			<div class="md-timeline-title"><a href="/2018/01/25/hexo-material/">Hexo 更换 materail 主题，使用 Travis 持续集成</a></div>
+					<div class="md-timeline-info">
+						<span class="md-timeline-info-span">Categories:
+							<a class="category-link" href="/categories/个人日记/">个人日记</a>
+						</span>
+						<span class="md-timeline-info-span">Tags:
+							<a class="tag-link" href="/tags/hexo-theme/">hexo-theme</a>
+						</span>
+						
+					</div>
+					<p class="md-timeline-excerpt">
+						
+							是的，我折腾了一天把博客的模版换了一下。怎么说呢，之前用的 Next 主题，很简约，看起来也很舒服，但总觉得少点什么，后来逛了逛其他人的站，感觉 Next 主题没有图，视觉上没什么冲击力，灰蒙蒙的感觉，于是采用了 material 这个主题，也很简洁，相比之下色彩丰富一些。
+之前在使用 github pages 有一些不爽的地方就是地址不是自己的域名，然而宝宝是买了域名的，为什么要在 github 下弄呢，之前尝试过使用CNAME进行域名解析，但是在处理 https 的问题上比较麻烦，想着弄一套 CI流程出来。试过 hexo 的 deploy 插件，用 rsync 进行自动部署，然而未果，各种奇怪的问题弄的头痛。最近心血来潮 google 一番，发现好多人都在用Travis CI 来自动化部署，于是尝试了一下，效果很不错。
+大致整理整理安装的过程吧，在阅读下面的文字之前，你需要自己安装过一次hexo，并了解hexo。
+HEXO MATERIAL 主题更换从 github 上下载 material 主题：https://github.com/viosey/hexo-theme-material 下载 release 或者直接克隆项目均可，将主题包移动到 hexo 项目的 theme 中并修改博客配置文件 _config.yml
+theme: material
+此时运行  hexo s 在本地就可以预览到 material 主题的样式了。接下来的步骤，完全可以按照官方的教程一项一项设置，不要嫌麻烦，因为很多特性默认都是没有的，需要自己去打开。
+官方文档：
+						...
+					</p>
+                    		</div>
+			</div>	
+   		
+			<div class="md-timeline-block">
+                		<div class="md-timeline-date blue">
+                   			<div class="md-date">10月 20 2017</div>
+                		</div>
+
+                		<div class="md-timeline-content">
+                    			<div class="md-timeline-title"><a href="/2017/10/20/mysql-backup/">Mysql 增量备份，全部备份实现方法以及自动化脚本</a></div>
+					<div class="md-timeline-info">
+						<span class="md-timeline-info-span">Categories:
+							
+						</span>
+						<span class="md-timeline-info-span">Tags:
+							<a class="tag-link" href="/tags/mysql/">mysql</a>
+						</span>
+						
+					</div>
+					<p class="md-timeline-excerpt">
+						
+							前情摘要自己作死干了一件特别蠢的事情（具体略）
+然后开始研究如何进行增量备份
+增量备份原理mysql 有个 binlog 的功能，会记录所有的用户的操作，可以依靠这个，配合全备份，将数据库回滚到某一个特殊的时刻。hhh
+简单来说，比如我们每周做一次全备份，每天做一次增量备份，当数据库发生问题的时候，我们就可以先将数据库回滚到上一周我们的全备份的时间，然后再通过每天的增量备份（其实就是模拟所有的数据库操作，全部执行一遍），将数据恢复到我们想要的时间点。
+配置mysql 的 binlog 功能需要在配置文件中打开，在 my.cnf 或者 mysqld.cnf 中添加以下几行：
+server-id               = 1
+
+# binlog存放路径
+log_bin                 = /var/log/mysql/mysql-bin.log
+
+# binlog记录的格式，有row、statement、mixed三种选项
+binlog-format           = row
+
+# binlog写缓冲区设置大小，由于是内存，写速度非常快，可以有效提高binlog的写效率，如果数据库中经常出现大事务，可以酌情提高该参数。
+binlog_cache_size       = 32m
+
+# 最大缓存区大小
+max_binlog_cache_size   = 512m
+
+# binlog文件最大的大小
+max_binlog_size         = 1000m
+
+# 需要备份的数据库名，如...
+						...
+					</p>
+                    		</div>
+			</div>	
+   		
+			<div class="md-timeline-block">
+                		<div class="md-timeline-date blue">
+                   			<div class="md-date">7月 11 2017</div>
+                		</div>
+
+                		<div class="md-timeline-content">
+                    			<div class="md-timeline-title"><a href="/2017/07/11/editor-xss/">编辑器带来的XSS漏洞问题解决方案</a></div>
+					<div class="md-timeline-info">
+						<span class="md-timeline-info-span">Categories:
+							<a class="category-link" href="/categories/个人日记/">个人日记</a>
+						</span>
+						<span class="md-timeline-info-span">Tags:
+							<a class="tag-link" href="/tags/editor/">editor</a>, <a class="tag-link" href="/tags/xss/">xss</a>
+						</span>
+						
+					</div>
+					<p class="md-timeline-excerpt">
+						
+							接上一篇编辑器的使用，自己尝试着写了一段js代码，本以为laravel的
+{{ $item }}
+渲染可以完美的避免 XSS 的攻击（确实可以避免），但是由于 Editor 生成的时候，重新渲染了一遍，导致了可能出现的XSS漏洞。
+
+
+可以看到，Editor已经帮助我们做了html的编码，于是我觉得不需要进行二次编码，就直接存到了数据库里，并且直接在前端进行了渲染。
+Controller
+$res = Notification::updateById($notice_id, [
+                &#39;content&#39;   =&gt; $content,
+                &#39;title&#39;     =&gt; $title,
+                &#39;fileName&#39;  =&gt; $file_name,
+                &#39;filePath&#39;  =&gt; $file_path
+            ]);
+
+view
+&lt;textarea id=&quot;editor&quot; name=&quot;editor&quot; rows=&quot;10&quot; cols=&quot;80&quot;&gt;
+    {{ $notice['content'] }}
+&lt;/textarea&gt;
+
+看起来一点问题也没有对不对！！
+然而当渲染的时候缺弹出了一个框框······
+
+查看代码发现变成了整个样子
+						...
+					</p>
+                    		</div>
+			</div>	
+   		
+			<div class="md-timeline-block">
+                		<div class="md-timeline-date blue">
+                   			<div class="md-date">7月 10 2017</div>
+                		</div>
+
+                		<div class="md-timeline-content">
+                    			<div class="md-timeline-title"><a href="/2017/07/10/trumbowyg-file-upload/">Trumbowyg 轻量级的 WYSIWYG 编辑器（附带 Laravel 文件上传）</a></div>
+					<div class="md-timeline-info">
+						<span class="md-timeline-info-span">Categories:
+							<a class="category-link" href="/categories/个人日志/">个人日志</a>
+						</span>
+						<span class="md-timeline-info-span">Tags:
+							<a class="tag-link" href="/tags/editor/">editor</a>, <a class="tag-link" href="/tags/文件上传/">文件上传</a>
+						</span>
+						
+					</div>
+					<p class="md-timeline-excerpt">
+						
+							假期写代码，整理一些关于Editor，文件上传相关的东西。
+
+editor
+文件上传（Laravel）
+
+Trumbowyg Editor
+
+Trumbowyg 是一款轻量级的编辑器，可以高度DIY，界面也很简洁。
+官方网站：Trumbowyg
+首先下载官方包，在官网可以直接下载。
+目录结构如下：
+
+其中只需要留下 dist 文件夹即可，其余的是文档，例子，直接删除即可。
+使用方法很简单，在 view 界面引用相关的 css 文件与 js 文件，这里默认已经引用了Jquery
+&lt;link rel=&quot;stylesheet&quot; href=&quot;/Trumbowyg/dist/ui/trumbowyg.min.css&quot;&gt;
+
+&lt;script src=&quot;/Trumbowyg/dist/trumbowyg.js&quot;&gt;&lt;/script&gt;
+
+
+同时需要创建一个 textarea 作为 editor 的容器
+&lt;textarea id=&quot;editor&quot; name=&quot;editor&quot; rows=&quot;10&quot; cols=&quot;80&quot;&gt;&lt;/textarea&gt;
+接下来就可以使用Trumbowyg 创建一个编辑器出来
+&lt;script&gt;
+...
+						...
+					</p>
+                    		</div>
+			</div>	
+   		
+			<div class="md-timeline-block">
+                		<div class="md-timeline-date blue">
+                   			<div class="md-date">5月 22 2017</div>
+                		</div>
+
+                		<div class="md-timeline-content">
+                    			<div class="md-timeline-title"><a href="/2017/05/22/web-security-2/">SQL injection 学习</a></div>
+					<div class="md-timeline-info">
+						<span class="md-timeline-info-span">Categories:
+							<a class="category-link" href="/categories/安全/">安全</a>
+						</span>
+						<span class="md-timeline-info-span">Tags:
+							<a class="tag-link" href="/tags/sql-injection/">sql injection</a>, <a class="tag-link" href="/tags/网络安全/">网络安全</a>
+						</span>
+						
+					</div>
+					<p class="md-timeline-excerpt">
+						
+							在国哥的安排下，对着 kali渗透测试之 SQL injeciton 视频教程一顿撸（虽然没什么卵用），记录下来自己的一些实验过程和经历。
+提前准备
+本地的 lemp 环境，搭建可参考：Centos 7 Nginx + php + mysql Web服务器搭建 和 Unbuntu16.04 Nginx + php + mysql Web服务器搭建 当然 xampp 也是极好的。
+用于攻击的 php 脚本和数据库，下面会给出
+
+编写脚本找个能够访问的地方，编写如下 php 脚本
+&lt;html&gt;
+    &lt;head&gt;&lt;/head&gt;
+    &lt;body&gt;
+        &lt;form action=&quot;./login.php&quot; method=&quot;post&quot;&gt;
+            ID&lt;input name=&quot;id&quot; type=&quot;text&quot;&gt;&lt;br/&gt;
+            &lt;input type=&quot;submit&quot; value=&quot;提交&quot;&gt;
+        &lt;/form&gt;
+        &lt;div&gt;
+        &lt;p&gt;
+       ...
+						...
+					</p>
+                    		</div>
+			</div>	
+   		
+			<div class="md-timeline-block">
+                		<div class="md-timeline-date blue">
+                   			<div class="md-date">5月 17 2017</div>
+                		</div>
+
+                		<div class="md-timeline-content">
+                    			<div class="md-timeline-title"><a href="/2017/05/17/vagrant-windows-init/">Vagrant ： Windows下开发小助手，告别双系统</a></div>
+					<div class="md-timeline-info">
+						<span class="md-timeline-info-span">Categories:
+							<a class="category-link" href="/categories/个人日记/">个人日记</a>
+						</span>
+						<span class="md-timeline-info-span">Tags:
+							<a class="tag-link" href="/tags/Vagrant/">Vagrant</a>, <a class="tag-link" href="/tags/虚拟机/">虚拟机</a>
+						</span>
+						
+					</div>
+					<p class="md-timeline-excerpt">
+						
+							不知道广大程序员们是怎么处理 Windows 和 Linux 的，最开始在 Windows 下面跑 Linux 的虚拟机，卡的自己怀疑人生。后来做了个双系统，自己 250 的固态表示根本不够用，而且动不动关机重启，别问我为什么，毕竟 office 割舍不了。后来一个学长点了我一下，既然想用 Linux 搞事情，用什么图形化界面，搞个服务器不就好了。然后我就搞了个腾讯云，然而，网络不好的时候真的蛋疼。最后，在宁哥大腿的指引下，尝试了一下 Vagrant 虚拟机，快的飞起，果断放弃双系统。
+这里记录一些自己在搭建 Vagrant 环境时的步骤以及踩的坑。
+提前准备：
+
+Vagrant
+VirtureBox
+
+首先，我们要选择一个适合我们的 box 也就是操作系统。Vagrant 提供了许多 box 供我们使用：Vagrant Box 。这里，海痴选择的是 ubuntu16.04。
+那么，当我们装好了 Vagrant，VirtureBox，并且下载好所需要的box以后，就可以开始搞事情了。当然，为了接下来的发展更加顺利，强烈建议装一个 Git ，毕竟 Git bash 异常的好用。
+我们新建一个文件夹，命名为 ubuntu，并且将我们的 box 移到这个目录下。在这个目录打开命令行界面，添加box
+$ vagrant box add xenial-server-cloudimg-amd64-vagrant.box
+添加后的 box 可以使用 vagrant box list
+						...
+					</p>
+                    		</div>
+			</div>	
+   		
+			<div class="md-timeline-block">
+                		<div class="md-timeline-date blue">
+                   			<div class="md-date">5月 10 2017</div>
+                		</div>
+
+                		<div class="md-timeline-content">
+                    			<div class="md-timeline-title"><a href="/2017/05/10/web-security-1/">网络安全学习之浏览器安全</a></div>
+					<div class="md-timeline-info">
+						<span class="md-timeline-info-span">Categories:
+							<a class="category-link" href="/categories/安全/">安全</a>
+						</span>
+						<span class="md-timeline-info-span">Tags:
+							<a class="tag-link" href="/tags/XSS/">XSS</a>, <a class="tag-link" href="/tags/网络安全/">网络安全</a>
+						</span>
+						
+					</div>
+					<p class="md-timeline-excerpt">
+						
+							最近在看《白帽子讲WEB安全》这本书，按着章节记录一下实践和学习的过程。
+同源策略
+简单来说，同源策略限制了来自不同源的“document”或脚本，对当前“document”读取或设置某些属性
+
+同源的网站指起host地址是一致的
+比如以下几个地址
+
+http://store.company.com/dir2/index.html
+http://store.company.com/dir1/index.html
+https://store.company.com/dir1/index.html
+http://store.company.com:8080/dir2/index.html
+http://news.company.com/dir1/index.html
+
+其中1,2是同源的，而其他几个则不是。
+对于一个网页中加载的javascr...
+						...
+					</p>
+                    		</div>
+			</div>	
+   		
+			<div class="md-timeline-block">
+                		<div class="md-timeline-date blue">
+                   			<div class="md-date">4月 14 2017</div>
+                		</div>
+
+                		<div class="md-timeline-content">
+                    			<div class="md-timeline-title"><a href="/2017/04/14/SoftwareManagement-HW-2/">Jenkins 安装与使用</a></div>
+					<div class="md-timeline-info">
+						<span class="md-timeline-info-span">Categories:
+							<a class="category-link" href="/categories/作业/">作业</a>
+						</span>
+						<span class="md-timeline-info-span">Tags:
+							<a class="tag-link" href="/tags/软件项目管理作业/">软件项目管理作业</a>
+						</span>
+						
+					</div>
+					<p class="md-timeline-excerpt">
+						
+							Jenkins旨在编程的持续继承，测试部署自动化，官方给的简介如下：
+
+Jenkins is a self-contained, open source automation server which can be used to automate all sorts of tasks such as building, testing, and deploying software. Jenkins can be installed through native system packages, Docker, or even run standalone by any machine with the Java Runtime Environment installed.
+
+首先下载 Jenkins 的war包jenkins.war运行命令
+$ java -jar jenkins.war
+该命令会在本地的8080端口运行jenkins访问 localhost:8080 会看到jenkins 的欢迎界面，按照步骤依次进行设置。在安装插件的界面，选择默认即可，jenkins会帮你安装一些常见的插件，比如git，pipeline等设置结束后会看到如下界面点击左上角新建按钮，即可新建一个项目，这里我们选择新建一个maven项目。在github project选项上选择我们的github地址在源码管理设置上选择git，并设置默认编译的分支为主分支
+						...
+					</p>
+                    		</div>
+			</div>	
+   		
+			<div class="md-timeline-block">
+                		<div class="md-timeline-date blue">
+                   			<div class="md-date">4月 08 2017</div>
+                		</div>
+
+                		<div class="md-timeline-content">
+                    			<div class="md-timeline-title"><a href="/2017/04/08/SoftwareTest-HW-4/">【软件测试】JAVA PATH FINDER [JPF]</a></div>
+					<div class="md-timeline-info">
+						<span class="md-timeline-info-span">Categories:
+							<a class="category-link" href="/categories/作业/">作业</a>
+						</span>
+						<span class="md-timeline-info-span">Tags:
+							<a class="tag-link" href="/tags/软件测试作业/">软件测试作业</a>
+						</span>
+						
+					</div>
+					<p class="md-timeline-excerpt">
+						
+							软件测试小组作业之JPF
+首先先说说JPF是个什么东西
+官方给出的解释：
+
+JPF核心是用于Java™字节码的虚拟机（VM），这意味着它是一个程序，您可以让Java程序执行。它用于在这些程序中找到缺陷，因此您还需要给出属性以作为输入进行检查。 JPF通过一份报告来回复，该报告说如果属性持有和/或由JPF创建的验证工件进行进一步分析（如测试用例）。
+
+
+JPF是一个有几个扭曲的虚拟机。它在Java本身中实现，所以不要指望它像您的普通Java一样快速运行。它是在VM上运行的VM。虽然Java字节码的执行语义在http://java.sun.com/docs/books/jvms/second_edition/html/VMSpecTOC.doc.html/ Sun的Java虚拟机规范中有明确定义，但我们在JPF中几乎没有硬连线语义 - VM指令集由一组可被替换的类表示。
+
+
+默认指令集使用下一个JPF功能：执行选项。 JPF可以识别您的程序中的执行可能不同的进程，然后系统地探索所有这些点。这意味着JPF（理论上）通过程序执行所有路径，而不仅仅是像普通的VM那样。典型的选择是不同的调度序列或随机值，但JPF可以再次介绍您自己的类型，如用户输入或statemachine事件。
+
+个人觉得JPF是一个针对JAVA程序寻找可执行路径的工具。看了一下官方的例子，觉得JPF可以在JAVA程序执行时自动检测所有的可执行路径，找到可能出现问题的路径。不同于传统的基于用例的Testing，JPF采用的是Model Checking，尽管基于用例的测试在用例足够多的时候有着很不错的测试效果，但是很难保证测试到所有的可行路径。JPF官方给出了基于测试用例的Testing 与 Model Testing 的差别：
+						...
+					</p>
+                    		</div>
+			</div>	
+   		
+			<div class="md-timeline-block">
+                		<div class="md-timeline-date blue">
+                   			<div class="md-date">3月 26 2017</div>
+                		</div>
+
+                		<div class="md-timeline-content">
+                    			<div class="md-timeline-title"><a href="/2017/03/26/SoftwareTest-LIB-2/">【软件测试】Selenium Web 测试</a></div>
+					<div class="md-timeline-info">
+						<span class="md-timeline-info-span">Categories:
+							<a class="category-link" href="/categories/上机实验/">上机实验</a>
+						</span>
+						<span class="md-timeline-info-span">Tags:
+							<a class="tag-link" href="/tags/软件测试上机实验/">软件测试上机实验</a>
+						</span>
+						
+					</div>
+					<p class="md-timeline-excerpt">
+						
+							Selenium 用于WEB程序测试，可以录制下来点击过程的脚本，并自动进行测试。
+
+使用selenium-ide 进行脚本录制
+使用java编写selenium程序，实现自动验证
+
+
+使用selenium-ide 进行脚本录制在开始实验之前，需要安装所需要的软件。首先想要使用selenium-ide，需要是用firefox浏览器。firefox下载链接selenium-ide下载链接将下载后的selenium插件拖到firefox里即可自动安装。成功安装后，在firefox中可以打开selenium插件:选择开发者工具中的selenium-ide打开后长这个样子在1的位置输入想要测试的网址，接着点击2位置的按钮开始录制。去浏览器访问对应的网站，完成表单提交操作，回到selenium-ide会看到录制下来的case，最后点击4,会将当前所有的case执行一遍。
+
+使用java编写selenium程序，实现自动验证新建一个java项目，然后导入下列jar包
+
+
+						...
+					</p>
+                    		</div>
+			</div>	
+   		
+			<div class="md-timeline-block">
+                		<div class="md-timeline-date blue">
+                   			<div class="md-date">3月 20 2017</div>
+                		</div>
+
+                		<div class="md-timeline-content">
+                    			<div class="md-timeline-title"><a href="/2017/03/20/laravel-learn-1/">laravel的学习日常-初识</a></div>
+					<div class="md-timeline-info">
+						<span class="md-timeline-info-span">Categories:
+							<a class="category-link" href="/categories/个人日记/">个人日记</a>
+						</span>
+						<span class="md-timeline-info-span">Tags:
+							<a class="tag-link" href="/tags/laravel/">laravel</a>
+						</span>
+						
+					</div>
+					<p class="md-timeline-excerpt">
+						
+							记录记录自己踩过的坑
+
+按照官方文档，乖乖的用composer进行安装：
+$ composer global require &quot;laravel/installer&quot;
+然后，就给我报了噼里啪啦一堆错误
+
+  [Composer\Downloader\TransportException]                                     
+  The &quot;https://packagist.org/packages.json&quot; file could not be downloaded: fai  
+  led to open stream: Connection timed out                                     
+
+EXM？我还啥也没干呢啊 = =。然后吧，我就把这个错误扔到了google上，注意了注意了，划重点了！搜出来解决方案的没有一个可以用的！然后我发现只是单纯的被墙了而已。WHAT THE FUCK !!!解决办法也挺简单，把composer的源切成国内镜像就好了
+$ composer config -g repo.packagist composer https://packagist.phpcomposer.com
+具体的可以参见 Packagist / Composer 中国全量镜像 这里。接下来就可以愉快的使用laravel了
+$ composer global require &quot;laravel/installer&quot;
+使用laravel新建一个项目，然后就可以看到牛逼闪闪的lavavel的目录结构：
+$ laravel new myProject
+
+						...
+					</p>
+                    		</div>
+			</div>	
+   		
+			<div class="md-timeline-block">
+                		<div class="md-timeline-date blue">
+                   			<div class="md-date">3月 17 2017</div>
+                		</div>
+
+                		<div class="md-timeline-content">
+                    			<div class="md-timeline-title"><a href="/2017/03/17/hexo-backup/">hexo 使用git备份hexo源文件</a></div>
+					<div class="md-timeline-info">
+						<span class="md-timeline-info-span">Categories:
+							<a class="category-link" href="/categories/个人日记/">个人日记</a>
+						</span>
+						<span class="md-timeline-info-span">Tags:
+							<a class="tag-link" href="/tags/hexo/">hexo</a>
+						</span>
+						
+					</div>
+					<p class="md-timeline-excerpt">
+						
+							这是个悲伤的故事，海痴的linux出了点毛病，然后就想着重装一遍。掐指一算，自家的代码在git上面都保存了，直接重装！然后吧，hexo你大爷，你没事就不能把博客原文备份一下么？又不占你的空间！那么费劲么！是的，海痴的博客都没了，别问我为什么还能看着，宝宝复制粘贴都快吐了，弄到凌晨两点多才恢复了。这件事情告诉我们，没事闲的别重装系统。
+
+具体的思路就是在我们的博客仓库中新建一个分支，用来保存源码，master分支用来提交hexo自动生成的文件。以海痴的博客为例。打开wanghaichi.github.io工作目录，我们可以喜闻乐见的发现没有.git文件夹。那么接下来的事情就简单了打开工作目录，执行以下操作
+$ git init
+$ vi .gitignore
+.DS_Store
+Thumbs.db
+db.json  
+*.log
+.deploy*/
+node_modules/
+.npmignore
+public/
+$ git branch -b hexo
+$ git add .
+$ git commit -m &quot;backup&quot;
+$ git remote add origin git@github.com:wanghaichi/wanghaichi.github.io.git
+$ git push origin hexo
+如果没设置ssh权限可能需要设置一下，然后去github仓库里面切换以下分支，你的可爱的博客就都在里面啦。以后每次写完博客，先执行一遍
+$ git add .
+$ git commit -m &quot;backup&quot;
+$ git push origin hexo
+再发布，就不用担心自家博客丢失啦
+
+妈妈再也不用担心复制博客到零点啦
+
+						...
+					</p>
+                    		</div>
+			</div>	
+   		
+			<div class="md-timeline-block">
+                		<div class="md-timeline-date blue">
+                   			<div class="md-date">3月 15 2017</div>
+                		</div>
+
+                		<div class="md-timeline-content">
+                    			<div class="md-timeline-title"><a href="/2017/03/15/SoftwareTest-HW-3/">【软件测试】作业3 测试之路径覆盖</a></div>
+					<div class="md-timeline-info">
+						<span class="md-timeline-info-span">Categories:
+							<a class="category-link" href="/categories/作业/">作业</a>
+						</span>
+						<span class="md-timeline-info-span">Tags:
+							<a class="tag-link" href="/tags/软件测试作业/">软件测试作业</a>
+						</span>
+						
+					</div>
+					<p class="md-timeline-excerpt">
+						
+							书上的练习题，要求设计相应的测试用例，写出主路径覆盖
+
+Problem Description
+Answer
+
+
+
+Problem Description
+/***********************************
+ * Finds and prints n prime integers
+ * Jeff Offutt, Spring 2003
+************************************/
+private static void printPrimes (int n){
+    int curPrime;        // Value currently considered for primeness
+    int numPrimes;        // Number of primes found so far.
+    boolean isPrime;    // Is curPrime prime?
+    int [] primes = new int [MAXPRIMES]; // The list of prime numbers.
+    // Initialize 2 into the list of primes.
+    primes[0] = 2;
+    numPrimes = 1;
+    curPrime = 2;
+    while(numPrimes &lt; n){
+        curPrime++;        //next number to consider ...
+        isPrime = true;
+        for(int i = 0; i &lt;= numPrime-1; i++){
+            if(isDivisible(primes[i], curPrime)){
+                isPrime = false;
+          ...
+						...
+					</p>
+                    		</div>
+			</div>	
+   		
+			<div class="md-timeline-block">
+                		<div class="md-timeline-date blue">
+                   			<div class="md-date">3月 13 2017</div>
+                		</div>
+
+                		<div class="md-timeline-content">
+                    			<div class="md-timeline-title"><a href="/2017/03/13/lemp-vhost/">Nginx 本地虚拟主机搭建</a></div>
+					<div class="md-timeline-info">
+						<span class="md-timeline-info-span">Categories:
+							<a class="category-link" href="/categories/个人日志/">个人日志</a>
+						</span>
+						<span class="md-timeline-info-span">Tags:
+							<a class="tag-link" href="/tags/Nginx/">Nginx</a>, <a class="tag-link" href="/tags/Vhost/">Vhost</a>
+						</span>
+						
+					</div>
+					<p class="md-timeline-excerpt">
+						
+							之前每次都死在这里，这把终于搞明白了。弄个虚拟主机的目的是将多个项目都可以跑在虚拟域名的根目录下，在本地调试结构也比较清晰。
+
+首先备份一份 default 配置文件
+$ sudo cp /etc/nginx/sites-available/default /etc/nginx/sites-available/default.bak
+接下来以example.com域名为例
+$ sudo cp /etc/nginx/sites-available/default /etc/nginx/sites-available/example.com.conf
+修改新的配置文件的内容
+
+server {
+    listen 80;
+    listen [::]:80;
+    server_name example.com;
+    root /var/www/example.com;
+    index index.html index.php;
+    location / {
+        try_files $uri $uri/ =404;
+    }
+    location ~ \.php$ {
+        include snippets/fastcgi-php.conf;
+        fastcgi_pass 127.0.0.1:9000;
+    }
+    location ~ /\.ht {
+        deny all;
+    }
+}
+这里你需要有对应的工作目录，将配置文件链接到 sites-enabled 中使其生效下面这里要注意了，一定要写绝对路径。
+$ sudo ln -s /etc/nginx/sites-available/example.com /etc/nginx/sites-enabled/
+$ sudo systemctl reload nginx
+在hosts文件中加上映射
+
+						...
+					</p>
+                    		</div>
+			</div>	
+   		
+			<div class="md-timeline-block">
+                		<div class="md-timeline-date blue">
+                   			<div class="md-date">3月 10 2017</div>
+                		</div>
+
+                		<div class="md-timeline-content">
+                    			<div class="md-timeline-title"><a href="/2017/03/10/SoftwareTest-LIB-1/">【软件测试】JUNIT使用及覆盖测试</a></div>
+					<div class="md-timeline-info">
+						<span class="md-timeline-info-span">Categories:
+							<a class="category-link" href="/categories/上机实验/">上机实验</a>
+						</span>
+						<span class="md-timeline-info-span">Tags:
+							<a class="tag-link" href="/tags/软件测试上机实验/">软件测试上机实验</a>
+						</span>
+						
+					</div>
+					<p class="md-timeline-excerpt">
+						
+							软件测试第一次上机，测试了一下JUnit的使用和覆盖测试，虽然实验要求是用eclipse，但我还是被idea的美色所臣服。
+
+Junit 安装与使用
+覆盖测试
+
+
+Junit 安装与使用首先去官网下载Junit的jar包和其依赖
+
+junit-4.12.jar
+
+
+hamcrest-core-1.3.jar
+
+打开Idea，新建一个项目，并在项目中与src目录平级创建test和lib文件夹，并将下载的jar包放在lib文件夹中在idea中导入junit：File&gt;Project Structure&gt;Modules 点击 ‘+’ 引入刚刚下载的jar包，点击 Apply将test文件夹设置为测试文件夹在test文件夹右键 &gt; Mark Directory as &gt; Test Resources Root回到Main.java 编写testTriangle方法
+//判断一个三角形的形状：等边，等腰，普通
+public s...
+						...
+					</p>
+                    		</div>
+			</div>	
+   		
+			<div class="md-timeline-block">
+                		<div class="md-timeline-date blue">
+                   			<div class="md-date">3月 10 2017</div>
+                		</div>
+
+                		<div class="md-timeline-content">
+                    			<div class="md-timeline-title"><a href="/2017/03/10/lemp-Ubantu/">Unbuntu16.04 Nginx + php + mysql Web服务器搭建</a></div>
+					<div class="md-timeline-info">
+						<span class="md-timeline-info-span">Categories:
+							<a class="category-link" href="/categories/个人日记/">个人日记</a>
+						</span>
+						<span class="md-timeline-info-span">Tags:
+							<a class="tag-link" href="/tags/Lemp/">Lemp</a>, <a class="tag-link" href="/tags/Nginx/">Nginx</a>, <a class="tag-link" href="/tags/web-server/">web server</a>
+						</span>
+						
+					</div>
+					<p class="md-timeline-excerpt">
+						
+							下决心不再用lamp的集成包了，自己搞一个出来。
+
+Nginx
+php
+mysql
+
+
+Nginx首先安装使用 apt 安装nginx$ sudo apt install nginx然而由于之前安装过nginx，卸载还不干净，导致配置文件读取失败，出现错误：
+Job for nginx.service failed because the control process exited with error code. See &quot;systemctl status nginx.service&quot; and &quot;journalctl -xe&quot; for details.
+invoke-rc.d: initscript nginx, action &quot;start&quot; failed.
+● nginx.service - A high performance web server and a reverse proxy server
+   Loaded: loaded (/lib/systemd/system/nginx.service; enabled; vendor preset: enabled)
+   Active: failed (Result: exit-code) since 四 2017-03-09 00:06:13 CST; 7ms ago
+  Process: 4540 ExecStartPre=/usr/sbin/nginx -t -q -g daemon on; master_process on; (code=exited, status=1/FAILURE)
+3月 09 00:06:13 hardy-Inspiron-5547 systemd[1]: Starting A high performance....
+3月 09 00:06:13 hardy-Inspiron-...
+						...
+					</p>
+                    		</div>
+			</div>	
+   		
+			<div class="md-timeline-block">
+                		<div class="md-timeline-date blue">
+                   			<div class="md-date">2月 26 2017</div>
+                		</div>
+
+                		<div class="md-timeline-content">
+                    			<div class="md-timeline-title"><a href="/2017/02/26/SoftwareTest-HW-2/">【软件测试】作业2 设计测试用例</a></div>
+					<div class="md-timeline-info">
+						<span class="md-timeline-info-span">Categories:
+							<a class="category-link" href="/categories/作业/">作业</a>
+						</span>
+						<span class="md-timeline-info-span">Tags:
+							<a class="tag-link" href="/tags/软件测试作业/">软件测试作业</a>
+						</span>
+						
+					</div>
+					<p class="md-timeline-excerpt">
+						
+							软件测试课程作业，按照要求设计相关的测试用例
+
+问题描述
+问题解答
+
+
+问题描述
+
+
+Below are two faulty programs. Each includes a test case that results in failure. Answer the following questions about each program.
+// program 1
+public int findLast (int[] x, int y) {
+//Effects: If x==null throw NullPointerException
+// else return the index of the last element
+// in x that equals y.
+// If no such element exists, return -1
+  for (int i=x.length-1; i &gt; 0; i--){
+  if (x[i] == y){
+    return i;
+  }
+}
+return -1;
+}
+/ test: x=[2, 3, 5]; y = 2
+/ Expected = 0
+
+
+// program 2
+public static int lastZero (int[] x) {
+// Effects: if x==null throw NullPointerException
+// else return the index of the LAST 0 in x.
+// Return -1 if 0 does not occur in x
+for (int i = 0; i &lt; x.length; i++){
+  if (x[i] == 0){
+    return i;
+  }
+}
+return -1;
+}
+// test: x=[0, 1, 0]
+// Expected = 2
+
+						...
+					</p>
+                    		</div>
+			</div>	
+   		
+			<div class="md-timeline-block">
+                		<div class="md-timeline-date blue">
+                   			<div class="md-date">2月 26 2017</div>
+                		</div>
+
+                		<div class="md-timeline-content">
+                    			<div class="md-timeline-title"><a href="/2017/02/26/SoftwareTest-HW-1/">【软件测试】记录几个曾经遇到的坑</a></div>
+					<div class="md-timeline-info">
+						<span class="md-timeline-info-span">Categories:
+							<a class="category-link" href="/categories/作业/">作业</a>
+						</span>
+						<span class="md-timeline-info-span">Tags:
+							<a class="tag-link" href="/tags/软件测试作业/">软件测试作业</a>
+						</span>
+						
+					</div>
+					<p class="md-timeline-excerpt">
+						
+							
+php中过滤函数的编码问题
+mysql不经过滤直接拼接的问题
+
+
+php中过滤函数的编码问题问题发生的背景是整理服务器，将一部分php5的代码迁移到php7的服务器上。
+
+If omitted, the default value of the encoding varies depending on the PHP version in use. In 5.6 and later, the default_charset configuration option is used as the default value. PHP 5.4 and 5.5 will use UTF-8 as the default. Earlier versions of PHP use ISO-8859-1.
+
+这是官方的文档，能看到在php5.6之前与之后
+string htmlspecialchars ( string $string [, int $flags = ENT_COMPAT | ENT_HTML401 [, string $encoding = ini_get(&quot;default_charset&quot;) [, bool $double_encode = true ]]] )
+这个函数的默认编码变了，使得当在php5.6之后的版本，该函数无法对编码格式为gbk的进行过滤。需要显示定义 string $encoding = ini_get(&quot;default_charset&quot;)这个参数。
+
+mysql不经过滤直接拼接的问题这个则是蠢得不行不行的bug，懂点的人都知道mysql如果直接拼接字符串会导致各种注入问题。比如：
+						...
+					</p>
+                    		</div>
+			</div>	
+   		
+			<div class="md-timeline-block">
+                		<div class="md-timeline-date blue">
+                   			<div class="md-date">2月 26 2017</div>
+                		</div>
+
+                		<div class="md-timeline-content">
+                    			<div class="md-timeline-title"><a href="/2017/02/26/SoftwareManagement-HW-1/">(Software Management) Homework 1</a></div>
+					<div class="md-timeline-info">
+						<span class="md-timeline-info-span">Categories:
+							<a class="category-link" href="/categories/作业/">作业</a>
+						</span>
+						<span class="md-timeline-info-span">Tags:
+							<a class="tag-link" href="/tags/软件项目管理作业/">软件项目管理作业</a>
+						</span>
+						
+					</div>
+					<p class="md-timeline-excerpt">
+						
+							
+Homework Description
+Project Description
+
+
+Homework Description
+
+A project is collection of coordinated work activities conducted within a specific time frame that utilizes resources to achieve specified objectives.
+
+
+
+Briefly describe a project from your personal life that you have recently completed. State the nature of the project, the initial objectives, and planned the starting and ending dates and the actual starting and ending dates of the project. List any resources used (money, tools, materials, labor).
+
+
+
+
+List and compare the outcome of your project to the initial objectives.
+
+
+
+Project Description
+
+Initial objectives
+We wanted to add some new funcitons on TJU online judge such tha...
+						...
+					</p>
+                    		</div>
+			</div>	
+   		
+			<div class="md-timeline-block">
+                		<div class="md-timeline-date blue">
+                   			<div class="md-date">1月 21 2017</div>
+                		</div>
+
+                		<div class="md-timeline-content">
+                    			<div class="md-timeline-title"><a href="/2017/01/21/lempServer/">Centos 7 Nginx + php + mysql Web服务器搭建</a></div>
+					<div class="md-timeline-info">
+						<span class="md-timeline-info-span">Categories:
+							<a class="category-link" href="/categories/个人日记/">个人日记</a>
+						</span>
+						<span class="md-timeline-info-span">Tags:
+							<a class="tag-link" href="/tags/Lemp/">Lemp</a>, <a class="tag-link" href="/tags/Nginx/">Nginx</a>, <a class="tag-link" href="/tags/web-server/">web server</a>
+						</span>
+						
+					</div>
+					<p class="md-timeline-excerpt">
+						
+							
+安装Nginx
+安装php5
+安装php7
+安装mysql
+
+
+搭建nginx服务在所有工作之前，先更新一下yum咯$ yum install yum
+$ yum -y update然后使用yum安装nginx# 如果没有nginx包尝试使用下面的命令添加
+$ yum install epel-release
+$ yum install nginx
+# 启动
+$ systemctl start nginx
+# 开机自启
+$ systemctl enable nginx然后就可以在浏览器输入http://127.0.0.1，会看到nginx的欢迎界面，如果是远程服务器请输入以下命令查看ip$ ip addr show eth0 | grep inet | awk &#39;{ print $2; }&#39; | sed &#39;s/\/.*$//&#39;
+# 或者
+$ curl http://icanhazip.com—安装php5使用yum安装，十分简单。$ yum install php php-mysql php-fpm安装完成后，修改 /etc/php.ini 文件，找到 cgi.fix_pathinfo=0 这一行，取消注释并修改成0然后修改 /etc/php-fpm.d/www.conf 文件，需要修改一下几个地方listen = /var/run/php-fpm/php-fpm.sock
+listen.owner = nobody
+listen.group = nobody
+user = ...
+						...
+					</p>
+                    		</div>
+			</div>	
+   		
+			<div class="md-timeline-block">
+                		<div class="md-timeline-date blue">
+                   			<div class="md-date">1月 17 2017</div>
+                		</div>
+
+                		<div class="md-timeline-content">
+                    			<div class="md-timeline-title"><a href="/2017/01/17/initFtpInCentos7/">在CentOS7上搭建ftp服务器</a></div>
+					<div class="md-timeline-info">
+						<span class="md-timeline-info-span">Categories:
+							<a class="category-link" href="/categories/个人日记/">个人日记</a>
+						</span>
+						<span class="md-timeline-info-span">Tags:
+							<a class="tag-link" href="/tags/ftp/">ftp</a>
+						</span>
+						
+					</div>
+					<p class="md-timeline-excerpt">
+						
+							在ninge的帮助下，终于搞出了ftp服务器，记下来以后用
+
+ftp服务器搭建
+sftp服务器搭建
+用户权限设置
+啰嗦几句
+
+
+ftp服务器搭建首先安装sftp服务
+[root@hardy ~]# yum install vsftpd
+修改配置文件，在修改配置文件之前记得备份
+[root@hardy ~]# cp /etc/vsftpd/vsftpd.conf /etc/vsftpd/vsftpd.conf.bak
+[root@hardy ~]# vim /etc/vsftpd/vsftpd.conf
+vsftpd服务有许多配置，这里不一一赘述，将一些常用的写出来
+#匿名用户是否可以登录
+anonymous_enable=YES
+#允许系统用户名登录
+local_enable=YES
+#允许使用任何可以修改文件系统的FTP的指令，禁用这项则用户无法修改
+write_enable=YES
+#本地用户新建文件的掩码
+local_umask=022
+#开启日志功能
+xferlog_enable=YES
+#日志文件位置
+xferlog_file=/var/log/vsftpd.log
+#这三项设置chroot，用来限制用户只能访问家目录，这三项一会详说。
+chroot_local_user=YES
+chroot_list_enable=YES
+chroot_list_file=/etc/vsftpd/chroot_list
+修改以下配置
+anonymous_enable=NO
+chroot_local_user=YES
+#以下需要手动添加
+allow_writeable_chroot=YES
+pasv_enable=YE...
+						...
+					</p>
+                    		</div>
+			</div>	
+   		
+			<div class="md-timeline-block">
+                		<div class="md-timeline-date blue">
+                   			<div class="md-date">1月 17 2017</div>
+                		</div>
+
+                		<div class="md-timeline-content">
+                    			<div class="md-timeline-title"><a href="/2017/01/17/java-tomcat-javabridge/">Ubuntu16.04 配置JAVA环境、搭建tomcat环境、安装php-java-bridge工具</a></div>
+					<div class="md-timeline-info">
+						<span class="md-timeline-info-span">Categories:
+							<a class="category-link" href="/categories/个人日记/">个人日记</a>
+						</span>
+						<span class="md-timeline-info-span">Tags:
+							<a class="tag-link" href="/tags/java/">java</a>
+						</span>
+						
+					</div>
+					<p class="md-timeline-excerpt">
+						
+							
+下载安装jdk
+配置JAVA环境变量
+搭建tomcat环境
+安装php-java-bridge工具
+
+
+下载安装jdk首先去Oracle官网下载jdk安装包：下载地址根据系统版本选择要下载的安装包，海痴选择的是 jdk-8u111-linux-x64.tar.gz下载后解压
+$ tar -xzvf jdk-8u111-linux-x64.tar.gz
+在/opt下创建java目录，并将解压后的文件夹移动到java目录下
+$ sudo mkdir /opt/java
+$ sudo mv jdk1.8.0_111 /opt/java
+
+配置JAVA环境变量修改 /etc/profile 文件，在文件尾添加如下内容
+$ sudo vim /etc/profile
+export JAVA_HOME=/opt/java/jdk1.8.0_111
+export JRE_HOME=$JAVA_HOME/jre
+export CLASSPATH=.:$CLASSPATH:$JAVA_HOME/lib:$JRE...
+						...
+					</p>
+                    		</div>
+			</div>	
+   			   	  		
+   	</section>
+
+<script type="text/ls-javascript" id="page-timeline-script">
+    var adjustFooter = function() {
+        if( ($('#bottom').offset().top + $('#bottom').outerHeight() )<$(window).height() ) {
+            var footerBottom = $(window).height() - $('#bottom').outerHeight() - $('#bottom').offset().top;
+            $('#bottom').css('bottom', '-' + footerBottom + 'px');
+        }
+    };
+    $(document).ready(function() {
+        adjustFooter();
+    });
+</script>
+
+
+
+
+
+                    
+                        <!-- Overlay For Active Sidebar -->
+<div class="sidebar-overlay"></div>
+
+<!-- Material sidebar -->
+<aside id="sidebar" class="sidebar sidebar-colored sidebar-fixed-left" role="navigation">
+    <div id="sidebar-main">
+        <!-- Sidebar Header -->
+        <div class="sidebar-header header-cover" style="background-image: url(/img/sidebar_header.png);">
+    <!-- Top bar -->
+    <div class="top-bar"></div>
+
+    <!-- Sidebar toggle button -->
+    <button type="button" class="sidebar-toggle mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" style="display: initial;" data-upgraded=",MaterialButton,MaterialRipple">
+        <i class="material-icons">clear_all</i>
+        <span class="mdl-button__ripple-container">
+            <span class="mdl-ripple">
+            </span>
+        </span>
+    </button>
+
+    <!-- Sidebar Avatar -->
+    <div class="sidebar-image">
+        <img src="/img/avatar.jpg" alt="Liebes's avatar">
+    </div>
+
+    <!-- Sidebar Email -->
+    <a data-toggle="dropdown" class="sidebar-brand" href="#settings-dropdown">
+        wanghaichi0403@gmail.com
+        <b class="caret"></b>
+    </a>
+</div>
+
+
+        <!-- Sidebar Navigation  -->
+        <ul class="nav sidebar-nav">
+    <!-- User dropdown  -->
+    <li class="dropdown">
+        <ul id="settings-dropdown" class="dropdown-menu">
+            
+                <li>
+                    <a href="mailto:wanghaichi0403@gmail.com" target="_blank" title="Email Me">
+                        
+                            <i class="material-icons sidebar-material-icons sidebar-indent-left1pc-element">email</i>
+                        
+                        Email Me
+                    </a>
+                </li>
+            
+        </ul>
+    </li>
+
+    <!-- Homepage -->
+    
+        <li id="sidebar-first-li">
+            <a href="/">
+                
+                    <i class="material-icons sidebar-material-icons">home</i>
+                
+                主页
+            </a>
+        </li>
+        
+    
+
+    <!-- Archives  -->
+    
+        <li class="dropdown">
+            <a href="#" class="ripple-effect dropdown-toggle" data-toggle="dropdown">
+                
+                    <i class="material-icons sidebar-material-icons">inbox</i>
+                
+                    归档
+                <b class="caret"></b>
+            </a>
+            <ul class="dropdown-menu">
+            <li>
+                <a class="sidebar_archives-link" href="/archives/2018/05/">五月 2018<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2018/02/">二月 2018<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2018/01/">一月 2018<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/10/">十月 2017<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/07/">七月 2017<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/05/">五月 2017<span class="sidebar_archives-count">3</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/04/">四月 2017<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/03/">三月 2017<span class="sidebar_archives-count">7</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/02/">二月 2017<span class="sidebar_archives-count">3</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/01/">一月 2017<span class="sidebar_archives-count">3</span></a>
+            </ul>
+        </li>
+        
+    
+
+    <!-- Categories  -->
+    
+        <li class="dropdown">
+            <a href="#" class="ripple-effect dropdown-toggle" data-toggle="dropdown">
+                
+                    <i class="material-icons sidebar-material-icons">chrome_reader_mode</i>
+                
+                分类
+                <b class="caret"></b>
+            </a>
+            <ul class="dropdown-menu">
+                <li>
+                <a class="sidebar_archives-link" href="/categories/JAVA学习笔记/">JAVA学习笔记<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/categories/上机实验/">上机实验<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/categories/个人日志/">个人日志<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/categories/个人日记/">个人日记<span class="sidebar_archives-count">11</span></a></li><li><a class="sidebar_archives-link" href="/categories/作业/">作业<span class="sidebar_archives-count">6</span></a></li><li><a class="sidebar_archives-link" href="/categories/安全/">安全<span class="sidebar_archives-count">2</span></a>
+            </ul>
+        </li>
+        
+    
+
+    <!-- Pages  -->
+    
+        <li>
+            <a href="/tags" title="标签">
+                
+                    <i class="material-icons sidebar-material-icons">note</i>
+                
+                标签
+            </a>
+        </li>
+        
+    
+        <li>
+            <a href="/timeline" title="时间轴">
+                
+                    <i class="material-icons sidebar-material-icons">timeline</i>
+                
+                时间轴
+            </a>
+        </li>
+        
+    
+        <li>
+            <a href="/gallery" title="相册">
+                
+                    <i class="material-icons sidebar-material-icons">image</i>
+                
+                相册
+            </a>
+        </li>
+        
+    
+        <li>
+            <a href="/links" title="友情链接">
+                
+                    <i class="material-icons sidebar-material-icons">share</i>
+                
+                友情链接
+            </a>
+        </li>
+        
+    
+
+    <!-- Article Number  -->
+    
+        <li>
+            <a href="/archives">
+                文章总数
+                <span class="sidebar-badge">25</span>
+            </a>
+        </li>
+        
+    
+</ul>
+
+
+        <!-- Sidebar Footer -->
+        <!--
+I'm glad you use this theme, the development is no so easy, I hope you can keep the copyright, I will thank you so much.
+If you still want to delete the copyrights, could you still retain the first one? Which namely "Theme Material"
+It will not impact the appearance and can give developers a lot of support :)
+
+很高兴您使用并喜欢该主题，开发不易 十分谢谢与希望您可以保留一下版权声明。
+如果您仍然想删除的话 能否只保留第一项呢？即 "Theme Material"
+它不会影响美观并可以给开发者很大的支持和动力。 :)
+-->
+
+<!-- Sidebar Divider -->
+
+    <div class="sidebar-divider"></div>
+
+
+<!-- Theme Material -->
+
+
+<!-- Help & Support -->
+<!--
+
+    <a href="mailto:hiviosey@gmail.com" class="sidebar-footer-text-a">
+        <div class="sidebar-text mdl-button mdl-js-button mdl-js-ripple-effect sidebar-footer-text-div" data-upgraded=",MaterialButton,MaterialRipple">
+        sidebar.help
+        <span class="mdl-button__ripple-container">
+          <span class="mdl-ripple"></span>
+        </span>
+      </div>
+    </a>
+
+-->
+
+<!-- Feedback -->
+<!--
+
+-->
+
+<!-- About Theme -->
+<!--
+
+-->
+
+    </div>
+
+    <!-- Sidebar Image -->
+    
+
+</aside>
+
+                    
+
+                    
+
+                    <!--Footer-->
+<footer class="mdl-mini-footer" id="bottom">
+    
+        <!-- Paradox Footer Left Section -->
+        <div class="mdl-mini-footer--left-section sns-list">
+    <!-- Twitter -->
+    
+
+    <!-- Facebook -->
+    
+        <a href="https://www.facebook.com/profile.php?id=100015246426771" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn footer-sns-facebook">
+                <span class="visuallyhidden">Facebook</span>
+            </button><!--
+     --></a>
+    
+
+    <!-- Google + -->
+    
+
+    <!-- Weibo -->
+    
+
+    <!-- Instagram -->
+    
+
+    <!-- Tumblr -->
+    
+
+    <!-- Github -->
+    
+        <a href="https://github.com/wanghaichi" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn footer-sns-github">
+                <span class="visuallyhidden">Github</span>
+            </button><!--
+     --></a>
+    
+
+    <!-- LinkedIn -->
+    
+
+    <!-- Zhihu -->
+    
+
+    <!-- Bilibili -->
+    
+
+    <!-- Telegram -->
+    
+    
+    <!-- V2EX -->
+    
+</div>
+
+
+        <!--Copyright-->
+        <div id="copyright">
+            Copyright&nbsp;©&nbsp;2015&nbsp;-<script type="text/javascript">var fd = new Date();document.write("&nbsp;" + fd.getFullYear() + "&nbsp;");</script>Liebes 的个人日志
+            
+                <br>
+                
+                    <a href="http://www.miitbeian.gov.cn" rel="nofollow">津ICP备17008789号-1</a>
+                
+            
+        </div>
+
+        <!-- Paradox Footer Right Section -->
+
+        <!--
+        I am glad you use this theme, the development is no so easy, I hope you can keep the copyright.
+        It will not impact the appearance and can give developers a lot of support :)
+
+        很高兴您使用该主题，开发不易，希望您可以保留一下版权声明。
+        它不会影响美观并可以给开发者很大的支持。 :)
+        -->
+
+        <div class="mdl-mini-footer--right-section">
+            <div>
+                <div class="footer-develop-div">Powered by <a href="https://hexo.io" target="_blank" class="footer-develop-a">Hexo</a></div>
+                <div class="footer-develop-div">Theme - <a href="https://github.com/viosey/hexo-theme-material" target="_blank" class="footer-develop-a">Material</a></div>
+            </div>
+        </div>
+    
+</footer>
+
+
+                    <!-- Import JS File -->
+
+    <script>lsloader.load("lazyload_js","/js/lazyload.min.js?1BcfzuNXqV+ntF6gq+5X3Q==", true)</script>
+
+
+
+    <script>lsloader.load("js_js","/js/js.min.js?V/53wGualMuiPM3xoetD5Q==", true)</script>
+
+
+
+    <script>lsloader.load("np_js","/js/nprogress.js?pl3Qhb9lvqR1FlyLUna1Yw==", true)</script>
+
+
+<script type="text/ls-javascript" id="NProgress-script">
+    NProgress.configure({
+        showSpinner: true
+    });
+    NProgress.start();
+    $('#nprogress .bar').css({
+        'background': '#29d'
+    });
+    $('#nprogress .peg').css({
+        'box-shadow': '0 0 10px #29d, 0 0 15px #29d'
+    });
+    $('#nprogress .spinner-icon').css({
+        'border-top-color': '#29d',
+        'border-left-color': '#29d'
+    });
+    setTimeout(function() {
+        NProgress.done();
+        $('.fade').removeClass('out');
+    }, 800);
+</script>
+
+
+
+
+
+    <!-- Leancloud -->
+    <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+    <script>
+        AV.initialize('YaKIDc6FuRET2JG9li8y3qXY-gzGzoHsz', 'QwqjSxSAbuLlYuf5PoHG415U');
+    </script>
+    <script type="text/ls-javascript" id="leancloud-views-script">
+    function showTime(Counter) {
+        var query = new AV.Query(Counter);
+        $('.leancloud-views_num').each(function() {
+            var url = $(this).attr('id').trim();
+            query.equalTo('url', url);
+            query.find({
+                success: function(results) {
+                    if (results.length === 0) {
+                        var content = '0 ' + $(document.getElementById(url)).text();
+                        $(document.getElementById(url)).text(content);
+                        return;
+                    }
+                    for (var i = 0; i < results.length; i++) {
+                        var object = results[i];
+                        var content = object.get('time') + ' ' + $(document.getElementById(url)).text();
+                        $(document.getElementById(url)).text(content);
+                    }
+                },
+                error: function(object, error) {
+                    console.log('Error: ' + error.code + ' ' + error.message);
+                }
+            });
+        });
+    }
+
+    function addCount(Counter) {
+      var Counter = AV.Object.extend('Counter');
+      url = $('.leancloud-views_num').attr('id').trim();
+      title = $('.leancloud-views_num').attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+      query.equalTo('url', url);
+      query.find({
+          success: function(results) {
+            if (results.length > 0) {
+                var counter = results[0];
+                counter.fetchWhenSave(true);
+                counter.increment('time');
+                counter.save(null, {
+                    success: function(counter) {
+                        var content =  counter.get('time') + ' ' + $(document.getElementById(url)).text();
+                        $(document.getElementById(url)).text(content);
+                    },
+                    error: function(counter, error) {
+                        console.log('Failed to save Visitor num, with error message: ' + error.message);
+                    }
+                });
+            } else {
+              var newcounter = new Counter();
+              newcounter.set('title', title);
+              newcounter.set('url', url);
+              newcounter.set('time', 1);
+              newcounter.save(null, {
+                  success: function(newcounter) {
+                      console.log('newcounter.get(\'time\')='+newcounter.get('time'));
+                      var content = newcounter.get('time') + ' ' + $(document.getElementById(url)).text();
+                      $(document.getElementById(url)).text(content);
+                  },
+                  error: function(newcounter, error) {
+                      console.log('Failed to create');
+                  }
+              });
+            }
+        },
+        error: function(error) {
+            console.log('Error:' + error.code + ' ' + error.message);
+        }
+      });
+    }
+    $(function() {
+        var Counter = AV.Object.extend('Counter');
+        if ($('.leancloud-views_num').length === 1) {
+            addCount(Counter);
+        } else if ($('.post-title-link').length > 1) {
+            showTime(Counter);
+        }
+    });
+</script>
+
+
+
+
+
+
+   <!-- Gitment -->
+
+
+
+
+
+<!-- UC Browser Compatible -->
+<script>
+	var agent = navigator.userAgent.toLowerCase();
+	if(agent.indexOf('ucbrowser')>0) {
+		document.write('<link rel="stylesheet" href="/css/uc.css">');
+	   alert('由于 UC 浏览器使用极旧的内核，而本网站使用了一些新的特性。\n为了您能更好的浏览，推荐使用 Chrome 或 Firefox 浏览器。');
+	}
+</script>
+
+<!-- Import prettify js  -->
+
+    
+
+
+
+<!-- Window Load -->
+<!-- add class for prettify -->
+<script type="text/ls-javascript" id="window-load">
+    $(window).on('load', function() {
+        // Post_Toc parent position fixed
+        $('.post-toc-wrap').parent('.mdl-menu__container').css('position', 'fixed');
+    });
+
+    
+        
+    
+    
+</script>
+
+<!-- MathJax Load-->
+
+
+<!-- Bing Background -->
+
+
+<script type="text/ls-javascript" id="lazy-load">
+    // Offer LazyLoad
+    queue.offer(function(){
+        $('.lazy').lazyload({
+            effect : 'show'
+        });
+    });
+
+    // Start Queue
+    $(document).ready(function(){
+        setInterval(function(){
+            queue.execNext();
+        },200);
+    });
+</script>
+
+<!-- Custom Footer -->
+
+
+
+<script>
+    (function(){
+        var scriptList = document.querySelectorAll('script[type="text/ls-javascript"]')
+
+        for (var i = 0; i < scriptList.length; ++i) {
+            var item = scriptList[i];
+            lsloader.runInlineScript(item.id,item.id);
+        }
+    })()
+console.log('\n %c © Material Theme | Version: 1.5.2 | https://github.com/viosey/hexo-theme-material %c \n', 'color:#455a64;background:#e0e0e0;padding:5px 0;border-top-left-radius:5px;border-bottom-left-radius:5px;', 'color:#455a64;background:#e0e0e0;padding:5px 0;border-top-right-radius:5px;border-bottom-right-radius:5px;');
+</script>
+
+                </main>
+            </div>
+        </body>
+    
+</html>

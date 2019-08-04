@@ -1,0 +1,1700 @@
+<!DOCTYPE html>
+<html style="display: none;" lang="zh">
+    <head><meta name="generator" content="Hexo 3.9.0">
+    <meta charset="utf-8">
+    <!--
+        © Material Theme
+        https://github.com/viosey/hexo-theme-material
+        Version: 1.5.2 -->
+    <script>
+        window.materialVersion = "1.5.2"
+        // Delete localstorage with these tags
+        window.oldVersion = [
+            'codestartv1',
+            '1.3.4',
+            '1.4.0',
+            '1.4.0b1',
+            '1.5.0'
+        ]
+    </script>
+
+    <!-- dns prefetch -->
+    <meta http-equiv="x-dns-prefetch-control" content="on">
+
+
+    <link rel="dns-prefetch" href="https://cdn1.lncld.net">
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Meta & Info -->
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta name="renderer" content="webkit">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+    <!-- Title -->
+    
+    <title>
+        
+            Java SE8 的流库 | 
+        
+        Liebes 的个人日志
+    </title>
+
+    <!-- Favicons -->
+    <link rel="icon shortcut" type="image/ico" href="/img/favicon.png">
+    <link rel="icon" href="/img/favicon.png">
+
+    <meta name="format-detection" content="telephone=no">
+    <meta name="description" itemprop="description" content="记录工作、学习的点滴">
+    <meta name="keywords" content="null,java">
+    <meta name="theme-color" content="#0097A7">
+
+    <!-- Disable Fucking Bloody Baidu Tranformation -->
+    <meta http-equiv="Cache-Control" content="no-transform">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+
+    <!--[if lte IE 9]>
+        <link rel="stylesheet" href="/css/ie-blocker.css">
+
+        
+            <script src="/js/ie-blocker.zhCN.js"></script>
+        
+    <![endif]-->
+
+    <!-- Import lsloader -->
+    <script>(function(){window.lsloader={jsRunSequence:[],jsnamemap:{},cssnamemap:{}};lsloader.removeLS=function(a){try{localStorage.removeItem(a)}catch(b){}};lsloader.setLS=function(a,c){try{localStorage.setItem(a,c)}catch(b){}};lsloader.getLS=function(a){var c="";try{c=localStorage.getItem(a)}catch(b){c=""}return c};versionString="/*"+(window.materialVersion||"unknownVersion")+"*/";lsloader.clean=function(){try{var b=[];for(var a=0;a<localStorage.length;a++){b.push(localStorage.key(a))}b.forEach(function(e){var f=lsloader.getLS(e);if(window.oldVersion){var d=window.oldVersion.reduce(function(g,h){return g||f.indexOf("/*"+h+"*/")!==-1},false);if(d){lsloader.removeLS(e)}}})}catch(c){}};lsloader.clean();lsloader.load=function(f,a,b,d){if(typeof b==="boolean"){d=b;b=undefined}d=d||false;b=b||function(){};var e;e=this.getLS(f);if(e&&e.indexOf(versionString)===-1){this.removeLS(f);this.requestResource(f,a,b,d);return}if(e){var c=e.split(versionString)[0];if(c!=a){console.log("reload:"+a);this.removeLS(f);this.requestResource(f,a,b,d);return}e=e.split(versionString)[1];if(d){this.jsRunSequence.push({name:f,code:e});this.runjs(a,f,e)}else{document.getElementById(f).appendChild(document.createTextNode(e));b()}}else{this.requestResource(f,a,b,d)}};lsloader.requestResource=function(b,e,a,c){var d=this;if(c){this.iojs(e,b,function(h,f,g){d.setLS(f,h+versionString+g);d.runjs(h,f,g)})}else{this.iocss(e,b,function(f){document.getElementById(b).appendChild(document.createTextNode(f));d.setLS(b,e+versionString+f)},a)}};lsloader.iojs=function(d,b,g){var a=this;a.jsRunSequence.push({name:b,code:""});try{var f=new XMLHttpRequest();f.open("get",d,true);f.onreadystatechange=function(){if(f.readyState==4){if((f.status>=200&&f.status<300)||f.status==304){if(f.response!=""){g(d,b,f.response);return}}a.jsfallback(d,b)}};f.send(null)}catch(c){a.jsfallback(d,b)}};lsloader.iocss=function(f,c,h,a){var b=this;try{var g=new XMLHttpRequest();g.open("get",f,true);g.onreadystatechange=function(){if(g.readyState==4){if((g.status>=200&&g.status<300)||g.status==304){if(g.response!=""){h(g.response);a();return}}b.cssfallback(f,c,a)}};g.send(null)}catch(d){b.cssfallback(f,c,a)}};lsloader.iofonts=function(f,c,h,a){var b=this;try{var g=new XMLHttpRequest();g.open("get",f,true);g.onreadystatechange=function(){if(g.readyState==4){if((g.status>=200&&g.status<300)||g.status==304){if(g.response!=""){h(g.response);a();return}}b.cssfallback(f,c,a)}};g.send(null)}catch(d){b.cssfallback(f,c,a)}};lsloader.runjs=function(f,c,e){if(!!c&&!!e){for(var b in this.jsRunSequence){if(this.jsRunSequence[b].name==c){this.jsRunSequence[b].code=e}}}if(!!this.jsRunSequence[0]&&!!this.jsRunSequence[0].code&&this.jsRunSequence[0].status!="failed"){var a=document.createElement("script");a.appendChild(document.createTextNode(this.jsRunSequence[0].code));a.type="text/javascript";document.getElementsByTagName("head")[0].appendChild(a);this.jsRunSequence.shift();if(this.jsRunSequence.length>0){this.runjs()}}else{if(!!this.jsRunSequence[0]&&this.jsRunSequence[0].status=="failed"){var d=this;var a=document.createElement("script");a.src=this.jsRunSequence[0].path;a.type="text/javascript";this.jsRunSequence[0].status="loading";a.onload=function(){d.jsRunSequence.shift();if(d.jsRunSequence.length>0){d.runjs()}};document.body.appendChild(a)}}};lsloader.tagLoad=function(b,a){this.jsRunSequence.push({name:a,code:"",path:b,status:"failed"});this.runjs()};lsloader.jsfallback=function(c,b){if(!!this.jsnamemap[b]){return}else{this.jsnamemap[b]=b}for(var a in this.jsRunSequence){if(this.jsRunSequence[a].name==b){this.jsRunSequence[a].code="";this.jsRunSequence[a].status="failed";this.jsRunSequence[a].path=c}}this.runjs()};lsloader.cssfallback=function(e,c,b){if(!!this.cssnamemap[c]){return}else{this.cssnamemap[c]=1}var d=document.createElement("link");d.type="text/css";d.href=e;d.rel="stylesheet";d.onload=d.onerror=b;var a=document.getElementsByTagName("script")[0];a.parentNode.insertBefore(d,a)};lsloader.runInlineScript=function(c,b){var a=document.getElementById(b).innerText;this.jsRunSequence.push({name:c,code:a});this.runjs()}})();</script>
+
+    <!-- Import queue -->
+    <script>function Queue(){this.dataStore=[];this.offer=b;this.poll=d;this.execNext=a;this.debug=false;this.startDebug=c;function b(e){if(this.debug){console.log("Offered a Queued Function.")}if(typeof e==="function"){this.dataStore.push(e)}else{console.log("You must offer a function.")}}function d(){if(this.debug){console.log("Polled a Queued Function.")}return this.dataStore.shift()}function a(){var e=this.poll();if(e!==undefined){if(this.debug){console.log("Run a Queued Function.")}e()}}function c(){this.debug=true}}var queue=new Queue();</script>
+
+    <!-- Import CSS -->
+    
+        <style id="material_css"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("material_css","/css/material.min.css?Z7a72R1E4SxzBKR/WGctOA==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+        <style id="style_css"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("style_css","/css/style.min.css?MKetZV3cUTfDxvMffaOezg==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+
+        
+            
+                <style id="prettify_css"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("prettify_css","/css/prettify.min.css?zp8STOU9v89XWFEnN+6YmQ==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+                <style id="prettify_theme"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("prettify_theme","/css/prettify/atelier-cave-light.min.css?5MK/TK/zbpdHM7rmG+ehCw==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+            
+        
+
+    
+
+    
+
+    <!-- Config CSS -->
+
+<!-- Other Styles -->
+<style>
+  body, html {
+    font-family: Roboto, "Helvetica Neue", Helvetica, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "微软雅黑", Arial, sans-serif;
+    overflow-x: hidden !important;
+  }
+  
+  code {
+    font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+  }
+
+  a {
+    color: #00838F;
+  }
+
+  .mdl-card__media,
+  #search-label,
+  #search-form-label:after,
+  #scheme-Paradox .hot_tags-count,
+  #scheme-Paradox .sidebar_archives-count,
+  #scheme-Paradox .sidebar-colored .sidebar-header,
+  #scheme-Paradox .sidebar-colored .sidebar-badge{
+    background-color: #0097A7 !important;
+  }
+
+  /* Sidebar User Drop Down Menu Text Color */
+  #scheme-Paradox .sidebar-colored .sidebar-nav>.dropdown>.dropdown-menu>li>a:hover,
+  #scheme-Paradox .sidebar-colored .sidebar-nav>.dropdown>.dropdown-menu>li>a:focus {
+    color: #0097A7 !important;
+  }
+
+  #post_entry-right-info,
+  .sidebar-colored .sidebar-nav li:hover > a,
+  .sidebar-colored .sidebar-nav li:hover > a i,
+  .sidebar-colored .sidebar-nav li > a:hover,
+  .sidebar-colored .sidebar-nav li > a:hover i,
+  .sidebar-colored .sidebar-nav li > a:focus i,
+  .sidebar-colored .sidebar-nav > .open > a,
+  .sidebar-colored .sidebar-nav > .open > a:hover,
+  .sidebar-colored .sidebar-nav > .open > a:focus,
+  #ds-reset #ds-ctx .ds-ctx-entry .ds-ctx-head a {
+    color: #0097A7 !important;
+  }
+
+  .toTop {
+    background: #757575 !important;
+  }
+
+  .material-layout .material-post>.material-nav,
+  .material-layout .material-index>.material-nav,
+  .material-nav a {
+    color: #757575;
+  }
+
+  #scheme-Paradox .MD-burger-layer {
+    background-color: #757575;
+  }
+
+  #scheme-Paradox #post-toc-trigger-btn {
+    color: #757575;
+  }
+
+  .post-toc a:hover {
+    color: #00838F;
+    text-decoration: underline;
+  }
+
+</style>
+
+
+<!-- Theme Background Related-->
+
+    <style>
+      body{
+        background-image: url(/img/bg.png);
+      }
+    </style>
+
+
+
+
+<!-- Fade Effect -->
+
+    <style>
+      .fade {
+        transition: all 800ms linear;
+        -webkit-transform: translate3d(0,0,0);
+        -moz-transform: translate3d(0,0,0);
+        -ms-transform: translate3d(0,0,0);
+        -o-transform: translate3d(0,0,0);
+        transform: translate3d(0,0,0);
+        opacity: 1;
+      }
+
+      .fade.out{
+        opacity: 0;
+      }
+    </style>
+
+
+<!-- Import Font -->
+<!-- Import Roboto -->
+
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet">
+
+
+<!-- Import Material Icons -->
+
+
+    <style id="material_icons"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("material_icons","/css/material-icons.css?pqhB/Rd/ab0H2+kZp0RDmw==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+
+
+
+
+    <!-- Import jQuery -->
+    
+        <script>lsloader.load("jq_js","/js/jquery.min.js?qcusAULNeBksqffqUM2+Ig==", true)</script>
+    
+
+    <!-- WebAPP Icons -->
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="application-name" content="Liebes 的个人日志">
+    <meta name="msapplication-starturl" content="https://blog.liebes.top/2018/05/03/learn-java-1/">
+    <meta name="msapplication-navbutton-color" content="#0097A7">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-title" content="Liebes 的个人日志">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon" href="/img/favicon.png">
+
+    <!-- Site Verification -->
+    <meta name="google-site-verification" content="3y0DPspok4T6uDMqNvKTJXM12vfNAPuI7fwhn4u9hvo">
+    <meta name="baidu-site-verification" content="Ou5GByZRoU">
+
+    <!-- RSS -->
+    
+
+    <!-- The Open Graph protocol -->
+    <meta property="og:url" content="https://blog.liebes.top/2018/05/03/learn-java-1/">
+    <meta property="og:type" content="blog">
+    <meta property="og:title" content="Java SE8 的流库 | Liebes 的个人日志">
+    <meta property="og:image" content="/img/favicon.png">
+    <meta property="og:description" content="记录工作、学习的点滴">
+    <meta property="og:article:tag" content="java"> 
+
+    
+        <meta property="article:published_time" content="Thu May 03 2018 16:27:17 GMT+0000">
+        <meta property="article:modified_time" content="Sun Aug 04 2019 12:56:30 GMT+0000">
+    
+
+    <!-- The Twitter Card protocol -->
+    <meta name="twitter:card" content="summary_large_image">
+
+    <!-- Add canonical link for SEO -->
+    
+        <link rel="canonical" href="https://blog.liebes.top/2018/05/03/learn-java-1/index.html">
+    
+
+    <!-- Structured-data for SEO -->
+    
+        
+
+
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "mainEntityOfPage": "https://blog.liebes.top/2018/05/03/learn-java-1/index.html",
+    "headline": "Java SE8 的流库",
+    "datePublished": "Thu May 03 2018 16:27:17 GMT+0000",
+    "dateModified": "Sun Aug 04 2019 12:56:30 GMT+0000",
+    "author": {
+        "@type": "Person",
+        "name": "Liebes",
+        "image": {
+            "@type": "ImageObject",
+            "url": "/img/avatar.jpg"
+        },
+        "description": "可以反驳，但要先思考"
+    },
+    "publisher": {
+        "@type": "Organization",
+        "name": "Liebes 的个人日志",
+        "logo": {
+            "@type":"ImageObject",
+            "url": "/img/favicon.png"
+        }
+    },
+    "keywords": ",javanull",
+    "description": "记录工作、学习的点滴",
+}
+</script>
+
+
+    
+
+    <!-- Analytics -->
+    
+        <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+    ga('create', 'UA-113353642-1', 'auto');ga('send', 'pageview');
+</script>
+    
+    
+    
+
+    <!-- Custom Head -->
+    
+
+</head>
+
+
+    
+        <body id="scheme-Paradox" class="lazy">
+            <div class="material-layout  mdl-js-layout has-drawer is-upgraded">
+                
+
+                <!-- Main Container -->
+                <main class="material-layout__content" id="main">
+
+                    <!-- Top Anchor -->
+                    <div id="top"></div>
+
+                    
+                        <!-- Hamburger Button -->
+                        <button class="MD-burger-icon sidebar-toggle">
+                            <span class="MD-burger-layer"></span>
+                        </button>
+                    
+
+                    <!-- Post TOC -->
+
+    
+    <!-- Back Button -->
+    <!--
+    <div class="material-back" id="backhome-div" tabindex="0">
+        <a class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon"
+           href="#" onclick="window.history.back();return false;"
+           target="_self"
+           role="button"
+           data-upgraded=",MaterialButton,MaterialRipple">
+            <i class="material-icons" role="presentation">arrow_back</i>
+            <span class="mdl-button__ripple-container">
+                <span class="mdl-ripple"></span>
+            </span>
+        </a>
+    </div>
+    -->
+
+
+    <!-- Left aligned menu below button -->
+    
+    
+    <button id="post-toc-trigger-btn"
+        class="mdl-button mdl-js-button mdl-button--icon">
+        <i class="material-icons">format_list_numbered</i>
+    </button>
+
+    <ul class="post-toc-wrap mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="post-toc-trigger-btn" style="max-height:80vh; overflow-y:scroll;">
+        <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#流的创建方式"><span class="post-toc-number">1.</span> <span class="post-toc-text">流的创建方式</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#终结操作-amp-Optional-API-使用方式"><span class="post-toc-number">2.</span> <span class="post-toc-text">终结操作 &amp; Optional API 使用方式</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#取出元素"><span class="post-toc-number">3.</span> <span class="post-toc-text">取出元素</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#收集结果到映射表"><span class="post-toc-number">4.</span> <span class="post-toc-text">收集结果到映射表</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#聚合操作"><span class="post-toc-number">5.</span> <span class="post-toc-text">聚合操作</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#约简操作-amp-初始数据流"><span class="post-toc-number">6.</span> <span class="post-toc-text">约简操作 &amp; 初始数据流</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#并行流-Parallel-Stream"><span class="post-toc-number">7.</span> <span class="post-toc-text">并行流 Parallel Stream</span></a></li></ol>
+    </ul>
+    
+
+
+
+
+<!-- Layouts -->
+
+    <!-- Post Module -->
+    <div class="material-post_container">
+
+        <div class="material-post mdl-grid">
+            <div class="mdl-card mdl-shadow--4dp mdl-cell mdl-cell--12-col">
+
+                <!-- Post Header(Thumbnail & Title) -->
+                
+    <!-- Paradox Post Header -->
+    
+        
+            <!-- Random Thumbnail -->
+            <div class="post_thumbnail-random mdl-card__media mdl-color-text--grey-50">
+            <script type="text/ls-javascript" id="post-thumbnail-script">
+    var randomNum = Math.floor(Math.random() * 19 + 1);
+
+    $('.post_thumbnail-random').attr('data-original', '/img/random/material-' + randomNum + '.png');
+    $('.post_thumbnail-random').addClass('lazy');
+</script>
+
+        
+    
+            <p class="article-headline-p">
+                Java SE8 的流库
+            </p>
+        </div>
+
+
+
+
+
+                
+                    <!-- Paradox Post Info -->
+                    <div class="mdl-color-text--grey-700 mdl-card__supporting-text meta">
+
+    <!-- Author Avatar -->
+    <div id="author-avatar">
+        <img src="/img/avatar.jpg" width="44px" height="44px" alt="Author Avatar"/>
+    </div>
+    <!-- Author Name & Date -->
+    <div>
+        <strong>Liebes</strong>
+        <span>5月 03, 2018</span>
+    </div>
+
+    <div class="section-spacer"></div>
+
+    <!-- Favorite -->
+    <!--
+        <button id="article-functions-like-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon btn-like">
+            <i class="material-icons" role="presentation">favorite</i>
+            <span class="visuallyhidden">favorites</span>
+        </button>
+    -->
+
+    <!-- Qrcode -->
+    
+
+    <!-- Tags (bookmark) -->
+    
+    <button id="article-functions-viewtags-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+        <i class="material-icons" role="presentation">bookmark</i>
+        <span class="visuallyhidden">bookmark</span>
+    </button>
+    <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-functions-viewtags-button">
+        <li class="mdl-menu__item">
+        <a class="post_tag-link" href="/tags/java/">java</a>
+    </ul>
+    
+
+    <!-- Share -->
+    
+        <button id="article-fuctions-share-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+    <i class="material-icons" role="presentation">share</i>
+    <span class="visuallyhidden">share</span>
+</button>
+<ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-fuctions-share-button">
+    
+    <!-- Leancloud Views -->
+        <a class="post_share-link" href="#">
+            <li class="mdl-menu__item">
+                <span id="/2018/05/03/learn-java-1/" class="leancloud-views_num" data-flag-title="Java SE8 的流库">
+     &nbsp;浏览量
+</span>
+
+            </li>
+        </a>
+    
+
+    
+
+    <!-- Share Weibo -->
+    
+        <a class="post_share-link" href="http://service.weibo.com/share/share.php?appkey=&title=Java SE8 的流库&url=https://blog.liebes.top/2018/05/03/learn-java-1/index.html&pic=https://blog.liebes.top/img/favicon.png&searchPic=false&style=simple" target="_blank">
+            <li class="mdl-menu__item">
+                分享到微博
+            </li>
+        </a>
+    
+
+    <!-- Share Twitter -->
+    
+        <a class="post_share-link" href="https://twitter.com/intent/tweet?text=Java SE8 的流库&url=https://blog.liebes.top/2018/05/03/learn-java-1/index.html&via=Liebes" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Twitter
+            </li>
+        </a>
+    
+
+    <!-- Share Facebook -->
+    
+        <a class="post_share-link" href="https://www.facebook.com/sharer/sharer.php?u=https://blog.liebes.top/2018/05/03/learn-java-1/index.html" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Facebook
+            </li>
+        </a>
+    
+
+    <!-- Share Google+ -->
+    
+        <a class="post_share-link" href="https://plus.google.com/share?url=https://blog.liebes.top/2018/05/03/learn-java-1/index.html" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Google+
+            </li>
+        </a>
+    
+
+    <!-- Share LinkedIn -->
+    
+
+    <!-- Share QQ -->
+    
+
+    <!-- Share Telegram -->
+    
+        <a class="post_share-link" href="https://telegram.me/share/url?url=https://blog.liebes.top/2018/05/03/learn-java-1/index.html&text=Java SE8 的流库" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Telegram
+            </li>
+        </a>
+    
+</ul>
+
+    
+</div>
+
+                
+
+                <!-- Post Content -->
+                <div id="post-content" class="mdl-color-text--grey-700 mdl-card__supporting-text fade out">
+    
+        <p>JAVA中，流旨在创建一种关注“做什么而非怎么做”的设计理念，我们无需关心流内具体的实现，而把更多精力放在流需要做什么上面。例如我们需要计算一个字符串数组中，长度大于10的有多少，参见下面的代码清单：</p>
+<pre><code class="java">public static void main(String args[]) throws IOException{
+    String contents = new String(Files.readAllBytes(Paths.get(&quot;/Users/liebes/Desktop/open.route&quot;)), StandardCharsets.UTF_8);
+    List&lt;String&gt; words = Arrays.asList(contents.split(&quot;\\PL+&quot;));
+    long count = 0;
+    // 怎么做
+    for(String s : words){
+        if(s.length() &gt; 10) count++;
+    }
+    System.out.println(count);
+    // 做什么
+    count = words.stream().filter(s -&gt; s.length() &gt; 10).count();
+    System.out.println(count);
+    count = words.parallelStream().filter(s -&gt; s.length() &gt; 10).count();
+    System.out.println(count);
+}
+</code></pre>
+<p>第一种方式，是很容易想到的一种，循环遍历计算的一种方法，而第二种则是使用了流的概念。</p>
+<p>Stream，流。我们可以理解为水流，所有的流操作都是惰性的，即当你访问数据的时候，相关操作才会执行。我们在水流的行进方向设置我们想要完成的操作，当水流经过时，就会执行相关的操作。例如上面的 <code>count = words.stream().filter(s -&gt; s.length() &gt; 10).count();</code> 这一句，filter方法可以理解为一个水阀，控制水流。</p>
+<h2 id="流的创建方式"><a href="#流的创建方式" class="headerlink" title="流的创建方式"></a>流的创建方式</h2><hr>
+<p>流的创建方式有很多种，可以使用 Stream 提供的工厂方法，也可以使用集合的转换方法。</p>
+<p>当然流可以产生子流，两个流也可以合并成一个流，我们也可以通过某些操作，逐一处理流内的元素，例如 <code>map flatMap filter</code> 等方法。</p>
+<p>下面是创建流的程序清单</p>
+<pre><code class="Java">import java.io.IOException;
+import java.math.BigInteger;
+import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.util.List;
+import java.util.regex.Pattern;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
+
+public class Main {
+
+    // 输出流
+    public static &lt;T&gt; void show(String title, Stream&lt;T&gt; stream){
+        final int SIZE = 10;
+        List&lt;T&gt; firstElements = stream.limit(SIZE + 1).collect(Collectors.toList());
+        System.out.println(title + &quot;: &quot;);
+        for(int i = 0; i &lt; firstElements.size(); i ++){
+            if(i &gt; 0) System.out.print(&quot;, &quot;);
+            if(i &lt; SIZE)
+                System.out.print(firstElements.get(i));
+            else
+                System.out.println(&quot;...&quot;);
+        }
+        System.out.println();
+    }
+
+    public static void main(String args[]) throws IOException{
+        Path path = Paths.get(&quot;/Users/liebes/Desktop/open.route&quot;);
+        String contents = new String(Files.readAllBytes(path), StandardCharsets.UTF_8);
+
+        // 通过 Stream.of ，使用自负转数组获取流
+        Stream&lt;String&gt; words = Stream.of(contents.split(&quot;\\PL+&quot;));
+        show(&quot;words&quot;, words);
+
+        // 通过 Stream.of ，使用可变长参数
+        Stream&lt;String&gt; song = Stream.of(&quot;gently&quot;, &quot;down&quot;, &quot;the&quot;, &quot;stream&quot;);
+        show(&quot;song&quot;, song);
+
+        // 空流
+        Stream&lt;String&gt; silence = Stream.empty();
+        show(&quot;silence&quot;, silence);
+
+        // 使用 lemada
+        Stream&lt;String&gt; echos = Stream.generate(() -&gt; &quot;Echo&quot;);
+        show(&quot;echos&quot;, echos);
+
+        Stream&lt;Double&gt; randoms = Stream.generate(Math::random);
+        show(&quot;randoms&quot;, randoms);
+
+        Stream&lt;BigInteger&gt; integers = Stream.iterate(BigInteger.ONE, n-&gt;n.add(BigInteger.ONE));
+        show(&quot;integers&quot;, integers);
+
+        Stream&lt;String&gt; wordsAnotherWay = Pattern.compile(&quot;\\PL+&quot;).splitAsStream(contents);
+        show(&quot;wordsAnotherWay&quot;, wordsAnotherWay);
+
+        try(Stream&lt;String&gt; lines = Files.lines(path, StandardCharsets.UTF_8)){
+            show(&quot;lines&quot;, lines);
+        }
+    }
+}
+
+</code></pre>
+<h2 id="终结操作-amp-Optional-API-使用方式"><a href="#终结操作-amp-Optional-API-使用方式" class="headerlink" title="终结操作 &amp; Optional API 使用方式"></a>终结操作 &amp; Optional API 使用方式</h2><hr>
+<p>类似 <code>filter map</code> 等方法，会生成一个新的子流，也就是一个中间处理，流经过这些方法，数据做了处理，返回仍然是流。这种方法为非终结方法。</p>
+<p>类似 <code>count</code> 等方法，会返回一个具体的结果，这种操作为非终结操作。</p>
+<p>非终结操作可能带来的问题，就是没有满足条件的元素，比如 <code>findFirst</code> 方法，如果没有满足条件的元素，则可能导致空指针异常。</p>
+<p>Optional 类是一种包装类，他存在的意义在于避免空指针异常的问题（当然这需要正确的使用）。</p>
+<p>程序清单如下</p>
+<pre><code class="java">import java.io.IOException;
+import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.util.*;
+
+public class Main {
+    // 返回一个包装 1/x 的Optional类
+    public static Optional&lt;Double&gt; inverse(Double x){
+        return x == 0 ? Optional.empty() : Optional.of(1 / x);
+    }
+
+    // 返回一个包装 √x 的Optional类
+    public static Optional&lt;Double&gt; squareRoot(Double x){
+        return x &lt; 0 ? Optional.empty() : Optional.of(Math.sqrt(x));
+    }
+
+    public static void main(String args[]) throws IOException{
+        Path path = Paths.get(&quot;/Users/liebes/Desktop/open.route&quot;);
+        String contents = new String(Files.readAllBytes(path), StandardCharsets.UTF_8);
+        List&lt;String&gt; wordList = Arrays.asList(contents.split(&quot;\\PL+&quot;));
+
+        Optional&lt;String&gt; optionalValue = wordList.stream()
+                .filter(s -&gt; s.contains(&quot;index&quot;))
+                .findFirst();
+        // orElse() 提供包装值不存在的时候的默认值
+        System.out.println(optionalValue.orElse(&quot;no word&quot;) + &quot; contains index&quot;);
+
+        Optional&lt;String&gt; optionalString = Optional.empty();
+        String result = optionalString.orElse(&quot;N/A&quot;);
+        System.out.println(&quot;result: &quot; + result);
+        result = optionalString.orElseGet(() -&gt; Locale.getDefault().getDisplayName());
+        System.out.println(result);
+
+        try{
+            result = optionalString.orElseThrow(IllegalStateException::new);
+            System.out.println(&quot;result: &quot; + result);
+        }catch (Throwable e){
+            e.printStackTrace();
+        }
+        optionalValue = wordList.stream()
+                .filter(s -&gt; s.contains(&quot;a&quot;))
+                .findFirst();
+        // ifPresent() 当存在的时候才会执行里面的函数
+        optionalValue.ifPresent(s -&gt; System.out.println(s + &quot; contains a&quot;));
+
+        Set&lt;String&gt; results = new HashSet&lt;&gt;();
+        optionalValue.ifPresent(results::add);
+        Optional&lt;Boolean&gt; added = optionalValue.map(results::add);
+        System.out.println(added);
+
+        System.out.println(inverse(4.0).flatMap(Main::squareRoot));
+        System.out.println(inverse(-1.0).flatMap(Main::squareRoot));
+        System.out.println(inverse(0.0).flatMap(Main::squareRoot));
+        Optional&lt;Double&gt; result2 = Optional.of(-4.0)
+                .flatMap(Main::inverse).flatMap(Main::squareRoot);
+        System.out.println(result2);
+    }
+}
+
+// output
+index contains index
+result: N/A
+English (United States)
+java.lang.IllegalStateException
+    at java.util.Optional.orElseThrow(Optional.java:290)
+    at Main.main(Main.java:34)
+app contains a
+Optional[false]
+Optional[0.5]
+Optional.empty
+Optional.empty
+Optional.empty
+</code></pre>
+<h2 id="取出元素"><a href="#取出元素" class="headerlink" title="取出元素"></a>取出元素</h2><hr>
+<p>取出流中的元素有两种方法，一种是使用 <code>toArray</code> 方法，转换成数组，另一种是使用 <code>iterator</code> 遍历。</p>
+<p>Stream 提供了 collect 方法，通过传入的工厂方法，初始化元素。Collectors 类中提供了许多创建容器的工厂方法。</p>
+<pre><code class="Java">import java.io.IOException;
+import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import java.util.*;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
+
+public class Main {
+    // 将每一个元素中的特定字符过滤掉，返回流
+    public static Stream&lt;String&gt; noVowels() throws IOException{
+        String contents = new String(Files.readAllBytes(
+                Paths.get(&quot;/Users/liebes/Desktop/open.route&quot;)),
+                StandardCharsets.UTF_8
+        );
+        List&lt;String&gt; wordList = Arrays.asList(contents.split(&quot;\\PL+&quot;));
+        Stream&lt;String&gt; words = wordList.stream();
+        return words.map(s -&gt; s.replaceAll(&quot;[aeiouAEIOU]&quot;, &quot;&quot;));
+    }
+
+    // 显示
+    public static &lt;T&gt; void show(String label, Set&lt;T&gt; set){
+        System.out.print(label + &quot;: &quot; + set.getClass().getName());
+        System.out.println(&quot;[&quot; +
+                set.stream().limit(10).map(Object::toString)
+                        .collect(Collectors.joining(&quot;, &quot;)) + &quot;]&quot;);
+    }
+
+    public static void main(String args[]) throws IOException{
+        Iterator&lt;Integer&gt; iter = Stream.iterate(0, n -&gt; n + 1).limit(10).iterator();
+        while(iter.hasNext()){
+            System.out.println(iter.next());
+        }
+        // 由于在运行时不能泛化数组，所以返回的类型是 Object[]
+        Object[] numbers = Stream.iterate(0, n -&gt; n + 1).limit(10).toArray();
+        System.out.println(&quot;Object array:&quot; + numbers);
+
+        try{
+            Integer number = (Integer) numbers[0];
+            System.out.println(&quot;number: &quot; + number);
+            System.out.println(&quot;The following statement throws an exception:&quot;);
+            Integer[] numbers2 = (Integer[]) numbers;
+        }
+        catch (ClassCastException e){
+            System.out.println(e);
+        }
+
+        // 生成特定类型的数组
+        Integer[] numbers3 = Stream.iterate(0, n -&gt; n + 1).limit(10).toArray(Integer[]::new);
+        System.out.println(&quot;Integer array: &quot; + numbers3);
+
+        // 使用 collect 方法
+        Set&lt;String&gt; noVowelSet = noVowels().collect(Collectors.toSet());
+        show(&quot;noVowelSet&quot;, noVowelSet);
+
+        TreeSet&lt;String&gt; noVowelTreeSet = noVowels().collect(
+                Collectors.toCollection(TreeSet::new)
+        );
+        show(&quot;noVowelTreeSet&quot;, noVowelTreeSet);
+
+        String result = noVowels().limit(10).collect(Collectors.joining());
+        System.out.println(&quot;joining: &quot; + result);
+        result = noVowels().limit(10).collect(Collectors.joining(&quot;, &quot;));
+        System.out.println(&quot;joining with commas: &quot; + result);
+
+        IntSummaryStatistics summary = noVowels().collect(Collectors.summarizingInt(String::length));
+        double averageWordLength = summary.getAverage();
+        double maxWordLength = summary.getMax();
+        System.out.println(&quot;Average word length: &quot; + averageWordLength);
+        System.out.println(&quot;Max word lengthL: &quot; + maxWordLength);
+        System.out.println(&quot;forEach: &quot;);
+        // forEach 接受一个闭包，类似 map 的用法
+        noVowels().limit(10).forEach(System.out::println);
+    }
+}
+</code></pre>
+<h2 id="收集结果到映射表"><a href="#收集结果到映射表" class="headerlink" title="收集结果到映射表"></a>收集结果到映射表</h2><hr>
+<p>有时我们需要把流中的结果收集到映射表中，例如获得一个 id -&gt; name 的一个映射表，此时可以使用 Collectors.toMap() 这个方法。</p>
+<p>API 文档如下</p>
+<blockquote>
+<p>public static &lt;T,K,U,M extends Map&lt;K,U&gt;&gt; Collector&lt;T,?,M&gt; toMap(<br>    Function&lt;? super T,? extends K&gt; keyMapper,<br>    Function&lt;? super T,? extends U&gt; valueMapper,<br>    BinaryOperator<u> mergeFunction,<br>    Supplier<m> mapSupplier<br>)</m></u></p>
+<p>Returns a <code>Collector</code> that accumulates elements into a <code>Map</code> whose keys and values are the result of applying the provided mapping functions to the input elements.</p>
+<p>If the mapped keys contains duplicates (according to <a href="../../../java/lang/Object.html#equals-java.lang.Object-"><code>Object.equals(Object)</code></a>), the value mapping function is applied to each equal element, and the results are merged using the provided merging function. The <code>Map</code> is created by a provided supplier function.</p>
+<ul>
+<li><p>Type Parameters:</p>
+<p><code>T</code> - the type of the input elements</p>
+<p><code>K</code> - the output type of the key mapping function</p>
+<p><code>U</code> - the output type of the value mapping function</p>
+<p><code>M</code> - the type of the resulting <code>Map</code></p>
+</li>
+<li><p>Parameters:</p>
+<p><code>keyMapper</code> - a mapping function to produce keys</p>
+<p><code>valueMapper</code> - a mapping function to produce values</p>
+<p><code>mergeFunction</code> - a merge function, used to resolve collisions between values associated with the same key, as supplied to <a href="../../../java/util/Map.html#merge-K-V-java.util.function.BiFunction-"><code>Map.merge(Object, Object, BiFunction)</code></a></p>
+<p><code>mapSupplier</code> - a function which returns a new, empty <code>Map</code> into which the results will be inserted</p>
+</li>
+<li><p>Returns:</p>
+<p>a <code>Collector</code> which collects elements into a <code>Map</code> whose keys are the result of applying a key mapping function to the input elements, and whose values are the result of applying a value mapping function to all input elements equal to the key and combining them using the merge function</p>
+</li>
+</ul>
+</blockquote>
+<p>其中后两个参数可以缺省。</p>
+<p>前两个参数定义了 获取 <code>Key</code> 与 <code>Value</code> 的函数，当发生冲突的时候，则调用第三个参数进行merge，如果不定义，则点那个 Key 冲突则会抛出异常。</p>
+<p>第四个参数定义了返回 <code>Map</code> 的具体类型，可以传入任何一个 <code>Map</code> 子类的 <code>Supplier</code>，例如 <code>TreeMap::new</code>。</p>
+<pre><code class="java">import java.io.IOException;
+import java.util.*;
+import java.util.function.Function;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
+
+public class Main {
+    public static class Person{
+        private int id;
+        private String name;
+        public Person(int id, String name){
+            this.id = id;
+            this.name = name;
+        }
+
+        public int getId(){
+            return id;
+        }
+
+        public String getName(){
+            return name;
+        }
+
+        public String toString(){
+            return getClass().getName() + &quot;[id=&quot; + id + &quot;, name=&quot; + name;
+        }
+    }
+
+    public static Stream&lt;Person&gt; people(){
+        return Stream.of(new Person(1001, &quot;peter&quot;), new Person(1002, &quot;paul&quot;), new Person(1003, &quot;Mary&quot;));
+    }
+
+    public static void main(String args[]) throws IOException {
+        // 缺省后两个参数
+        Map&lt;Integer, String&gt; idToName = people().collect(
+                Collectors.toMap(Person::getId, Person::getName)
+        );
+        System.out.println(&quot;idToName: &quot; + idToName);
+
+        // ID -&gt; Person
+        Map&lt;Integer, Person&gt; idToPerson = people().collect(
+                Collectors.toMap(Person::getId, Function.identity())
+        );
+        System.out.println(&quot;idToPerson: &quot; + idToPerson.getClass().getName() + idToPerson);
+
+        // 当冲突的时候解决办法
+        idToPerson = people().collect(
+                Collectors.toMap(Person::getId, Function.identity(),
+                        (existingValue, newValue) -&gt; { throw new IllegalStateException(); },
+                        TreeMap::new)
+        );
+        System.out.println(&quot;idToPerson: &quot; + idToPerson.getClass().getName() + idToPerson);
+
+        Stream&lt;Locale&gt; locales = Stream.of(Locale.getAvailableLocales());
+        Map&lt;String, String&gt; languageNames = locales.collect(
+                Collectors.toMap(
+                        Locale::getDisplayName,
+                        Locale::getDisplayLanguage,
+                        (existingValue, newValue) -&gt; existingValue
+                )
+        );
+        System.out.println(&quot;languageNames: &quot; + languageNames);
+        locales = Stream.of(Locale.getAvailableLocales());
+
+        // 结果冲突保留所有 Value
+        Map&lt;String, Set&lt;String&gt;&gt; countryLanguageSets = locales.collect(
+                Collectors.toMap(
+                        Locale::getDisplayCountry,
+                        l -&gt; Collections.singleton(l.getDisplayLanguage()),
+                        (a, b) -&gt; {
+                            Set&lt;String&gt; union = new HashSet&lt;&gt;(a);
+                            union.addAll(b);
+                            return union;
+                        }
+                )
+        );
+        System.out.println(&quot;countryLanguageSets: &quot; + countryLanguageSets);
+    }
+}
+
+// output
+idToName: {1001=peter, 1002=paul, 1003=Mary}
+idToPerson: java.util.HashMap{1001=Main$Person[id=1001, name=peter, 1002=Main$Person[id=1002, name=paul, 1003=Main$Person[id=1003, name=Mary}
+idToPerson: java.util.TreeMap{1001=Main$Person[id=1001, name=peter, 1002=Main$Person[id=1002, name=paul, 1003=Main$Person[id=1003, name=Mary}
+languageNames: {Japanese (Japan,JP)=Japanese, Ukrainian (Ukraine)=Ukrainian, =, ...
+countryLanguageSets: {=[, Italian, Slovak, Russian, Hebrew, Belarusian, Serbian, ...
+</code></pre>
+<p>（有一些关于Supplier Function这些接口的使用，百度一下就懂了）</p>
+<h2 id="聚合操作"><a href="#聚合操作" class="headerlink" title="聚合操作"></a>聚合操作</h2><hr>
+<p>有时我们需要像数据库操作那样进行数据统计，需要用到一些聚合操作。例如统计每个省份的人数总和。</p>
+<p>这里需要详细查看一下 <code>collect</code> 方法的API</p>
+<blockquote>
+<p><strong>collect</strong></p>
+<p><code>&lt;R,A&gt; R collect(Collector&lt;? super T,A,R&gt; collector)</code></p>
+<p>Performs a <a href>mutable reduction</a> operation on the elements of this stream using a <code>Collector</code>. A <code>Collector</code> encapsulates the functions used as arguments to <a href><code>collect(Supplier, BiConsumer, BiConsumer)</code></a>, allowing for reuse of collection strategies and composition of collect operations such as multiple-level grouping or partitioning.</p>
+<p>If the stream is parallel, and the <code>Collector</code> is <a href><code>concurrent</code></a>, and either the stream is unordered or the collector is <a href><code>unordered</code></a>, then a concurrent reduction will be performed (see <a href><code>Collector</code></a> for details on concurrent reduction.)</p>
+<p>This is a <a href>terminal operation</a>.</p>
+<p>When executed in parallel, multiple intermediate results may be instantiated, populated, and merged so as to maintain isolation of mutable data structures. Therefore, even when executed in parallel with non-thread-safe data structures (such as <code>ArrayList</code>), no additional synchronization is needed for a parallel reduction.</p>
+<p><strong>Type Parameters:</strong></p>
+<p><code>R</code> - the type of the result</p>
+<p><code>A</code> - the intermediate accumulation type of the <code>Collector</code></p>
+<p><strong>Parameters:</strong></p>
+<p><code>collector</code> - the <code>Collector</code> describing the reduction</p>
+<p><strong>Returns:</strong></p>
+<p>the result of the reduction</p>
+</blockquote>
+<p>collect 方法接受一个收集器，返回值由具体收集器来决定。传入收集器的参数为流中元素 T，R为收集器返回的类型。</p>
+<p>聚集操作主要使用 groupingBy 方法，该方法接受一个 Function 接口类型的参数，以及一个下游收集器。下游收集器负责处理聚集后子元素的操作。</p>
+<p>这里需要明确流的流向，参考下面的代码</p>
+<p>聚集操作 -&gt; 每个key对应的子流由mapping收集器收集</p>
+<p>-&gt; 将元素类型为 City 的流映射成 String -&gt; 子流由 maxBy 收集器收集</p>
+<pre><code class="java">Map&lt;String, Optional&lt;String&gt;&gt; stateToLongestCityName = cities.collect(
+        groupingBy(
+                City::getState,
+                mapping(City::getName, maxBy(Comparator.comparing(String::length)))
+        )
+);
+</code></pre>
+<p>下面是具体的程序清单</p>
+<pre><code class="java">import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import java.util.*;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
+
+import static java.util.stream.Collectors.*;
+
+public class Main {
+    public static class City{
+        private String name;
+        private String state;
+        private int population;
+
+        public City(String name, String state, int population) {
+            this.name = name;
+            this.state = state;
+            this.population = population;
+        }
+
+        public String getName() {
+            return name;
+        }
+
+        public String getState() {
+            return state;
+        }
+
+        public int getPopulation() {
+            return population;
+        }
+    }
+
+    public static Stream&lt;City&gt; readCities(String filename) throws IOException{
+        return Files.lines(Paths.get(filename)).map(l -&gt; l.split(&quot;, &quot;))
+                .map(a -&gt; new City(a[0], a[1], Integer.parseInt(a[2])));
+    }
+
+    public static void main(String args[]) throws IOException{
+        Stream&lt;Locale&gt; locales = Stream.of(Locale.getAvailableLocales());
+
+        // 使用 toSet 收集器，将结果转换成SET
+        locales = Stream.of(Locale.getAvailableLocales());
+        Map&lt;String, Set&lt;Locale&gt;&gt; countryToLocaleSet = locales.collect(
+                Collectors.groupingBy(Locale::getCountry, toSet())
+        );
+        System.out.println(&quot;countryToLocaleSet: &quot; + countryToLocaleSet);
+
+        // 使用 counting 收集器，讲结果转换成计数
+        locales = Stream.of(Locale.getAvailableLocales());
+        Map&lt;String, Long&gt; countryToLocalesCount = locales.collect(
+                Collectors.groupingBy(Locale::getCountry, counting())
+        );
+        System.out.println(&quot;countryToLocalesCount: &quot; + countryToLocalesCount);
+
+        // 累加和
+        Stream&lt;City&gt; cities = readCities(&quot;/Users/liebes/cities.txt&quot;);
+        Map&lt;String, Integer&gt; stateToCityPopulation = cities.collect(
+                Collectors.groupingBy(City::getState, summingInt(City::getPopulation))
+        );
+        System.out.println(&quot;stateToCItyPopulation: &quot; + stateToCityPopulation);
+
+        // 求出最值
+        cities = readCities(&quot;/Users/liebes/cities.txt&quot;);
+        Map&lt;String, Optional&lt;String&gt;&gt; stateToLongestCityName = cities.collect(
+                groupingBy(
+                        City::getState,
+                        mapping(City::getName, maxBy(Comparator.comparing(String::length)))
+                )
+        );
+        System.out.println(&quot;stateToLongestCityName: &quot; + stateToLongestCityName);
+
+        locales = Stream.of(Locale.getAvailableLocales());
+        Map&lt;String, Set&lt;String&gt;&gt; countryToLanguages = locales.collect(
+                groupingBy(
+                        Locale::getDisplayCountry,
+                        mapping(Locale::getDisplayLanguage, toSet())
+                )
+        );
+        System.out.println(&quot;countryToLanguages: &quot; + countryToLanguages);
+
+        cities = readCities(&quot;/Users/liebes/cities.txt&quot;);
+        Map&lt;String, IntSummaryStatistics&gt; stateToCityPopulationSummary = cities.collect(
+                groupingBy(
+                        City::getState, summarizingInt(City::getPopulation)
+                )
+        );
+        System.out.println(stateToCityPopulationSummary.get(&quot;liaoning&quot;));
+
+        // reducing 操作，第一个参数应该是默认的第一个元素，且当流为空时作为返回值
+        cities = readCities(&quot;/Users/liebes/cities.txt&quot;);
+        Map&lt;String, String&gt; stateToCityNames = cities.collect(
+                groupingBy(
+                        City::getState,
+                        reducing(&quot;&quot;, City::getName, (s, t) -&gt; s.length() == 0 ? t : s + &quot;, &quot; + t)
+                )
+        );
+        System.out.println(&quot;stateToCityName1: &quot; + stateToCityNames);
+
+        cities = readCities(&quot;/Users/liebes/cities.txt&quot;);
+        stateToCityNames = cities.collect(
+                groupingBy(
+                        City::getState,
+                        mapping(City::getName, joining(&quot;, &quot;))
+                )
+        );
+        System.out.println(&quot;stateToCityName2: &quot; + stateToCityNames);
+     }
+
+}
+// output
+countryToLocaleSet: {=[, in, sl, ...], DE=[de_DE], PR=[es_PR], HK=[zh_HK], TW=[zh_TW], PT=[pt_PT], HN=[es_HN], DK=[da_DK], LT=[lt_LT], LU=[de_LU, fr_LU], ...}
+countryToLocalesCount: {=46, DE=1, PR=1, HK=1, TW=1, HR=1, DO=1, UA=1, YE=1, LY=1, HU=1, QA=1, MA=1, DZ=1, ME=2, ID=1, ...}
+stateToCItyPopulation: {jilin=56, tianjin=20, beijing=200, liaoning=259, heilongjiang=70}
+stateToLongestCityName: {jilin=Optional[jilin], tianjin=Optional[tianjin], beijing=Optional[beijing], liaoning=Optional[shenyang], heilongjiang=Optional[haerbin]}
+countryToLanguages: {=[, Italian, Slovak, Russian, Hebrew, Belarusian, Serbian, German, Slovenian, Swedish, Turkish, Ukrainian, ...], Cyprus=[Greek], Sudan=[Arabic], Malaysia=[Malay], Paraguay=[Spanish], Portugal=[Portuguese], Oman=[Arabic], ...}
+IntSummaryStatistics{count=3, sum=259, min=10, average=86.333333, max=149}
+stateToCityName1: {jilin=jilin, tianjin=tianjin, beijing=beijing, liaoning=shenyang, yingkou, dalian, heilongjiang=haerbin, mohe}
+stateToCityName2: {jilin=jilin, tianjin=tianjin, beijing=beijing, liaoning=shenyang, yingkou, dalian, heilongjiang=haerbin, mohe}
+// cities.txt
+shenyang, liaoning, 100
+tianjin, tianjin, 20
+yingkou, liaoning, 10
+beijing, beijing, 200
+dalian, liaoning, 149
+jilin, jilin, 56
+haerbin, heilongjiang, 14
+mohe, heilongjiang, 56
+</code></pre>
+<h2 id="约简操作-amp-初始数据流"><a href="#约简操作-amp-初始数据流" class="headerlink" title="约简操作 &amp; 初始数据流"></a>约简操作 &amp; 初始数据流</h2><p>约简操作是终结操作，用来将整个流约简为一个数据，比如求和操作。</p>
+<blockquote>
+<p><u> U reduce(U identity,<br>             BiFunction&lt;U,? super T,U&gt; accumulator,<br>             BinaryOperator<u> combiner)<br>Performs a reduction on the elements of this stream, using the provided identity, accumulation and combining functions. This is equivalent to:<br>     <strong>U result = identity;</strong><br>     <strong>for (T element : this stream)</strong><br>         <strong>result = accumulator.apply(result, element)</strong><br>     <strong>return result;</strong><br>but is not constrained to execute sequentially.<br>The <code>identity</code> value must be an identity for the combiner function. This means that for all <code>u</code>, <code>combiner(identity, u)</code> is equal to <code>u</code>. Additionally, the <code>combiner</code> function must be compatible with the <code>accumulator</code> function; for all <code>u</code> and <code>t</code>, the following must hold:</u></u></p>
+<pre><code> combiner.apply(u, accumulator.apply(identity, t)) == accumulator.apply(u, t)
+</code></pre><p>This is a <a href>terminal operation</a>.</p>
+</blockquote>
+<p>reduce函数接收三个参数，第三个参数将并行操作的结果合并。因此要求第二个参数的二元操作满足交换律。</p>
+<p>前面提到的流的操作都是针对 Object 类型，有时我们更需要一些包装了基本类型的流，例如 StringStream IntStream DoubleStream 等</p>
+<p>下方是 IntSteam 相关的程序清单</p>
+<pre><code class="java">import java.io.IOException;
+import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.util.stream.Collectors;
+import java.util.stream.IntStream;
+import java.util.stream.Stream;
+
+public class Main {
+    public static void show(String title, IntStream stream){
+        final int SIZE = 10;
+        int[] firstElements = stream.limit(SIZE + 1).toArray();
+        System.out.print(title + &quot;: [&quot;);
+        int i;
+        for(i = 0; i &lt; SIZE &amp;&amp; i &lt; firstElements.length; i ++){
+            System.out.print(firstElements[i]);
+            if(i &lt; firstElements.length - 1)
+                System.out.print(&quot;, &quot;);
+        }
+        if(i &lt; firstElements.length)
+            System.out.print(&quot;...&quot;);
+        System.out.println(&quot;]&quot;);
+    }
+
+    public static void main(String args[]) throws IOException{
+        // 整数流
+        IntStream is1 = IntStream.generate(() -&gt; (int)(Math.random() * 100));
+        show(&quot;is1&quot;, is1);
+        // 左闭右开
+        IntStream is2 = IntStream.range(5, 10);
+        show(&quot;is2&quot;, is2);
+        // 左闭右闭
+        IntStream is3 = IntStream.rangeClosed(5, 10);
+        show(&quot;is3&quot;, is3);
+        String contents = new String(Files.readAllBytes(Paths.get(&quot;/Users/liebes/Desktop/open.route&quot;)), StandardCharsets.UTF_8);
+        Stream&lt;String&gt; words = Stream.of(contents.split(&quot;\\PL+&quot;));
+        // 通过mapToInt方法转换成整数流
+        IntStream is4 = words.mapToInt(String::length);
+        show(&quot;is4&quot;, is4);
+        // 获取 Unicode 编码
+        String sentence = &quot;\uD835\uDD46 is the set of octonions.&quot;;
+        System.out.println(sentence);
+        IntStream codes = sentence.codePoints();
+        System.out.println(codes.mapToObj(c -&gt; String.format(&quot;%X&quot;, c)).collect(
+                Collectors.joining()
+        ));
+        // boxed 将 IntStream 重新变成包装 Integer 的 Stream
+        Stream&lt;Integer&gt; integers = IntStream.range(0, 100).boxed();
+        IntStream is5 = integers.mapToInt(Integer::intValue);
+        show(&quot;is5&quot;, is5);
+    }
+}
+// output
+is1: [7, 61, 22, 99, 45, 81, 42, 84, 97, 82, ...]
+is2: [5, 6, 7, 8, 9]
+is3: [5, 6, 7, 8, 9, 10]
+is4: [3, 8, 3, 5, 3, 13, 4, 4, 3, 4, ...]
+𝕆 is the set of octonions.
+1D5462069732074686520736574206F66206F63746F6E696F6E732E
+is5: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, ...]
+</code></pre>
+<h2 id="并行流-Parallel-Stream"><a href="#并行流-Parallel-Stream" class="headerlink" title="并行流 Parallel Stream"></a>并行流 Parallel Stream</h2><p>TODO</p>
+
+        
+    
+
+    
+</div>
+
+
+                
+
+                <!-- Post Comments -->
+                
+                    
+    <!-- 使用 gitcoment -->
+<div id="gitment-comment">
+    <!-- Gitment 评论框 -->
+<div id="container"></div>
+</div>
+<style>
+    #gitment-comment{
+        background-color: #eee;
+        padding: 2pc;
+    }
+</style>
+<link rel="stylesheet" href="/css/gitmen/default.css">
+<script src="/js/gitmen/gitment.browser.js"></script>
+<script>
+    var gitment = new Gitment({
+        //id: '页面 ID', // 可选。默认为 location.href
+        owner: 'wanghaichi',
+        repo: 'wanghaichi.github.io',
+        oauth: {
+            client_id: 'b2b84f478b5f60314808',
+            client_secret: '414d8da1c393a1e615654a6528fc98f7b9d38ade',
+        },
+    })
+    gitment.render('container')
+</script>
+
+                
+            </div>
+
+            <!-- Post Prev & Next Nav -->
+            <nav class="material-nav mdl-color-text--grey-50 mdl-cell mdl-cell--12-col">
+    <!-- Prev Nav -->
+    
+
+    <!-- Section Spacer -->
+    <div class="section-spacer"></div>
+
+    <!-- Next Nav -->
+    
+        <a href="/2018/02/07/front-qiniu/" id="post_nav-older" class="next-content">
+            旧篇
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
+                <i class="material-icons">arrow_forward</i>
+            </button>
+        </a>
+    
+</nav>
+
+        </div>
+    </div>
+
+
+
+                    
+                        <!-- Overlay For Active Sidebar -->
+<div class="sidebar-overlay"></div>
+
+<!-- Material sidebar -->
+<aside id="sidebar" class="sidebar sidebar-colored sidebar-fixed-left" role="navigation">
+    <div id="sidebar-main">
+        <!-- Sidebar Header -->
+        <div class="sidebar-header header-cover" style="background-image: url(/img/sidebar_header.png);">
+    <!-- Top bar -->
+    <div class="top-bar"></div>
+
+    <!-- Sidebar toggle button -->
+    <button type="button" class="sidebar-toggle mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" style="display: initial;" data-upgraded=",MaterialButton,MaterialRipple">
+        <i class="material-icons">clear_all</i>
+        <span class="mdl-button__ripple-container">
+            <span class="mdl-ripple">
+            </span>
+        </span>
+    </button>
+
+    <!-- Sidebar Avatar -->
+    <div class="sidebar-image">
+        <img src="/img/avatar.jpg" alt="Liebes's avatar">
+    </div>
+
+    <!-- Sidebar Email -->
+    <a data-toggle="dropdown" class="sidebar-brand" href="#settings-dropdown">
+        wanghaichi0403@gmail.com
+        <b class="caret"></b>
+    </a>
+</div>
+
+
+        <!-- Sidebar Navigation  -->
+        <ul class="nav sidebar-nav">
+    <!-- User dropdown  -->
+    <li class="dropdown">
+        <ul id="settings-dropdown" class="dropdown-menu">
+            
+                <li>
+                    <a href="mailto:wanghaichi0403@gmail.com" target="_blank" title="Email Me">
+                        
+                            <i class="material-icons sidebar-material-icons sidebar-indent-left1pc-element">email</i>
+                        
+                        Email Me
+                    </a>
+                </li>
+            
+        </ul>
+    </li>
+
+    <!-- Homepage -->
+    
+        <li id="sidebar-first-li">
+            <a href="/">
+                
+                    <i class="material-icons sidebar-material-icons">home</i>
+                
+                主页
+            </a>
+        </li>
+        
+    
+
+    <!-- Archives  -->
+    
+        <li class="dropdown">
+            <a href="#" class="ripple-effect dropdown-toggle" data-toggle="dropdown">
+                
+                    <i class="material-icons sidebar-material-icons">inbox</i>
+                
+                    归档
+                <b class="caret"></b>
+            </a>
+            <ul class="dropdown-menu">
+            <li>
+                <a class="sidebar_archives-link" href="/archives/2018/05/">五月 2018<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2018/02/">二月 2018<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2018/01/">一月 2018<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/10/">十月 2017<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/07/">七月 2017<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/05/">五月 2017<span class="sidebar_archives-count">3</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/04/">四月 2017<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/03/">三月 2017<span class="sidebar_archives-count">7</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/02/">二月 2017<span class="sidebar_archives-count">3</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/01/">一月 2017<span class="sidebar_archives-count">3</span></a>
+            </ul>
+        </li>
+        
+    
+
+    <!-- Categories  -->
+    
+        <li class="dropdown">
+            <a href="#" class="ripple-effect dropdown-toggle" data-toggle="dropdown">
+                
+                    <i class="material-icons sidebar-material-icons">chrome_reader_mode</i>
+                
+                分类
+                <b class="caret"></b>
+            </a>
+            <ul class="dropdown-menu">
+                <li>
+                <a class="sidebar_archives-link" href="/categories/JAVA学习笔记/">JAVA学习笔记<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/categories/上机实验/">上机实验<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/categories/个人日志/">个人日志<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/categories/个人日记/">个人日记<span class="sidebar_archives-count">11</span></a></li><li><a class="sidebar_archives-link" href="/categories/作业/">作业<span class="sidebar_archives-count">6</span></a></li><li><a class="sidebar_archives-link" href="/categories/安全/">安全<span class="sidebar_archives-count">2</span></a>
+            </ul>
+        </li>
+        
+    
+
+    <!-- Pages  -->
+    
+        <li>
+            <a href="/tags" title="标签">
+                
+                    <i class="material-icons sidebar-material-icons">note</i>
+                
+                标签
+            </a>
+        </li>
+        
+    
+        <li>
+            <a href="/timeline" title="时间轴">
+                
+                    <i class="material-icons sidebar-material-icons">timeline</i>
+                
+                时间轴
+            </a>
+        </li>
+        
+    
+        <li>
+            <a href="/gallery" title="相册">
+                
+                    <i class="material-icons sidebar-material-icons">image</i>
+                
+                相册
+            </a>
+        </li>
+        
+    
+        <li>
+            <a href="/links" title="友情链接">
+                
+                    <i class="material-icons sidebar-material-icons">share</i>
+                
+                友情链接
+            </a>
+        </li>
+        
+    
+
+    <!-- Article Number  -->
+    
+        <li>
+            <a href="/archives">
+                文章总数
+                <span class="sidebar-badge">25</span>
+            </a>
+        </li>
+        
+    
+</ul>
+
+
+        <!-- Sidebar Footer -->
+        <!--
+I'm glad you use this theme, the development is no so easy, I hope you can keep the copyright, I will thank you so much.
+If you still want to delete the copyrights, could you still retain the first one? Which namely "Theme Material"
+It will not impact the appearance and can give developers a lot of support :)
+
+很高兴您使用并喜欢该主题，开发不易 十分谢谢与希望您可以保留一下版权声明。
+如果您仍然想删除的话 能否只保留第一项呢？即 "Theme Material"
+它不会影响美观并可以给开发者很大的支持和动力。 :)
+-->
+
+<!-- Sidebar Divider -->
+
+    <div class="sidebar-divider"></div>
+
+
+<!-- Theme Material -->
+
+
+<!-- Help & Support -->
+<!--
+
+    <a href="mailto:hiviosey@gmail.com" class="sidebar-footer-text-a">
+        <div class="sidebar-text mdl-button mdl-js-button mdl-js-ripple-effect sidebar-footer-text-div" data-upgraded=",MaterialButton,MaterialRipple">
+        sidebar.help
+        <span class="mdl-button__ripple-container">
+          <span class="mdl-ripple"></span>
+        </span>
+      </div>
+    </a>
+
+-->
+
+<!-- Feedback -->
+<!--
+
+-->
+
+<!-- About Theme -->
+<!--
+
+-->
+
+    </div>
+
+    <!-- Sidebar Image -->
+    
+
+</aside>
+
+                    
+
+                    
+                        <!-- Footer Top Button -->
+                        <div id="back-to-top" class="toTop-wrap">
+    <a href="#top" class="toTop">
+        <i class="material-icons footer_top-i">expand_less</i>
+    </a>
+</div>
+
+                    
+
+                    <!--Footer-->
+<footer class="mdl-mini-footer" id="bottom">
+    
+        <!-- Paradox Footer Left Section -->
+        <div class="mdl-mini-footer--left-section sns-list">
+    <!-- Twitter -->
+    
+
+    <!-- Facebook -->
+    
+        <a href="https://www.facebook.com/profile.php?id=100015246426771" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn footer-sns-facebook">
+                <span class="visuallyhidden">Facebook</span>
+            </button><!--
+     --></a>
+    
+
+    <!-- Google + -->
+    
+
+    <!-- Weibo -->
+    
+
+    <!-- Instagram -->
+    
+
+    <!-- Tumblr -->
+    
+
+    <!-- Github -->
+    
+        <a href="https://github.com/wanghaichi" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn footer-sns-github">
+                <span class="visuallyhidden">Github</span>
+            </button><!--
+     --></a>
+    
+
+    <!-- LinkedIn -->
+    
+
+    <!-- Zhihu -->
+    
+
+    <!-- Bilibili -->
+    
+
+    <!-- Telegram -->
+    
+    
+    <!-- V2EX -->
+    
+</div>
+
+
+        <!--Copyright-->
+        <div id="copyright">
+            Copyright&nbsp;©&nbsp;2015&nbsp;-<script type="text/javascript">var fd = new Date();document.write("&nbsp;" + fd.getFullYear() + "&nbsp;");</script>Liebes 的个人日志
+            
+                <br>
+                
+                    <a href="http://www.miitbeian.gov.cn" rel="nofollow">津ICP备17008789号-1</a>
+                
+            
+        </div>
+
+        <!-- Paradox Footer Right Section -->
+
+        <!--
+        I am glad you use this theme, the development is no so easy, I hope you can keep the copyright.
+        It will not impact the appearance and can give developers a lot of support :)
+
+        很高兴您使用该主题，开发不易，希望您可以保留一下版权声明。
+        它不会影响美观并可以给开发者很大的支持。 :)
+        -->
+
+        <div class="mdl-mini-footer--right-section">
+            <div>
+                <div class="footer-develop-div">Powered by <a href="https://hexo.io" target="_blank" class="footer-develop-a">Hexo</a></div>
+                <div class="footer-develop-div">Theme - <a href="https://github.com/viosey/hexo-theme-material" target="_blank" class="footer-develop-a">Material</a></div>
+            </div>
+        </div>
+    
+</footer>
+
+
+                    <!-- Import JS File -->
+
+    <script>lsloader.load("lazyload_js","/js/lazyload.min.js?1BcfzuNXqV+ntF6gq+5X3Q==", true)</script>
+
+
+
+    <script>lsloader.load("js_js","/js/js.min.js?V/53wGualMuiPM3xoetD5Q==", true)</script>
+
+
+
+    <script>lsloader.load("np_js","/js/nprogress.js?pl3Qhb9lvqR1FlyLUna1Yw==", true)</script>
+
+
+<script type="text/ls-javascript" id="NProgress-script">
+    NProgress.configure({
+        showSpinner: true
+    });
+    NProgress.start();
+    $('#nprogress .bar').css({
+        'background': '#29d'
+    });
+    $('#nprogress .peg').css({
+        'box-shadow': '0 0 10px #29d, 0 0 15px #29d'
+    });
+    $('#nprogress .spinner-icon').css({
+        'border-top-color': '#29d',
+        'border-left-color': '#29d'
+    });
+    setTimeout(function() {
+        NProgress.done();
+        $('.fade').removeClass('out');
+    }, 800);
+</script>
+
+
+
+
+
+    <!-- Leancloud -->
+    <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+    <script>
+        AV.initialize('YaKIDc6FuRET2JG9li8y3qXY-gzGzoHsz', 'QwqjSxSAbuLlYuf5PoHG415U');
+    </script>
+    <script type="text/ls-javascript" id="leancloud-views-script">
+    function showTime(Counter) {
+        var query = new AV.Query(Counter);
+        $('.leancloud-views_num').each(function() {
+            var url = $(this).attr('id').trim();
+            query.equalTo('url', url);
+            query.find({
+                success: function(results) {
+                    if (results.length === 0) {
+                        var content = '0 ' + $(document.getElementById(url)).text();
+                        $(document.getElementById(url)).text(content);
+                        return;
+                    }
+                    for (var i = 0; i < results.length; i++) {
+                        var object = results[i];
+                        var content = object.get('time') + ' ' + $(document.getElementById(url)).text();
+                        $(document.getElementById(url)).text(content);
+                    }
+                },
+                error: function(object, error) {
+                    console.log('Error: ' + error.code + ' ' + error.message);
+                }
+            });
+        });
+    }
+
+    function addCount(Counter) {
+      var Counter = AV.Object.extend('Counter');
+      url = $('.leancloud-views_num').attr('id').trim();
+      title = $('.leancloud-views_num').attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+      query.equalTo('url', url);
+      query.find({
+          success: function(results) {
+            if (results.length > 0) {
+                var counter = results[0];
+                counter.fetchWhenSave(true);
+                counter.increment('time');
+                counter.save(null, {
+                    success: function(counter) {
+                        var content =  counter.get('time') + ' ' + $(document.getElementById(url)).text();
+                        $(document.getElementById(url)).text(content);
+                    },
+                    error: function(counter, error) {
+                        console.log('Failed to save Visitor num, with error message: ' + error.message);
+                    }
+                });
+            } else {
+              var newcounter = new Counter();
+              newcounter.set('title', title);
+              newcounter.set('url', url);
+              newcounter.set('time', 1);
+              newcounter.save(null, {
+                  success: function(newcounter) {
+                      console.log('newcounter.get(\'time\')='+newcounter.get('time'));
+                      var content = newcounter.get('time') + ' ' + $(document.getElementById(url)).text();
+                      $(document.getElementById(url)).text(content);
+                  },
+                  error: function(newcounter, error) {
+                      console.log('Failed to create');
+                  }
+              });
+            }
+        },
+        error: function(error) {
+            console.log('Error:' + error.code + ' ' + error.message);
+        }
+      });
+    }
+    $(function() {
+        var Counter = AV.Object.extend('Counter');
+        if ($('.leancloud-views_num').length === 1) {
+            addCount(Counter);
+        } else if ($('.post-title-link').length > 1) {
+            showTime(Counter);
+        }
+    });
+</script>
+
+
+
+
+
+
+   <!-- Gitment -->
+
+
+
+
+
+<!-- UC Browser Compatible -->
+<script>
+	var agent = navigator.userAgent.toLowerCase();
+	if(agent.indexOf('ucbrowser')>0) {
+		document.write('<link rel="stylesheet" href="/css/uc.css">');
+	   alert('由于 UC 浏览器使用极旧的内核，而本网站使用了一些新的特性。\n为了您能更好的浏览，推荐使用 Chrome 或 Firefox 浏览器。');
+	}
+</script>
+
+<!-- Import prettify js  -->
+
+    
+        
+            <script>lsloader.load("prettify_js","/js/prettify.min.js?WN07fivHQSMKWy7BmHBB6w==", true)</script>
+        
+    
+
+
+
+<!-- Window Load -->
+<!-- add class for prettify -->
+<script type="text/ls-javascript" id="window-load">
+    $(window).on('load', function() {
+        // Post_Toc parent position fixed
+        $('.post-toc-wrap').parent('.mdl-menu__container').css('position', 'fixed');
+    });
+
+    
+        
+            $(function() {
+                $('pre').addClass('prettyprint linenums').attr('style', 'overflow:auto;');
+                prettyPrint();
+                })
+        
+    
+    
+</script>
+
+<!-- MathJax Load-->
+
+
+<!-- Bing Background -->
+
+
+<script type="text/ls-javascript" id="lazy-load">
+    // Offer LazyLoad
+    queue.offer(function(){
+        $('.lazy').lazyload({
+            effect : 'show'
+        });
+    });
+
+    // Start Queue
+    $(document).ready(function(){
+        setInterval(function(){
+            queue.execNext();
+        },200);
+    });
+</script>
+
+<!-- Custom Footer -->
+
+
+
+<script>
+    (function(){
+        var scriptList = document.querySelectorAll('script[type="text/ls-javascript"]')
+
+        for (var i = 0; i < scriptList.length; ++i) {
+            var item = scriptList[i];
+            lsloader.runInlineScript(item.id,item.id);
+        }
+    })()
+console.log('\n %c © Material Theme | Version: 1.5.2 | https://github.com/viosey/hexo-theme-material %c \n', 'color:#455a64;background:#e0e0e0;padding:5px 0;border-top-left-radius:5px;border-bottom-left-radius:5px;', 'color:#455a64;background:#e0e0e0;padding:5px 0;border-top-right-radius:5px;border-bottom-right-radius:5px;');
+</script>
+
+                </main>
+            </div>
+        </body>
+    
+</html>
