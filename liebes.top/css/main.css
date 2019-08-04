@@ -2041,8 +2041,8 @@ h1, h2, h3, h4, h5, h6 {
 # Header
 --------------------------------------------------------------*/
 .main-menu {
-  padding-bottom: 20px;
-  padding-top: 20px;
+  padding-bottom: 10px;
+  padding-top: 10px;
 }
 
 #header {
